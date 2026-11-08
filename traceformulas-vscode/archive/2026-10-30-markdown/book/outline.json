@@ -1,0 +1,1243 @@
+{
+  "schemaVersion": 1,
+  "title": "Trace Formulas",
+  "subtitle": "Classical Trace Formulas for the Modular Group",
+  "volume": "1a",
+  "author": "Steven Creech",
+  "source": "TraceFormulas_Codex_Handoff.md, 28 October 2026",
+  "divisions": [
+    {
+      "id": "A",
+      "title": "Foundations",
+      "start": 0,
+      "end": 2,
+      "subtitle": "Geometry, analysis, and unfolding"
+    },
+    {
+      "id": "B",
+      "title": "Holomorphic forms and trace formulas",
+      "start": 3,
+      "end": 10,
+      "subtitle": "Petersson and Eichler–Selberg"
+    },
+    {
+      "id": "C",
+      "title": "Maass forms and spectral theory",
+      "start": 11,
+      "end": 16,
+      "subtitle": "Spectral decomposition and normalization"
+    },
+    {
+      "id": "D",
+      "title": "Kernels and Selberg",
+      "start": 17,
+      "end": 20,
+      "subtitle": "Selberg and its applications"
+    },
+    {
+      "id": "E",
+      "title": "Fourier periods and Kuznetsov",
+      "start": 21,
+      "end": 23,
+      "subtitle": "The Kuznetsov formulas and transforms"
+    },
+    {
+      "id": "F",
+      "title": "Classical relative trace formulas",
+      "start": 24,
+      "end": 25,
+      "subtitle": "Geodesic periods and L-value moments"
+    },
+    {
+      "id": "G",
+      "title": "Weighted trace formulas",
+      "start": 26,
+      "end": 28,
+      "subtitle": "The classical Zelditch–Biró framework"
+    },
+    {
+      "id": "H",
+      "title": "Connections and synthesis",
+      "start": 29,
+      "end": 30,
+      "subtitle": "Proven relationships among formulas"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "v1a-ch00",
+      "number": 0,
+      "title": "What Is a Trace Formula?",
+      "description": "Begin with finite matrices: a trace is calculated from diagonal entries and also from eigenvalues. Move to finite-rank kernels and preview Poisson summation as a model for comparing geometric and spectral descriptions. Introduce the questions driving the volume: counting eigenvalues, averaging Fourier coefficients, computing Hecke traces, studying periods, and measuring eigenfunction mass.",
+      "sections": [
+        {
+          "id": "v1a-ch00-s1",
+          "title": "Finite matrices and two descriptions of a trace"
+        },
+        {
+          "id": "v1a-ch00-s2",
+          "title": "Finite-rank kernels and diagonal integration"
+        },
+        {
+          "id": "v1a-ch00-s3",
+          "title": "Fourier series and a preview of Poisson summation"
+        },
+        {
+          "id": "v1a-ch00-s4",
+          "title": "Five named formulas and the questions they answer"
+        },
+        {
+          "id": "v1a-ch00-s5",
+          "title": "Ordinary, relative, and weighted constructions: a first map"
+        }
+      ],
+      "endpoint": "A conceptual map that does not assume knowledge of automorphic forms.",
+      "prerequisites": "Basic linear algebra; the analytical Poisson theorem is proved in Chapter 2.",
+      "checkpoint": "Label schematic formulas as previews. Do not use an infinite-dimensional trace without explaining that additional hypotheses will be needed.",
+      "division": "A"
+    },
+    {
+      "id": "v1a-ch01",
+      "number": 1,
+      "title": "The Upper Half-Plane and the Modular Group",
+      "description": "Develop Möbius transformations, hyperbolic geometry, and the modular group action from explicit formulas. Prove the standard fundamental-domain description, its side identifications, and the quotient integration rules. Explain the cusp and elliptic points as part of the geometry rather than as later corrections.",
+      "sections": [
+        {
+          "id": "v1a-ch01-s1",
+          "title": "Möbius transformations and the role of the center"
+        },
+        {
+          "id": "v1a-ch01-s2",
+          "title": "Hyperbolic metric, measure, distance, and geodesics"
+        },
+        {
+          "id": "v1a-ch01-s3",
+          "title": "Reduction to the standard fundamental domain"
+        },
+        {
+          "id": "v1a-ch01-s4",
+          "title": "The cusp, elliptic points, and stabilizers"
+        },
+        {
+          "id": "v1a-ch01-s5",
+          "title": "Quotient integration and the area calculation"
+        }
+      ],
+      "endpoint": "A concrete understanding of the quotient on which the formulas live.",
+      "prerequisites": "Elementary group theory, real calculus, and complex arithmetic.",
+      "checkpoint": "Distinguish SL_2(Z) from its effective PSL_2 action. Track stabilizers, boundary identifications, and any factors caused by the center.",
+      "division": "A"
+    },
+    {
+      "id": "v1a-ch02",
+      "number": 2,
+      "title": "Fourier Analysis, Mellin Transforms, and Unfolding",
+      "description": "Develop the Fourier and Mellin analysis used later, with a proved unfolding lemma. Explain left and right cosets, quotient measures, and exactly when sums, integrals, derivatives, and limits can be interchanged. Give examples before asking students to apply the general statements.",
+      "sections": [
+        {
+          "id": "v1a-ch02-s1",
+          "title": "Fourier series and coefficient extraction"
+        },
+        {
+          "id": "v1a-ch02-s2",
+          "title": "Fourier transforms and Poisson summation"
+        },
+        {
+          "id": "v1a-ch02-s3",
+          "title": "Gamma integrals and Mellin inversion"
+        },
+        {
+          "id": "v1a-ch02-s4",
+          "title": "A general unfolding lemma"
+        },
+        {
+          "id": "v1a-ch02-s5",
+          "title": "Convergence, domination, and truncation"
+        }
+      ],
+      "endpoint": "A reusable analytic toolkit and a precise meaning for “unfolding gives.”",
+      "prerequisites": "Chapter 1 for quotient examples; undergraduate analysis and complex analysis.",
+      "checkpoint": "Name the applicable convergence theorem at each exchange. Place long analytic proofs in Appendix A with exact internal references.",
+      "division": "A"
+    },
+    {
+      "id": "v1a-ch03",
+      "number": 3,
+      "title": "Holomorphic Modular Forms",
+      "description": "Introduce automorphy factors, integer-weight slash operators, modular forms, and cusp forms. Derive Fourier expansions from periodicity and explain holomorphy at the cusp using the q-variable. Develop growth estimates and the invariant Petersson inner product.",
+      "sections": [
+        {
+          "id": "v1a-ch03-s1",
+          "title": "Automorphy factors and slash actions"
+        },
+        {
+          "id": "v1a-ch03-s2",
+          "title": "The q-variable and holomorphy at infinity"
+        },
+        {
+          "id": "v1a-ch03-s3",
+          "title": "Modular forms, cusp forms, and Fourier expansions"
+        },
+        {
+          "id": "v1a-ch03-s4",
+          "title": "Growth and cusp decay"
+        },
+        {
+          "id": "v1a-ch03-s5",
+          "title": "The Petersson inner product"
+        }
+      ],
+      "endpoint": "The spaces M_k and S_k, their Fourier coefficients, and their natural inner product.",
+      "prerequisites": "Chapters 1–2 and complex analysis.",
+      "checkpoint": "Explain the restriction imposed by -I and the factor y^k in the inner product. Do not assume convergence for arbitrary noncuspidal pairs.",
+      "division": "B"
+    },
+    {
+      "id": "v1a-ch04",
+      "number": 4,
+      "title": "Explicit Forms, Zeros, and Dimensions",
+      "description": "Construct holomorphic Eisenstein series and calculate their Fourier expansions. Use E_4, E_6, and the modular discriminant as recurring examples. Prove the valence formula and develop the structure and dimensions of level-one spaces, including small weights.",
+      "sections": [
+        {
+          "id": "v1a-ch04-s1",
+          "title": "Holomorphic Eisenstein series and their coefficients"
+        },
+        {
+          "id": "v1a-ch04-s2",
+          "title": "E_4, E_6, and the discriminant"
+        },
+        {
+          "id": "v1a-ch04-s3",
+          "title": "The valence formula, including elliptic points"
+        },
+        {
+          "id": "v1a-ch04-s4",
+          "title": "The ring of level-one modular forms"
+        },
+        {
+          "id": "v1a-ch04-s5",
+          "title": "Dimension formulas and explicit small-weight bases"
+        }
+      ],
+      "endpoint": "The ability to construct examples, compute dimensions, and prove a proposed basis is complete.",
+      "prerequisites": "Chapters 2–3.",
+      "checkpoint": "Handle weight two and zero-dimensional cusp spaces explicitly. Keep the dimension proof independent of the later Eichler–Selberg formula so it can serve as a check.",
+      "division": "B"
+    },
+    {
+      "id": "v1a-ch05",
+      "number": 5,
+      "title": "Hecke Operators and Their Two Normalizations",
+      "description": "Construct Hecke operators from determinant correspondences and calculate their action on Fourier expansions. Prove multiplication relations, adjointness, and simultaneous diagonalization. Develop the complete dictionary between arithmetic and analytic operator normalizations and between Fourier coefficients and eigenvalues.",
+      "sections": [
+        {
+          "id": "v1a-ch05-s1",
+          "title": "Integral matrices, determinant correspondences, and coset representatives"
+        },
+        {
+          "id": "v1a-ch05-s2",
+          "title": "The classical operators and their Fourier action"
+        },
+        {
+          "id": "v1a-ch05-s3",
+          "title": "Hecke multiplication and prime-power recurrences"
+        },
+        {
+          "id": "v1a-ch05-s4",
+          "title": "Adjointness and simultaneous eigenbases"
+        },
+        {
+          "id": "v1a-ch05-s5",
+          "title": "Classical versus normalized operators; eigenvalue conventions"
+        }
+      ],
+      "endpoint": "A normalization reference used consistently throughout the volume.",
+      "prerequisites": "Chapters 3–4 and the relevant coset material from Chapters 1–2.",
+      "checkpoint": "Retain both T_n and the normalized n^{-(k-1)/2}T_n convention. Distinguish a determinant-n correspondence from a single double coset, and Hecke normalization from orthonormality.",
+      "division": "B"
+    },
+    {
+      "id": "v1a-ch06",
+      "number": 6,
+      "title": "Poincaré Series, Kloosterman Sums, and Bessel Functions",
+      "description": "Build holomorphic Poincaré series, first for even k>2, and prove convergence, automorphy, and cuspidality. Unfold their inner products against cusp forms. Compute their Fourier expansions so that Kloosterman sums and J-Bessel functions emerge from concrete calculations.",
+      "sections": [
+        {
+          "id": "v1a-ch06-s1",
+          "title": "Automorphization of a seed and Poincaré series"
+        },
+        {
+          "id": "v1a-ch06-s2",
+          "title": "Absolute and local uniform convergence"
+        },
+        {
+          "id": "v1a-ch06-s3",
+          "title": "Fourier coefficients as Petersson pairings"
+        },
+        {
+          "id": "v1a-ch06-s4",
+          "title": "Coset decomposition and Kloosterman sums"
+        },
+        {
+          "id": "v1a-ch06-s5",
+          "title": "The Bessel integral and the full Fourier expansion"
+        }
+      ],
+      "endpoint": "Two explicit descriptions of a Poincaré series: inner products and Fourier coefficients.",
+      "prerequisites": "Chapters 2–5; Appendix B for extended special-function details.",
+      "checkpoint": "Check the stabilizer convention, unfolding constant, phase, and every interchange. Do not skip the integral evaluation that introduces the Bessel function.",
+      "division": "B"
+    },
+    {
+      "id": "v1a-ch07",
+      "number": 7,
+      "title": "The Petersson Trace Formula",
+      "description": "Expand a Poincaré series in an orthonormal basis and compare its Fourier coefficients. State Petersson first in the orthonormal Fourier-coefficient convention, then derive Hecke-normalized and harmonic-weight versions. Include first estimates and checks in small spaces.",
+      "sections": [
+        {
+          "id": "v1a-ch07-s1",
+          "title": "The definitive orthonormal-basis statement"
+        },
+        {
+          "id": "v1a-ch07-s2",
+          "title": "The Poincaré-series proof"
+        },
+        {
+          "id": "v1a-ch07-s3",
+          "title": "Hecke-normalized and harmonic-weight versions"
+        },
+        {
+          "id": "v1a-ch07-s4",
+          "title": "Convergence, small weights, and vanishing spaces"
+        },
+        {
+          "id": "v1a-ch07-s5",
+          "title": "Orthogonality, second moments, and consistency checks"
+        }
+      ],
+      "endpoint": "The first complete major trace formula, reached without continuous spectral theory.",
+      "prerequisites": "Chapters 3–6.",
+      "checkpoint": "Prove all constants in the chosen convention. Do not insert a norm formula involving L-values before it is established; distinguish the basic identity from applications requiring stronger arithmetic bounds.",
+      "division": "B"
+    },
+    {
+      "id": "v1a-ch08",
+      "number": 8,
+      "title": "Holomorphic Kernels and Linear Functionals",
+      "description": "Begin with reproducing kernels in a finite-dimensional inner-product space. Construct the holomorphic automorphic kernel and its Hecke-twisted versions. Compare diagonal traces, Fourier-coefficient extraction, and period functionals applied in the two variables.",
+      "sections": [
+        {
+          "id": "v1a-ch08-s1",
+          "title": "Finite-dimensional reproducing kernels"
+        },
+        {
+          "id": "v1a-ch08-s2",
+          "title": "The holomorphic kernel on the upper half-plane"
+        },
+        {
+          "id": "v1a-ch08-s3",
+          "title": "Automorphization and the cuspidal kernel"
+        },
+        {
+          "id": "v1a-ch08-s4",
+          "title": "Kernels of Hecke operators"
+        },
+        {
+          "id": "v1a-ch08-s5",
+          "title": "Linear functionals, Fourier extraction, and relative pairings"
+        }
+      ],
+      "endpoint": "A common holomorphic framework for Petersson, Hecke traces, and later L-value moments.",
+      "prerequisites": "Chapters 3–7; Chapter 2 for unfolding.",
+      "checkpoint": "Prove the reproducing and convergence properties of the proposed geometric kernel. A finite spectral sum does not automatically justify every rearrangement of its infinite geometric expansion.",
+      "division": "B"
+    },
+    {
+      "id": "v1a-ch09",
+      "number": 9,
+      "title": "Quadratic Forms, Conjugacy Classes, and Class Numbers",
+      "description": "Develop binary quadratic forms, discriminants, equivalence, reduction, and automorphism groups. Fix weighted class-number conventions. Connect this arithmetic to integral matrices of prescribed determinant and classify the geometric cases needed for a Hecke trace.",
+      "sections": [
+        {
+          "id": "v1a-ch09-s1",
+          "title": "Binary quadratic forms and discriminants"
+        },
+        {
+          "id": "v1a-ch09-s2",
+          "title": "Reduction and equivalence"
+        },
+        {
+          "id": "v1a-ch09-s3",
+          "title": "Automorphisms and weighted class numbers"
+        },
+        {
+          "id": "v1a-ch09-s4",
+          "title": "Matrices of determinant n and discriminant t^2-4n"
+        },
+        {
+          "id": "v1a-ch09-s5",
+          "title": "Scalar, elliptic, parabolic, and hyperbolic cases"
+        }
+      ],
+      "endpoint": "The arithmetic dictionary explaining the class-number side of Eichler–Selberg.",
+      "prerequisites": "Chapters 1 and 5; elementary integer arithmetic developed as needed.",
+      "checkpoint": "State exceptional discriminant conventions and automorphism factors before the trace formula uses them. Separate split and nonsplit hyperbolic cases where needed.",
+      "division": "B"
+    },
+    {
+      "id": "v1a-ch10",
+      "number": 10,
+      "title": "The Eichler–Selberg Trace Formula",
+      "description": "Develop a holomorphic Hecke-kernel proof, evaluate its geometric terms, and assemble the full level-one formula. Recover dimensions at n=1 and work through low-dimensional Hecke traces. Supply a second algebraic route through period polynomials, with the supporting material in Appendix F.",
+      "sections": [
+        {
+          "id": "v1a-ch10-s1",
+          "title": "What the Hecke trace measures"
+        },
+        {
+          "id": "v1a-ch10-s2",
+          "title": "The holomorphic-kernel calculation"
+        },
+        {
+          "id": "v1a-ch10-s3",
+          "title": "Geometric contributions and correction terms"
+        },
+        {
+          "id": "v1a-ch10-s4",
+          "title": "Dimension and one-dimensional-space checks"
+        },
+        {
+          "id": "v1a-ch10-s5",
+          "title": "A complementary period-polynomial proof"
+        }
+      ],
+      "endpoint": "A complete formula for Tr(T_n | S_k) and two ways of understanding its structure.",
+      "prerequisites": "Chapters 5 and 8–9; Chapter 4 for independent checks; Appendix F for the second proof.",
+      "checkpoint": "The kernel proof is an intended route to verify, not a substitute for actual orbital-integral calculations. State the exact weight range and every exceptional correction.",
+      "division": "B"
+    },
+    {
+      "id": "v1a-ch11",
+      "number": 11,
+      "title": "The Hyperbolic Laplacian",
+      "description": "Derive the differential operator and its invariance. Develop the Hilbert-space setting, Green identities, domains, and the chosen self-adjoint realization. Use simple compact and noncompact models to explain why a symmetric differential expression is not yet a full spectral theorem.",
+      "sections": [
+        {
+          "id": "v1a-ch11-s1",
+          "title": "Elementary spectral models"
+        },
+        {
+          "id": "v1a-ch11-s2",
+          "title": "The hyperbolic Laplacian and invariance"
+        },
+        {
+          "id": "v1a-ch11-s3",
+          "title": "Hilbert spaces and unbounded operators"
+        },
+        {
+          "id": "v1a-ch11-s4",
+          "title": "Green identities, domains, and self-adjointness"
+        },
+        {
+          "id": "v1a-ch11-s5",
+          "title": "Regularity, compactness, and the cusp"
+        }
+      ],
+      "endpoint": "A rigorous analytic foundation for the automorphic spectral problem.",
+      "prerequisites": "Chapters 1–2; supporting proofs in Appendix C.",
+      "checkpoint": "State domains and boundary conditions. Develop exactly the functional analysis used; do not hide completeness in an unsupported appeal to “spectral theory.”",
+      "division": "C"
+    },
+    {
+      "id": "v1a-ch12",
+      "number": 12,
+      "title": "Maass Forms and Their Fourier Expansions",
+      "description": "Define automorphic Laplace eigenfunctions and cusp forms. Derive Fourier expansions by separation of variables and explain the required K-Bessel solutions. Introduce the Maass Hecke action, Fourier–Hecke relations, parity, and the normalization of eigenfunctions and spectral parameters.",
+      "sections": [
+        {
+          "id": "v1a-ch12-s1",
+          "title": "Automorphic eigenfunctions and cusp conditions"
+        },
+        {
+          "id": "v1a-ch12-s2",
+          "title": "Separation of variables"
+        },
+        {
+          "id": "v1a-ch12-s3",
+          "title": "The K-Bessel Fourier expansion"
+        },
+        {
+          "id": "v1a-ch12-s4",
+          "title": "Hecke operators and Fourier–Hecke relations"
+        },
+        {
+          "id": "v1a-ch12-s5",
+          "title": "Parity, spectral parameters, and normalizations"
+        }
+      ],
+      "endpoint": "The individual eigenfunctions used in Selberg, Kuznetsov, and weighted formulas.",
+      "prerequisites": "Chapters 2, 5 (algebraic constructions), and 11; Appendix B.",
+      "checkpoint": "Do not silently impose an eigenvalue bound or discard admissible exceptional parameters. Separate the spectral setup from a later theorem proving abundance of cusp forms.",
+      "division": "C"
+    },
+    {
+      "id": "v1a-ch13",
+      "number": 13,
+      "title": "Eisenstein Series",
+      "description": "Construct the nonholomorphic Eisenstein series in a half-plane of convergence and calculate its Fourier expansion. Develop its constant term and scattering coefficient, then establish continuation, the functional equation, and residue statements. Introduce incomplete Eisenstein series through Mellin inversion.",
+      "sections": [
+        {
+          "id": "v1a-ch13-s1",
+          "title": "Construction and initial convergence"
+        },
+        {
+          "id": "v1a-ch13-s2",
+          "title": "Fourier expansion and the constant term"
+        },
+        {
+          "id": "v1a-ch13-s3",
+          "title": "The scattering coefficient and zeta factors"
+        },
+        {
+          "id": "v1a-ch13-s4",
+          "title": "Continuation, functional equation, and residues"
+        },
+        {
+          "id": "v1a-ch13-s5",
+          "title": "Incomplete Eisenstein series"
+        }
+      ],
+      "endpoint": "An explicit understanding of the objects furnishing continuous spectral data.",
+      "prerequisites": "Chapters 2 and 11–12; zeta preliminaries supplied in the appendices.",
+      "checkpoint": "Fix the cusp stabilizer and normalization. Give precise analytic continuation arguments and distinguish generalized eigenfunctions from ordinary square-integrable ones.",
+      "division": "C"
+    },
+    {
+      "id": "v1a-ch14",
+      "number": 14,
+      "title": "Truncation and the Maass–Selberg Relations",
+      "description": "Introduce both geometric cusp truncation and analytic truncation of Eisenstein series. Derive the Maass–Selberg relations from Green identities, retaining boundary terms. Explain coincident-parameter limits and the resulting scattering identities.",
+      "sections": [
+        {
+          "id": "v1a-ch14-s1",
+          "title": "Two forms of truncation"
+        },
+        {
+          "id": "v1a-ch14-s2",
+          "title": "Boundary terms from Green identities"
+        },
+        {
+          "id": "v1a-ch14-s3",
+          "title": "The Maass–Selberg calculation"
+        },
+        {
+          "id": "v1a-ch14-s4",
+          "title": "Coincident parameters and limiting cases"
+        },
+        {
+          "id": "v1a-ch14-s5",
+          "title": "Scattering identities and spectral measure"
+        }
+      ],
+      "endpoint": "The mechanism for handling divergent expressions and normalizing the continuous spectrum.",
+      "prerequisites": "Chapters 11 and 13.",
+      "checkpoint": "Do not discard boundary terms before comparing both sides. Treat limiting parameters by justified limits rather than formal substitution into a singular expression.",
+      "division": "C"
+    },
+    {
+      "id": "v1a-ch15",
+      "number": 15,
+      "title": "The Spectral Decomposition of the Modular Surface",
+      "description": "Establish the constant, cuspidal, and continuous contributions. Prove completeness and the spectral expansion, together with Parseval and Plancherel identities. Specify L2, pointwise, locally uniform, and differentiated convergence as separate assertions with their own hypotheses.",
+      "sections": [
+        {
+          "id": "v1a-ch15-s1",
+          "title": "The discrete spectrum and the constant eigenfunction"
+        },
+        {
+          "id": "v1a-ch15-s2",
+          "title": "The cuspidal subspace"
+        },
+        {
+          "id": "v1a-ch15-s3",
+          "title": "The Eisenstein contribution"
+        },
+        {
+          "id": "v1a-ch15-s4",
+          "title": "Completeness and spectral expansion"
+        },
+        {
+          "id": "v1a-ch15-s5",
+          "title": "Parseval, Plancherel, and modes of convergence"
+        }
+      ],
+      "endpoint": "A spectral theorem strong enough for the later kernel operations.",
+      "prerequisites": "Chapters 11–14 and the proved functional-analysis appendices.",
+      "checkpoint": "Audit for circularity: do not use the Selberg formula that this decomposition will later help prove. Establish any preliminary counting estimates independently.",
+      "division": "C"
+    },
+    {
+      "id": "v1a-ch16",
+      "number": 16,
+      "title": "L-Functions, Rankin–Selberg Integrals, and Spectral Weights",
+      "description": "Develop holomorphic and Maass L-functions in analytic normalization, including Mellin representations and functional equations. Unfold Rankin–Selberg integrals and derive norm identities. Explain exactly how orthonormal basis sums become harmonic sums over Hecke-normalized forms.",
+      "sections": [
+        {
+          "id": "v1a-ch16-s1",
+          "title": "Normalized L-functions and Euler/Hecke conventions"
+        },
+        {
+          "id": "v1a-ch16-s2",
+          "title": "Holomorphic Mellin integrals and functional equations"
+        },
+        {
+          "id": "v1a-ch16-s3",
+          "title": "Maass Mellin integrals and parity"
+        },
+        {
+          "id": "v1a-ch16-s4",
+          "title": "Rankin–Selberg unfolding and residues"
+        },
+        {
+          "id": "v1a-ch16-s5",
+          "title": "Norm identities and harmonic spectral weights"
+        }
+      ],
+      "endpoint": "The origin of the L-values and Gamma factors in analytic versions of the trace formulas.",
+      "prerequisites": "Holomorphic route: Chapters 2–5 and needed Eisenstein input; full route: Chapters 12–15.",
+      "checkpoint": "Keep the holomorphic Mellin sections independently accessible for Chapter 25. Verify completed-versus-incomplete and adjoint-factor conventions rather than importing constants from a different normalization.",
+      "division": "C"
+    },
+    {
+      "id": "v1a-ch17",
+      "number": 17,
+      "title": "Automorphic Kernels and the Pre-Trace Formula",
+      "description": "Develop point-pair invariants, radial kernels, and their transforms. Prove periodization and spectral expansion for an explicit class of smoothing kernels. Include the constant and continuous-spectrum terms from the beginning.",
+      "sections": [
+        {
+          "id": "v1a-ch17-s1",
+          "title": "Point-pair invariants and radial kernels"
+        },
+        {
+          "id": "v1a-ch17-s2",
+          "title": "The Selberg transform and its inverse"
+        },
+        {
+          "id": "v1a-ch17-s3",
+          "title": "Periodization and convergence"
+        },
+        {
+          "id": "v1a-ch17-s4",
+          "title": "Action on discrete and Eisenstein eigenfunctions"
+        },
+        {
+          "id": "v1a-ch17-s5",
+          "title": "The pre-trace identity"
+        }
+      ],
+      "endpoint": "A rigorous shared kernel identity from which several later formulas can be developed.",
+      "prerequisites": "Chapters 11–15 and the analysis of Chapter 2; Appendix D.",
+      "checkpoint": "A smooth or well-defined automorphic kernel need not define an ordinary trace-class operator. State exactly which operations the estimates permit.",
+      "division": "D"
+    },
+    {
+      "id": "v1a-ch18",
+      "number": 18,
+      "title": "Conjugacy Classes, Closed Geodesics, and Orbital Integrals",
+      "description": "Reorganize the kernel by conjugacy classes and unfold using centralizers. Calculate the identity, elliptic, hyperbolic, and parabolic contributions. Develop the connection between hyperbolic matrices, primitive geodesics, lengths, and iterates.",
+      "sections": [
+        {
+          "id": "v1a-ch18-s1",
+          "title": "Conjugacy classes and centralizers"
+        },
+        {
+          "id": "v1a-ch18-s2",
+          "title": "Orbital unfolding"
+        },
+        {
+          "id": "v1a-ch18-s3",
+          "title": "Identity and elliptic terms"
+        },
+        {
+          "id": "v1a-ch18-s4",
+          "title": "Primitive closed geodesics and hyperbolic integrals"
+        },
+        {
+          "id": "v1a-ch18-s5",
+          "title": "Parabolic classes and cusp geometry"
+        }
+      ],
+      "endpoint": "Explicit geometric calculations for the ordinary trace formula.",
+      "prerequisites": "Chapters 1, 9 (relevant classification), and 17.",
+      "checkpoint": "Work out orientation, primitive/iterate conventions, stabilizer factors, and the length parameter in examples. Do not substitute a compact-surface calculation for the cusp contribution.",
+      "division": "D"
+    },
+    {
+      "id": "v1a-ch19",
+      "number": 19,
+      "title": "The Selberg Trace Formula",
+      "description": "Truncate geometric and spectral expressions together and prove cancellation of their divergent terms. Assemble the complete level-one formula. State the test-function hypotheses, all geometric and scattering contributions, and the equivalence of alternative useful versions.",
+      "sections": [
+        {
+          "id": "v1a-ch19-s1",
+          "title": "Why the naive diagonal trace diverges"
+        },
+        {
+          "id": "v1a-ch19-s2",
+          "title": "Simultaneous geometric and spectral truncation"
+        },
+        {
+          "id": "v1a-ch19-s3",
+          "title": "Cancellation and the limiting argument"
+        },
+        {
+          "id": "v1a-ch19-s4",
+          "title": "The complete modular-group formula"
+        },
+        {
+          "id": "v1a-ch19-s5",
+          "title": "Test functions and equivalent versions"
+        }
+      ],
+      "endpoint": "A fully proved noncompact Selberg formula with every term accounted for.",
+      "prerequisites": "Chapters 14–15 and 17–18.",
+      "checkpoint": "Identify the source of each correction term. Do not write a compact trace formula and refer to unspecified “additional terms.”",
+      "division": "D"
+    },
+    {
+      "id": "v1a-ch20",
+      "number": 20,
+      "title": "Applications of Selberg’s Formula",
+      "description": "Construct test functions for spectral counting and prove a first Weyl law. Develop the Selberg zeta function and its relation to the trace identity. Prove a first prime geodesic theorem with the smoothing and unsmoothing arguments supplied.",
+      "sections": [
+        {
+          "id": "v1a-ch20-s1",
+          "title": "Designing spectral test functions"
+        },
+        {
+          "id": "v1a-ch20-s2",
+          "title": "Weyl law and scattering contributions"
+        },
+        {
+          "id": "v1a-ch20-s3",
+          "title": "The Selberg zeta function"
+        },
+        {
+          "id": "v1a-ch20-s4",
+          "title": "A first prime geodesic theorem"
+        },
+        {
+          "id": "v1a-ch20-s5",
+          "title": "Smoothing, unsmoothing, and stronger estimates"
+        }
+      ],
+      "endpoint": "The ability to turn a trace identity into an explicit quantitative theorem.",
+      "prerequisites": "Chapter 19 and the required summation/Tauberian tools in Appendix E.",
+      "checkpoint": "Choose a transparent first theorem, not an unsupported best-known exponent. Separate spectral counting, scattering terms, and any extra input needed for sharper errors.",
+      "division": "D"
+    },
+    {
+      "id": "v1a-ch21",
+      "number": 21,
+      "title": "Fourier Periods and the Pre-Kuznetsov Formula",
+      "description": "Apply Fourier periods to both variables of a kernel and develop suitable nonholomorphic Poincaré series. Derive the spectral pairings and the double-coset expansion. Expose the Kloosterman sums before the final transform simplifications.",
+      "sections": [
+        {
+          "id": "v1a-ch21-s1",
+          "title": "Fourier coefficients as periods"
+        },
+        {
+          "id": "v1a-ch21-s2",
+          "title": "Poincaré series with controlled seeds"
+        },
+        {
+          "id": "v1a-ch21-s3",
+          "title": "Unfolded spectral pairings"
+        },
+        {
+          "id": "v1a-ch21-s4",
+          "title": "Unipotent double cosets and Kloosterman sums"
+        },
+        {
+          "id": "v1a-ch21-s5",
+          "title": "The preliminary relative trace identities"
+        }
+      ],
+      "endpoint": "A pre-Kuznetsov identity containing products of Fourier coefficients.",
+      "prerequisites": "Chapters 2, 12–15, and 17; comparison with Chapter 6.",
+      "checkpoint": "Specify the period and height integrations precisely. Include continuous spectral data and prove the necessary exchanges rather than deducing coefficients from an ordinary trace alone.",
+      "division": "E"
+    },
+    {
+      "id": "v1a-ch22",
+      "number": 22,
+      "title": "The Bessel Transforms of Kuznetsov",
+      "description": "Develop same-sign and opposite-sign transforms and their inversion theorems. Prove test-function estimates, contour-shift rules, and residue calculations. Explain the source of holomorphic terms in the appropriate inverted formula.",
+      "sections": [
+        {
+          "id": "v1a-ch22-s1",
+          "title": "Same-sign kernels"
+        },
+        {
+          "id": "v1a-ch22-s2",
+          "title": "Opposite-sign kernels"
+        },
+        {
+          "id": "v1a-ch22-s3",
+          "title": "Transform inversion and admissibility"
+        },
+        {
+          "id": "v1a-ch22-s4",
+          "title": "Contour shifts, residues, and holomorphic terms"
+        },
+        {
+          "id": "v1a-ch22-s5",
+          "title": "Decay and differentiation estimates"
+        }
+      ],
+      "endpoint": "A transform theory usable in both arithmetic-to-spectral and spectral-to-arithmetic directions.",
+      "prerequisites": "Chapter 21 and Appendices A, B, and D.",
+      "checkpoint": "Do not conflate different versions of Kuznetsov. Holomorphic terms in an inverted formula must not be inserted into the scalar weight-zero L2 spectral decomposition.",
+      "division": "E"
+    },
+    {
+      "id": "v1a-ch23",
+      "number": 23,
+      "title": "The Kuznetsov Trace Formulas",
+      "description": "Assemble the different Kuznetsov identities with their signs, parity conventions, and test-function hypotheses. Derive Hecke-normalized statements from the Fourier-coefficient version. Provide initial applications and explain which form of the formula each application needs.",
+      "sections": [
+        {
+          "id": "v1a-ch23-s1",
+          "title": "The spectral-to-arithmetic statement"
+        },
+        {
+          "id": "v1a-ch23-s2",
+          "title": "The arithmetic-to-spectral statement"
+        },
+        {
+          "id": "v1a-ch23-s3",
+          "title": "Signs, parity, continuous and holomorphic terms"
+        },
+        {
+          "id": "v1a-ch23-s4",
+          "title": "Fourier and Hecke normalization dictionaries"
+        },
+        {
+          "id": "v1a-ch23-s5",
+          "title": "Orthogonality, spectral moments, and Kloosterman averages"
+        }
+      ],
+      "endpoint": "A reference that identifies which Kuznetsov formula to use and why.",
+      "prerequisites": "Chapters 16 and 21–22.",
+      "checkpoint": "Do not suppress Eisenstein terms or test-function restrictions. Clearly isolate arithmetic bounds added for applications from the trace identity itself.",
+      "division": "E"
+    },
+    {
+      "id": "v1a-ch24",
+      "number": 24,
+      "title": "Periods, Double Cosets, and Closed-Geodesic Trace Formulas",
+      "description": "Establish the kernel identity obtained by applying a period separately in each variable. Prove the analytic hypotheses before unfolding. Revisit Fourier periods and then work out a genuinely different example involving closed-geodesic periods on the modular surface.",
+      "sections": [
+        {
+          "id": "v1a-ch24-s1",
+          "title": "Period functionals and smoothing kernels"
+        },
+        {
+          "id": "v1a-ch24-s2",
+          "title": "Relative unfolding and double cosets"
+        },
+        {
+          "id": "v1a-ch24-s3",
+          "title": "Fourier periods revisited"
+        },
+        {
+          "id": "v1a-ch24-s4",
+          "title": "A closed-geodesic relative trace formula"
+        },
+        {
+          "id": "v1a-ch24-s5",
+          "title": "Stabilizers, orbital integrals, and the continuous spectrum"
+        }
+      ],
+      "endpoint": "A complete relative formula beyond Petersson and Kuznetsov.",
+      "prerequisites": "Chapters 15, 17–18, and 21–23 for the Fourier comparison.",
+      "checkpoint": "Fix a primitive parametrization and justify the restriction to the geodesic. Squared geodesic periods are not geodesic integrals of squared mass. Verify the exact cofinite theorem chosen as the model.",
+      "division": "F"
+    },
+    {
+      "id": "v1a-ch25",
+      "number": 25,
+      "title": "Relative Trace Formulas for Central L-Values",
+      "description": "Interpret holomorphic Mellin periods as L-values, apply them to a reproducing kernel, and insert Hecke operators. Develop the geometric decomposition and required regularization. Finish with an explicit second-moment identity and a first application.",
+      "sections": [
+        {
+          "id": "v1a-ch25-s1",
+          "title": "Mellin periods and functional-equation signs"
+        },
+        {
+          "id": "v1a-ch25-s2",
+          "title": "Double periods of the holomorphic kernel"
+        },
+        {
+          "id": "v1a-ch25-s3",
+          "title": "The geometric decomposition and regularization"
+        },
+        {
+          "id": "v1a-ch25-s4",
+          "title": "Hecke insertions and weighted moments"
+        },
+        {
+          "id": "v1a-ch25-s5",
+          "title": "An explicit formula and a first application"
+        }
+      ],
+      "endpoint": "A complete passage from kernels and periods to central L-value moments.",
+      "prerequisites": "Chapters 2–8 and the holomorphic parts of Chapter 16; no entire Maass course required.",
+      "checkpoint": "Check the chosen weight range and root-number vanishing. A finite spectral sum does not remove all geometric convergence issues. Verify the exact classical formula and local constants before drafting it as proved.",
+      "division": "F"
+    },
+    {
+      "id": "v1a-ch26",
+      "number": 26,
+      "title": "Weighted Diagonal Integrals and Spectral Matrix Elements",
+      "description": "Study the diagonal kernel integrated against a smooth compactly supported function first. Establish the spectral expansion and any operator-trace interpretation under exact hypotheses. Contrast this construction with relative pairings and use it for elementary localized spectral averages.",
+      "sections": [
+        {
+          "id": "v1a-ch26-s1",
+          "title": "Compactly supported weights"
+        },
+        {
+          "id": "v1a-ch26-s2",
+          "title": "Spectral expansion of the weighted diagonal"
+        },
+        {
+          "id": "v1a-ch26-s3",
+          "title": "Multiplication operators and trace-class hypotheses"
+        },
+        {
+          "id": "v1a-ch26-s4",
+          "title": "Weighted traces versus period pairings"
+        },
+        {
+          "id": "v1a-ch26-s5",
+          "title": "First localized spectral averages"
+        }
+      ],
+      "endpoint": "A precise understanding of weighted matrix elements.",
+      "prerequisites": "Chapters 15 and 17–19; Chapter 24 for comparison.",
+      "checkpoint": "Distinguish first moments from quantum variance. An identity for an integrated kernel does not by itself certify that a particular operator product is trace class.",
+      "division": "G"
+    },
+    {
+      "id": "v1a-ch27",
+      "number": 27,
+      "title": "Eigenfunction Weights and Geodesic Periods",
+      "description": "Specialize the weight to a cuspidal Laplace eigenfunction and calculate the weighted orbital integrals. Derive the differential equations and integral transforms through which periods of the weight enter the geometric side. Assemble the full cuspidal-weight identity.",
+      "sections": [
+        {
+          "id": "v1a-ch27-s1",
+          "title": "Cuspidal Laplace eigenfunctions as weights"
+        },
+        {
+          "id": "v1a-ch27-s2",
+          "title": "Weighted orbital integrals"
+        },
+        {
+          "id": "v1a-ch27-s3",
+          "title": "Averaging the eigenfunction equation"
+        },
+        {
+          "id": "v1a-ch27-s4",
+          "title": "Geodesic periods and eigenvalue-dependent transforms"
+        },
+        {
+          "id": "v1a-ch27-s5",
+          "title": "The full cuspidal-weight formula"
+        }
+      ],
+      "endpoint": "A complete weighted trace formula with explicitly evaluated geometric terms.",
+      "prerequisites": "Chapters 18–19 and 26; appropriate special-function appendices.",
+      "checkpoint": "Derive the transforms and keep all elliptic/parabolic contributions required in the modular setting. Do not infer that a vanishing mean automatically eliminates every geometric term.",
+      "division": "G"
+    },
+    {
+      "id": "v1a-ch28",
+      "number": 28,
+      "title": "Regularization and the Zelditch–Biró Formulas",
+      "description": "Treat weights with nonzero cusp constant terms and the associated regularization. Compare the classical specializations of Zelditch and Biró at the level of kernels, test functions, spectral matrix elements, transforms, and boundary terms.",
+      "sections": [
+        {
+          "id": "v1a-ch28-s1",
+          "title": "Noncuspidal weights and their constant terms"
+        },
+        {
+          "id": "v1a-ch28-s2",
+          "title": "Weighted truncation and regularized pairings"
+        },
+        {
+          "id": "v1a-ch28-s3",
+          "title": "Poles, exceptional parameters, and boundary contributions"
+        },
+        {
+          "id": "v1a-ch28-s4",
+          "title": "A normalization and transform dictionary"
+        },
+        {
+          "id": "v1a-ch28-s5",
+          "title": "The exact common scope of the comparison"
+        }
+      ],
+      "endpoint": "A precisely stated and proved comparison in the sector actually developed in Volume 1a.",
+      "prerequisites": "Chapters 13–15 and 26–27; exact primary-source verification required.",
+      "checkpoint": "This is a theorem-development target, not an assumed blanket equivalence. Do not extend compact, unit-tangent-bundle, microlocal, or higher-weight statements to the modular surface without supplying the extra analysis.",
+      "division": "G"
+    },
+    {
+      "id": "v1a-ch29",
+      "number": 29,
+      "title": "Classical Weight-k Operators and Hecke-Twisted Trace Formulas",
+      "description": "Develop unitary weight-k automorphy and the corresponding differential operators classically. Explain how holomorphic forms enter the appropriate weighted spectral problem and construct the Hecke-twisted kernels needed for comparisons with holomorphic traces.",
+      "sections": [
+        {
+          "id": "v1a-ch29-s1",
+          "title": "Unitary weight-k automorphy"
+        },
+        {
+          "id": "v1a-ch29-s2",
+          "title": "Weight-k Laplacians"
+        },
+        {
+          "id": "v1a-ch29-s3",
+          "title": "Raising and lowering operators"
+        },
+        {
+          "id": "v1a-ch29-s4",
+          "title": "The holomorphic contribution in the correct weighted space"
+        },
+        {
+          "id": "v1a-ch29-s5",
+          "title": "Hecke-twisted kernels and trace comparisons"
+        }
+      ],
+      "endpoint": "The extra classical machinery needed to connect the holomorphic and Maass settings honestly.",
+      "prerequisites": "Chapters 5, 8–10, 11–15, and 17–19 as relevant.",
+      "checkpoint": "Keep this classical rather than introducing the full adelic theory. Do not treat a holomorphic form as a scalar weight-zero eigenfunction by a formal substitution.",
+      "division": "H"
+    },
+    {
+      "id": "v1a-ch30",
+      "number": 30,
+      "title": "A Dictionary Between Trace Formulas",
+      "description": "For each formula identify its kernel, test functions, spectral data, geometric decomposition, and final operation. Prove the proposed comparison statements and record what extra information is needed for each passage. Explain what diagonal integration loses that a kernel or period pairing retains.",
+      "sections": [
+        {
+          "id": "v1a-ch30-s1",
+          "title": "A common inventory of kernels and functionals"
+        },
+        {
+          "id": "v1a-ch30-s2",
+          "title": "Direct specializations"
+        },
+        {
+          "id": "v1a-ch30-s3",
+          "title": "Common-kernel derivations"
+        },
+        {
+          "id": "v1a-ch30-s4",
+          "title": "Comparisons requiring weights, projections, or Hecke operators"
+        },
+        {
+          "id": "v1a-ch30-s5",
+          "title": "Information retained and discarded; the bridge to Volume 1b"
+        }
+      ],
+      "endpoint": "A collection of rigorous relationships, not just a diagram claiming equivalence.",
+      "prerequisites": "The individual formulas being compared and Chapter 29 where needed.",
+      "checkpoint": "Classify every claimed arrow. Distinguish a theorem, a shared framework, and an unresolved comparison. An integrated scalar Selberg trace does not automatically supply Fourier-coefficient functionals.",
+      "division": "H"
+    }
+  ],
+  "appendices": [
+    {
+      "id": "v1a-app-a",
+      "letter": "A",
+      "title": "Analytic Foundations",
+      "description": "Convergence theorems; Fourier and Mellin inversion; Poisson summation supplements; contour integration; Gamma and Beta functions; the zeta preliminaries used by the Eisenstein theory. State exactly which undergraduate results are assumed and which specialized statements are proved here.",
+      "sections": []
+    },
+    {
+      "id": "v1a-app-b",
+      "letter": "B",
+      "title": "Special Functions",
+      "description": "The J- and K-Bessel functions, required Whittaker and Legendre functions, and the hypergeometric functions used by weighted orbital integrals. Supply defining formulas, differential equations, integral representations, parameter conventions, asymptotics, and the estimates actually invoked.",
+      "sections": []
+    },
+    {
+      "id": "v1a-app-c",
+      "letter": "C",
+      "title": "Functional Analysis and Differential Operators",
+      "description": "Hilbert-space basics beyond the assumed background; unbounded self-adjoint operators; resolvents; compactness; Sobolev spaces; elliptic regularity; and the precise analytic results used in Chapters 11–15. Avoid relying on later trace formulas to prove their own foundations.",
+      "sections": []
+    },
+    {
+      "id": "v1a-app-d",
+      "letter": "D",
+      "title": "Integral Transforms",
+      "description": "Longer proofs of Selberg-transform inversion and the Kuznetsov inversion theorems, including test-function spaces and limiting cases. Keep every transform convention synchronized with the main text.",
+      "sections": []
+    },
+    {
+      "id": "v1a-app-e",
+      "letter": "E",
+      "title": "Arithmetic Estimates and Summation Tools",
+      "description": "Divisor sums, needed exponential-sum estimates, partial summation, dyadic decomposition where used, smoothing, unsmoothing, and the exact Tauberian tools required by applications. Mark substantial external input that has not yet been proved internally.",
+      "sections": []
+    },
+    {
+      "id": "v1a-app-f",
+      "letter": "F",
+      "title": "Period Polynomials",
+      "description": "The algebraic material supporting the complementary Eichler–Selberg proof. Develop definitions, relations, pairings, Hecke actions, and the comparison theorem actually used rather than sending beginners to an unexplained cohomological black box.",
+      "sections": []
+    },
+    {
+      "id": "v1a-app-g",
+      "letter": "G",
+      "title": "Normalization Dictionary",
+      "description": "Measures; SL_2/PSL_2 conventions; Fourier coefficients; slash operators; Hecke operators; Hecke versus L2 normalization; spectral parameters; class numbers; geodesic orientation; regularization; and transform conventions. Derive alternate formulas rather than merely listing them.",
+      "sections": []
+    },
+    {
+      "id": "v1a-app-h",
+      "letter": "H",
+      "title": "Solutions and Proof Supplements",
+      "description": "Complete solutions for exercises used anywhere in the main development and selected additional solutions. No theorem should depend on an exercise for which the book supplies neither a proof nor a solution.",
+      "sections": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "first-course",
+      "title": "A first course in modular forms",
+      "description": "Build the foundations and arrive at a complete Petersson formula.",
+      "chapters": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "hecke",
+      "title": "Holomorphic Hecke traces",
+      "description": "Holomorphic forms, kernels, arithmetic, and Eichler–Selberg, with the required foundations.",
+      "chapters": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "selberg",
+      "title": "Spectral theory and Selberg",
+      "description": "The modular surface, spectral decomposition, kernels, and Selberg. Borrow Hecke material as needed.",
+      "chapters": [
+        1,
+        2,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "id": "kuznetsov",
+      "title": "Kuznetsov for analytic number theory",
+      "description": "Use the Hecke and Fourier foundations, then the spectral theory and Fourier-period construction.",
+      "chapters": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "id": "geodesics",
+      "title": "Closed-geodesic relative formulas",
+      "description": "Use the spectral and kernel foundations, then the closed-geodesic period formula.",
+      "chapters": [
+        15,
+        17,
+        18,
+        24
+      ]
+    },
+    {
+      "id": "lvalues",
+      "title": "Holomorphic central L-value moments",
+      "description": "Use the holomorphic material in Chapter 16 alongside the kernel and period construction.",
+      "chapters": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        16,
+        25
+      ]
+    },
+    {
+      "id": "weighted",
+      "title": "Weighted formulas and mass distribution",
+      "description": "Use the kernel and Selberg foundations, then weighted diagonal integrals and the Zelditch–Biró comparison.",
+      "chapters": [
+        17,
+        18,
+        19,
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "id": "connections",
+      "title": "Relationships among trace formulas",
+      "description": "Read the individual formulas being compared, then the additional operators and synthesis.",
+      "chapters": [
+        7,
+        10,
+        19,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    }
+  ]
+}

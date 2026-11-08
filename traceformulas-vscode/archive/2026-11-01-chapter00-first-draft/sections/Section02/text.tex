@@ -1,0 +1,106 @@
+\subsection{From matrix entries to a kernel}\label{finite-kernel-model}
+
+A matrix entry records how an operator moves one coordinate into another. A kernel plays a similar role when vectors are functions: its two variables describe an output location and an input location. We begin with a model that still contains only finitely many coordinates. Every identity will follow from finite-dimensional linear algebra and integrals whose convergence we can check directly.
+
+Let \((X,\mu)\) be a sigma-finite measure space, and let \(H=L^2(X,\mu;\mathbb C)\). Thus vectors in \(H\) are square-integrable functions, with functions equal almost everywhere identified. Our inner product is
+\[
+\langle f,g\rangle=\int_X f(x)\overline{g(x)}\,d\mu(x).
+\]
+It is linear in the first argument and conjugate-linear in the second. Fix an orthonormal family \(u_1,\ldots,u_N\), so \(\langle u_i,u_j\rangle=\delta_{ij}\), and write \(V\) for its span. Choose measurable representatives of these functions. An empty family, with \(N=0\), is allowed.
+
+Readers meeting this language for the first time may take \(X\) to be a finite set with counting measure. Functions are then column vectors, integrals are finite sums, and orthonormality is the familiar condition on vectors in \(\mathbb C^{|X|}\). The general setting also allows a finite family of functions on an interval or a surface.
+
+For a complex matrix \(A=(a_{ij})\in M_N(\mathbb C)\), set
+\[
+K_A(x,y)=\sum_{i,j=1}^N a_{ij}u_i(x)\overline{u_j(y)},
+\qquad
+T_Af=\sum_{i,j=1}^N a_{ij}\langle f,u_j\rangle u_i.
+\]
+The first variable of \(K_A\) is the output variable. Indeed,
+\[
+(T_Af)(x)=\int_X K_A(x,y)f(y)\,d\mu(y)
+\]
+for almost every \(x\). To justify the integral, Cauchy--Schwarz gives
+\[
+\int_X |u_j(y)f(y)|\,d\mu(y)\leq\|u_j\|_2\|f\|_2=\|f\|_2.
+\]
+Only finitely many such terms occur. The displayed finite sum also defines a bounded operator on \(H\); for example,
+\(\|T_Af\|_2\leq(\sum_{i,j}|a_{ij}|)\|f\|_2\).
+
+The image of \(T_A\) lies in \(V\), and \(T_A\) vanishes on \(V^\perp\). Moreover,
+\[
+T_Au_j=\sum_i a_{ij}u_i.
+\]
+Consequently its restriction to \(V\) has matrix \(A\). Our integral operator is a finite matrix acting on \(V\), extended by zero on all remaining directions.
+
+In particular, take \(X=\{1,\ldots,N\}\) with counting measure and \(u_j\) the indicator of the point \(j\). Then \(K_A(i,j)=a_{ij}\), and the integral formula is exactly ordinary matrix multiplication.
+
+\subsection{A complete finite-rank trace identity}\label{finite-kernel-trace-identity}
+
+Define the trace of this operator by
+\(\operatorname{tr}(T_A)=\operatorname{tr}(T_A|_V)\).
+The preceding section proves that the latter trace is independent of the basis of \(V\). Enlarging \(V\) by finitely many directions in \(V^\perp\) adds a zero block and changes nothing. Thus the unused zero directions do not affect this definition.
+
+If the same operator has another such description on a finite-dimensional space \(W\), compare both descriptions inside \(V+W\). This space is invariant under the operator, and relative to \(V\oplus((V+W)\cap V^\perp)\) its matrix is the matrix on \(V\) together with a zero block. The same argument using \(W\) shows that the two traces agree.
+
+\textbf{Proposition.} Let \(\lambda_1,\ldots,\lambda_N\) be the eigenvalues of \(A\), counted with algebraic multiplicity. Then the function \(x\mapsto K_A(x,x)\) given by the displayed kernel formula is integrable, and
+\[
+\boxed{\int_X K_A(x,x)\,d\mu(x)
+=\operatorname{tr}(T_A)
+=\sum_{j=1}^N\lambda_j.}
+\]
+
+\textbf{Proof.} Each diagonal term is integrable because
+\[
+\int_X |u_i(x)\overline{u_j(x)}|\,d\mu(x)
+\leq\|u_i\|_2\|u_j\|_2=1.
+\]
+We may therefore integrate the finite sum term by term. Orthonormality gives
+\[
+\int_X K_A(x,x)\,d\mu(x)
+=\sum_{i,j}a_{ij}\langle u_i,u_j\rangle
+=\sum_i a_{ii}
+=\operatorname{tr}(A).
+\]
+The matrix of \(T_A|_V\) is \(A\), and the trace--eigenvalue theorem of the preceding section gives the remaining equality. This includes \(N=0\), when all expressions vanish.
+
+The eigenvalues here belong to the finite-dimensional restriction. We are not summing a list of all eigenvalues of an infinite-dimensional space, whose zero eigenspace could be infinite-dimensional. We have also made no assumption that \(A\) is diagonalizable.
+
+In the useful special case \(A=\operatorname{diag}(\lambda_1,\ldots,\lambda_N)\), the kernel takes the simpler form
+\[
+K_A(x,y)=\sum_{j=1}^N\lambda_j u_j(x)\overline{u_j(y)}.
+\]
+Then \(T_Au_j=\lambda_j u_j\), and integrating its diagonal removes the normalized factors \(\int_X|u_j|^2\,d\mu=1\). This is a small but exact model of a spectral calculation.
+
+\subsection{An explicit rank-one calculation}\label{finite-kernel-rank-one-example}
+
+Take \(X=[0,1]\) with Lebesgue measure and \(u(x)=\sqrt{3}\,x\). Since \(\int_0^1 3x^2\,dx=1\), this is a unit vector. For \(\alpha\in\mathbb C\), the one-by-one matrix \((\alpha)\) gives
+\[
+K(x,y)=3\alpha xy,
+\qquad
+(Tf)(x)=3\alpha x\int_0^1 yf(y)\,dy.
+\]
+We have \(Tu=\alpha u\), while \(Tf=0\) whenever \(f\perp u\). Directly,
+\[
+\int_0^1 K(x,x)\,dx
+=3\alpha\int_0^1x^2\,dx=\alpha.
+\]
+The calculation remains valid for \(\alpha=0\); then the operator has rank zero rather than one.
+
+\subsection{Why the specified kernel matters}\label{kernel-diagonal-representatives}
+
+Our diagonal is defined by the finite formula for \(K_A\). Changing the representatives of the finitely many \(u_j\) changes that diagonal only on a null set, so its integral is well defined.
+
+An arbitrary representative of a kernel defined only almost everywhere on \(X\times X\) need not have this property. On \([0,1]^2\), the zero function and the function that is one on \(x=y\) and zero elsewhere agree almost everywhere for two-dimensional Lebesgue measure. Both give the zero integral operator. Their diagonal integrals are nevertheless zero and one, respectively. The diagonal itself has product measure zero.
+
+Thus an integral operator alone does not justify taking the diagonal of an arbitrary measurable kernel. Our finite separated formula supplies a valid diagonal. Later, continuity, smoothness, convergence estimates, or a specified regularization must provide the corresponding justification. The phrase ``integrate the diagonal'' always carries this mathematical obligation.
+
+\subsection{Exercises with solutions}\label{finite-kernel-exercises}
+
+\textbf{Exercise 1.} Set \(A=I_N\). Identify \(T_A\) and compute its trace without finding a characteristic polynomial.
+
+\textbf{Solution.} The formula becomes \(T_Af=\sum_j\langle f,u_j\rangle u_j\), the orthogonal projection onto \(V\): its difference from \(f\) is orthogonal to every \(u_j\). It fixes each of the \(N\) basis vectors and kills \(V^\perp\), so its trace is \(N\). Equivalently, its diagonal integral is \(\sum_j\|u_j\|_2^2=N\).
+
+\textbf{Exercise 2.} For any \(v\in H\), consider \(Sf=\langle f,v\rangle v\). What replaces the normalization factor one in the trace calculation?
+
+\textbf{Solution.} If \(v=0\), then \(S=0\). Otherwise set \(u=v/\|v\|_2\). We have \(Sf=\|v\|_2^2\langle f,u\rangle u\), so the trace is \(\|v\|_2^2\). The kernel \(v(x)\overline{v(y)}\) has diagonal integral \(\int_X|v|^2\,d\mu\), giving the same answer. Normalization is part of the formula, not a cosmetic choice.

@@ -1,0 +1,28 @@
+{
+  "videos": [
+    {
+      "title": "Two ways to see a trace — Section 0.1 (unrecorded script)",
+      "kind": "proof",
+      "url": "",
+      "transcriptFile": "lectures/trace-matrices.md"
+    }
+  ],
+  "comparisons": [
+    {
+      "title": "Cyclicity of trace — formalization target",
+      "bookFile": "comparisons/trace-cyclic.md",
+      "lean": "No checked Lean declaration yet.\nLibrary audit and project toolchain pin are pending.",
+      "notesFile": "comparisons/trace-cyclic-notes.md"
+    }
+  ],
+  "prerequisites": [],
+  "resources": [],
+  "exercises": [],
+  "explorations": [],
+  "formal": {
+    "status": "not-started",
+    "url": "",
+    "declarations": []
+  },
+  "sectionPrerequisites": {}
+}

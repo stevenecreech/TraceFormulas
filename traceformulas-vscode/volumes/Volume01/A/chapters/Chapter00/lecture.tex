@@ -1,0 +1,560 @@
+\begin{center}
+\textbf{Chapter 0: What does a trace measure?}\\
+An original visual lecture: narration and storyboard
+\end{center}
+
+\textbf{Draft for Steven, 5 November 2026.} One continuous chapter video, provisionally 35--40 minutes including mathematical pauses. The scene durations below are editing estimates, not recording timestamps. Spoken text is marked \textbf{Narration}; visual directions and production notes are not spoken. This script covers the three sections of Chapter 0. No recording has been produced. Steven requested this script while the formal prose--Lean correspondence review remains pending; the script itself still needs his review.
+
+\textbf{Visual language.} Keep the input variable $y$ and input function $q$ blue, the output variable $x$ and output test $p$ gold, and diagonal selections green. Pair color with labels and shapes. Begin with actual vectors in $\mathbb R^2$ for the real matrix examples. Later drawings of $H$ and $V$ are schematic pictures of function spaces, with that distinction stated. For complex quantities, use a phase-and-magnitude legend when needed; brightness alone must not suggest that every kernel or eigenvalue is nonnegative. Keep each derivation on screen long enough to read before transforming it. Derive a new formula by moving the existing symbols into their new positions.
+
+\textbf{Possible split.} Scenes 1--5 form a video on matrix traces; Scenes 6--11 form one on finite-rank kernels; Scenes 12--15 form one on relative and weighted measurements. In a single video, use short chapter cards at these boundaries. If split later, keep the recap at the start of each part and use the previous part's last formula as its opening image.
+
+\paragraph{Scene 1. Two routes to the same number.}
+\textbf{Estimated screen time: 1 minute 30 seconds.}
+
+\textbf{Visual direction.} A $2\times2$ matrix appears beside a coordinate plane. Highlight its two diagonal entries. In a second pass, transform a square grid and mark the two diagonal directions with arrows. Animate the vectors and their images accurately; keep the two computations in separate panels until the final equality.
+
+\textbf{Narration.} Take this matrix:
+\[
+A=\begin{pmatrix}2&1\\1&2\end{pmatrix}.
+\]
+There is a very quick way to get the number four from it. Add the two entries on the diagonal: two plus two.
+
+There is another way. Apply the transformation to the vector $(1,1)^{\mathsf{T}}$. It becomes $(3,3)^{\mathsf{T}}$: the same direction, stretched by three. The vector $(1,-1)^{\mathsf{T}}$ stays exactly where it was. These two directions give us the eigenvalues three and one. Add those, and we get four again.
+\[
+2+2=3+1.
+\]
+One calculation used entries in a particular coordinate system. The other used directions adapted to the transformation itself. Why should their answers agree?
+
+This equality is the first trace formula in our book. Its numerical answer is simple. The useful part is the connection between the two descriptions. By the end of this chapter, the matrix will have become a kernel depending on two variables, and we will have three different ways to measure it. The distinction between those measurements will matter just as much as the equalities connecting them to operators.
+
+\textbf{Transition.} Keep the number four in the corner. Return to the original coordinate axes and reveal where the two diagonal entries came from.
+
+\paragraph{Scene 2. What the diagonal records.}
+\textbf{Estimated screen time: 2 minutes.}
+
+\textbf{Visual direction.} Send $e_1=(1,0)^{\mathsf{T}}$ through $A$ and resolve its image into the standard coordinate directions. Then do the same for $e_2=(0,1)^{\mathsf{T}}$. Label the coefficient that returns to the original coordinate direction. Expand to a schematic $n\times n$ matrix with highlighted diagonal slots.
+
+\textbf{Narration.} The first column tells us what happens to the first basis vector. Here, its image has two units in the first coordinate direction and one in the second. The second column gives the image of the second basis vector. This time the coefficient in its own coordinate direction is again two.
+
+For a general matrix, the entry $a_{ii}$ is the coefficient of the $i$-th basis vector in the image of that same basis vector. The trace adds those coefficients:
+\[
+\operatorname{tr}(A)=\sum_{i=1}^n a_{ii}.
+\]
+These are coefficients, so they can have signs, or even be complex. We are not adding the lengths of the transformed vectors.
+
+This definition immediately respects addition and scalar multiplication. Add two matrices, and their diagonal entries add. Multiply a matrix by a scalar, and each diagonal entry is multiplied by that scalar.
+\[
+\begin{aligned}
+\operatorname{tr}(A+B)&=\operatorname{tr}(A)+\operatorname{tr}(B),\\
+\operatorname{tr}(cA)&=c\operatorname{tr}(A),\qquad
+\operatorname{tr}(I_n)=n.
+\end{aligned}
+\]
+The identity has a one in each of its $n$ diagonal slots. In dimension zero there are no slots, and the empty sum is zero.
+
+But our description still seems tied to the chosen basis. To see why the final number survives a change of coordinates, we need one very useful identity.
+
+\paragraph{Scene 3. The same round trips, counted in a different order.}
+\textbf{Estimated screen time: 2 minutes 30 seconds.}
+
+\textbf{Visual direction.} Show $m$ output nodes on one side and $n$ intermediate nodes on the other. An $AB$ diagonal contribution follows $i\mathrel{\to}j\mathrel{\to}i$, with weights $b_{ji}$ then $a_{ij}$. Place each product in a cell of an $m\times n$ grid. Visit cells by rows, then by columns. Do not animate $AB$ and $BA$ as equal matrices.
+
+\textbf{Narration.} Let $A$ have $m$ rows and $n$ columns, and let $B$ have $n$ rows and $m$ columns. Their products exist in both orders, although one is $m\times m$ and the other is $n\times n$.
+
+To compute a diagonal entry of $AB$, start at coordinate $i$, pass through an intermediate coordinate $j$, and return to $i$. Summing all these contributions gives
+\[
+\operatorname{tr}(AB)=\sum_{i=1}^m\sum_{j=1}^n a_{ij}b_{ji}.
+\]
+Now look at the grid of products. We can visit the very same cells by columns instead of rows. The entries are complex numbers, so we can also reverse the order of the two scalar factors in each cell.
+\[
+\sum_i\sum_j a_{ij}b_{ji}
+=\sum_j\sum_i b_{ji}a_{ij}
+=\operatorname{tr}(BA).
+\]
+That proves cyclicity for two factors. Every sum here is finite, so rearranging the terms needs no convergence argument.
+
+For a particularly small example, let
+\[
+A=(1\;2),\qquad B=(3\;4)^{\mathsf{T}}.
+\]
+Then $AB$ is the one-by-one matrix with entry eleven. The reverse product is
+\[
+BA=\begin{pmatrix}3&6\\4&8\end{pmatrix},
+\]
+whose diagonal also adds to eleven. Cyclicity compares the traces even when the products live in different dimensions.
+
+\textbf{Transition.} Fold the grid into the compact identity $\operatorname{tr}(XY)=\operatorname{tr}(YX)$. Keep the two factors visibly bracketed for the next step.
+
+\paragraph{Scene 4. Changing coordinates.}
+\textbf{Estimated screen time: 1 minute 30 seconds.}
+
+\textbf{Visual direction.} Draw one fixed geometric transformation with two coordinate grids. Label $S$ as conversion from new coordinates to old coordinates. Animate the sequence $S$, then $A$, then $S^{-1}$. In the trace expression, move the entire final factor $S$ to the front; only then cancel adjacent inverse matrices.
+
+\textbf{Narration.} Suppose $S$ converts a vector's new coordinates into its old coordinates. In the new coordinates, applying the same transformation means converting with $S$, applying $A$, and converting back with $S^{-1}$. Its matrix is $S^{-1}AS$.
+
+Treat $S^{-1}A$ as one factor and $S$ as the other. Cyclicity gives
+\[
+\begin{aligned}
+\operatorname{tr}(S^{-1}AS)
+&=\operatorname{tr}\bigl(S(S^{-1}A)\bigr)\\
+&=\operatorname{tr}(A).
+\end{aligned}
+\]
+The individual diagonal entries can change. Their sum stays fixed.
+
+We can therefore speak of the trace of a linear transformation on a finite-dimensional complex vector space: choose a basis, compute the matrix trace, and get the same answer in every basis.
+
+If we have a basis of eigenvectors, the matrix in that basis is diagonal, and the trace is visibly the sum of the eigenvalues. But some matrices have too few eigenvectors to give us such a basis. We need an argument that still works for those matrices.
+
+\paragraph{Scene 5. The coefficient that remembers the eigenvalues.}
+\textbf{Estimated screen time: 3 minutes.}
+
+\textbf{Visual direction.} Display the characteristic polynomial as a row of coefficient slots. Spotlight the $t^{n-1}$ slot. For the determinant expansion, draw a permutation as one selected entry per row and column. Show that leaving one diagonal slot forces at least one other departure. For the Jordan example, show the horizontal eigendirection and the shear of a nonhorizontal vector; avoid suggesting a second independent eigenvector.
+
+\textbf{Narration.} For $n\geq1$, look at the coefficient just below the leading term in
+\[
+\det(tI_n-A).
+\]
+In the determinant expansion, the identity permutation selects all the diagonal entries. Its contribution is
+\[
+(t-a_{11})(t-a_{22})\cdots(t-a_{nn}).
+\]
+To obtain $t^{n-1}$, choose a constant term from exactly one factor and $t$ from every other factor. Adding these choices gives minus the sum of the diagonal entries.
+
+Could another permutation contribute to this coefficient? A permutation cannot move just one index: if one row selects a different column, another row must also change its selection. So a nonidentity permutation selects at least two off-diagonal entries. Those entries contain no $t$. Its term has degree at most $n-2$ and cannot reach the coefficient we are inspecting. When $n=1$, there are no other permutations to consider.
+
+The coefficient is therefore $-\operatorname{tr}(A)$.
+
+Over the complex numbers, the fundamental theorem of algebra lets us factor the same monic polynomial as
+\[
+\det(tI_n-A)=\prod_{j=1}^n(t-\lambda_j),
+\]
+with each root repeated according to its multiplicity. Applying the same coefficient calculation to this product gives $-\sum_j\lambda_j$. These are two descriptions of the same coefficient, so
+\[
+\boxed{\operatorname{tr}(A)=\sum_{j=1}^n\lambda_j.}
+\]
+These roots are eigenvalues because $\det(\lambda I_n-A)=0$ says that $\lambda I_n-A$ has a nonzero kernel vector. That is exactly a nonzero vector satisfying $Av=\lambda v$. In dimension zero, both sides of the trace identity are empty sums.
+
+Now take
+\[
+J=\begin{pmatrix}2&1\\0&2\end{pmatrix}.
+\]
+Its characteristic polynomial is $(t-2)^2$. But
+\[
+(J-2I_2)(x,y)^{\mathsf{T}}=(y,0)^{\mathsf{T}},
+\]
+so its eigenvectors lie on a single line. There is no basis of eigenvectors. The trace formula still gives $2+2=4$, because it counts the root twice. This is algebraic multiplicity: multiplicity in the characteristic polynomial.
+
+We have our first bridge. A diagonal sum in any coordinates equals an eigenvalue sum, even when eigenvectors cannot supply coordinates.
+
+\paragraph{Scene 6. Functions as vectors, and the part an operator sees.}
+\textbf{Estimated screen time: 3 minutes.}
+
+\textbf{Visual direction.} Introduce a chapter card: ``From matrices to kernels.'' Show several function graphs, then change to a separately labeled schematic of the function space. Draw a plane for $V$, a vector $f$, its projection, and an orthogonal remainder. The plane depicts a finite span of functions, not their physical domain. Never infer orthogonality from two graphs crossing at a right angle.
+
+\textbf{Narration.} Now we will use functions as vectors. Our setting is a sigma-finite measure space $(X,\mu)$ and the complex space
+\[
+H=L^2(X,\mu;\mathbb C).
+\]
+Its elements are square-integrable functions, with functions that agree almost everywhere identified. Its inner product is
+\[
+\langle f,g\rangle_{L^2(X,\mu)}
+=\int_X f(x)\overline{g(x)}\,d\mu(x),
+\qquad
+\|f\|_{L^2(X,\mu)}^2=\int_X|f(x)|^2\,d\mu(x).
+\]
+Our convention makes the inner product linear in the first argument. Keep that convention in mind: it will explain a conjugate later.
+
+Choose finitely many orthonormal functions $u_1,\ldots,u_N$, and let $V$ be their span. Choose measurable representatives when we need pointwise values. The whole space $H$ can be infinite-dimensional. Only $V$ is required to be finite-dimensional.
+
+An inner product with $u_j$ extracts the coefficient of $f$ in that direction. Subtract all those components and call the remainder $r$:
+\[
+f=\sum_{j=1}^N\langle f,u_j\rangle_{L^2(X,\mu)}u_j+r.
+\]
+Why is the remainder orthogonal to $V$? Test it against $u_k$:
+\[
+\langle r,u_k\rangle_{L^2(X,\mu)}
+=\langle f,u_k\rangle_{L^2(X,\mu)}
+-\sum_j\langle f,u_j\rangle_{L^2(X,\mu)}
+\langle u_j,u_k\rangle_{L^2(X,\mu)}=0.
+\]
+Orthonormality removes every term except the one that cancels the first term. Testing against every $u_k$ also proves uniqueness: any decomposition with an orthogonal remainder must have these same coefficients.
+
+Suppose a linear operator $T$ multiplies each $u_j$ by an eigenvalue $\lambda_j$ and is zero on $V^\perp$. Applying $T$ erases the remainder and leaves
+\[
+Tf=\sum_{j=1}^N\lambda_j\langle f,u_j\rangle_{L^2(X,\mu)}u_j.
+\]
+This operator reads finitely many coefficients, scales them, and builds a function from the same modes. If the family is empty, $V$ is the zero space and $T$ is the zero operator.
+
+\paragraph{Scene 7. Building the kernel.}
+\textbf{Estimated screen time: 3 minutes.}
+
+\textbf{Visual direction.} Give each mode three linked objects: its coefficient integral, its scalar multiplier, and its output graph. Keep $y$ attached to the input coefficient and $x$ attached to the output graph. Pull the finite sum inside one integral, then draw a box around the factor multiplying $f(y)$. A sampled grid may illustrate the kernel, but label it as a picture of the formula, not a limiting proof.
+
+\textbf{Narration.} The coefficient formula already tells us that $T$ is bounded. Cauchy--Schwarz gives
+\[
+|\langle f,u_j\rangle_{L^2(X,\mu)}|
+\leq\|f\|_{L^2(X,\mu)},
+\]
+because each $u_j$ has norm one. The triangle inequality then gives the sufficient estimate
+\[
+\|Tf\|_{L^2(X,\mu)}
+\leq\left(\sum_j|\lambda_j|\right)\|f\|_{L^2(X,\mu)}.
+\]
+We also see that its output always lies in $V$.
+
+Next, write out each coefficient as an integral. At an output point $x$, the formula becomes
+\[
+(Tf)(x)=\sum_j\lambda_j u_j(x)
+\int_X f(y)\overline{u_j(y)}\,d\mu(y).
+\]
+The $y$ variable runs through the input. The $x$ variable says where we are evaluating the output. Collect the terms into
+\[
+\begin{aligned}
+K_T(x,y)&=\sum_j\lambda_j u_j(x)\overline{u_j(y)},\\
+(Tf)(x)&=\int_X K_T(x,y)f(y)\,d\mu(y).
+\end{aligned}
+\]
+The first formula defines the kernel. The second identifies the operator with integration against that kernel, for almost every $x$.
+
+There is an analytic justification behind this rearrangement. For each mode,
+\[
+\int_X|u_j(y)f(y)|\,d\mu(y)
+\leq\|u_j\|_{L^2(X,\mu)}\|f\|_{L^2(X,\mu)}
+=\|f\|_{L^2(X,\mu)}.
+\]
+So the coefficient integrals are absolutely convergent. There are only finitely many of them, which lets us integrate term by term.
+
+The almost-everywhere qualification belongs to the function space: an $L^2$ vector is an equivalence class of functions. We have chosen representatives to write the kernel, and that choice will matter when we discuss its diagonal.
+
+\paragraph{Scene 8. Where the trace lives.}
+\textbf{Estimated screen time: 2 minutes 30 seconds.}
+
+\textbf{Visual direction.} In the function-space schematic, shade the finite-dimensional supporting space. Show its matrix acquiring a zero block when extra orthogonal directions are added. For two candidate spaces $W$ and $W'$, draw both inside $U=W+W'$; do not draw one as necessarily containing the other. Then return to the kernel, trace the diagonal, and turn the normalized mode squares into unit-area cards.
+
+\textbf{Narration.} We have defined trace for finite-dimensional spaces. Our ambient function space may be much larger, so where do we compute it?
+
+For the operators used here, choose a finite-dimensional space $W$ that contains the image and on whose orthogonal complement the operator is zero. Define the trace using its restriction to $W$.
+
+This choice cannot affect the answer. Suppose $W'$ is another eligible choice. Put both inside $U=W+W'$. Relative to
+\[
+U=W\oplus(U\cap W^\perp),
+\]
+the operator has its matrix on $W$ and a zero block on the extra directions. Adding that block does not change the trace. Doing the same calculation using $W'$ shows that both choices give the trace on $U$, hence the same number.
+
+For our operator $T$, use $W=V$. Its matrix is diagonal with entries $\lambda_1,\ldots,\lambda_N$, so its trace is their sum.
+
+Now follow the diagonal of the kernel:
+\[
+K_T(x,x)=\sum_j\lambda_j|u_j(x)|^2.
+\]
+Each mode has squared norm one. Integrating its squared magnitude over $X$ therefore contributes exactly one:
+\[
+\begin{aligned}
+\int_X K_T(x,x)\,d\mu(x)
+&=\sum_j\lambda_j\int_X|u_j(x)|^2\,d\mu(x)\\
+&=\sum_j\lambda_j=\operatorname{tr}(T).
+\end{aligned}
+\]
+Here is the same bridge again. The kernel gives a description in the variables of the underlying space; the eigenvalues give a spectral description. The orthonormal normalization is what turns each mode's diagonal contribution into its eigenvalue.
+
+\paragraph{Scene 9. One mode, all the way through.}
+\textbf{Estimated screen time: 2 minutes.}
+
+\textbf{Visual direction.} Use the interval $[0,1]$ with Lebesgue measure. Draw $u(x)=\sqrt3x$, then its squared magnitude $3x^2$ and the area one beneath it. For a concrete nonnegative picture use $\alpha=2$, with the label ``illustration: $\alpha=2$''; keep the symbolic formula for arbitrary complex $\alpha$. Show the kernel surface $3\alpha xy$ and extract its diagonal as a new graph over the parameter $x$.
+
+\textbf{Narration.} Let us make every ingredient explicit. On $[0,1]$, with ordinary Lebesgue measure $dx$, choose
+\[
+u(x)=\sqrt3x.
+\]
+The factor $\sqrt3$ makes this a unit vector, because
+\[
+\|u\|_{L^2([0,1],dx)}^2=3\int_0^1x^2\,dx=1.
+\]
+Choose any complex number $\alpha$. Our operator multiplies this one mode by $\alpha$ and erases every function orthogonal to it.
+
+Its kernel and action are
+\[
+\begin{aligned}
+K_T(x,y)&=3\alpha xy,\\
+(Tf)(x)&=3\alpha x\int_0^1yf(y)\,dy.
+\end{aligned}
+\]
+The input function enters through one integral. Once that number has been computed, every output is a scalar multiple of the same ramp. The image is at most one-dimensional; it is one-dimensional when $\alpha\ne0$.
+
+On the diagonal, the kernel becomes $3\alpha x^2$. Its integral is
+\[
+3\alpha\int_0^1x^2\,dx=\alpha.
+\]
+The restriction to our one-dimensional span has the one-by-one matrix $(\alpha)$, so its trace is also $\alpha$. This includes $\alpha=0$, when the operator is zero.
+
+\paragraph{Scene 10. Allowing the modes to mix.}
+\textbf{Estimated screen time: 3 minutes.}
+
+\textbf{Visual direction.} Replace the diagonal bank of scalar multipliers by an arbitrary matrix between the coefficient inputs and output modes. Animate a single coefficient $a_{ij}$ from input mode $u_j$ to output mode $u_i$. During diagonal integration, show the overlap integrals as entries of the identity matrix; off-diagonal contributions disappear only after integration, not pointwise.
+
+\textbf{Narration.} Our first construction assumed that the chosen modes were eigenfunctions. We can now allow an arbitrary matrix $A=(a_{ij})$ to mix them:
+\[
+\begin{aligned}
+T_Af&=\sum_{i,j}a_{ij}\langle f,u_j\rangle_{L^2(X,\mu)}u_i,\\
+K_A(x,y)&=\sum_{i,j}a_{ij}u_i(x)\overline{u_j(y)}.
+\end{aligned}
+\]
+The coefficient indexed by $j$ is read from the input; $a_{ij}$ sends it into output mode $i$. In particular,
+\[
+T_Au_j=\sum_i a_{ij}u_i.
+\]
+So the matrix of the restriction to $V$ really is $A$. The operator still vanishes on $V^\perp$, and its image lies in $V$. The same Cauchy--Schwarz argument gives its integral representation and the bound
+\[
+\|T_Af\|_{L^2(X,\mu)}
+\leq\left(\sum_{i,j}|a_{ij}|\right)\|f\|_{L^2(X,\mu)}.
+\]
+To integrate its diagonal, first observe that every product is integrable:
+\[
+\int_X|u_i(x)\overline{u_j(x)}|\,d\mu(x)\leq1.
+\]
+Now orthonormality turns the integral into a matrix diagonal sum:
+\[
+\begin{aligned}
+\int_X K_A(x,x)\,d\mu(x)
+&=\sum_{i,j}a_{ij}\langle u_i,u_j\rangle_{L^2(X,\mu)}\\
+&=\sum_i a_{ii}=\operatorname{tr}(T_A).
+\end{aligned}
+\]
+Apply the matrix theorem from the first part of the video. If $\nu_j$ are the eigenvalues of $A$, counted with algebraic multiplicity, then
+\[
+\boxed{\int_X K_A(x,x)\,d\mu(x)
+=\operatorname{tr}(T_A)=\sum_{j=1}^N\nu_j.}
+\]
+The chosen orthonormal functions need not be eigenfunctions of this new operator, and $A$ need not be diagonalizable.
+
+For $A=I_N$, the operator simply keeps the component in $V$: it is orthogonal projection, with trace $N$. For a finite set with counting measure, choose the point indicators as the orthonormal basis. Then $K_A(i,j)=a_{ij}$, and integration against the kernel is ordinary matrix multiplication. The matrix is already a finite example of the kernel construction.
+
+\paragraph{Scene 11. A diagonal has its own measure.}
+\textbf{Estimated screen time: 3 minutes.}
+
+\textbf{Visual direction.} Place the unit square beside the unit interval. Draw the diagonal in the square, but label its visible stroke as a schematic of a set of zero area. Show a fixed-$x$ row meeting it at one point. On the separate interval panel, show the pulled-back function $x\mapsto K(x,x)$. For representative changes, draw exceptional rows and columns and mark their intersection with the diagonal. A finite collection of points can illustrate the mechanism, but narration and labels must allow general null sets.
+
+\textbf{Narration.} There is a subtlety hidden in the words ``integrate the diagonal.'' The measure used on the square is different from the measure used in the diagonal integral.
+
+On $[0,1]^2$, compare two kernels. One is zero everywhere. The other is one exactly when $x=y$:
+\[
+K_0(x,y)=0,\qquad K_\Delta(x,y)=1_{\{x=y\}}.
+\]
+The diagonal has two-dimensional Lebesgue measure zero, so these kernels agree almost everywhere on the square.
+
+Fix an output point $x$. In the integral over $y$, the second kernel can be nonzero only at the single point $y=x$. That singleton has measure zero. For every square-integrable input, every row integral is therefore zero. Both kernels give the zero operator.
+
+But now evaluate on the diagonal first. The resulting functions of one variable are
+\[
+K_0(x,x)=0,\qquad K_\Delta(x,x)=1.
+\]
+Their integrals over $[0,1]$ are zero and one. Here we are integrating the function $x\mapsto K(x,x)$ with respect to $dx$. We are not taking an area integral over the square or an arc-length integral along the drawn line.
+
+So what protects our finite-kernel trace formula? We specified a kernel using the chosen representatives of the finitely many functions $u_j$.
+
+Suppose we change each representative on a null set $E_j$, keeping it measurable, and rebuild the kernel from the same finite formula. Let $E$ be the union of these finitely many null sets. Outside the rows and columns through $E$, every factor is unchanged. More importantly, at $(x,x)$ every factor is unchanged whenever $x$ is outside $E$.
+\[
+x\notin E\quad\Longrightarrow\quad
+\widetilde K_A(x,x)=K_A(x,x).
+\]
+The two diagonals then agree almost everywhere for the original measure $\mu$, so their integrals agree.
+
+That is the allowed freedom: choose different representatives of the basis functions and use the same kernel formula. Arbitrarily changing a kernel on a product-null set can change the entire diagonal, as our example shows. The finite-dimensional image of the operator does not, by itself, prevent that.
+
+\textbf{Transition.} Keep one specified kernel on screen. Draw three labeled ways to measure it: the diagonal, an input-and-output test, and a weighted diagonal.
+
+\paragraph{Scene 12. Choose an input and test an output.}
+\textbf{Estimated screen time: 4 minutes.}
+
+\textbf{Visual direction.} Introduce a chapter card: ``Three measurements of a kernel.'' Label the ordinary trace $\mathcal T$. Feed a blue function $q$ into the operator and compare its gold output with $p$. For the relative integral, keep the two variables on separate axes. Factor a single summand into an $x$-dependent piece and a $y$-dependent piece. Reveal the conjugate on the second period by visibly conjugating its defining integral.
+
+\textbf{Narration.} Our first measurement was the ordinary diagonal trace:
+\[
+\mathcal T(K_A)=\int_XK_A(x,x)\,d\mu(x)=\operatorname{tr}(A).
+\]
+We can also ask how the operator responds to one particular input $q$, tested against one particular output function $p$. Both are in $L^2(X,\mu;\mathbb C)$. The measurement is
+\[
+\langle T_Aq,p\rangle_{L^2(X,\mu)}.
+\]
+Using the kernel gives the relative pairing
+\[
+\mathcal R_{p,q}(K_A)
+=\int_X\int_XK_A(x,y)q(y)\overline{p(x)}\,d\mu(y)\,d\mu(x).
+\]
+The order in the notation is worth remembering: $q$ is the input, while $p$ tests the output. This pairing depends on those choices.
+
+Expand the finite kernel. Each summand separates into two one-variable factors:
+\[
+a_{ij}\bigl(u_i(x)\overline{p(x)}\bigr)
+\bigl(q(y)\overline{u_j(y)}\bigr).
+\]
+Before separating the integrals, check convergence. Cauchy--Schwarz bounds the integral of the absolute value of the first factor by $\|p\|_{L^2(X,\mu)}$, and that of the second by $\|q\|_{L^2(X,\mu)}$. The basis functions have norm one.
+
+Tonelli's theorem lets us multiply those bounds for the product on $X\times X$. Summing the finitely many terms gives
+\[
+\begin{aligned}
+&\int_X\int_X|K_A(x,y)q(y)\overline{p(x)}|\,d\mu(y)\,d\mu(x)\\
+&\quad\leq\left(\sum_{i,j}|a_{ij}|\right)
+\|p\|_{L^2(X,\mu)}\|q\|_{L^2(X,\mu)}<\infty.
+\end{aligned}
+\]
+Now Fubini's theorem and linearity justify splitting the calculation into the two integrals.
+
+Call the output measurement of a function $u$ its period against $p$:
+\[
+P_p(u)=\langle u,p\rangle_{L^2(X,\mu)}
+=\int_Xu(x)\overline{p(x)}\,d\mu(x).
+\]
+Here ``period'' means this elementary test integral. In the second factor, our integral has $q$ first and $u_j$ conjugated. That makes it the conjugate of $P_q(u_j)$:
+\[
+\int_Xq(y)\overline{u_j(y)}\,d\mu(y)
+=\overline{P_q(u_j)}.
+\]
+We arrive at
+\[
+\boxed{\mathcal R_{p,q}(K_A)
+=\langle T_Aq,p\rangle_{L^2(X,\mu)}
+=\sum_{i,j}a_{ij}P_p(u_i)\overline{P_q(u_j)}.}
+\]
+The operator equality follows from its almost-everywhere kernel representation. The absolute-convergence check makes the integration legitimate.
+
+If $A$ is diagonal in our orthonormal family, only $i=j$ survives:
+\[
+\mathcal R_{p,q}(K_A)
+=\sum_j\lambda_j P_p(u_j)\overline{P_q(u_j)}.
+\]
+We still see eigenvalues, but each one now comes with two measurements of its eigenfunction. Choosing the input and the output test changes which parts of the operator we see.
+
+\paragraph{Scene 13. Weighting the diagonal, and why we project.}
+\textbf{Estimated screen time: 4 minutes.}
+
+\textbf{Visual direction.} Move a weight $w(x)$ along the already specified diagonal. Start with a nonnegative real weight for intuition, then display the full complex-valued hypothesis. In the function-space schematic, animate $v\in V$ through $T_A$, then through multiplication by $w$, which may leave $V$, then through projection $P$. When computing a coefficient along $u_j$, show that the discarded orthogonal component contributes zero. Keep $P$ in the operator definition throughout.
+
+\textbf{Narration.} A third measurement lets different points on the diagonal contribute with different weights:
+\[
+\mathcal W_w(K_A)=\int_Xw(x)K_A(x,x)\,d\mu(x).
+\]
+We assume $w\in L^\infty(X,\mu;\mathbb C)$: it is essentially bounded. The picture uses a nonnegative real weight, but the identity allows complex weights as well.
+
+For an indicator weight, this integral keeps the diagonal contribution from a chosen measurable region. For the constant weight one, it becomes the ordinary trace.
+
+What operator has this weighted integral as its trace? First multiply functions by $w$, writing $M_wf=wf$. Essential boundedness gives
+\[
+\|wf\|_{L^2(X,\mu)}
+\leq\|w\|_{L^\infty(X,\mu)}\|f\|_{L^2(X,\mu)},
+\]
+so the product still belongs to $H$.
+
+However, a function in $V$ need not remain in $V$ when multiplied by $w$. To obtain an endomorphism of the finite-dimensional space $V$, use orthogonal projection $P$ back onto $V$:
+\[
+S_w=P M_wT_A|_V.
+\]
+Follow the order from right to left. Start in $V$, apply $T_A$, multiply the result by $w$, and project back.
+
+To take its trace, compute the coefficient of $u_j$ in $S_wu_j$, then sum over $j$. Projection preserves this coefficient. Indeed, $h-Ph$ is orthogonal to $V$, so
+\[
+\langle Ph,u_j\rangle_{L^2(X,\mu)}
+=\langle h,u_j\rangle_{L^2(X,\mu)}.
+\]
+Using $T_Au_j=\sum_i a_{ij}u_i$, we get
+\[
+\begin{aligned}
+\langle S_wu_j,u_j\rangle_{L^2(X,\mu)}
+&=\langle wT_Au_j,u_j\rangle_{L^2(X,\mu)}\\
+&=\sum_i a_{ij}\int_Xw(x)u_i(x)\overline{u_j(x)}\,d\mu(x).
+\end{aligned}
+\]
+The scalar coefficients come out unchanged because our inner product is linear in its first argument. Adding these diagonal entries gives the trace of $S_w$.
+
+We obtain the same sum by expanding the weighted diagonal integral. Each summand is integrable because
+\[
+\begin{aligned}
+\int_X|w(x)u_i(x)\overline{u_j(x)}|\,d\mu(x)
+&\leq\|w\|_{L^\infty(X,\mu)}
+\|u_i\|_{L^2(X,\mu)}\|u_j\|_{L^2(X,\mu)}\\
+&=\|w\|_{L^\infty(X,\mu)}.
+\end{aligned}
+\]
+Termwise integration therefore proves
+\[
+\mathcal W_w(K_A)=\operatorname{tr}(S_w)
+=\sum_{i,j}a_{ij}\int_Xw(x)u_i(x)\overline{u_j(x)}\,d\mu(x).
+\]
+The projection makes the finite-dimensional trace well-defined. Its effect disappears from the diagonal coefficient calculation because the basis vectors already lie in $V$.
+
+For diagonal $A$, the formula simplifies to
+\[
+\boxed{\mathcal W_w(K_A)
+=\sum_j\lambda_j\int_Xw(x)|u_j(x)|^2\,d\mu(x).}
+\]
+For a nonnegative indicator weight, each integral tells us how much of the unit-normalized mode lies in the selected region. For a general complex weight, read it as a weighted integral. When $w=1$, every integral is one and we recover the eigenvalue sum.
+
+\paragraph{Scene 14. Two kernels that the trace cannot distinguish.}
+\textbf{Estimated screen time: 3 minutes.}
+
+\textbf{Visual direction.} Return to two-point matrices and counting measure. Put the matrices side by side. Use a diagonal selection, a single off-diagonal selection, and a pair of weighted diagonal selections in succession. Label rows as outputs and columns as inputs. For $p=u_1$, $q=u_2$, highlight row one and column two. Show the actual weighted matrices before taking their traces.
+
+\textbf{Narration.} Let us compare all three measurements on the same pair of kernels. Take $X=\{1,2\}$ with counting measure. The point indicators $u_1$ and $u_2$ are an orthonormal basis of the whole space, so every integral here is a finite sum.
+
+Consider
+\[
+A=\begin{pmatrix}1&0\\0&2\end{pmatrix},\qquad
+B=\begin{pmatrix}1&1\\1&2\end{pmatrix}.
+\]
+Their kernels are their matrix entries. The ordinary trace reads the diagonal and gives three for both.
+
+Now use $q=u_2$ as the input and $p=u_1$ as the output test. The input selects column two; the output test selects row one. Equivalently, the period coefficients are
+\[
+\begin{aligned}
+P_{u_1}(u_1)&=1,&P_{u_1}(u_2)&=0,\\
+P_{u_2}(u_1)&=0,&P_{u_2}(u_2)&=1.
+\end{aligned}
+\]
+The relative pairing picks out the top-right entry. It is zero for $A$ and one for $B$. We can see the same difference directly in the outputs:
+\[
+T_Au_2=(0,2)^{\mathsf{T}},\qquad
+T_Bu_2=(1,2)^{\mathsf{T}}.
+\]
+Testing against $u_1$ reads their first coordinates.
+
+Finally, give the two diagonal positions weights $w_1$ and $w_2$. Both weighted integrals become
+\[
+w_1+2w_2.
+\]
+Here $V=H$, so projection is the identity. Multiplication by the weight has matrix $D_w=\operatorname{diag}(w_1,w_2)$, and the two weighted operators have matrices
+\[
+D_wA=\begin{pmatrix}w_1&0\\0&2w_2\end{pmatrix},\qquad
+D_wB=\begin{pmatrix}w_1&w_1\\w_2&2w_2\end{pmatrix}.
+\]
+Their traces agree with those weighted integrals. The indicator of point one gives one; the indicator of point two gives two; the constant weight one gives three.
+
+Changing diagonal weights separates the contributions of the two points. It cannot distinguish these two matrices, because their diagonals agree for every weight. The chosen relative pairing distinguishes them by reading an off-diagonal interaction.
+
+\paragraph{Scene 15. One kernel, three questions.}
+\textbf{Estimated screen time: 1 minute 30 seconds.}
+
+\textbf{Visual direction.} End with three uncluttered panels, shown one at a time: an unweighted diagonal, separate input/output tests, and a weighted diagonal. Place the corresponding eigenbasis formulas underneath. Return briefly to the opening matrix and its two sums. Leave the final three-panel image on screen for a pause before the credits.
+
+\textbf{Narration.} We began with the equality $2+2=3+1$. Following its structure led from matrix coordinates to an integral kernel.
+
+With our specified finite kernel and an orthonormal eigenbasis, the ordinary trace gives
+\[
+\mathcal T(K_T)=\sum_j\lambda_j.
+\]
+A relative pairing keeps an input and an output test in the answer:
+\[
+\mathcal R_{p,q}(K_T)
+=\sum_j\lambda_jP_p(u_j)\overline{P_q(u_j)}.
+\]
+A weighted diagonal keeps a spatial measurement of each mode:
+\[
+\mathcal W_w(K_T)
+=\sum_j\lambda_j\int_Xw(x)|u_j(x)|^2\,d\mu(x).
+\]
+All three constructions are linear in the kernel, but they ask different questions about it. The first adds its diagonal contributions, the second measures a chosen response, and the third changes the importance of each point on the diagonal.
+
+Every identity we proved here came with a specific operator, a specified kernel, and a justification for its integrals. Those are the habits we will carry into the later chapters, where the operators and their spectral descriptions become richer. This chapter gives us the elementary mechanism and the distinctions we will need to recognize it.
+
+\textbf{End card, not spoken.} Chapter 0 manuscript, Lean sources, and correspondence notes are available in the multimedia book. Add the actual published link during production. The script is a draft; no recording, captions, final duration, or measured timestamps are claimed.

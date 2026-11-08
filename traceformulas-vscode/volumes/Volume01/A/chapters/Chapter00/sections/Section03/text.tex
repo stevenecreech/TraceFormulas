@@ -1,0 +1,279 @@
+\phantomsection\label{three-finite-kernel-constructions}
+
+Retain the measure space $(X,\mu)$, the orthonormal family $u_1,\ldots,u_N$, its span $V$, and the kernel $K_A$ from \hyperref[v1a-ch00-s2]{Section 0.2}. There are three distinct operations: integrate the diagonal, integrate against separate functions in the two variables, or weight the diagonal before integrating. Each is linear in $K_A$.
+
+\begin{definition}[Ordinary diagonal trace]\label{ordinary-finite-trace}
+
+The ordinary diagonal trace is
+\[
+\mathcal T(K_A)=\int_XK_A(x,x)\,d\mu(x).
+\]
+\end{definition}
+
+The \hyperref[finite-kernel-trace-identity]{finite-rank trace identity} gives $\mathcal T(K_A)=\operatorname{tr}(A)$. If $A=\operatorname{diag}(\lambda_1,\ldots,\lambda_N)$, this is $\sum_j\lambda_j$. 
+
+
+We now consider a relative pairing, which measures the operator against a chosen input and a chosen output test. Choose a function $q\in H$ and apply $T_A$ to it. We can then test the output against another function $p\in H$ by taking $\langle T_Aq,p\rangle_{L^2(X,\mu)}$. In the kernel integral, $q(y)$ specifies the input and $\overline{p(x)}$ tests the output. When $A$ is diagonal, each eigenvalue is accompanied by two coefficients: one measuring the component of $q$ along its eigenfunction, and one measuring that eigenfunction against $p$. This leads to the following definition.
+
+\begin{definition}[Periods and relative pairings]\label{relative-finite-pairing}
+
+For $u,p\in H=L^2(X,\mu;\mathbb C)$, write
+\[
+P_p(u)=\langle u,p\rangle_{L^2(X,\mu)}
+=\int_Xu(x)\overline{p(x)}\,d\mu(x).
+\]
+Given $p,q\in H$, define
+\[
+\mathcal R_{p,q}(K_A)
+=\int_X\int_XK_A(x,y)q(y)\overline{p(x)}\,d\mu(y)\,d\mu(x).
+\]
+\end{definition}
+
+The pairing is called relative here because it depends on the two chosen test functions $p$ and $q$. We use the same kernel $K_A$, integrated against these functions in its two variables. The functional $P_p$ is an elementary model of a period: it integrates $u$ against a fixed function.
+
+\begin{proposition}[Relative kernel identity]\label{finite-relative-kernel-identity}
+The integral is absolutely convergent and satisfies
+\[
+\mathcal R_{p,q}(K_A)
+=\langle T_Aq,p\rangle_{L^2(X,\mu)}
+=\sum_{i,j}a_{ij}P_p(u_i)\overline{P_q(u_j)}.
+\]
+\end{proposition}
+
+\begin{proof}
+The finite kernel formula separates the dependence on $x$ and $y$:
+\[
+\begin{aligned}
+K_A(x,y)q(y)\overline{p(x)}
+&=\sum_{i,j=1}^N a_{ij}
+\bigl(u_i(x)\overline{p(x)}\bigr)
+\bigl(q(y)\overline{u_j(y)}\bigr).
+\end{aligned}
+\]
+We first check absolute convergence, so that we can integrate these summands separately.
+
+For each $i$, Cauchy--Schwarz gives
+\[
+\begin{aligned}
+\int_X|u_i(x)\overline{p(x)}|\,d\mu(x)
+&\leq \|u_i\|_{L^2(X,\mu)}\|p\|_{L^2(X,\mu)}\\
+&=\|p\|_{L^2(X,\mu)}.
+\end{aligned}
+\]
+The last equality uses $\|u_i\|_{L^2(X,\mu)}=1$, since the family is orthonormal. Similarly,
+\[
+\int_X|q(y)\overline{u_j(y)}|\,d\mu(y)
+\leq \|q\|_{L^2(X,\mu)}.
+\]
+Thus the two factors in each summand are integrable in their respective variables. Tonelli's theorem applies to their nonnegative absolute values and gives
+\[
+\begin{aligned}
+&\int_X\int_X
+|u_i(x)\overline{p(x)}|\,|q(y)\overline{u_j(y)}|
+\,d\mu(y)\,d\mu(x)\\
+&\quad=\left(\int_X|u_i(x)\overline{p(x)}|\,d\mu(x)\right)
+\left(\int_X|q(y)\overline{u_j(y)}|\,d\mu(y)\right)\\
+&\quad\leq \|p\|_{L^2(X,\mu)}\|q\|_{L^2(X,\mu)}.
+\end{aligned}
+\]
+Multiplying by $|a_{ij}|$, summing over the finitely many pairs $(i,j)$, and applying the triangle inequality now yields
+\[
+\begin{aligned}
+&\int_X\int_X|K_A(x,y)q(y)\overline{p(x)}|
+\,d\mu(y)\,d\mu(x)\\
+&\quad\leq\left(\sum_{i,j=1}^N|a_{ij}|\right)
+\|p\|_{L^2(X,\mu)}\|q\|_{L^2(X,\mu)}<\infty.
+\end{aligned}
+\]
+This proves the asserted absolute convergence.
+
+We can now evaluate the integral. For fixed $x$, the factor $u_i(x)\overline{p(x)}$ is constant with respect to $y$, so it comes outside the inner integral. The remaining $y$-integral is a scalar independent of $x$. Fubini's theorem and linearity of integration therefore give
+\[
+\begin{aligned}
+\mathcal R_{p,q}(K_A)
+&=\sum_{i,j=1}^N a_{ij}
+\left(\int_X u_i(x)\overline{p(x)}\,d\mu(x)\right)
+\left(\int_X q(y)\overline{u_j(y)}\,d\mu(y)\right).
+\end{aligned}
+\]
+The first integral is $P_p(u_i)$ by definition. For the second, conjugation commutes with the integral of an integrable complex-valued function, so
+\[
+\begin{aligned}
+\int_X q(y)\overline{u_j(y)}\,d\mu(y)
+&=\overline{\int_X u_j(y)\overline{q(y)}\,d\mu(y)}\\
+&=\overline{P_q(u_j)}.
+\end{aligned}
+\]
+This explains the conjugate on the second period and proves
+\[
+\mathcal R_{p,q}(K_A)
+=\sum_{i,j=1}^N a_{ij}P_p(u_i)\overline{P_q(u_j)}.
+\]
+
+Finally, the \hyperref[finite-kernel-operator]{kernel representation of $T_A$} established in Section 0.2 says that
+\[
+(T_Aq)(x)=\int_XK_A(x,y)q(y)\,d\mu(y)
+\]
+for almost every $x$. Substituting this into the defining integral for the relative pairing gives
+\[
+\begin{aligned}
+\mathcal R_{p,q}(K_A)
+&=\int_X(T_Aq)(x)\overline{p(x)}\,d\mu(x)\\
+&=\langle T_Aq,p\rangle_{L^2(X,\mu)}.
+\end{aligned}
+\]
+The almost-everywhere equality suffices because changing an integrable function on a $\mu$-null set does not change its integral. This establishes the remaining equality.
+\end{proof}
+
+
+\begin{corollary}[Relative pairing in an eigenbasis]\label{finite-relative-diagonal-identity}
+If $A=\operatorname{diag}(\lambda_1,\ldots,\lambda_N)$, then for every $p,q\in H$,
+\[
+\mathcal R_{p,q}(K_A)
+=\sum_{j=1}^N\lambda_jP_p(u_j)\overline{P_q(u_j)}.
+\]
+\end{corollary}
+
+\begin{proof}
+In the \hyperref[finite-relative-kernel-identity]{relative kernel identity}, $a_{ij}=0$ when $i\ne j$ and $a_{jj}=\lambda_j$. Only the terms with $i=j$ remain, giving the stated sum.
+\end{proof}
+
+Thus separate measurements of the eigenfunctions remain in the formula.
+
+
+We now insert a function $w(x)$ to weight the diagonal contribution at each point before integrating.
+
+\begin{definition}[Weighted diagonal integral]\label{weighted-finite-trace}
+
+Let $w\in L^\infty(X,\mu;\mathbb C)$, let $M_wf=wf$, and let $P$ be orthogonal projection onto $V$. Define
+\[
+\mathcal W_w(K_A)=\int_Xw(x)K_A(x,x)\,d\mu(x).
+\]
+\end{definition}
+
+Essential boundedness of $w$ and integrability of the specified diagonal make this integral absolutely convergent.
+
+\begin{proposition}[Weighted kernel identity]\label{finite-weighted-kernel-identity}
+For the endomorphism $S_w=P M_wT_A|_V$,
+\[
+\mathcal W_w(K_A)=\operatorname{tr}(S_w)
+=\sum_{i,j}a_{ij}\int_Xw(x)u_i(x)\overline{u_j(x)}\,d\mu(x).
+\]
+\end{proposition}
+
+\begin{proof}
+We first explain why $S_w$ is an endomorphism of $V$. Essential boundedness means that $|w(x)|\leq\|w\|_{L^\infty(X,\mu)}$ for almost every $x$. Consequently, for every $f\in H$,
+\[
+\|wf\|_{L^2(X,\mu)}
+\leq\|w\|_{L^\infty(X,\mu)}\|f\|_{L^2(X,\mu)},
+\]
+so multiplication by $w$ maps $H$ to $H$. For $v\in V$, we can therefore form $wT_Av\in H$ and project it onto $V$. This gives the linear map
+\[
+S_wv=P(wT_Av)\in V.
+\]
+The projection ensures that the output lies in $V$, even if multiplication by $w$ takes it outside $V$.
+
+We next explain why the projection can be removed when computing a diagonal entry. For any $h\in H$, the definition of orthogonal projection gives $h-Ph\in V^\perp$. Since $u_j\in V$, it follows that
+\[
+\begin{aligned}
+\langle Ph,u_j\rangle_{L^2(X,\mu)}
+&=\langle h,u_j\rangle_{L^2(X,\mu)}
+-\langle h-Ph,u_j\rangle_{L^2(X,\mu)}\\
+&=\langle h,u_j\rangle_{L^2(X,\mu)}.
+\end{aligned}
+\]
+In the orthonormal basis $u_1,\ldots,u_N$, the $j$-th diagonal entry of $S_w$ is the coefficient of $u_j$ in $S_wu_j$, namely $\langle S_wu_j,u_j\rangle_{L^2(X,\mu)}$. Also, $T_A|_V$ has matrix $A$, so $T_Au_j=\sum_{i=1}^N a_{ij}u_i$. Applying the preceding projection identity with $h=wT_Au_j$ gives
+\[
+\begin{aligned}
+\langle S_wu_j,u_j\rangle_{L^2(X,\mu)}
+&=\langle wT_Au_j,u_j\rangle_{L^2(X,\mu)}\\
+&=\sum_{i=1}^N a_{ij}\langle wu_i,u_j\rangle_{L^2(X,\mu)}\\
+&=\sum_{i=1}^N a_{ij}
+\int_X w(x)u_i(x)\overline{u_j(x)}\,d\mu(x).
+\end{aligned}
+\]
+The coefficients $a_{ij}$ come outside unchanged because the inner product is linear in its first argument. Summing these diagonal entries gives
+\[
+\operatorname{tr}(S_w)
+=\sum_{i,j=1}^N a_{ij}
+\int_X w(x)u_i(x)\overline{u_j(x)}\,d\mu(x).
+\]
+
+Finally, we obtain the same sum from the weighted kernel. Each term is integrable: essential boundedness and Cauchy--Schwarz give
+\[
+\begin{aligned}
+\int_X|w(x)u_i(x)\overline{u_j(x)}|\,d\mu(x)
+&\leq\|w\|_{L^\infty(X,\mu)}
+\|u_i\|_{L^2(X,\mu)}\|u_j\|_{L^2(X,\mu)}\\
+&=\|w\|_{L^\infty(X,\mu)},
+\end{aligned}
+\]
+where both basis functions have norm $1$. We may therefore integrate the finite diagonal formula term by term:
+\[
+\begin{aligned}
+\mathcal W_w(K_A)
+&=\int_X w(x)\sum_{i,j=1}^N a_{ij}u_i(x)\overline{u_j(x)}\,d\mu(x)\\
+&=\sum_{i,j=1}^N a_{ij}
+\int_X w(x)u_i(x)\overline{u_j(x)}\,d\mu(x)\\
+&=\operatorname{tr}(S_w).
+\end{aligned}
+\]
+\end{proof}
+
+\begin{corollary}[Weighted diagonal in an eigenbasis]\label{finite-weighted-diagonal-identity}
+If $A=\operatorname{diag}(\lambda_1,\ldots,\lambda_N)$ and $w\in L^\infty(X,\mu;\mathbb C)$, then
+\[
+\mathcal W_w(K_A)=\sum_{j=1}^N\lambda_j\int_Xw(x)|u_j(x)|^2\,d\mu(x).
+\]
+\end{corollary}
+
+\begin{proof}
+In the \hyperref[finite-weighted-kernel-identity]{weighted kernel identity}, all terms with $i\ne j$ vanish. For $i=j$, substitute $a_{jj}=\lambda_j$ and $u_j(x)\overline{u_j(x)}=|u_j(x)|^2$.
+\end{proof}
+
+\phantomsection\label{finite-trace-information-examples}
+
+\begin{example}[Three measurements of the same kernels]\label{finite-three-measurements-example}
+Let $X=\{1,2\}$ with counting measure $\mu$, and take the indicator basis $u_1=1_{\{1\}}$, $u_2=1_{\{2\}}$ of $H=L^2(X,\mu;\mathbb C)$. Then $V=H$. Consider the matrices
+\[
+A=\begin{pmatrix}1&0\\0&2\end{pmatrix},
+\qquad B=\begin{pmatrix}1&1\\1&2\end{pmatrix}.
+\]
+These define kernels $K_A(r,s)=a_{rs}$ and $K_B(r,s)=b_{rs}$. All integrals in this example are sums over the indicated points.
+
+\textbf{Ordinary trace.} Integrating the diagonal gives
+\[
+\mathcal T(K_A)=K_A(1,1)+K_A(2,2)=1+2=3,
+\]
+and likewise $\mathcal T(K_B)=3$. This calculation uses the two diagonal entries and agrees with the matrix trace.
+
+\textbf{Relative pairing.} Choose $p=u_1$ and $q=u_2$. These choices give
+\[
+P_p(u_1)=1,\qquad P_p(u_2)=0,\qquad
+P_q(u_1)=0,\qquad P_q(u_2)=1.
+\]
+The relative kernel identity therefore selects the entry in row one and column two:
+\[
+\mathcal R_{u_1,u_2}(K_A)=a_{12}=0,
+\qquad
+\mathcal R_{u_1,u_2}(K_B)=b_{12}=1.
+\]
+Directly in the kernel integral, $q(y)$ restricts the input variable to $y=2$ and $\overline{p(x)}$ restricts the output variable to $x=1$. In operator terms,
+\[
+T_Au_2=(0,2)^{\mathsf{T}},\qquad
+T_Bu_2=(1,2)^{\mathsf{T}},
+\]
+and pairing with $u_1$ extracts the first coordinate. Thus this relative pairing distinguishes the two kernels even though their ordinary traces agree.
+
+\textbf{Weighted diagonal.} Write $w_1=w(1)$ and $w_2=w(2)$ for an arbitrary complex weight. Then
+\[
+\mathcal W_w(K_A)=w_1K_A(1,1)+w_2K_A(2,2)=w_1+2w_2,
+\]
+and the same calculation gives $\mathcal W_w(K_B)=w_1+2w_2$. Since $V=H$, the projection $P$ is the identity. Multiplication by $w$ has matrix $D_w=\operatorname{diag}(w_1,w_2)$, so the two weighted endomorphisms have matrices
+\[
+D_wA=\begin{pmatrix}w_1&0\\0&2w_2\end{pmatrix},
+\qquad
+D_wB=\begin{pmatrix}w_1&w_1\\w_2&2w_2\end{pmatrix}.
+\]
+Their traces are exactly the weighted diagonal integrals above. For $w=1_{\{1\}}$, both integrals equal $1$; for $w=1_{\{2\}}$, both equal $2$; and $w=1$ recovers the ordinary trace $3$. These weights distinguish the contributions of the two points, but no diagonal weight distinguishes $K_A$ from $K_B$. Their difference lies in the off-diagonal entries detected by the chosen relative pairing.
+\end{example}

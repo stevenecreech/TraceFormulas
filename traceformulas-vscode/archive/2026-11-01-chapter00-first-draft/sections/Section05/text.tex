@@ -1,0 +1,134 @@
+\subsection{Three questions for one kernel}\label{three-finite-kernel-constructions}
+
+A kernel contains information about two variables. Different ways of integrating it extract different information. We now make three constructions in the finite model of \hyperref[v1a-ch00-s2]{Section 0.2}. These identities will help us recognize the questions behind later trace formulas; they do not establish those formulas on a noncompact automorphic quotient.
+
+Keep the measure space \((X,\mu)\), orthonormal functions \(u_1,\ldots,u_N\), their span \(V\), the matrix \(A\), and the associated kernel \(K_A\) and operator \(T_A\). All inner products remain linear in the first argument. In each construction we first give a finite identity and then specialize to
+\[
+K_A(x,y)=\sum_{j=1}^N\lambda_j u_j(x)\overline{u_j(y)},
+\]
+which means that \(A\) is diagonal in the chosen orthonormal basis. We do not assume that every matrix admits such a basis.
+
+\subsection{Ordinary trace: join the two variables}\label{ordinary-finite-trace}
+
+The ordinary trace puts the two variables equal and integrates:
+\[
+\mathcal T(K_A)=\int_X K_A(x,x)\,d\mu(x)
+=\operatorname{tr}(A).
+\]
+\hyperref[v1a-ch00-s2]{Section 0.2} proves integrability and this equality. For a diagonal matrix it reads
+\[
+\mathcal T(K_A)=\sum_{j=1}^N\lambda_j.
+\]
+The normalized eigenfunctions disappear. The resulting number measures the operator through its eigenvalues, counted with multiplicity, and is independent of the chosen coordinates.
+
+\subsection{Relative pairing: test the two variables separately}\label{relative-finite-pairing}
+
+Choose \(p,q\in L^2(X,\mu)\). Define a period against a test function by
+\[
+P_p(u)=\langle u,p\rangle
+=\int_X u(x)\overline{p(x)}\,d\mu(x).
+\]
+It is an integral of \(u\) against a specified probe. The corresponding pairing of the kernel is
+\[
+\mathcal R_{p,q}(K_A)
+=\int_X\int_X K_A(x,y)q(y)\overline{p(x)}\,d\mu(y)\,d\mu(x).
+\]
+
+\textbf{Proposition.} This double integral is absolutely convergent, and
+\[
+\mathcal R_{p,q}(K_A)
+=\langle T_Aq,p\rangle
+=\sum_{i,j}a_{ij}P_p(u_i)\overline{P_q(u_j)}.
+\]
+
+\textbf{Proof.} For each summand, the integral of its absolute value over the product space is at most
+\[
+|a_{ij}|
+\left(\int_X|u_i p|\,d\mu\right)
+\left(\int_X|u_j q|\,d\mu\right)
+\leq |a_{ij}|\|p\|_2\|q\|_2.
+\]
+Tonelli's theorem applies to the nonnegative product, and Cauchy--Schwarz bounds its factors. The finite sum is integrable, so Fubini's theorem and termwise integration give
+\[
+\sum_{i,j}a_{ij}\langle u_i,p\rangle\langle q,u_j\rangle.
+\]
+Conjugate symmetry gives \(\langle q,u_j\rangle=\overline{P_q(u_j)}\), and the definition of \(T_A\) identifies the same expression with \(\langle T_Aq,p\rangle\).
+
+In the diagonal case this becomes
+\[
+\mathcal R_{p,q}(K_A)
+=\sum_j\lambda_j P_p(u_j)\overline{P_q(u_j)}.
+\]
+In particular, equal probes give \(\mathcal R_{p,p}(K_A)=\sum_j\lambda_j|P_p(u_j)|^2\). The eigenfunctions remain visible through their periods.
+
+If \(C\subseteq X\) is measurable with finite measure, the indicator \(p=1_C\) belongs to \(L^2\), and \(P_p(u)=\int_Cu\,d\mu\). This interpretation uses the ambient measure. A curve of measure zero in a surface is a different matter: an arbitrary \(L^2\) class has no well-defined restriction to that curve. Later geodesic periods require functions with additional regularity and a separately specified measure on the curve.
+
+\subsection{Weighted trace: insert an observable on the diagonal}\label{weighted-finite-trace}
+
+Let \(w\) be an essentially bounded measurable complex function. Its multiplication operator is \(M_wf=wf\), and let \(P\) denote orthogonal projection onto \(V\). Define
+\[
+\mathcal W_w(K_A)=\int_Xw(x)K_A(x,x)\,d\mu(x).
+\]
+This integral is absolutely convergent because \(w\) is bounded and the specified diagonal is integrable.
+
+\textbf{Proposition.} The endomorphism \(S_w=P M_w T_A|_V\) satisfies
+\[
+\mathcal W_w(K_A)=\operatorname{tr}(S_w)
+=\sum_{i,j}a_{ij}\int_Xw(x)u_i(x)\overline{u_j(x)}\,d\mu(x).
+\]
+
+\textbf{Proof.} In an orthonormal basis, a diagonal matrix entry of an operator \(S\) is \(\langle Su_j,u_j\rangle\). Since projection does not change the inner product with a vector of \(V\),
+\[
+\operatorname{tr}(S_w)
+=\sum_j\langle wT_Au_j,u_j\rangle
+=\sum_{i,j}a_{ij}\int_Xwu_i\overline{u_j}\,d\mu.
+\]
+Integrating the finite formula for \(w(x)K_A(x,x)\) gives precisely this sum.
+
+For a diagonal matrix,
+\[
+\mathcal W_w(K_A)
+=\sum_j\lambda_j\int_Xw(x)|u_j(x)|^2\,d\mu(x).
+\]
+Thus a weight measures the distribution of eigenfunction mass. The choice \(w=1\) recovers the ordinary trace. A characteristic function selects the mass in a measurable region. No commutation between multiplication by \(w\) and \(T_A\) was assumed.
+
+\subsection{Two distinctions visible on finite sets}\label{finite-trace-information-examples}
+
+First take \(X=\{1,2\}\) with counting measure and the standard indicator basis. Compare
+\[
+A=\begin{pmatrix}1&0\\0&2\end{pmatrix},
+\qquad
+B=\begin{pmatrix}1&1\\1&2\end{pmatrix}.
+\]
+Both have ordinary trace \(3\). In fact, every diagonal weight gives the same value \(w(1)+2w(2)\) for both kernels. But
+\[
+\mathcal R_{u_1,u_2}(K_A)=0,
+\qquad
+\mathcal R_{u_1,u_2}(K_B)=1.
+\]
+Indeed this pairing is the matrix entry in row one, column two. Taking a trace discards information that separate probes can retain.
+
+Next take \(X=\{+,-\}\), each point of measure \(1/2\), and let \(u(+)=1\), \(u(-)=-1\). Then \(\|u\|_2=1\). For the rank-one kernel \(K(x,y)=u(x)\overline{u(y)}\),
+\[
+\mathcal W_1(K)=\int_X|u|^2\,d\mu=1,
+\qquad
+\mathcal R_{1,1}(K)=\left|\int_Xu\,d\mu\right|^2=0.
+\]
+The first averages a nonnegative density. The second first averages a signed function and then squares its magnitude; cancellation occurs before squaring. Even on this two-point probability space, an average of \(|u|^2\) and the squared magnitude of an average of \(u\) answer different questions.
+
+\subsection{What carries forward}\label{finite-model-roadmap}
+
+An ordinary trace leads us to eigenvalue sums and traces of Hecke operators. Separate integrations lead us to products of Fourier coefficients or other periods. A diagonal weight leads us to eigenfunction mass against an observable. These are constructions to compare, rather than interchangeable names for the same identity. The weighted construction here is the elementary insertion of a function on the diagonal; later uses of the word ``weighted'' require their own precise definitions.
+
+On an automorphic quotient, a kernel may also have a description obtained by summing over group elements. Comparing that description with a spectral expansion is the next organizing idea. Our finite calculation supplies neither the convergence of that group sum nor an infinite spectral decomposition. On a noncompact quotient, continuous spectral terms and divergent diagonal integrals can intervene. Each later formula must establish its measures, normalizations, permitted test functions, exchanges of limits and integrals, and any truncation or regularization. The finite identities tell us what to seek and which quantities to distinguish.
+
+\subsection{Exercises with solutions}\label{finite-pairing-exercises}
+
+\textbf{Exercise 1.} In the diagonal model, prove
+\( |\mathcal W_w(K_A)|\leq\|w\|_\infty\sum_j|\lambda_j| \).
+
+\textbf{Solution.} The triangle inequality bounds each term by \(|\lambda_j|\int_X|w||u_j|^2\,d\mu\). This is at most \(|\lambda_j|\|w\|_\infty\), since \(\|u_j\|_2=1\); sum the finite bounds.
+
+\textbf{Exercise 2.} Suppose every \(\lambda_j\) is real and nonnegative. Show that \(\mathcal R_{p,p}(K_A)\geq0\), and determine when it vanishes.
+
+\textbf{Solution.} It is the finite sum \(\sum_j\lambda_j|P_p(u_j)|^2\) of nonnegative real numbers. It vanishes exactly when \(P_p(u_j)=0\) for every index with \(\lambda_j>0\). Components of \(p\) perpendicular to \(V\), and components in zero-eigenvalue directions, do not affect this pairing.

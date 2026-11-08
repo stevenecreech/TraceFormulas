@@ -1,0 +1,2 @@
+# Bundles Pandoc 3.9; use the same converter locally and in CI.
+pypandoc_binary==1.17

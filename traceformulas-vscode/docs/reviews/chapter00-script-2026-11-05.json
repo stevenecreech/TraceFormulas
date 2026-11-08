@@ -1,0 +1,172 @@
+{
+  "date": "2026-11-05",
+  "scope": "Chapter 0 visual video script and storyboard, based on the saved manuscript",
+  "authorization": "Steven states Chapter 0 writing is finished and explicitly requests a full chapter script; this permits the draft before the pending formal correspondence review.",
+  "script_status": "draft-for-Steven-review",
+  "human_script_review": "not-reviewed",
+  "human_prose_lean_correspondence_review": "not-reviewed",
+  "recording_status": "not-produced",
+  "scene_count": 15,
+  "estimated_minutes_by_scene": [
+    1.5,
+    2,
+    2.5,
+    1.5,
+    3,
+    3,
+    3,
+    2.5,
+    2,
+    3,
+    3,
+    4,
+    4,
+    3,
+    1.5
+  ],
+  "timing_note": "39.5 minutes total in provisional scene estimates; these are not measured recording times or timestamps.",
+  "optional_parts": [
+    [
+      1,
+      5
+    ],
+    [
+      6,
+      11
+    ],
+    [
+      12,
+      15
+    ]
+  ],
+  "manuscript_source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter00/intro.tex": "b7d9d73a2b698d1d5296696631ffe7591fa98050c50a91573a5e61c5637fb57c",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section01/text.tex": "6199de547e43acee1acf4172cd1002a25817529018dcfa8459704f08004d9879",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section02/text.tex": "81bf4b16dc1e3b3aad1ccbd05ff4c2053c443193a94a214ce29a8ab0af5af772",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section03/text.tex": "40a3bceb5e0be123228d90608c02b3d78eec3e18f1a9efe7a4847abf3fb306a7"
+  },
+  "script_and_metadata_sha256": {
+    "volumes/Volume01/A/chapters/Chapter00/lecture.tex": "b3534809c2aa746e57951705953f04172de0b42a42ce1296419c36411bea34f3",
+    "volumes/Volume01/A/chapters/Chapter00/chapter.json": "d396f866111f79b8d198a7b689883afb49bc580312f5b5e37ffc47a1cfbeec39",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section01/lecture.tex": "15112bc9f8d0b4125cabc82e0566baad868adf13206046b409739294da248125",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section01/section.json": "26fc622648a26641b54a1253d916f8e5bb1c7dddbbb7d0051c71a91932dc8cce"
+  },
+  "manuscript_label_to_scenes": {
+    "a-quantity-seen-in-two-ways": [
+      1
+    ],
+    "linear-algebra.transpose": [
+      1,
+      2,
+      3
+    ],
+    "linear-algebra.trace-eigenvalue-sum": [
+      5,
+      10
+    ],
+    "definition-the-trace": [
+      2
+    ],
+    "linear-algebra.trace-cyclic": [
+      3
+    ],
+    "linear-algebra.trace-similarity": [
+      4
+    ],
+    "linear-algebra.endomorphism-trace": [
+      4
+    ],
+    "check-the-statement-on-examples": [
+      1,
+      3,
+      5
+    ],
+    "finite-kernel-model": [
+      6,
+      7
+    ],
+    "finite-orthonormal-coefficients": [
+      6
+    ],
+    "finite-spectral-kernel": [
+      7
+    ],
+    "finite-kernel-trace-definition": [
+      8
+    ],
+    "finite-kernel-rank-one-example": [
+      9
+    ],
+    "finite-kernel-operator": [
+      10
+    ],
+    "finite-kernel-trace-identity": [
+      10
+    ],
+    "kernel-diagonal-representatives": [
+      11
+    ],
+    "three-finite-kernel-constructions": [
+      12,
+      13,
+      15
+    ],
+    "ordinary-finite-trace": [
+      12
+    ],
+    "relative-finite-pairing": [
+      12
+    ],
+    "finite-relative-kernel-identity": [
+      12
+    ],
+    "finite-relative-diagonal-identity": [
+      12
+    ],
+    "weighted-finite-trace": [
+      13
+    ],
+    "finite-weighted-kernel-identity": [
+      13
+    ],
+    "finite-weighted-diagonal-identity": [
+      13
+    ],
+    "finite-trace-information-examples": [
+      14
+    ],
+    "finite-three-measurements-example": [
+      14,
+      15
+    ]
+  },
+  "ai_mathematical_review": {
+    "status": "completed-against-saved-prose",
+    "scope": [
+      "rectangular cyclicity and coordinate independence",
+      "eigenvalue sum without diagonalizability and with algebraic multiplicity",
+      "finite orthonormal coefficient and kernel construction",
+      "supporting-space independence of trace",
+      "representative changes versus arbitrary product-null kernel changes",
+      "absolute convergence and conjugation in relative pairings",
+      "bounded multiplication, orthogonal projection, and weighted compressed trace",
+      "rank-one and two-point worked examples"
+    ],
+    "limitation": "This review checks the script against the manuscript. It is not Steven's approval, a bibliographic source audit, or a new Lean audit."
+  },
+  "unchanged_formalization_evidence": {
+    "record": "lean/audits/chapter00-2026-11-05-editor/record.json",
+    "record_sha256": "768ba5fa8bbeef4879d03d376df653b22c27a132a61a3c437d4951cd73dd01c8",
+    "source_verification": "All sources in that audit still match except Section01/section.json. Its only semantic change is removal of the superseded section video; its formal block is unchanged.",
+    "lean_build_this_task": "not-rerun; no Lean, manuscript, or correspondence source changes"
+  },
+  "validation": {
+    "script_preview": "passed; 13 pages; no TeX warnings or unresolved references",
+    "combined_pdf_website_build": "passed",
+    "published_script": "byte-identical to source; one chapter video and all fifteen scenes rendered",
+    "manuscript_pdf": "editor and website PDFs byte-identical",
+    "visual_pdf_inspection": "pages 1 and 10 inspected",
+    "browser": "passed: Chrome desktop/mobile, one chapter Watch entry with full script, MathJax without errors, exact Lean source, PDF/source downloads, navigation, and subdirectory hosting; no page errors",
+    "visual_browser_inspection": "desktop and mobile Watch screenshots inspected"
+  }
+}

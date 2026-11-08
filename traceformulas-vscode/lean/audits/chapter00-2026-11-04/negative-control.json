@@ -1,0 +1,18 @@
+{
+  "purpose": "A separate scratch environment adds a project axiom; the actual gate must reject it.",
+  "command": [
+    "/Users/stevencreech/.elan/toolchains/leanprover--lean4---v4.21.0-rc3/bin/lake",
+    "env",
+    "lean",
+    ".scratch/AuditReject.lean"
+  ],
+  "cwd": "lean",
+  "exit_code": 1,
+  "expected_outcome": "rejected",
+  "observed_outcome": "rejected",
+  "failure": "Forbidden axiom TraceFormulas.auditNegativeControl in TraceFormulas.auditNegativeControl",
+  "source_snapshot": "negative-control.lean.txt",
+  "log": "negative-control.log",
+  "log_sha256": "825978326b3496d4d102b7858430e57ec8cc2a0cd5e2efc3e929caf22510a730",
+  "scope": "This scratch-only axiom was never added to project sources or imported by the positive audit."
+}

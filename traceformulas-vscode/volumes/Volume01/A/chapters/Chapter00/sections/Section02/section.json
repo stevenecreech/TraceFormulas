@@ -1,0 +1,35 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter00.Section02.finite_orthonormal_coefficients",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.uniqueness_of_coefficients",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_operator_formula",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_operator_bound",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_kernel_representation",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.supporting_space_trace_independent",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_trace_identity",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_representation",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_representation_chosen_representatives",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_bound",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_support",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_basis_action",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_diagonal_integrable",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_diagonal_integrable_chosen_representatives",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_trace_identity",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.trace_identity_chosen_representatives",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.representative_diagonal_independence",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.identity_matrix_projection",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.projection_trace",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.point_indicator_kernel",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_normalization",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_eigenvector",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_zero_orthogonal",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_kernel",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_operator_integral",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_trace_identity",
+      "TraceFormulas.Volume01.A.Chapter00.Section02.diagonal_counterexample"
+    ]
+  },
+  "videos": []
+}

@@ -1,0 +1,41 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter00.Section03.period",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.period_eq_integral",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_trace_identity",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.relative_kernel_identity",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.relative_diagonal_corollary",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_kernel_identity",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_diagonal_corollary",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.relative_representatives",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_representatives",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.exampleB",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.firstIndicator",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.secondIndicator",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleB",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleB",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleB",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleB",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleB",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleB",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleB",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleB",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleB",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleA",
+      "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleB"
+    ]
+  },
+  "videos": []
+}

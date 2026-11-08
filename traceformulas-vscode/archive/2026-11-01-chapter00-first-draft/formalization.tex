@@ -1,0 +1,19 @@
+\subsection{First target: finite-dimensional trace}\label{first-target-finite-dimensional-trace}
+
+Section 0.1 has prose drafts for \texttt{linear-algebra.trace-cyclic}, \texttt{linear-algebra.trace-similarity}, and \texttt{linear-algebra.trace-eigenvalue-sum}. None has a checked Lean counterpart in this repository yet.
+
+Lean and Lake launchers are installed on the author's machine, but this project has no \texttt{lean-toolchain}, Lake configuration, or dependency lock. The adjacent \texttt{Formalization.lean} is a comment-only planning file, with no declarations or proofs. Mathlib declaration availability has not been audited against a project pin.
+
+Start with cyclicity for compatible rectangular complex matrices, including empty index sets. Search the selected Mathlib revision for an existing result before writing a proof. A library theorem over more general scalars is appropriate if its specialization to the book is recorded explicitly.
+
+Similarity invariance should then reuse cyclicity or an existing compatible theorem. The eigenvalue-sum statement needs a separate audit of characteristic polynomials and algebraic multiplicities; proving only the diagonalizable case would not cover the book theorem.
+
+The Compare tab reads the section's \texttt{text.tex} and \texttt{Formalization.lean} directly, alongside the correspondence obligations in \texttt{compare.tex}. There are no invented declaration names or admitted proof snippets. A completed record will include the exact declaration, source revision, pinned build, axiom audit, and statement review. The website itself does not perform those checks.
+
+\subsection{The rest of the chapter}\label{chapter-zero-formalization-roadmap}
+
+The full prose draft also proves the finite-kernel trace identity, finite Fourier orthogonality and inversion, the convolution trace formula, and finite relative and weighted kernel identities. These are additional formalization targets, with no checked Lean sources yet. The analytic Poisson theorem and the automorphic formulas are explicitly previews; their proofs and formalizations belong to their later chapters.
+
+During Steven's prose-editing rounds, the edited statements and arguments will guide the corresponding section formalizations. Particular obligations include the inner-product convention, integrability of each kernel expression, the specified diagonal representative, normalized counting measure, and the distinction between relative pairings and weighted traces. Reuse shared library results where their exact specialization agrees with the prose.
+
+Lean compilation and Steven's review of mathematical correspondence are separate stages. New video scripts follow that review. The existing Section 0.1 script is preliminary material from before this workflow and has not passed that gate.

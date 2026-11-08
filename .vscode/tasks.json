@@ -1,0 +1,102 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview active LaTeX file",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "scripts/preview_tex.py",
+        "${file}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/traceformulas-vscode"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Build book",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "scripts/build.py",
+        "--pdf",
+        "--volume",
+        "v1a"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/traceformulas-vscode"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent",
+        "focus": false,
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "Check book",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "scripts/build.py",
+        "--check"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/traceformulas-vscode"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Preview book",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "-m",
+        "http.server",
+        "8000",
+        "--directory",
+        "dist",
+        "--bind",
+        "127.0.0.1"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/traceformulas-vscode"
+      },
+      "dependsOn": "Build book",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Test source pipeline",
+      "type": "process",
+      "command": "python3",
+      "args": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}/traceformulas-vscode"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

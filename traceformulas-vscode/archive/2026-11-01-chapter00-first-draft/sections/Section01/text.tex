@@ -1,0 +1,152 @@
+\subsection{A quantity seen in two ways}\label{a-quantity-seen-in-two-ways}
+
+Consider the complex matrix
+
+\[
+A=\begin{pmatrix}2&1\\1&2\end{pmatrix}.
+\]
+
+Its diagonal entries add to \(4\). The vectors \((1,1)\) and \((1,-1)\) are eigenvectors with eigenvalues \(3\) and \(1\), so the eigenvalues also add to \(4\). We will explain why this agreement is forced, including for matrices that have no basis of eigenvectors.
+
+Throughout this section matrices have entries in \(\mathbb C\). Sums and products are finite. We use elementary matrix multiplication, invertibility, the determinant, and the fundamental theorem of algebra as prerequisites.
+
+\subsection{Definition: the trace}\label{definition-the-trace}
+
+For an \(n\times n\) matrix \(A=(a_{ij})\), define
+
+\[
+\operatorname{tr}(A)=\sum_{i=1}^{n}a_{ii}.
+\]
+
+For \(n=0\) this is the empty sum, equal to zero. The definition gives \(\operatorname{tr}(A+B)=\operatorname{tr}(A)+\operatorname{tr}(B)\) and \(\operatorname{tr}(cA)=c\operatorname{tr}(A)\): add the diagonal entries in each case. Also \(\operatorname{tr}(I_n)=n\).
+
+The next identity is the mechanism behind independence of coordinates.
+
+\subsection{Proposition: cyclicity for two factors}\label{linear-algebra.trace-cyclic}
+
+Let \(A\) be an \(m\times n\) complex matrix and \(B\) an \(n\times m\) complex matrix, where \(m,n\geq0\). Then
+
+\[
+\operatorname{tr}(AB)=\operatorname{tr}(BA).
+\]
+
+\textbf{Proof.} By the definition of matrix multiplication,
+
+\[
+\begin{aligned}
+\operatorname{tr}(AB)
+&=\sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij}b_{ji}\\
+&=\sum_{j=1}^{n}\sum_{i=1}^{m}b_{ji}a_{ij}
+=\operatorname{tr}(BA).
+\end{aligned}
+\]
+
+The middle equality interchanges two finite sums and commutes two complex numbers. Both operations remain valid when an index set is empty. There is no convergence question here. Notice that \(AB\) and \(BA\) can have different sizes; they need not be equal matrices.
+
+\subsection{Corollary: invariance under a change of basis}\label{linear-algebra.trace-similarity}
+
+For \(A\in M_n(\mathbb C)\) and invertible \(S\in M_n(\mathbb C)\),
+
+\[
+\operatorname{tr}(S^{-1}AS)=\operatorname{tr}(A).
+\]
+
+\textbf{Proof.} Apply cyclicity to the two factors \(S^{-1}A\) and \(S\). Associativity and \(SS^{-1}=I_n\) give
+
+\[
+\operatorname{tr}((S^{-1}A)S)
+=\operatorname{tr}(S(S^{-1}A))
+=\operatorname{tr}(A).
+\]
+
+If \(T\) is a linear map from a finite-dimensional complex vector space to itself, its matrices in two bases are related by this change of basis. We can therefore define \(\operatorname{tr}(T)\) using any basis: the answer is independent of that choice.
+
+\subsection{Theorem: trace as a sum of eigenvalues}\label{linear-algebra.trace-eigenvalue-sum}
+
+Let \(A\in M_n(\mathbb C)\). List the roots \(\lambda_1,\ldots,\lambda_n\) of its characteristic polynomial \(\det(tI_n-A)\), repeating each root according to its multiplicity. Then
+
+\[
+\operatorname{tr}(A)=\sum_{j=1}^{n}\lambda_j.
+\]
+
+The multiplicity in this statement is \textbf{algebraic multiplicity}: the multiplicity as a polynomial root. It is not the dimension of the corresponding eigenspace. A complex number \(\lambda\) is such a root exactly when \(\lambda I_n-A\) is singular, equivalently when there exists a nonzero vector \(v\) with \(Av=\lambda v\).
+
+\textbf{Proof.} The case \(n=0\) says \(0=0\). Assume \(n\geq1\). We compute the coefficient of \(t^{n-1}\) in the characteristic polynomial in two ways.
+
+In the determinant expansion, the identity permutation contributes
+
+\[
+\prod_{i=1}^{n}(t-a_{ii}),
+\]
+
+whose \(t^{n-1}\) coefficient is \(-\sum_i a_{ii}\). Every nonidentity permutation moves at least two indices. At each moved index its determinant factor is an off-diagonal entry of \(tI_n-A\), which is independent of \(t\). Such a term has degree at most \(n-2\) and contributes nothing to the coefficient in question. For \(n=1\) there are no nonidentity permutations. Thus the coefficient is \(-\operatorname{tr}(A)\).
+
+By the fundamental theorem of algebra and monicity,
+
+\[
+\det(tI_n-A)=\prod_{j=1}^{n}(t-\lambda_j).
+\]
+
+The coefficient of \(t^{n-1}\) in this product is \(-\sum_j\lambda_j\). Equating the two coefficients proves the theorem. No diagonalizability assumption was used.
+
+\subsection{Check the statement on examples}\label{check-the-statement-on-examples}
+
+For the opening matrix, \(\det(tI_2-A)=(t-2)^2-1=(t-3)(t-1)\), confirming the eigenvalues and the trace \(3+1=4\).
+
+Now take
+
+\[
+J=\begin{pmatrix}2&1\\0&2\end{pmatrix}.
+\]
+
+Its characteristic polynomial is \((t-2)^2\), while \((J-2I_2)(x,y)=(y,0)\). Its eigenspace consists of \((x,0)\) and is only one-dimensional. Nevertheless the theorem gives \(\operatorname{tr}(J)=2+2=4\). Counting distinct eigenvalues, or counting only the dimension of this eigenspace, would give the wrong answer.
+
+For a rectangular check, let \(A=(1\;2)\) and \(B=(3\;4)^{\mathsf T}\). Then \(AB=(11)\) and
+
+\[
+BA=\begin{pmatrix}3&6\\4&8\end{pmatrix}.
+\]
+
+The traces are \(11\) and \(3+8=11\), although the matrices have different dimensions.
+
+\subsection{What this prepares us to ask}\label{what-this-prepares-us-to-ask}
+
+The diagonal description and the eigenvalue description compute one invariant. A kernel provides an analogue of matrix entries, and integration along its diagonal suggests an analogue of summing diagonal entries. \hyperref[v1a-ch00-s2]{Section 0.2} will develop a finite-rank model with precise hypotheses.
+
+For infinite-dimensional operators, these analogies alone prove nothing: a diagonal integral or an eigenvalue sum may fail to converge. Later chapters must establish the analytic conditions for each operation, and specify any regularization. The finite identities above are our starting point for recognizing the pattern and checking its normalization.
+
+
+\subsection{Two cautions about what the trace remembers}\label{v1a-ch00-trace-information}
+
+Knowing a trace is useful, but it is much less information than knowing an operator. For example, the matrices
+\[
+B=\begin{pmatrix}1&0\\0&3\end{pmatrix},
+\qquad
+C=\begin{pmatrix}2&0\\0&2\end{pmatrix}
+\]
+have the same trace and different eigenvalue lists. The trace of one operator does not determine its spectrum. Later trace formulas often supply a whole family of identities, obtained by varying a test function or a Hecke operator. The freedom to vary that input is part of their content.
+
+Even the complete eigenvalue list need not determine an operator in the coordinates relevant to a problem. Our opening matrix and the diagonal matrix with entries $3,1$ have the same eigenvalues and trace, but different off-diagonal entries. If a question concerns a particular matrix coefficient, we must keep track of the vectors or coordinates used to extract it. This will become the distinction between a trace and a relative pairing in \hyperref[v1a-ch00-s5]{Section 0.5}.
+
+\subsection{Exercises and worked solutions}\label{v1a-ch00-matrix-exercises}
+
+\textbf{Exercise 1: a cyclic permutation.} Let $A,B,C$ be square complex matrices of the same size. Prove
+\[
+\operatorname{tr}(ABC)=\operatorname{tr}(BCA)
+=\operatorname{tr}(CAB).
+\]
+Does this imply that the order of factors can be changed arbitrarily?
+
+\textbf{Solution.} Apply two-factor cyclicity to $A$ and $BC$, then to $B$ and $CA$. Arbitrary permutations do not preserve the trace of a product of three factors. To see this, write $E_{ij}$ for the matrix whose only nonzero entry is a $1$ in position $(i,j)$. In dimension two, choose $A=E_{12}$, $B=E_{21}$, and $C=E_{11}$. Then $ABC=E_{11}$, with trace $1$, whereas $ACB=0$, with trace $0$. Cyclicity allows rotation of an ordered product, not unrestricted rearrangement.
+
+\textbf{Exercise 2: a commutator.} The commutator of two matrices is $[A,B]=AB-BA$. Prove that $\operatorname{tr}([A,B])=0$, and deduce that for $n\geq1$ there are no complex $n\times n$ matrices with $AB-BA=I_n$.
+
+\textbf{Solution.} Linearity and cyclicity give
+\[
+\operatorname{tr}([A,B])=\operatorname{tr}(AB)-\operatorname{tr}(BA)=0.
+\]
+On the other hand, $\operatorname{tr}(I_n)=n\ne0$ in $\mathbb C$. Thus the proposed equality would have unequal traces. The assumption $n\geq1$ matters: in dimension zero the identity matrix is the unique empty matrix and has trace zero.
+
+\textbf{Exercise 3: a projection.} Suppose $P^2=P$ on a finite-dimensional complex vector space. Show that $\operatorname{tr}(P)$ is the dimension of its image.
+
+\textbf{Solution.} Every vector $v$ decomposes as $Pv+(v-Pv)$. The first term belongs to the image of $P$, and the second to its kernel because $P(v-Pv)=Pv-P^2v=0$. If $w$ lies in both spaces, write $w=Pu$ and use $Pw=0$ to get $w=P^2u=Pw=0$. Hence the space is the direct sum of the image and kernel. In a basis adapted to this sum, $P$ has an identity block on its image and a zero block on its kernel. Its trace is therefore the size of the identity block. Basis invariance makes that calculation independent of the adapted basis.

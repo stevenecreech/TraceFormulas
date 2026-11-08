@@ -1,0 +1,55 @@
+This index collects the notation used in Chapter 0, grouped by mathematical context. The links in the final column lead to the relevant definition or convention. Local meanings are recorded separately when the same letter serves different purposes.
+
+\subsection*{Matrices and traces}\label{v1a-notation-matrices}
+
+\begin{longtable}{p{0.22\linewidth}p{0.58\linewidth}p{0.08\linewidth}}
+\textbf{Symbol} & \textbf{Meaning and convention} & \textbf{See} \\ \hline
+$A=(a_{ij})$ & Complex matrix, with entry $a_{ij}$ in row $i$, column $j$. & \hyperref[definition-the-trace]{0.1} \\
+$A^{\mathsf{T}}$ & Transpose: $(A^{\mathsf{T}})_{ij}=a_{ji}$; entries are not conjugated. A transposed row vector is a column vector. & \hyperref[linear-algebra.transpose]{0.1} \\
+$I_n$ & Identity matrix of size $n$; its trace is $n$. & \hyperref[definition-the-trace]{0.1} \\
+$M_n(\mathbb C)$ & Complex $n\times n$ matrices. & \hyperref[linear-algebra.trace-similarity]{0.1} \\
+$\det(tI_n-A)$ & Characteristic polynomial of $A$. & \hyperref[linear-algebra.trace-eigenvalue-sum]{0.1} \\
+$\lambda_j$ & Eigenvalues, repeated according to algebraic multiplicity. & \hyperref[linear-algebra.trace-eigenvalue-sum]{0.1} \\
+$\operatorname{tr}(A)$ & Sum of the diagonal entries; the empty sum is zero. & \hyperref[definition-the-trace]{0.1} \\
+$\operatorname{tr}(T)$ & Trace of a finite-dimensional endomorphism, computed in any basis. & \hyperref[linear-algebra.endomorphism-trace]{0.1} \\
+\end{longtable}
+
+\subsection*{Function spaces and finite kernels}\label{v1a-notation-kernels}
+
+\begin{longtable}{p{0.22\linewidth}p{0.58\linewidth}p{0.08\linewidth}}
+\textbf{Symbol} & \textbf{Meaning and convention} & \textbf{See} \\ \hline
+$(X,\mu)$ & Sigma-finite measure space in the kernel model. & \hyperref[finite-kernel-model]{0.2} \\
+$H$, $L^2(X,\mu;\mathbb C)$ & Complex square-integrable functions, identified when equal almost everywhere. & \hyperref[finite-kernel-model]{0.2} \\
+$\langle f,g\rangle_{L^2(X,\mu)}$ & Inner product $\int_X f\overline g\,d\mu$ on the complex space $H$, linear in the first argument. & \hyperref[finite-kernel-model]{0.2} \\
+$\|f\|_{L^2(X,\mu)}$ & Norm $\langle f,f\rangle_{L^2(X,\mu)}^{1/2}$ on $H$; both space and measure appear in the subscript. & \hyperref[finite-kernel-model]{0.2} \\
+$u_1,\ldots,u_N$ & Fixed orthonormal family with chosen measurable representatives; $N=0$ is allowed. & \hyperref[finite-kernel-model]{0.2} \\
+$V$, $V^\perp$ & Span of the family and its orthogonal complement in $H$. & \hyperref[finite-kernel-model]{0.2} \\
+$T$, $\lambda_j$ & Operator with $Tu_j=\lambda_j u_j$ and $T|_{V^\perp}=0$ in the eigenbasis model. & \hyperref[finite-kernel-model]{0.2} \\
+$K_T(x,y)$ & Spectral kernel $\sum_j\lambda_j u_j(x)\overline{u_j(y)}$ from the chosen orthonormal eigenfunctions. & \hyperref[finite-spectral-kernel]{0.2} \\
+$\nu_j$ & Eigenvalues of the general matrix $A$, counted with algebraic multiplicity; the $u_j$ need not be eigenfunctions. & \hyperref[finite-kernel-trace-identity]{0.2} \\
+$K_A(x,y)$ & Finite kernel $\sum_{i,j}a_{ij}u_i(x)\overline{u_j(y)}$; the output variable comes first. & \hyperref[finite-kernel-operator]{0.2} \\
+$T_A$ & Operator with kernel $K_A$; it acts as $A$ on $V$ and vanishes on $V^\perp$. & \hyperref[finite-kernel-operator]{0.2} \\
+$\operatorname{tr}(T_A)$ & Trace of the restriction $T_A|_V$; likewise $\operatorname{tr}(T)=\operatorname{tr}(T|_V)$ in the eigenbasis model. & \hyperref[finite-kernel-trace-definition]{0.2} \\
+$K_A(x,x)$ & Diagonal supplied by the finite kernel formula, independent $\mu$-almost everywhere of the $u_j$ representatives. Arbitrary $(\mu\otimes\mu)$-null changes to a kernel need not preserve its diagonal integral. & \hyperref[kernel-diagonal-representatives]{0.2} \\
+\end{longtable}
+
+\subsection*{Ordinary traces and relative pairings}\label{v1a-notation-pairings}
+
+\begin{longtable}{p{0.22\linewidth}p{0.58\linewidth}p{0.08\linewidth}}
+\textbf{Symbol} & \textbf{Meaning and convention} & \textbf{See} \\ \hline
+$\mathcal T(K_A)$ & Ordinary diagonal integral $\int_X K_A(x,x)\,d\mu(x)=\operatorname{tr}(A)$. & \hyperref[ordinary-finite-trace]{0.3} \\
+$P_p(u)$ & Test integral $\langle u,p\rangle_{L^2(X,\mu)}$, linear in $u\in H$ for fixed $p\in H$; an elementary model of a period. & \hyperref[relative-finite-pairing]{0.3} \\
+$\mathcal R_{p,q}(K_A)$ & Relative pairing $\langle T_Aq,p\rangle_{L^2(X,\mu)}$, with input $q\in H$ and output tested against $p\in H$. & \hyperref[relative-finite-pairing]{0.3} \\
+$1_{\{r\}}$ & Indicator of the point $r$ in the two-point counting-measure example; equals $1$ at $r$ and $0$ at the other point. & \hyperref[finite-three-measurements-example]{0.3} \\
+\end{longtable}
+
+\subsection*{Weights and multiplication operators}\label{v1a-notation-weights}
+
+\begin{longtable}{p{0.22\linewidth}p{0.58\linewidth}p{0.08\linewidth}}
+\textbf{Symbol} & \textbf{Meaning and convention} & \textbf{See} \\ \hline
+$L^\infty(X,\mu;\mathbb C)$ & Essentially bounded complex functions, identified when equal almost everywhere. & \hyperref[weighted-finite-trace]{0.3} \\
+$w$, $M_w$ & A weight $w\in L^\infty$ and its multiplication operator $M_wf=wf$. & \hyperref[weighted-finite-trace]{0.3} \\
+$P$ & Orthogonal projection onto $V$; distinct from the scalar period $P_p$. & \hyperref[weighted-finite-trace]{0.3} \\
+$S_w$ & Endomorphism $P M_wT_A|_V$, obtained by projecting the weighted output back to $V$. & \hyperref[finite-weighted-kernel-identity]{0.3} \\
+$\mathcal W_w(K_A)$ & Weighted diagonal integral $\int_Xw(x)K_A(x,x)\,d\mu(x)=\operatorname{tr}(S_w)$. & \hyperref[weighted-finite-trace]{0.3} \\
+\end{longtable}

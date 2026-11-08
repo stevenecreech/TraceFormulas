@@ -1,0 +1,109 @@
+\phantomsection\label{finite-kernel-model}
+
+In general, the spectral side of the trace formula tends to be the side which is more universal across examples. The idea is to 
+
+WRITE THIS LIST BETTER AND HAVE THE REST OF THIS SECTION FOLLOW THIS LIST. 
+\begin{enumerate}
+    \item Given an orthonormal basis of eigenfunctions
+    \item Compute a given inner product 
+    \item Get the trace through a kernel thingy
+\end{enumerate}
+
+Let $(X,\mu)$ be a sigma-finite measure space and put $H=L^2(X,\mu;\mathbb C)$, with inner product and norm
+\[
+\begin{aligned}
+\langle f,g\rangle_{L^2(X,\mu)}&=\int_X f(x)\overline{g(x)}\,d\mu(x),\\
+\|f\|_{L^2(X,\mu)}&=\left(\int_X|f(x)|^2\,d\mu(x)\right)^{1/2}.
+\end{aligned}
+\]
+In these subscripts, $L^2(X,\mu)$ denotes the complex space $H$. Our convention is linearity in the first argument. Fix an orthonormal family $u_1,\ldots,u_N$, choose measurable representatives, and let $V$ be its span. The case $N=0$ is allowed.
+
+\begin{definition}[Finite kernel and associated operator]\label{finite-kernel-operator}
+For $A=(a_{ij})\in M_N(\mathbb C)$, define
+\[
+K_A(x,y)=\sum_{i,j=1}^N a_{ij}u_i(x)\overline{u_j(y)},
+\qquad
+T_Af=\sum_{i,j=1}^N a_{ij}\langle f,u_j\rangle_{L^2(X,\mu)} u_i.
+\]
+\end{definition}
+
+The function $K_A$ is an integral kernel for $T_A$:
+\[
+(T_Af)(x)=\int_X K_A(x,y)f(y)\,d\mu(y)
+\]
+for almost every $x$. Indeed, Cauchy--Schwarz gives
+\[
+\int_X|u_j(y)f(y)|\,d\mu(y)\leq\|u_j\|_{L^2(X,\mu)}\|f\|_{L^2(X,\mu)}=\|f\|_{L^2(X,\mu)},
+\]
+so every term is integrable and the finite sum may be integrated term by term. The same inequality and the triangle inequality show that
+\[
+\|T_Af\|_{L^2(X,\mu)}\leq\left(\sum_{i,j}|a_{ij}|\right)\|f\|_{L^2(X,\mu)}.
+\]
+Thus $T_A$ is bounded, has image in $V$, and vanishes on $V^\perp$. Since $T_Au_j=\sum_i a_{ij}u_i$, its restriction to $V$ has matrix $A$.
+
+For a finite set $X=\{1,\ldots,N\}$ with counting measure and the point indicators as basis, $K_A(i,j)=a_{ij}$. The kernel formula then reduces to matrix multiplication. In general, its two variables play the roles of the output and input indices.
+
+\begin{definition}[Finite-rank trace]\label{finite-kernel-trace-definition}
+Define $\operatorname{tr}(T_A)=\operatorname{tr}(T_A|_V)$.
+\end{definition}
+
+\begin{proof}[Well-definedness]
+This is independent of the basis by \hyperref[linear-algebra.trace-similarity]{similarity invariance}. It is also independent of the supporting space: if the same operator has such a description on $W$, compare both restrictions on $V+W$. Relative to
+\[
+V+W=V\oplus\bigl((V+W)\cap V^\perp\bigr),
+\]
+the matrix is that on $V$ with a zero block added. The analogous decomposition using $W$ proves equality of the two traces.
+\end{proof}
+
+\begin{proposition}[Finite-rank trace identity]\label{finite-kernel-trace-identity}
+The specified diagonal $x\mapsto K_A(x,x)$ is integrable. If $\lambda_1,\ldots,\lambda_N$ are the eigenvalues of $A$, counted with algebraic multiplicity, then
+\[
+\boxed{\int_X K_A(x,x)\,d\mu(x)
+=\operatorname{tr}(T_A)
+=\sum_{j=1}^N\lambda_j.}
+\]
+\end{proposition}
+
+\begin{proof}
+For every $i,j$,
+\[
+\int_X|u_i(x)\overline{u_j(x)}|\,d\mu(x)
+\leq\|u_i\|_{L^2(X,\mu)}\|u_j\|_{L^2(X,\mu)}=1.
+\]
+The diagonal is therefore a finite sum of integrable functions. Orthonormality gives
+\[
+\int_X K_A(x,x)\,d\mu(x)
+=\sum_{i,j}a_{ij}\langle u_i,u_j\rangle_{L^2(X,\mu)}
+=\sum_i a_{ii}
+=\operatorname{tr}(A).
+\]
+The matrix of $T_A|_V$ is $A$, and the \hyperref[linear-algebra.trace-eigenvalue-sum]{trace--eigenvalue identity} supplies the last equality. For $N=0$, all expressions vanish.
+\end{proof}
+
+The eigenvalues in this statement belong to the finite-dimensional restriction. No diagonalizability assumption is needed. If $A$ is diagonal in the chosen orthonormal basis, the kernel has the particular form
+\[
+K_A(x,y)=\sum_j\lambda_j u_j(x)\overline{u_j(y)}.
+\]
+Integrating its diagonal replaces each factor $\int_X|u_j|^2\,d\mu$ by $1$. For $A=I_N$, the operator is orthogonal projection onto $V$, and its trace is $N$.
+
+\begin{example}[A rank-one kernel]\label{finite-kernel-rank-one-example}
+
+On $[0,1]$ with Lebesgue measure $dx$, the function $u(x)=\sqrt3\,x$ satisfies $\|u\|_{L^2([0,1],dx)}=1$. The matrix $(\alpha)$, for $\alpha\in\mathbb C$, gives
+\[
+K(x,y)=3\alpha xy,
+\qquad
+(Tf)(x)=3\alpha x\int_0^1 yf(y)\,dy.
+\]
+Here $Tu=\alpha u$, $T$ vanishes on $u^\perp$, and
+\[
+\int_0^1K(x,x)\,dx=3\alpha\int_0^1x^2\,dx=\alpha.
+\]
+For $\alpha=0$, the operator has rank zero; the identity is unchanged.
+\end{example}
+
+\begin{remark}[The choice of diagonal]\label{kernel-diagonal-representatives}
+
+Changing the representatives of the finitely many $u_j$ changes the specified diagonal only on a null set, so its integral is well defined. An arbitrary representative of a kernel defined almost everywhere on $X\times X$ need not have this property.
+
+For example, the zero function and the indicator of $\{(x,y):x=y\}$ agree almost everywhere on $[0,1]^2$ for two-dimensional Lebesgue measure. Both define the zero integral operator, but their diagonal integrals are respectively zero and one. Consequently, a measurable kernel's diagonal integral is not determined by its product-almost-everywhere class. The finite separated formula used above supplies a specified diagonal; any more general diagonal trace formula requires an appropriate representative and its own integrability justification.
+\end{remark}

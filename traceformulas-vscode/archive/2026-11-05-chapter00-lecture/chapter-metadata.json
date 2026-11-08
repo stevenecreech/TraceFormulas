@@ -1,0 +1,20 @@
+{
+  "videos": [],
+  "prerequisites": [],
+  "resources": [],
+  "exercises": [],
+  "explorations": [],
+  "formal": {
+    "status": "in-progress",
+    "url": "",
+    "declarations": []
+  },
+  "sectionPrerequisites": {
+    "v1a-ch00-s2": [
+      "v1a-ch00-s1"
+    ],
+    "v1a-ch00-s5": [
+      "v1a-ch00-s2"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+name = "traceformulas"
+version = "0.1.0"
+packagesDir = "lean/.lake/packages"
+buildDir = "lean/.lake/build"
+defaultTargets = ["TraceFormulas", "TraceFormulasBook"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "39d8416ae1e1083477f7546f1fd10e460ad37936"
+
+[[lean_lib]]
+name = "TraceFormulas"
+srcDir = "lean"
+moreLeanArgs = ["-DautoImplicit=false"]
+
+[[lean_lib]]
+name = "TraceFormulasBook"
+moreLeanArgs = ["-DautoImplicit=false"]
+srcDir = "volumes"
+roots = [
+  "Volume01.A.chapters.Chapter00.sections.Section01.Formalization",
+  "Volume01.A.chapters.Chapter00.sections.Section02.Formalization",
+  "Volume01.A.chapters.Chapter00.sections.Section03.Formalization"
+]

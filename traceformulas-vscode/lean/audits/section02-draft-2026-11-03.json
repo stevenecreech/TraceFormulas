@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-03",
+  "result_id": "finite-orthonormal-coefficients",
+  "proof_status": "unverified-draft",
+  "build_status": "blocked-on-dependency-loading",
+  "axiom_audit_status": "not-run",
+  "human_correspondence_review": "not-reviewed",
+  "toolchain": "leanprover/lean4:v4.21.0-rc3",
+  "mathlib_revision": "39d8416ae1e1083477f7546f1fd10e460ad37936",
+  "files": {
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section02/text.tex": "44e6877c60f2375057bfe0524180d0371ef3e87e7bc5b4e9b3989e551487dbbe",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean": "1f16eec66d43d7171982daaec458ecee9e7a9d2997a570f880804f4ba365af7e",
+    "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean": "245153110c81f30c5e5e04eb88354b56c021a7900f9f7407384e59767a09c7d7",
+    "lean/lakefile.toml": "b925adcdc2750072fe62e0db5dd6209dedcef8d979e3059c7e906242a8e3ff23",
+    "lean/lake-manifest.json": "ae6df1b12f07689db46ffb94428df01a42b5f9ef53a2b3779620a990c3e0eef7",
+    "lean/lean-toolchain": "4a621e65aac8f17691d825e7dfedb432e2658f3a96002cab94fad5320a18c9fc"
+  },
+  "observed_checks": [
+    "Direct import probe of Mathlib.Analysis.InnerProductSpace.Orthonormal and Mathlib.Analysis.InnerProductSpace.Orthogonal timed out after 90 seconds against local caches.",
+    "Second bounded direct import probe timed out after 30 seconds and was stopped.",
+    "All nine existing dependency checkout HEAD values matched the source manifest.",
+    "Lake TOML and section/manifest JSON parsed locally."
+  ],
+  "limitations": [
+    "No draft theorem was compiled.",
+    "No axiom-output evidence exists.",
+    "Some cached dependencies were cloud-evicted; local disk headroom was about 3.4 GiB.",
+    "The complete source/dependency closure was not audited or rebuilt.",
+    "Fresh-checkout dependency installation was not tested."
+  ]
+}

@@ -1,0 +1,212 @@
+\phantomsection\label{finite-kernel-model}
+
+The spectral side of a trace formula records how an operator acts on eigenfunctions. In a finite-dimensional setting, the passage from this spectral description to a kernel follows three steps:
+\begin{enumerate}
+\item Choose an orthonormal basis of eigenfunctions for a finite-dimensional invariant subspace.
+\item Take inner products with those eigenfunctions to extract coefficients and write the action of the operator.
+\item Express that action through an integral kernel, then integrate the kernel along the diagonal to recover the trace.
+\end{enumerate}
+We carry out this procedure for a finite family of eigenfunctions. We then recover the more general matrix construction, which also applies when an orthonormal eigenbasis is unavailable.
+
+Let $(X,\mu)$ be a sigma-finite measure space and put $H=L^2(X,\mu;\mathbb C)$, with inner product and norm
+\[
+\begin{aligned}
+\langle f,g\rangle_{L^2(X,\mu)}&=\int_X f(x)\overline{g(x)}\,d\mu(x),\\
+\|f\|_{L^2(X,\mu)}&=\left(\int_X|f(x)|^2\,d\mu(x)\right)^{1/2}.
+\end{aligned}
+\]
+
+Fix an orthonormal family $u_1,\ldots,u_N$, choose measurable representatives, and let $V$ be its span. Suppose $T:H\to H$ is linear, satisfies $Tu_j=\lambda_j u_j$ with $\lambda_j\in\mathbb C$, and vanishes on $V^\perp$. Thus the $u_j$ form an orthonormal eigenbasis of $V$; they need not span all of $H$.
+
+To determine $Tf$, we first extract the part of $f$ lying in $V$.
+
+\begin{proposition}[Coefficients in an orthonormal family]\label{finite-orthonormal-coefficients}
+Every $f\in H$ has a unique decomposition
+\[
+f=\sum_{j=1}^N\langle f,u_j\rangle_{L^2(X,\mu)}u_j+r,
+\qquad r\in V^\perp.
+\]
+Consequently,
+\[
+Tf=\sum_{j=1}^N\lambda_j\langle f,u_j\rangle_{L^2(X,\mu)}u_j.
+\]
+\end{proposition}
+
+\begin{proof}
+Subtract the displayed finite sum from $f$ to define $r$. For each $k$, linearity in the first argument and orthonormality give
+\[
+\begin{aligned}
+\langle r,u_k\rangle_{L^2(X,\mu)}
+&=\langle f,u_k\rangle_{L^2(X,\mu)}
+-\sum_{j=1}^N\langle f,u_j\rangle_{L^2(X,\mu)}
+ \langle u_j,u_k\rangle_{L^2(X,\mu)}\\
+&=0.
+\end{aligned}
+\]
+It follows that $r$ is orthogonal to every vector in $V$. Any decomposition of $f$ as a linear combination of the $u_j$ plus a vector in $V^\perp$ has these same coefficients, as taking the inner product with $u_k$ shows. This proves uniqueness. Applying $T$, using $Tr=0$ and $Tu_j=\lambda_j u_j$, proves the operator formula.
+\end{proof}
+
+Cauchy--Schwarz gives $|\langle f,u_j\rangle_{L^2(X,\mu)}|\leq\|f\|_{L^2(X,\mu)}$. Hence the coefficient formula implies
+\[
+\|Tf\|_{L^2(X,\mu)}
+\leq\left(\sum_{j=1}^N|\lambda_j|\right)\|f\|_{L^2(X,\mu)}.
+\]
+In particular, $T$ is bounded and has image in $V$.
+
+We now substitute the integral defining each coefficient into the operator formula. The finite sum can be brought inside the integral, suggesting the following kernel.
+
+\begin{definition}[Kernel from an orthonormal eigenbasis]\label{finite-spectral-kernel}
+Using the chosen representatives of the $u_j$, define
+\[
+K_T(x,y)=\sum_{j=1}^N\lambda_j u_j(x)\overline{u_j(y)}.
+\]
+\end{definition}
+
+For $f\in H$, Cauchy--Schwarz gives
+\[
+\int_X|u_j(y)f(y)|\,d\mu(y)
+\leq\|u_j\|_{L^2(X,\mu)}\|f\|_{L^2(X,\mu)}
+=\|f\|_{L^2(X,\mu)}.
+\]
+Each term is therefore integrable in $y$, and termwise integration yields
+\[
+\begin{aligned}
+\int_XK_T(x,y)f(y)\,d\mu(y)
+&=\sum_{j=1}^N\lambda_j u_j(x)
+ \int_X f(y)\overline{u_j(y)}\,d\mu(y)\\
+&=(Tf)(x)
+\end{aligned}
+\]
+for almost every $x$. This identifies $K_T$ as an integral kernel for $T$.
+
+To compare its diagonal integral with a trace, we extend the finite-dimensional definition from \hyperref[v1a-ch00-s1]{Section 0.1} to the operators used here.
+
+\begin{definition}[Finite-rank trace]\label{finite-kernel-trace-definition}
+If a linear operator $S:H\to H$ has image in a finite-dimensional subspace $W$ and vanishes on $W^\perp$, define
+\[
+\operatorname{tr}(S)=\operatorname{tr}(S|_W).
+\]
+\end{definition}
+
+\begin{proof}[Well-definedness]
+The definition uses an auxiliary choice of $W$, so we must show that the resulting number depends only on $S$. For a fixed $W$, the restriction $S|_W$ is an endomorphism because $S(H)\subseteq W$, and its trace is independent of the basis by \hyperref[linear-algebra.trace-similarity]{Corollary 0.1.5}.
+
+Now let $W$ and $W'$ be two possible choices in the definition: each is finite-dimensional, each contains the image of $S$, and $S$ vanishes on each one's orthogonal complement. We must prove
+\[
+\operatorname{tr}(S|_W)=\operatorname{tr}(S|_{W'}).
+\]
+The spaces need not contain one another. To compare them, put $U=W+W'$, a finite-dimensional space containing both. Since $W\subseteq U$, we have the orthogonal decomposition
+\[
+U=W\oplus(U\cap W^\perp).
+\]
+The operator maps $W$ into itself and is zero on the second summand. Thus a basis adapted to this decomposition gives the matrix
+\[
+\begin{pmatrix}B&0\\0&0\end{pmatrix}
+\]
+for $S|_U$, where $B$ is a matrix of $S|_W$. Adding the zero block does not change the sum of the diagonal entries, so $\operatorname{tr}(S|_U)=\operatorname{tr}(S|_W)$. Applying the same argument to $U=W'\oplus(U\cap(W')^\perp)$ gives
+\[
+\operatorname{tr}(S|_W)=\operatorname{tr}(S|_U)=\operatorname{tr}(S|_{W'}).
+\]
+Consequently the definition of $\operatorname{tr}(S)$ is independent of the choice of $W$.
+\end{proof}
+
+For the operator $T$, its matrix on $V$ in the basis $u_1,\ldots,u_N$ is $\operatorname{diag}(\lambda_1,\ldots,\lambda_N)$. Thus its trace is $\sum_j\lambda_j$. On the kernel side,
+\[
+K_T(x,x)=\sum_{j=1}^N\lambda_j|u_j(x)|^2.
+\]
+Each summand is integrable, and the normalization $\|u_j\|_{L^2(X,\mu)}=1$ gives
+\[
+\int_XK_T(x,x)\,d\mu(x)
+=\sum_{j=1}^N\lambda_j\int_X|u_j(x)|^2\,d\mu(x)
+=\sum_{j=1}^N\lambda_j
+=\operatorname{tr}(T).
+\]
+This is the trace formula produced by the three steps: the diagonal integral is the kernel expression, and the sum of eigenvalues is the spectral expression.
+
+\begin{example}[A rank-one kernel]\label{finite-kernel-rank-one-example}
+On $[0,1]$ with Lebesgue measure $dx$, take $u(x)=\sqrt3\,x$. Since
+\[
+\|u\|_{L^2([0,1],dx)}^2=3\int_0^1x^2\,dx=1,
+\]
+for any $\alpha\in\mathbb C$ we may prescribe $Tu=\alpha u$ and let $T$ vanish on $u^\perp$. The coefficient formula gives
+\[
+K_T(x,y)=3\alpha xy,
+\qquad
+(Tf)(x)=3\alpha x\int_0^1 yf(y)\,dy.
+\]
+The two trace calculations agree:
+\[
+\int_0^1K_T(x,x)\,dx=3\alpha\int_0^1x^2\,dx=\alpha=\operatorname{tr}(T).
+\]
+\end{example}
+
+The eigenbasis calculation has a general matrix form. Retain the orthonormal family and its span $V$, and now allow an arbitrary matrix $A\in M_N(\mathbb C)$ to describe the action on $V$.
+
+\begin{definition}[Finite kernel and associated operator]\label{finite-kernel-operator}
+For $A=(a_{ij})\in M_N(\mathbb C)$, define
+\[
+\begin{aligned}
+T_Af&=\sum_{i,j=1}^N a_{ij}\langle f,u_j\rangle_{L^2(X,\mu)}u_i,\\
+K_A(x,y)&=\sum_{i,j=1}^N a_{ij}u_i(x)\overline{u_j(y)}.
+\end{aligned}
+\]
+\end{definition}
+
+The same Cauchy--Schwarz estimate makes each integral against $\overline{u_j(y)}f(y)$ absolutely convergent, so
+\[
+(T_Af)(x)=\int_X K_A(x,y)f(y)\,d\mu(y)
+\]
+for almost every $x$. Moreover,
+\[
+\|T_Af\|_{L^2(X,\mu)}
+\leq\left(\sum_{i,j}|a_{ij}|\right)\|f\|_{L^2(X,\mu)}.
+\]
+Thus $T_A$ is bounded, has image in $V$, and vanishes on $V^\perp$. Since $T_Au_j=\sum_i a_{ij}u_i$, its restriction to $V$ has matrix $A$, and $\operatorname{tr}(T_A)=\operatorname{tr}(A)$. The diagonal choice $A=\operatorname{diag}(\lambda_1,\ldots,\lambda_N)$ recovers $T$ and $K_T$.
+
+For a finite set $X=\{1,\ldots,N\}$ with counting measure and the point indicators as basis, $K_A(i,j)=a_{ij}$. The kernel formula then reduces to matrix multiplication. In general, its two variables play the roles of the output and input indices.
+
+\begin{proposition}[Finite-rank trace identity]\label{finite-kernel-trace-identity}
+The specified diagonal $x\mapsto K_A(x,x)$ is integrable. If $\nu_1,\ldots,\nu_N$ are the eigenvalues of $A$, counted with algebraic multiplicity, then
+\[
+\boxed{\int_X K_A(x,x)\,d\mu(x)
+=\operatorname{tr}(T_A)
+=\sum_{j=1}^N\nu_j.}
+\]
+\end{proposition}
+
+\begin{proof}
+For every $i,j$,
+\[
+\int_X|u_i(x)\overline{u_j(x)}|\,d\mu(x)
+\leq\|u_i\|_{L^2(X,\mu)}\|u_j\|_{L^2(X,\mu)}=1.
+\]
+The diagonal is therefore a finite sum of integrable functions. Orthonormality gives
+\[
+\int_X K_A(x,x)\,d\mu(x)
+=\sum_{i,j}a_{ij}\langle u_i,u_j\rangle_{L^2(X,\mu)}
+=\sum_i a_{ii}
+=\operatorname{tr}(A).
+\]
+The matrix of $T_A|_V$ is $A$, and the \hyperref[linear-algebra.trace-eigenvalue-sum]{trace--eigenvalue identity} supplies the last equality. 
+\end{proof}
+
+The numbers $\nu_j$ are eigenvalues of the restriction $T_A|_V$. No diagonalizability assumption is needed, and the chosen orthonormal family need not consist of eigenfunctions of $T_A$. Taking $A=I_N$ gives orthogonal projection onto $V$, whose trace is $N$. The general matrix form will be used for the relative pairings and weighted traces in \hyperref[v1a-ch00-s5]{Section 0.3}.
+
+\begin{remark}[The diagonal specified by the kernel formula]\label{kernel-diagonal-representatives}
+
+The trace identity uses the kernel constructed from the chosen representatives of the $u_j$:
+\[
+K_A(x,y)=\sum_{i,j=1}^N a_{ij}u_i(x)\overline{u_j(y)}.
+\]
+We may change each $u_j$ arbitrarily on a $\mu$-null set $E_j$, provided the new function $\widetilde u_j$ is measurable. Rebuilding the kernel from these new representatives gives
+\[
+\widetilde K_A(x,y)=\sum_{i,j=1}^N a_{ij}\widetilde u_i(x)\overline{\widetilde u_j(y)}.
+\]
+Put $E=\bigcup_{j=1}^N E_j$, which is again $\mu$-null. The kernels $K_A$ and $\widetilde K_A$ agree outside
+\[
+(E\times X)\cup(X\times E),
+\]
+a null set for the product measure $\mu\otimes\mu$ on $X\times X$. Moreover, $\widetilde K_A(x,x)=K_A(x,x)$ whenever $x\notin E$, so their diagonal integrals agree. Thus changing the representatives of the $u_j$ changes the kernel only on a product-null set, and changes its diagonal only on a $\mu$-null set.
+
+We cannot make an arbitrary measurable change to $K_A$ on a $(\mu\otimes\mu)$-null set and still assert the diagonal trace identity. Such a change preserves the integral operator almost everywhere, but a product-null set can contain the entire diagonal. For example, the zero function and the indicator of $\{(x,y):x=y\}$ agree almost everywhere on $[0,1]^2$ for two-dimensional Lebesgue measure. Both define the zero integral operator, but their diagonal integrals are respectively zero and one. The kernel supplied by our finite formula for the zero operator is the zero function. Replacing it by the diagonal indicator preserves the operator but abandons the formula that specifies its diagonal. The distinction is therefore between changes induced by choosing representatives of the $u_j$ in the finite formula, which preserve the diagonal integral, and arbitrary product-null changes to the kernel, which need not.
+\end{remark}

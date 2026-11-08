@@ -1,0 +1,114 @@
+\phantomsection\label{three-finite-kernel-constructions}
+
+Retain the measure space $(X,\mu)$, the orthonormal family $u_1,\ldots,u_N$, its span $V$, and the kernel $K_A$ from \hyperref[v1a-ch00-s2]{Section 0.2}. There are three distinct operations: integrate the diagonal, integrate against separate functions in the two variables, or weight the diagonal before integrating. Each is linear in $K_A$.
+
+\begin{definition}[Ordinary diagonal trace]\label{ordinary-finite-trace}
+
+The ordinary diagonal trace is
+\[
+\mathcal T(K_A)=\int_XK_A(x,x)\,d\mu(x).
+\]
+\end{definition}
+
+The \hyperref[finite-kernel-trace-identity]{finite-rank trace identity} gives $\mathcal T(K_A)=\operatorname{tr}(A)$. If $A=\operatorname{diag}(\lambda_1,\ldots,\lambda_N)$, this is $\sum_j\lambda_j$. 
+
+
+ADD SOME WORDS HERE WHERE THE IDEA OF Integrating against a separate function will then do something when we add this function as it changes and motivate why we do it as the integral gets an additional term or something. I also don't know if we should say why we are claling this a period, or just say it is a relative kernel and explain why it is called that. 
+
+\begin{definition}[Periods and relative pairings]\label{relative-finite-pairing}
+
+For $p\in H=L^2(X,\mu;\mathbb C)$, write
+\[
+P_p(u)=\langle u,p\rangle_{L^2(X,\mu)}
+=\int_Xu(x)\overline{p(x)}\,d\mu(x).
+\]
+Given $p,q\in H$, define
+\[
+\mathcal R_{p,q}(K_A)
+=\int_X\int_XK_A(x,y)q(y)\overline{p(x)}\,d\mu(y)\,d\mu(x).
+\]
+\end{definition}
+
+\begin{proposition}[Relative kernel identity]\label{finite-relative-kernel-identity}
+The integral is absolutely convergent and satisfies
+\[
+\mathcal R_{p,q}(K_A)
+=\langle T_Aq,p\rangle_{L^2(X,\mu)}
+=\sum_{i,j}a_{ij}P_p(u_i)\overline{P_q(u_j)}.
+\]
+\end{proposition}
+
+\begin{proof}
+Tonelli's theorem and Cauchy--Schwarz bound the integral of the absolute value of the $(i,j)$ summand by
+\[
+|a_{ij}|\left(\int_X|u_i p|\,d\mu\right)
+\left(\int_X|u_j q|\,d\mu\right)
+\leq |a_{ij}|\|p\|_{L^2(X,\mu)}\|q\|_{L^2(X,\mu)}.
+\]
+There are finitely many summands. Fubini's theorem and termwise integration therefore yield
+\[
+\sum_{i,j}a_{ij}\langle u_i,p\rangle_{L^2(X,\mu)}\langle q,u_j\rangle_{L^2(X,\mu)}.
+\]
+Conjugate symmetry and the definition of $T_A$ identify this with both asserted expressions.
+\end{proof}
+
+For diagonal $A$, the identity becomes
+\[
+\mathcal R_{p,q}(K_A)
+=\sum_j\lambda_jP_p(u_j)\overline{P_q(u_j)}.
+\]
+Thus separate measurements of the eigenfunctions remain in the formula.
+
+\begin{remark}[Periods over measurable sets]\label{finite-subset-periods}
+If $C\subseteq X$ is measurable with finite measure, $p=1_C$ gives $P_p(u)=\int_Cu\,d\mu$. This uses the ambient measure: an arbitrary $L^2$ class cannot instead be restricted to a curve of ambient measure zero. Such a period requires additional regularity and a measure on the curve.
+\end{remark}
+
+SIMILAR HERE, we should explain why we are doing the weighted diagonal. 
+
+\begin{definition}[Weighted diagonal integral]\label{weighted-finite-trace}
+
+Let $w\in L^\infty(X,\mu;\mathbb C)$, let $M_wf=wf$, and let $P$ be orthogonal projection onto $V$. Define
+\[
+\mathcal W_w(K_A)=\int_Xw(x)K_A(x,x)\,d\mu(x).
+\]
+\end{definition}
+
+Essential boundedness of $w$ and integrability of the specified diagonal make this integral absolutely convergent.
+
+\begin{proposition}[Weighted kernel identity]\label{finite-weighted-kernel-identity}
+For the endomorphism $S_w=P M_wT_A|_V$,
+\[
+\mathcal W_w(K_A)=\operatorname{tr}(S_w)
+=\sum_{i,j}a_{ij}\int_Xw(x)u_i(x)\overline{u_j(x)}\,d\mu(x).
+\]
+\end{proposition}
+
+\begin{proof}
+The $j$-th diagonal entry in an orthonormal basis is $\langle S_wu_j,u_j\rangle_{L^2(X,\mu)}$. Projection does not change the inner product with $u_j\in V$, so
+\[
+\operatorname{tr}(S_w)
+=\sum_j\langle wT_Au_j,u_j\rangle_{L^2(X,\mu)}
+=\sum_{i,j}a_{ij}\int_Xwu_i\overline{u_j}\,d\mu.
+\]
+Integrating the finite formula for $wK_A(x,x)$ gives the same sum.
+\end{proof}
+
+For diagonal $A$,
+\[
+\mathcal W_w(K_A)=\sum_j\lambda_j\int_Xw(x)|u_j(x)|^2\,d\mu(x).
+\]
+The choice $w=1$ recovers the ordinary trace; an indicator weight measures mass in a region. Neither invariance of $V$ under $M_w$ nor commutation of $M_w$ with $T_A$ is required: the projection in $S_w$ supplies an endomorphism of $V$.
+
+\phantomsection\label{finite-trace-information-examples}
+
+I THINK THIS BELOW EXAMPLE, WE SHOULD DO IT 3 TIMES WITH THE 3 DIFFERENT PERSPECTIVES saying what the relative pairing and weights are in each of the ways that we do it. 
+
+\begin{example}[Off-diagonal entries]
+On $X=\{1,2\}$ with counting measure and its indicator basis, consider
+\[
+A=\begin{pmatrix}1&0\\0&2\end{pmatrix},
+\qquad B=\begin{pmatrix}1&1\\1&2\end{pmatrix}.
+\]
+Both kernels have ordinary trace $3$ and weighted trace $w(1)+2w(2)$ for every $w$. The relative pairing with $p=u_1,q=u_2$, however, is the entry in row one and column two: it is zero for $A$ and one for $B$. Diagonal measurements do not determine the off-diagonal entries.
+\end{example}
+=

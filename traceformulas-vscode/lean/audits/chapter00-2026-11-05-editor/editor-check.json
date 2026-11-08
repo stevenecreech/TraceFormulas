@@ -1,0 +1,95 @@
+{
+  "date": "2026-11-05",
+  "status": "passed",
+  "scope": "Lean editor project discovery and language-server elaboration of all three Chapter 0 companions",
+  "command": [
+    "/Users/stevencreech/.elan/toolchains/leanprover--lean4---v4.21.0-rc3/bin/lake",
+    "serve"
+  ],
+  "cwd": ".",
+  "method": "Initialize a language-server client at the project root, open each actual companion, await finished file processing and a hover response for its last theorem, and inspect error diagnostics.",
+  "sections": [
+    {
+      "section": "0.1",
+      "path": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "processing_completed": true,
+      "error_diagnostics": [],
+      "hover_declaration": "jordan_no_eigenbasis",
+      "hover": {
+        "range": {
+          "start": {
+            "line": 175,
+            "character": 8
+          },
+          "end": {
+            "line": 175,
+            "character": 28
+          }
+        },
+        "contents": {
+          "value": "```lean\nTraceFormulas.Volume01.A.Chapter00.Section01.jordan_no_eigenbasis :\n  \u00ac\u2203 b z, \u2200 (j : Fin 2), jordanMatrix.mulVec (b j) = z j \u2022 b j\n```\n***\nThere is no basis consisting of eigenvectors, regardless of the listed eigenvalues. ",
+          "kind": "markdown"
+        }
+      }
+    },
+    {
+      "section": "0.2",
+      "path": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "processing_completed": true,
+      "error_diagnostics": [],
+      "hover_declaration": "diagonal_counterexample",
+      "hover": {
+        "range": {
+          "start": {
+            "line": 190,
+            "character": 8
+          },
+          "end": {
+            "line": 190,
+            "character": 31
+          }
+        },
+        "contents": {
+          "value": "```lean\nTraceFormulas.Volume01.A.Chapter00.Section02.diagonal_counterexample :\n  (fun z => diagonalIndicator z.1 z.2) =\u1da0[ae (unitIntervalMeasure.prod unitIntervalMeasure)] 0 \u2227\n    (\u2200 (f : \u211d \u2192 \u2102) (x : \u211d), \u222b (y : \u211d), diagonalIndicator x y * f y \u2202unitIntervalMeasure = 0) \u2227\n      \u222b (x : \u211d), diagonalIndicator x x \u2202unitIntervalMeasure = 1 \u2227 \u222b (_x : \u211d), 0 \u2202unitIntervalMeasure = 0\n```",
+          "kind": "markdown"
+        }
+      }
+    },
+    {
+      "section": "0.3",
+      "path": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "processing_completed": true,
+      "error_diagnostics": [],
+      "hover_declaration": "weighted_integral_exampleB",
+      "hover": {
+        "range": {
+          "start": {
+            "line": 206,
+            "character": 8
+          },
+          "end": {
+            "line": 206,
+            "character": 34
+          }
+        },
+        "contents": {
+          "value": "```lean\nTraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleB (w : Fin 2 \u2192 \u2102) :\n  weightedKernelIntegral Measure.count exampleB w = w 0 + 2 * w 1\n```",
+          "kind": "markdown"
+        }
+      }
+    }
+  ],
+  "vscode_ui_observed": false,
+  "user_action": "Developer: Reload Window in VS Code to recreate clients after the project-root change.",
+  "human_correspondence_review": "not-reviewed",
+  "source_sha256": {
+    "lakefile.toml": "59bafafb6dcab4b2d9e2d8586d325f19470e19bb54eb63dd4ed601ed00e4e8fb",
+    "lake-manifest.json": "c3d06c4bd61e3f79ce55c83d5b8ceaf73a495aa1822fe117a7227581855e0777",
+    "lean-toolchain": "4a621e65aac8f17691d825e7dfedb432e2658f3a96002cab94fad5320a18c9fc",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean": "47ffed7b2aaa4a58cfebeee461fa4e10561195d5bb169805f8c9c867c83cff7a",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean": "646e5c3421feb287e285bb466076e3ab4bf0788484b465dfceeb7d5af8179aa5",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean": "657db5694fe1b9ccacdd0b3272e40e76f20680548e4b46dbed78fa94d4b0b645"
+  },
+  "client_snapshot": "lsp-client.py.txt",
+  "stderr": "lsp-stderr.log"
+}

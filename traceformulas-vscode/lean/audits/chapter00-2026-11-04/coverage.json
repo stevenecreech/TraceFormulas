@@ -1,0 +1,1825 @@
+{
+  "schema_version": 1,
+  "chapter": "Volume01.A.Chapter00",
+  "record_date": "2026-11-04",
+  "purpose": "Source-validated correspondence inventory; not an assertion that machine checking or human correspondence review has passed.",
+  "paths_relative_to": "traceformulas-vscode/",
+  "machine_evidence": {
+    "record": "record.json",
+    "build_log": "build.log",
+    "axiom_log": "axioms.log",
+    "path_base": "this coverage.json directory",
+    "status": "consult record.json; not asserted by this inventory",
+    "source_versions": "Exact manuscript, companion, shared-module, metadata, and dependency versions are identified by record.json; hashes are not duplicated here.",
+    "inventory_scope": "Public named project definitions and theorems in the listed modules. The environment-wide axiom audit also covers generated and private declarations; its count can exceed this inventory."
+  },
+  "human_correspondence_review": {
+    "status": "not-reviewed",
+    "reviewer": "Steven",
+    "scope": "The prose and Lean source versions identified in the sibling record.json.",
+    "approval_rule": "Only Steven can approve mathematical correspondence; statement or definition changes reopen affected review."
+  },
+  "ai_correspondence_checks": [
+    {
+      "section": "0.2",
+      "reviewer": "Section03 formalization agent",
+      "kind": "independent read-only source cross-check",
+      "scope": "Actual finite-rank range trace, unrestricted spectral input T, operator bounds, representative bridges, and Lebesgue diagonal counterexample.",
+      "result": "No weakening or assumed target identity identified in this cross-check; this is not human approval."
+    },
+    {
+      "section": "0.3",
+      "reviewer": "Section02 formalization agent",
+      "kind": "independent read-only source cross-check",
+      "scope": "Actual L∞ multiplication, L² operators, orthogonal projection, actual compressed endomorphism trace, relative product integrability and inner-product convention.",
+      "result": "No surrogate operator, trace definition equated to its target, or hidden conclusion assumption identified in this cross-check; this is not human approval."
+    }
+  ],
+  "coverage_policy": [
+    "Every LaTeX label in the three current section texts is represented below.",
+    "Unlabelled examples and narrative claims attach to an existing nearby semantic label; no new manuscript labels have been invented.",
+    "Definitions, notation, interpretation, claimed results, and supporting narrative calculations are distinguished.",
+    "An entry records the exact local declaration coverage and any proof-route or scope distinction; it does not assert a line-by-line transcription of every intermediate estimate in the prose.",
+    "The public declaration inventory includes reusable intermediate helpers even when they have no independent manuscript label."
+  ],
+  "source_name_validation": {
+    "status": "passed",
+    "method": "Matched every named declaration to its current namespace and declaration header in a listed Lean source; verified that all labels in the three texts are mapped and that all scratch declaration inventories are included.",
+    "public_declaration_count": 229,
+    "referenced_declaration_count": 229,
+    "distinct_manuscript_label_count": 26,
+    "coverage_entry_count": 29,
+    "limitations": "Source-name validation is not Lean type checking, an axiom audit, or human semantic review."
+  },
+  "sections": [
+    {
+      "section": "0.1",
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/text.tex",
+      "companion": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "comparison": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/compare.tex",
+      "entries": [
+        {
+          "label": "a-quantity-seen-in-two-ways",
+          "kind": "opening example and exposition",
+          "claim": "The matrix [[2,1],[1,2]] has trace 4 and the two displayed nonzero eigenvectors with eigenvalues 3 and 1.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section01.openingMatrix",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.opening_trace",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_three",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_one",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvectors_nonzero"
+          ],
+          "scope_note": "The geometric-side/spectral-side terminology is exposition, not a separate theorem."
+        },
+        {
+          "label": "linear-algebra.transpose",
+          "kind": "notation anchor",
+          "claim": "The displayed column vectors use ordinary transpose, with no complex conjugation.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_three",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_one"
+          ],
+          "scope_note": "Lean represents column vectors as functions Fin n → ℂ. There is no separate project definition of the manuscript transpose typography."
+        },
+        {
+          "label": "linear-algebra.trace-eigenvalue-sum",
+          "kind": "theorem and following explanation",
+          "claim": "For every size including zero, trace equals the sum of characteristic roots with algebraic multiplicity; there are n roots and a root corresponds to a nonzero eigenvector.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section01.trace_eigenvalue_sum",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.characteristic_roots_count",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.characteristic_root_iff_eigenvector",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.trace_empty",
+            "TraceFormulas.matrix_trace_eq_sum_roots",
+            "TraceFormulas.matrix_charpoly_roots_card",
+            "TraceFormulas.matrix_isRoot_charpoly_iff"
+          ],
+          "correspondence_note": "Roots are a multiset. The Mathlib characteristic-polynomial theorem follows the coefficient-comparison route; no diagonalizability hypothesis is introduced."
+        },
+        {
+          "label": "definition-the-trace",
+          "kind": "definition and subsequent elementary properties",
+          "claim": "Matrix trace is the diagonal sum, including the empty sum, and is additive, homogeneous, and n on the identity.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section01.trace_eq_diagonal_sum",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.trace_add",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.trace_scalar",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.trace_identity",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.trace_empty"
+          ]
+        },
+        {
+          "label": "definition-the-trace",
+          "kind": "unlabelled rectangular worked example",
+          "claim": "The displayed 1×2 and 2×1 matrices have products [[11]] and [[3,6],[4,8]], both with trace 11.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularA",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularB",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_product_AB",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_product_BA",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_trace_AB",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_trace_BA"
+          ],
+          "anchor_relation": "This example follows the trace definition and precedes the cyclicity proposition; the manuscript gives it no separate label."
+        },
+        {
+          "label": "linear-algebra.trace-cyclic",
+          "kind": "proposition",
+          "claim": "Trace(AB)=Trace(BA) for compatible rectangular complex matrices, allowing empty dimensions.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section01.trace_cyclic",
+            "TraceFormulas.matrix_trace_cyclic"
+          ]
+        },
+        {
+          "label": "linear-algebra.trace-similarity",
+          "kind": "corollary",
+          "claim": "Trace(S⁻¹AS)=Trace(A) for invertible S.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section01.trace_similarity",
+            "TraceFormulas.matrix_trace_similarity",
+            "TraceFormulas.matrix_trace_similarity_of_isUnit"
+          ],
+          "correspondence_note": "The companion uses IsUnit S and the actual Mathlib matrix inverse; the shared unit-valued formulation is also available."
+        },
+        {
+          "label": "linear-algebra.endomorphism-trace",
+          "kind": "definition and basis-independence explanation",
+          "claim": "The actual linear-map trace agrees with the trace of the matrix in any finite basis, and does not depend on that basis.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section01.endomorphism_trace",
+            "TraceFormulas.endomorphism_trace_eq_basis_trace",
+            "TraceFormulas.endomorphism_basis_trace_independent"
+          ]
+        },
+        {
+          "label": "check-the-statement-on-examples",
+          "kind": "narrative and unlabelled Jordan example",
+          "claim": "The Jordan matrix [[2,1],[0,2]] has characteristic polynomial (t−2)², roots {2,2}, trace 4, a one-dimensional eigenspace, only eigenvalue 2, and no eigenbasis.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section01.jordanMatrix",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_trace",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_charpoly",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_characteristic_roots",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace_eq_span",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace_dimension",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_only_eigenvalue",
+            "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_no_eigenbasis"
+          ],
+          "scope_note": "The alternative proof for a diagonalizable matrix is explanatory; the general trace theorem has no diagonalizability assumption and is already covered."
+        }
+      ]
+    },
+    {
+      "section": "0.2",
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/text.tex",
+      "companion": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "comparison": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/compare.tex",
+      "entries": [
+        {
+          "label": "finite-kernel-model",
+          "kind": "setting and conventions",
+          "claim": "The ambient space is the actual complex L² space; the book inner product is linear in its first argument and equals the stated integral.",
+          "declarations": [
+            "TraceFormulas.bookInner",
+            "TraceFormulas.integrable_l2_mul_star",
+            "TraceFormulas.integral_l2_mul_star"
+          ],
+          "correspondence_note": "bookInner reverses Mathlib inner-product arguments. The finite-sum theorems hold for arbitrary measures, hence specialize to the manuscript sigma-finite setting. The ambient L² space is not assumed finite-dimensional."
+        },
+        {
+          "label": "finite-orthonormal-coefficients",
+          "kind": "proposition and following boundedness statement",
+          "claim": "Unique orthogonal remainder and coefficients; spectral expansion; the displayed sum-of-eigenvalue-norms bound.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section02.finite_orthonormal_coefficients",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.uniqueness_of_coefficients",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_operator_formula",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_operator_bound",
+            "TraceFormulas.finiteProjection",
+            "TraceFormulas.coefficient_of_sum",
+            "TraceFormulas.finite_orthonormal_decomposition",
+            "TraceFormulas.coefficients_unique",
+            "TraceFormulas.residual_inner_eq_zero",
+            "TraceFormulas.residual_mem_orthogonal",
+            "TraceFormulas.finite_spectral_operator_expansion",
+            "TraceFormulas.norm_spectral_operator_le"
+          ],
+          "correspondence_note": "The input T is only a linear map with the stated eigenvector and zero-on-orthogonal-complement hypotheses. Its boundedness is a consequence, not a hypothesis."
+        },
+        {
+          "label": "finite-spectral-kernel",
+          "kind": "definition and subsequent kernel and trace calculations",
+          "claim": "The specified spectral kernel is integrable against L² inputs, represents T almost everywhere, and has diagonal integral equal to the finite-rank trace and the eigenvalue sum.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_kernel_representation",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_trace_identity",
+            "TraceFormulas.spectralKernel",
+            "TraceFormulas.finiteKernel_diagonal",
+            "TraceFormulas.integrable_spectralKernel_mul",
+            "TraceFormulas.integrable_spectralKernel_diagonal",
+            "TraceFormulas.spectral_operator_eq_integral_ae",
+            "TraceFormulas.spectral_kernel_trace_identity",
+            "TraceFormulas.finite_spectral_operator_eq_diagonal",
+            "TraceFormulas.finiteRankTrace_spectral_operator"
+          ],
+          "correspondence_note": "The canonical L² representatives are used first. General finite-kernel representative bridges apply to a diagonal coefficient matrix to obtain any chosen representatives."
+        },
+        {
+          "label": "finite-kernel-trace-definition",
+          "kind": "definition and well-definedness proof",
+          "claim": "The finite-rank trace agrees with the trace on every finite-dimensional supporting space, independently of that space.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section02.supporting_space_trace_independent",
+            "TraceFormulas.supportedEndomorphism",
+            "TraceFormulas.finiteRankTrace",
+            "TraceFormulas.finiteRankTrace_eq_supported_trace",
+            "TraceFormulas.supported_trace_independent"
+          ],
+          "correspondence_note": "The canonical definition takes the actual range; equality with supported restrictions uses cyclicity between finite-dimensional spaces rather than the prose common-containing-space zero-block argument. Only range containment is needed for this stronger comparison theorem."
+        },
+        {
+          "label": "finite-kernel-rank-one-example",
+          "kind": "worked example",
+          "claim": "For u(x)=√3 x on [0,1], the actual L² norm is 1, T has the prescribed eigenvector and zero-orthogonal action, the chosen kernel is 3αxy, the operator has the displayed integral formula, and both trace calculations give α.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_normalization",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_eigenvector",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_zero_orthogonal",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_kernel",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_operator_integral",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_trace_identity",
+            "TraceFormulas.unitIntervalMeasure",
+            "TraceFormulas.rankOneFunction",
+            "TraceFormulas.rankOneFunction_continuous",
+            "TraceFormulas.rankOneFunction_memLp",
+            "TraceFormulas.rankOneFunction_mul_star",
+            "TraceFormulas.rankOneLp",
+            "TraceFormulas.rankOneLp_ae",
+            "TraceFormulas.integral_unitInterval_sq",
+            "TraceFormulas.integral_unitInterval_complex_sq",
+            "TraceFormulas.integral_rankOneFunction_square",
+            "TraceFormulas.rankOneLp_inner_self",
+            "TraceFormulas.rankOneLp_norm",
+            "TraceFormulas.rankOneFamily",
+            "TraceFormulas.rankOneFamily_orthonormal",
+            "TraceFormulas.rankOneOperator",
+            "TraceFormulas.rankOneOperator_eigen",
+            "TraceFormulas.rankOneOperator_zero_orthogonal",
+            "TraceFormulas.rankOne_kernel_formula",
+            "TraceFormulas.rankOneOperator_integral",
+            "TraceFormulas.rankOne_diagonal_integral",
+            "TraceFormulas.rankOneOperator_trace",
+            "TraceFormulas.rankOne_trace_identity"
+          ],
+          "correspondence_note": "The interval is represented by Lebesgue measure on ℝ restricted to Icc 0 1; equality of representatives is explicit."
+        },
+        {
+          "label": "finite-kernel-operator",
+          "kind": "definition and following properties",
+          "claim": "Actual bounded finite matrix operator and specified kernel; integral action almost everywhere; sum-of-entry-norms bound; image in the span; zero action on its orthogonal complement; basis action and matrix A.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_representation",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_representation_chosen_representatives",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_bound",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_support",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_basis_action",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.point_indicator_kernel",
+            "TraceFormulas.finiteOperator",
+            "TraceFormulas.finiteOperator_apply",
+            "TraceFormulas.finiteOperator_apply'",
+            "TraceFormulas.finiteKernel",
+            "TraceFormulas.finiteKernel_mul_eq",
+            "TraceFormulas.integrable_finiteKernel_mul",
+            "TraceFormulas.integral_finiteKernel_mul",
+            "TraceFormulas.coeFn_l2_finset_sum",
+            "TraceFormulas.coeFn_l2_sum_smul",
+            "TraceFormulas.coeFn_finiteOperator",
+            "TraceFormulas.finiteOperator_mem_span",
+            "TraceFormulas.norm_finiteOperator_le",
+            "TraceFormulas.finiteOperator_eq_integral_ae",
+            "TraceFormulas.finiteOperator_range_le",
+            "TraceFormulas.finiteOperator_eq_zero_of_mem_orthogonal",
+            "TraceFormulas.finiteOperator_basis",
+            "TraceFormulas.finiteOperator_toMatrix",
+            "TraceFormulas.finiteRankTrace_finiteOperator",
+            "TraceFormulas.finiteOperator_diagonal",
+            "TraceFormulas.finite_spectral_operator_eq_diagonal"
+          ]
+        },
+        {
+          "label": "finite-kernel-operator",
+          "kind": "finite counting-measure paragraph",
+          "claim": "Point indicators form an orthonormal basis of the actual counting-measure L² space; the kernel entries are Aij and its integral action is matrix-vector multiplication.",
+          "declarations": [
+            "TraceFormulas.finiteKernel_pointIndicators",
+            "TraceFormulas.counting_kernel_integral_eq_mulVec",
+            "TraceFormulas.counting_kernel_diagonal_integral",
+            "TraceFormulas.countingL2",
+            "TraceFormulas.countingL2_coe",
+            "TraceFormulas.countingIndicator",
+            "TraceFormulas.countingIndicator_orthonormal",
+            "TraceFormulas.countingIndicator_expansion",
+            "TraceFormulas.countingIndicator_span",
+            "TraceFormulas.countingIndicator_projection"
+          ],
+          "anchor_relation": "The paragraph follows the general finite-kernel definition; it has no separate manuscript label."
+        },
+        {
+          "label": "finite-kernel-trace-identity",
+          "kind": "proposition and following interpretation",
+          "claim": "The specified diagonal is integrable and its integral equals the actual finite-rank trace and the characteristic-root sum with algebraic multiplicity.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_diagonal_integrable",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_diagonal_integrable_chosen_representatives",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_trace_identity",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.trace_identity_chosen_representatives",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.identity_matrix_projection",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.projection_trace",
+            "TraceFormulas.integrable_finiteKernel_diagonal_term",
+            "TraceFormulas.integrable_finiteKernel_diagonal",
+            "TraceFormulas.integral_finiteKernel_diagonal",
+            "TraceFormulas.integral_finiteKernel_diagonal_eq_matrix_trace",
+            "TraceFormulas.finiteOperator_toMatrix",
+            "TraceFormulas.finiteRankTrace_finiteOperator",
+            "TraceFormulas.integral_finiteKernel_eq_operator_trace",
+            "TraceFormulas.finiteKernel_trace_identity",
+            "TraceFormulas.matrix_trace_eq_sum_roots"
+          ],
+          "correspondence_note": "A.charpoly.roots is a multiset, including repeated roots; no diagonalizability is assumed."
+        },
+        {
+          "label": "finite-kernel-trace-identity",
+          "kind": "identity-matrix projection sentence",
+          "claim": "A=I gives the actual orthogonal projection onto the finite span and trace N.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section02.identity_matrix_projection",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.projection_trace",
+            "TraceFormulas.finiteSpanProjection",
+            "TraceFormulas.finiteOperator_identity",
+            "TraceFormulas.finiteOperator_identity_eq_projection",
+            "TraceFormulas.finiteRankTrace_identity_operator"
+          ]
+        },
+        {
+          "label": "kernel-diagonal-representatives",
+          "kind": "remark and counterexample",
+          "claim": "Changing the one-variable representatives preserves both kernel product-a.e. equality and diagonal base-a.e. equality. Arbitrary product-a.e. kernel changes preserve row-integral operators a.e. but need not preserve the diagonal integral.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section02.representative_diagonal_independence",
+            "TraceFormulas.Volume01.A.Chapter00.Section02.diagonal_counterexample",
+            "TraceFormulas.finiteKernel_diagonal_ae_congr",
+            "TraceFormulas.finiteKernel_diagonal_integral_congr",
+            "TraceFormulas.finiteKernel_product_ae_congr",
+            "TraceFormulas.finiteKernel_operator_ae_congr",
+            "TraceFormulas.kernel_operator_ae_congr",
+            "TraceFormulas.unitIntervalMeasure",
+            "TraceFormulas.diagonalIndicator",
+            "TraceFormulas.diagonalIndicator_row_ae_zero",
+            "TraceFormulas.diagonalIndicator_product_ae_zero",
+            "TraceFormulas.diagonalIndicator_zero_operator",
+            "TraceFormulas.diagonalIndicator_diagonal_integral",
+            "TraceFormulas.zero_kernel_diagonal_integral"
+          ],
+          "correspondence_note": "The zero kernel and diagonal indicator are actual functions on the Lebesgue interval, with diagonal integrals 0 and 1. No diagonal conclusion is inferred from product-a.e. equality."
+        }
+      ]
+    },
+    {
+      "section": "0.3",
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/text.tex",
+      "companion": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "comparison": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/compare.tex",
+      "entries": [
+        {
+          "label": "three-finite-kernel-constructions",
+          "kind": "expository introduction",
+          "claim": "Ordinary diagonal integration, relative pairing, and weighted diagonal integration use the same finite kernel.",
+          "declarations": [
+            "TraceFormulas.finiteKernel",
+            "TraceFormulas.relativeKernelPairing",
+            "TraceFormulas.weightedKernelIntegral"
+          ],
+          "scope_note": "The introductory statement of linearity in the kernel is not exported as a separate project theorem; the actual integrals and the finite coefficient formulas are formalized."
+        },
+        {
+          "label": "ordinary-finite-trace",
+          "kind": "definition and following diagonal specialization",
+          "claim": "The actual diagonal integral equals Matrix.trace A, and a diagonal coefficient matrix gives the eigenvalue sum.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_trace_identity",
+            "TraceFormulas.integral_finiteKernel_diagonal_eq_matrix_trace",
+            "TraceFormulas.finiteKernel_diagonal",
+            "TraceFormulas.spectral_kernel_trace_identity"
+          ]
+        },
+        {
+          "label": "relative-finite-pairing",
+          "kind": "definition and interpretation",
+          "claim": "A period is the book inner product and its integral; the relative pairing is the actual iterated integral with q as input and conjugate p as output test.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section03.period",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.period_eq_integral",
+            "TraceFormulas.relativeKernelPairing",
+            "TraceFormulas.integral_l2_mul_star"
+          ]
+        },
+        {
+          "label": "finite-relative-kernel-identity",
+          "kind": "proposition and proof",
+          "claim": "The relative integrand is integrable on the product measure, and the iterated integral equals both the actual operator coefficient and the conjugated-period sum.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_kernel_identity",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_representatives",
+            "TraceFormulas.integrable_relativeKernel_term",
+            "TraceFormulas.integrable_relativeKernel",
+            "TraceFormulas.relativeKernelPairing_eq_sum",
+            "TraceFormulas.relativeKernelPairing_eq_operator",
+            "TraceFormulas.relativeKernelPairing_eq_periods",
+            "TraceFormulas.relativeKernelPairing_congr_ae"
+          ],
+          "correspondence_note": "The result holds for any finite L² family, hence for the orthonormal family in the prose. Sigma-finiteness is retained for the iterated-integral identities. The final operator equality expands the continuous linear map rather than substituting its a.e. representation.",
+          "proof_detail_scope": "Absolute convergence is proved using Mathlib L² product integrability, product integrability, and Fubini. The prose quantitative L¹ estimate with constant (sum |aij|)||p||||q|| is not separately exported as a project theorem."
+        },
+        {
+          "label": "finite-relative-diagonal-identity",
+          "kind": "corollary",
+          "claim": "For an actual diagonal matrix the relative sum reduces to λj Pp(uj) conjugate(Pq(uj)).",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_diagonal_corollary",
+            "TraceFormulas.relativeKernelPairing_diagonal"
+          ]
+        },
+        {
+          "label": "weighted-finite-trace",
+          "kind": "definition and bounded-multiplication discussion",
+          "claim": "The weight is an actual L∞ class, multiplication defines a bounded operator on actual L², and the specified weighted diagonal is integrable.",
+          "declarations": [
+            "TraceFormulas.multiplicationOperator",
+            "TraceFormulas.multiplicationOperator_coe",
+            "TraceFormulas.weightedKernelIntegral",
+            "TraceFormulas.integrable_weighted_l2_mul_star",
+            "TraceFormulas.integrable_weightedKernel",
+            "TraceFormulas.compressedFiniteOperator"
+          ],
+          "proof_detail_scope": "The actual Mathlib Hölder multiplication map supplies boundedness and its a.e. representative formula. The displayed sharp norm estimate is not a separately exported project theorem."
+        },
+        {
+          "label": "finite-weighted-kernel-identity",
+          "kind": "proposition and proof",
+          "claim": "The actual weighted diagonal integral equals LinearMap.trace of the actual compression P Mw TA restricted to V, and equals the displayed finite coefficient-integral sum.",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_kernel_identity",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_representatives",
+            "TraceFormulas.compressedFiniteOperator",
+            "TraceFormulas.trace_compressedFiniteOperator",
+            "TraceFormulas.spanBasis_repr",
+            "TraceFormulas.integral_weighted_l2_mul_star",
+            "TraceFormulas.integrable_weightedKernel",
+            "TraceFormulas.weightedKernelIntegral_eq_sum",
+            "TraceFormulas.weightedKernelIntegral_eq_trace",
+            "TraceFormulas.weightedKernelIntegral_congr_diagonal_ae"
+          ],
+          "correspondence_note": "P is Mathlib orthogonalProjection and the trace is actual LinearMap.trace. The span basis and its inner-product coordinates identify the diagonal coefficients; no conclusion is assumed or used as a definition."
+        },
+        {
+          "label": "finite-weighted-diagonal-identity",
+          "kind": "corollary",
+          "claim": "A diagonal matrix gives the sum of λj times the integral of w|uj|².",
+          "declarations": [
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_diagonal_corollary",
+            "TraceFormulas.weightedKernelIntegral_diagonal",
+            "TraceFormulas.weightedKernelIntegral_diagonal_norm"
+          ],
+          "correspondence_note": "The final theorem uses the pointwise complex modulus squared. The finite integral statement is stronger than the prose: arbitrary finite L² families and no sigma-finiteness assumption."
+        },
+        {
+          "label": "finite-trace-information-examples",
+          "kind": "example anchor",
+          "claim": "Anchor for the two-point worked example immediately following.",
+          "declarations": [
+            "TraceFormulas.finiteKernel_indicators",
+            "TraceFormulas.indicator_period_count",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleB",
+            "TraceFormulas.countingL2",
+            "TraceFormulas.countingL2_coe",
+            "TraceFormulas.countingIndicator",
+            "TraceFormulas.countingIndicator_orthonormal",
+            "TraceFormulas.countingIndicator_expansion",
+            "TraceFormulas.countingIndicator_span",
+            "TraceFormulas.countingIndicator_projection"
+          ],
+          "related_label": "finite-three-measurements-example"
+        },
+        {
+          "label": "finite-three-measurements-example",
+          "kind": "worked example",
+          "claim": "With actual counting measure, the point indicators span L², P is identity, both ordinary values are 3, relative values are 0 and 1, and both weighted values are w1+2w2, with singleton values 1 and 2.",
+          "declarations": [
+            "TraceFormulas.finiteKernel_indicators",
+            "TraceFormulas.indicator_period_count",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleB",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleA",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleB",
+            "TraceFormulas.countingL2",
+            "TraceFormulas.countingL2_coe",
+            "TraceFormulas.countingIndicator",
+            "TraceFormulas.countingIndicator_orthonormal",
+            "TraceFormulas.countingIndicator_expansion",
+            "TraceFormulas.countingIndicator_span",
+            "TraceFormulas.countingIndicator_projection",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.firstIndicator",
+            "TraceFormulas.Volume01.A.Chapter00.Section03.secondIndicator",
+            "TraceFormulas.ordinaryKernelIntegral_count",
+            "TraceFormulas.relativeKernelPairing_count",
+            "TraceFormulas.weightedKernelIntegral_count",
+            "TraceFormulas.relativeMatrixPairing",
+            "TraceFormulas.relativeMatrixPairing_eq_sum",
+            "TraceFormulas.relativeMatrixPairing_single",
+            "TraceFormulas.weightedMatrixTrace",
+            "TraceFormulas.weightedMatrixTrace_eq_sum",
+            "TraceFormulas.weightedMatrixTrace_one",
+            "TraceFormulas.weightedMatrixTrace_single",
+            "TraceFormulas.weightedMatrixTrace_eq_of_diag_eq"
+          ],
+          "correspondence_note": "Lean Fin 2 uses indices 0 and 1 for manuscript points 1 and 2. Both matrix-vector outputs and weighted matrix products are proved, with bridges to actual counting-measure integrals. The general same-diagonal theorem covers the claim that no diagonal weight distinguishes A and B."
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean",
+      "declarations": [
+        "TraceFormulas.relativeMatrixPairing",
+        "TraceFormulas.relativeMatrixPairing_eq_sum",
+        "TraceFormulas.relativeMatrixPairing_single",
+        "TraceFormulas.weightedMatrixTrace",
+        "TraceFormulas.weightedMatrixTrace_eq_sum",
+        "TraceFormulas.weightedMatrixTrace_one",
+        "TraceFormulas.weightedMatrixTrace_single",
+        "TraceFormulas.weightedMatrixTrace_eq_of_diag_eq"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "declarations": [
+        "TraceFormulas.bookInner",
+        "TraceFormulas.finiteProjection",
+        "TraceFormulas.finiteOperator",
+        "TraceFormulas.finiteOperator_apply",
+        "TraceFormulas.finiteOperator_apply'",
+        "TraceFormulas.coefficient_of_sum",
+        "TraceFormulas.spanBasis_repr",
+        "TraceFormulas.finiteOperator_basis",
+        "TraceFormulas.finiteOperator_mem_span",
+        "TraceFormulas.finiteOperator_range_le",
+        "TraceFormulas.finiteOperator_eq_zero_of_mem_orthogonal",
+        "TraceFormulas.norm_finiteOperator_le",
+        "TraceFormulas.residual_inner_eq_zero",
+        "TraceFormulas.residual_mem_orthogonal",
+        "TraceFormulas.finite_orthonormal_decomposition",
+        "TraceFormulas.coefficients_unique",
+        "TraceFormulas.finite_spectral_operator_expansion"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean",
+      "declarations": [
+        "TraceFormulas.matrix_trace_cyclic",
+        "TraceFormulas.matrix_trace_similarity",
+        "TraceFormulas.matrix_trace_similarity_of_isUnit",
+        "TraceFormulas.matrix_trace_eq_sum_roots",
+        "TraceFormulas.matrix_charpoly_roots_card",
+        "TraceFormulas.matrix_isRoot_charpoly_iff",
+        "TraceFormulas.endomorphism_trace_eq_basis_trace",
+        "TraceFormulas.endomorphism_basis_trace_independent"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingKernel.lean",
+      "declarations": [
+        "TraceFormulas.finiteKernel_pointIndicators",
+        "TraceFormulas.counting_kernel_integral_eq_mulVec",
+        "TraceFormulas.counting_kernel_diagonal_integral"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "declarations": [
+        "TraceFormulas.finiteKernel_indicators",
+        "TraceFormulas.indicator_period_count",
+        "TraceFormulas.ordinaryKernelIntegral_count",
+        "TraceFormulas.relativeKernelPairing_count",
+        "TraceFormulas.weightedKernelIntegral_count",
+        "TraceFormulas.countingL2",
+        "TraceFormulas.countingL2_coe",
+        "TraceFormulas.countingIndicator",
+        "TraceFormulas.countingIndicator_orthonormal",
+        "TraceFormulas.countingIndicator_expansion",
+        "TraceFormulas.countingIndicator_span",
+        "TraceFormulas.countingIndicator_projection"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "declarations": [
+        "TraceFormulas.finiteKernel",
+        "TraceFormulas.integrable_l2_mul_star",
+        "TraceFormulas.integral_l2_mul_star",
+        "TraceFormulas.finiteKernel_mul_eq",
+        "TraceFormulas.integrable_finiteKernel_mul",
+        "TraceFormulas.integral_finiteKernel_mul",
+        "TraceFormulas.coeFn_l2_finset_sum",
+        "TraceFormulas.coeFn_l2_sum_smul",
+        "TraceFormulas.coeFn_finiteOperator",
+        "TraceFormulas.finiteOperator_eq_integral_ae",
+        "TraceFormulas.integrable_finiteKernel_diagonal_term",
+        "TraceFormulas.integrable_finiteKernel_diagonal",
+        "TraceFormulas.integral_finiteKernel_diagonal",
+        "TraceFormulas.integral_finiteKernel_diagonal_eq_matrix_trace"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean",
+      "declarations": [
+        "TraceFormulas.finiteOperator_toMatrix",
+        "TraceFormulas.finiteRankTrace_finiteOperator",
+        "TraceFormulas.finiteOperator_diagonal",
+        "TraceFormulas.finite_spectral_operator_eq_diagonal",
+        "TraceFormulas.finiteRankTrace_spectral_operator",
+        "TraceFormulas.integral_finiteKernel_eq_operator_trace",
+        "TraceFormulas.finiteKernel_trace_identity"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/FiniteProjection.lean",
+      "declarations": [
+        "TraceFormulas.finiteSpanProjection",
+        "TraceFormulas.finiteOperator_identity",
+        "TraceFormulas.finiteOperator_identity_eq_projection",
+        "TraceFormulas.finiteRankTrace_identity_operator"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/FiniteRankTrace.lean",
+      "declarations": [
+        "TraceFormulas.supportedEndomorphism",
+        "TraceFormulas.finiteRankTrace",
+        "TraceFormulas.finiteRankTrace_eq_supported_trace",
+        "TraceFormulas.supported_trace_independent"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "declarations": [
+        "TraceFormulas.finiteKernel_diagonal_ae_congr",
+        "TraceFormulas.finiteKernel_diagonal_integral_congr",
+        "TraceFormulas.finiteKernel_product_ae_congr",
+        "TraceFormulas.finiteKernel_operator_ae_congr",
+        "TraceFormulas.kernel_operator_ae_congr",
+        "TraceFormulas.unitIntervalMeasure",
+        "TraceFormulas.diagonalIndicator",
+        "TraceFormulas.diagonalIndicator_row_ae_zero",
+        "TraceFormulas.diagonalIndicator_product_ae_zero",
+        "TraceFormulas.diagonalIndicator_zero_operator",
+        "TraceFormulas.diagonalIndicator_diagonal_integral",
+        "TraceFormulas.zero_kernel_diagonal_integral"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "declarations": [
+        "TraceFormulas.rankOneFunction",
+        "TraceFormulas.rankOneFunction_continuous",
+        "TraceFormulas.rankOneFunction_memLp",
+        "TraceFormulas.rankOneLp",
+        "TraceFormulas.rankOneLp_ae",
+        "TraceFormulas.integral_unitInterval_sq",
+        "TraceFormulas.integral_unitInterval_complex_sq",
+        "TraceFormulas.rankOneFunction_mul_star",
+        "TraceFormulas.integral_rankOneFunction_square",
+        "TraceFormulas.rankOneLp_inner_self",
+        "TraceFormulas.rankOneLp_norm",
+        "TraceFormulas.rankOneFamily",
+        "TraceFormulas.rankOneFamily_orthonormal",
+        "TraceFormulas.rankOneOperator",
+        "TraceFormulas.rankOneOperator_eigen",
+        "TraceFormulas.rankOneOperator_zero_orthogonal",
+        "TraceFormulas.rankOne_kernel_formula",
+        "TraceFormulas.rankOneOperator_trace",
+        "TraceFormulas.rankOne_diagonal_integral",
+        "TraceFormulas.rankOne_trace_identity",
+        "TraceFormulas.rankOneOperator_integral"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/RelativeKernel.lean",
+      "declarations": [
+        "TraceFormulas.relativeKernelPairing",
+        "TraceFormulas.integrable_relativeKernel_term",
+        "TraceFormulas.integrable_relativeKernel",
+        "TraceFormulas.relativeKernelPairing_congr_ae",
+        "TraceFormulas.relativeKernelPairing_eq_sum",
+        "TraceFormulas.relativeKernelPairing_eq_operator",
+        "TraceFormulas.relativeKernelPairing_eq_periods",
+        "TraceFormulas.relativeKernelPairing_diagonal"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/SpectralKernel.lean",
+      "declarations": [
+        "TraceFormulas.spectralKernel",
+        "TraceFormulas.finiteKernel_diagonal",
+        "TraceFormulas.integrable_spectralKernel_mul",
+        "TraceFormulas.spectral_operator_eq_integral_ae",
+        "TraceFormulas.norm_spectral_operator_le",
+        "TraceFormulas.integrable_spectralKernel_diagonal",
+        "TraceFormulas.spectral_kernel_trace_identity"
+      ]
+    },
+    {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "declarations": [
+        "TraceFormulas.compressedFiniteOperator",
+        "TraceFormulas.trace_compressedFiniteOperator",
+        "TraceFormulas.multiplicationOperator",
+        "TraceFormulas.multiplicationOperator_coe",
+        "TraceFormulas.integrable_weighted_l2_mul_star",
+        "TraceFormulas.integral_weighted_l2_mul_star",
+        "TraceFormulas.weightedKernelIntegral",
+        "TraceFormulas.weightedKernelIntegral_congr_diagonal_ae",
+        "TraceFormulas.integrable_weightedKernel",
+        "TraceFormulas.weightedKernelIntegral_eq_sum",
+        "TraceFormulas.weightedKernelIntegral_eq_trace",
+        "TraceFormulas.weightedKernelIntegral_diagonal",
+        "TraceFormulas.weightedKernelIntegral_diagonal_norm"
+      ]
+    },
+    {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter00.Section01.trace_eq_diagonal_sum",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.trace_add",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.trace_scalar",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.trace_identity",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.trace_empty",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.trace_cyclic",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.trace_similarity",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.trace_eigenvalue_sum",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.characteristic_roots_count",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.characteristic_root_iff_eigenvector",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.endomorphism_trace",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.openingMatrix",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.opening_trace",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_three",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_one",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvectors_nonzero",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularA",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularB",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_product_AB",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_product_BA",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_trace_AB",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_trace_BA",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.jordanMatrix",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_trace",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_charpoly",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_characteristic_roots",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace_eq_span",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace_dimension",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_only_eigenvalue",
+        "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_no_eigenbasis"
+      ]
+    },
+    {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter00.Section02.finite_orthonormal_coefficients",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.uniqueness_of_coefficients",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_operator_formula",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_operator_bound",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_kernel_representation",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.supporting_space_trace_independent",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_trace_identity",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_representation",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_representation_chosen_representatives",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_bound",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_support",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_basis_action",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_diagonal_integrable",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_diagonal_integrable_chosen_representatives",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_trace_identity",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.trace_identity_chosen_representatives",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.representative_diagonal_independence",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.identity_matrix_projection",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.projection_trace",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.point_indicator_kernel",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_normalization",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_eigenvector",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_zero_orthogonal",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_kernel",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_operator_integral",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_trace_identity",
+        "TraceFormulas.Volume01.A.Chapter00.Section02.diagonal_counterexample"
+      ]
+    },
+    {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter00.Section03.period",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.period_eq_integral",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_trace_identity",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.relative_kernel_identity",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.relative_diagonal_corollary",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_kernel_identity",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_diagonal_corollary",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.relative_representatives",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_representatives",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.exampleB",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.firstIndicator",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.secondIndicator",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleB",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleB",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleB",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleB",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleB",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleB",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleB",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleB",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleB",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleA",
+        "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleB"
+      ]
+    }
+  ],
+  "declaration_locations": {
+    "TraceFormulas.relativeMatrixPairing": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean",
+      "line": 24
+    },
+    "TraceFormulas.relativeMatrixPairing_eq_sum": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean",
+      "line": 27
+    },
+    "TraceFormulas.relativeMatrixPairing_single": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean",
+      "line": 34
+    },
+    "TraceFormulas.weightedMatrixTrace": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean",
+      "line": 39
+    },
+    "TraceFormulas.weightedMatrixTrace_eq_sum": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean",
+      "line": 42
+    },
+    "TraceFormulas.weightedMatrixTrace_one": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean",
+      "line": 47
+    },
+    "TraceFormulas.weightedMatrixTrace_single": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean",
+      "line": 52
+    },
+    "TraceFormulas.weightedMatrixTrace_eq_of_diag_eq": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean",
+      "line": 57
+    },
+    "TraceFormulas.bookInner": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 25
+    },
+    "TraceFormulas.finiteProjection": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 28
+    },
+    "TraceFormulas.finiteOperator": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 33
+    },
+    "TraceFormulas.finiteOperator_apply": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 36
+    },
+    "TraceFormulas.finiteOperator_apply'": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 40
+    },
+    "TraceFormulas.coefficient_of_sum": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 47
+    },
+    "TraceFormulas.spanBasis_repr": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 52
+    },
+    "TraceFormulas.finiteOperator_basis": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 61
+    },
+    "TraceFormulas.finiteOperator_mem_span": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 66
+    },
+    "TraceFormulas.finiteOperator_range_le": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 75
+    },
+    "TraceFormulas.finiteOperator_eq_zero_of_mem_orthogonal": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 80
+    },
+    "TraceFormulas.norm_finiteOperator_le": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 87
+    },
+    "TraceFormulas.residual_inner_eq_zero": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 105
+    },
+    "TraceFormulas.residual_mem_orthogonal": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 111
+    },
+    "TraceFormulas.finite_orthonormal_decomposition": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 125
+    },
+    "TraceFormulas.coefficients_unique": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 135
+    },
+    "TraceFormulas.finite_spectral_operator_expansion": {
+      "source": "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean",
+      "line": 148
+    },
+    "TraceFormulas.matrix_trace_cyclic": {
+      "source": "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean",
+      "line": 28
+    },
+    "TraceFormulas.matrix_trace_similarity": {
+      "source": "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean",
+      "line": 35
+    },
+    "TraceFormulas.matrix_trace_similarity_of_isUnit": {
+      "source": "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean",
+      "line": 41
+    },
+    "TraceFormulas.matrix_trace_eq_sum_roots": {
+      "source": "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean",
+      "line": 46
+    },
+    "TraceFormulas.matrix_charpoly_roots_card": {
+      "source": "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean",
+      "line": 51
+    },
+    "TraceFormulas.matrix_isRoot_charpoly_iff": {
+      "source": "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean",
+      "line": 59
+    },
+    "TraceFormulas.endomorphism_trace_eq_basis_trace": {
+      "source": "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean",
+      "line": 77
+    },
+    "TraceFormulas.endomorphism_basis_trace_independent": {
+      "source": "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean",
+      "line": 82
+    },
+    "TraceFormulas.finiteKernel_pointIndicators": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingKernel.lean",
+      "line": 13
+    },
+    "TraceFormulas.counting_kernel_integral_eq_mulVec": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingKernel.lean",
+      "line": 19
+    },
+    "TraceFormulas.counting_kernel_diagonal_integral": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingKernel.lean",
+      "line": 24
+    },
+    "TraceFormulas.finiteKernel_indicators": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 24
+    },
+    "TraceFormulas.indicator_period_count": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 30
+    },
+    "TraceFormulas.ordinaryKernelIntegral_count": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 36
+    },
+    "TraceFormulas.relativeKernelPairing_count": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 41
+    },
+    "TraceFormulas.weightedKernelIntegral_count": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 46
+    },
+    "TraceFormulas.countingL2": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 51
+    },
+    "TraceFormulas.countingL2_coe": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 55
+    },
+    "TraceFormulas.countingIndicator": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 59
+    },
+    "TraceFormulas.countingIndicator_orthonormal": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 62
+    },
+    "TraceFormulas.countingIndicator_expansion": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 69
+    },
+    "TraceFormulas.countingIndicator_span": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 76
+    },
+    "TraceFormulas.countingIndicator_projection": {
+      "source": "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean",
+      "line": 84
+    },
+    "TraceFormulas.finiteKernel": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 24
+    },
+    "TraceFormulas.integrable_l2_mul_star": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 30
+    },
+    "TraceFormulas.integral_l2_mul_star": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 36
+    },
+    "TraceFormulas.finiteKernel_mul_eq": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 41
+    },
+    "TraceFormulas.integrable_finiteKernel_mul": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 48
+    },
+    "TraceFormulas.integral_finiteKernel_mul": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 58
+    },
+    "TraceFormulas.coeFn_l2_finset_sum": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 77
+    },
+    "TraceFormulas.coeFn_l2_sum_smul": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 87
+    },
+    "TraceFormulas.coeFn_finiteOperator": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 93
+    },
+    "TraceFormulas.finiteOperator_eq_integral_ae": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 101
+    },
+    "TraceFormulas.integrable_finiteKernel_diagonal_term": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 110
+    },
+    "TraceFormulas.integrable_finiteKernel_diagonal": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 115
+    },
+    "TraceFormulas.integral_finiteKernel_diagonal": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 124
+    },
+    "TraceFormulas.integral_finiteKernel_diagonal_eq_matrix_trace": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernel.lean",
+      "line": 141
+    },
+    "TraceFormulas.finiteOperator_toMatrix": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean",
+      "line": 24
+    },
+    "TraceFormulas.finiteRankTrace_finiteOperator": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean",
+      "line": 36
+    },
+    "TraceFormulas.finiteOperator_diagonal": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean",
+      "line": 46
+    },
+    "TraceFormulas.finite_spectral_operator_eq_diagonal": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean",
+      "line": 52
+    },
+    "TraceFormulas.finiteRankTrace_spectral_operator": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean",
+      "line": 61
+    },
+    "TraceFormulas.integral_finiteKernel_eq_operator_trace": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean",
+      "line": 73
+    },
+    "TraceFormulas.finiteKernel_trace_identity": {
+      "source": "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean",
+      "line": 81
+    },
+    "TraceFormulas.finiteSpanProjection": {
+      "source": "lean/TraceFormulas/Analysis/FiniteProjection.lean",
+      "line": 13
+    },
+    "TraceFormulas.finiteOperator_identity": {
+      "source": "lean/TraceFormulas/Analysis/FiniteProjection.lean",
+      "line": 18
+    },
+    "TraceFormulas.finiteOperator_identity_eq_projection": {
+      "source": "lean/TraceFormulas/Analysis/FiniteProjection.lean",
+      "line": 22
+    },
+    "TraceFormulas.finiteRankTrace_identity_operator": {
+      "source": "lean/TraceFormulas/Analysis/FiniteProjection.lean",
+      "line": 34
+    },
+    "TraceFormulas.supportedEndomorphism": {
+      "source": "lean/TraceFormulas/Analysis/FiniteRankTrace.lean",
+      "line": 24
+    },
+    "TraceFormulas.finiteRankTrace": {
+      "source": "lean/TraceFormulas/Analysis/FiniteRankTrace.lean",
+      "line": 30
+    },
+    "TraceFormulas.finiteRankTrace_eq_supported_trace": {
+      "source": "lean/TraceFormulas/Analysis/FiniteRankTrace.lean",
+      "line": 33
+    },
+    "TraceFormulas.supported_trace_independent": {
+      "source": "lean/TraceFormulas/Analysis/FiniteRankTrace.lean",
+      "line": 45
+    },
+    "TraceFormulas.finiteKernel_diagonal_ae_congr": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 21
+    },
+    "TraceFormulas.finiteKernel_diagonal_integral_congr": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 28
+    },
+    "TraceFormulas.finiteKernel_product_ae_congr": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 33
+    },
+    "TraceFormulas.finiteKernel_operator_ae_congr": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 45
+    },
+    "TraceFormulas.kernel_operator_ae_congr": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 57
+    },
+    "TraceFormulas.unitIntervalMeasure": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 68
+    },
+    "TraceFormulas.diagonalIndicator": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 71
+    },
+    "TraceFormulas.diagonalIndicator_row_ae_zero": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 75
+    },
+    "TraceFormulas.diagonalIndicator_product_ae_zero": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 83
+    },
+    "TraceFormulas.diagonalIndicator_zero_operator": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 97
+    },
+    "TraceFormulas.diagonalIndicator_diagonal_integral": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 107
+    },
+    "TraceFormulas.zero_kernel_diagonal_integral": {
+      "source": "lean/TraceFormulas/Analysis/KernelRepresentatives.lean",
+      "line": 112
+    },
+    "TraceFormulas.rankOneFunction": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 23
+    },
+    "TraceFormulas.rankOneFunction_continuous": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 25
+    },
+    "TraceFormulas.rankOneFunction_memLp": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 28
+    },
+    "TraceFormulas.rankOneLp": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 35
+    },
+    "TraceFormulas.rankOneLp_ae": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 37
+    },
+    "TraceFormulas.integral_unitInterval_sq": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 40
+    },
+    "TraceFormulas.integral_unitInterval_complex_sq": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 47
+    },
+    "TraceFormulas.rankOneFunction_mul_star": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 58
+    },
+    "TraceFormulas.integral_rankOneFunction_square": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 69
+    },
+    "TraceFormulas.rankOneLp_inner_self": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 75
+    },
+    "TraceFormulas.rankOneLp_norm": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 86
+    },
+    "TraceFormulas.rankOneFamily": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 90
+    },
+    "TraceFormulas.rankOneFamily_orthonormal": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 92
+    },
+    "TraceFormulas.rankOneOperator": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 95
+    },
+    "TraceFormulas.rankOneOperator_eigen": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 99
+    },
+    "TraceFormulas.rankOneOperator_zero_orthogonal": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 103
+    },
+    "TraceFormulas.rankOne_kernel_formula": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 108
+    },
+    "TraceFormulas.rankOneOperator_trace": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 115
+    },
+    "TraceFormulas.rankOne_diagonal_integral": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 120
+    },
+    "TraceFormulas.rankOne_trace_identity": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 126
+    },
+    "TraceFormulas.rankOneOperator_integral": {
+      "source": "lean/TraceFormulas/Analysis/RankOneExample.lean",
+      "line": 132
+    },
+    "TraceFormulas.relativeKernelPairing": {
+      "source": "lean/TraceFormulas/Analysis/RelativeKernel.lean",
+      "line": 23
+    },
+    "TraceFormulas.integrable_relativeKernel_term": {
+      "source": "lean/TraceFormulas/Analysis/RelativeKernel.lean",
+      "line": 41
+    },
+    "TraceFormulas.integrable_relativeKernel": {
+      "source": "lean/TraceFormulas/Analysis/RelativeKernel.lean",
+      "line": 49
+    },
+    "TraceFormulas.relativeKernelPairing_congr_ae": {
+      "source": "lean/TraceFormulas/Analysis/RelativeKernel.lean",
+      "line": 63
+    },
+    "TraceFormulas.relativeKernelPairing_eq_sum": {
+      "source": "lean/TraceFormulas/Analysis/RelativeKernel.lean",
+      "line": 74
+    },
+    "TraceFormulas.relativeKernelPairing_eq_operator": {
+      "source": "lean/TraceFormulas/Analysis/RelativeKernel.lean",
+      "line": 97
+    },
+    "TraceFormulas.relativeKernelPairing_eq_periods": {
+      "source": "lean/TraceFormulas/Analysis/RelativeKernel.lean",
+      "line": 110
+    },
+    "TraceFormulas.relativeKernelPairing_diagonal": {
+      "source": "lean/TraceFormulas/Analysis/RelativeKernel.lean",
+      "line": 118
+    },
+    "TraceFormulas.spectralKernel": {
+      "source": "lean/TraceFormulas/Analysis/SpectralKernel.lean",
+      "line": 21
+    },
+    "TraceFormulas.finiteKernel_diagonal": {
+      "source": "lean/TraceFormulas/Analysis/SpectralKernel.lean",
+      "line": 24
+    },
+    "TraceFormulas.integrable_spectralKernel_mul": {
+      "source": "lean/TraceFormulas/Analysis/SpectralKernel.lean",
+      "line": 31
+    },
+    "TraceFormulas.spectral_operator_eq_integral_ae": {
+      "source": "lean/TraceFormulas/Analysis/SpectralKernel.lean",
+      "line": 38
+    },
+    "TraceFormulas.norm_spectral_operator_le": {
+      "source": "lean/TraceFormulas/Analysis/SpectralKernel.lean",
+      "line": 50
+    },
+    "TraceFormulas.integrable_spectralKernel_diagonal": {
+      "source": "lean/TraceFormulas/Analysis/SpectralKernel.lean",
+      "line": 60
+    },
+    "TraceFormulas.spectral_kernel_trace_identity": {
+      "source": "lean/TraceFormulas/Analysis/SpectralKernel.lean",
+      "line": 66
+    },
+    "TraceFormulas.compressedFiniteOperator": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 28
+    },
+    "TraceFormulas.trace_compressedFiniteOperator": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 36
+    },
+    "TraceFormulas.multiplicationOperator": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 68
+    },
+    "TraceFormulas.multiplicationOperator_coe": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 71
+    },
+    "TraceFormulas.integrable_weighted_l2_mul_star": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 75
+    },
+    "TraceFormulas.integral_weighted_l2_mul_star": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 82
+    },
+    "TraceFormulas.weightedKernelIntegral": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 92
+    },
+    "TraceFormulas.weightedKernelIntegral_congr_diagonal_ae": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 96
+    },
+    "TraceFormulas.integrable_weightedKernel": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 103
+    },
+    "TraceFormulas.weightedKernelIntegral_eq_sum": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 115
+    },
+    "TraceFormulas.weightedKernelIntegral_eq_trace": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 144
+    },
+    "TraceFormulas.weightedKernelIntegral_diagonal": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 151
+    },
+    "TraceFormulas.weightedKernelIntegral_diagonal_norm": {
+      "source": "lean/TraceFormulas/Analysis/WeightedKernel.lean",
+      "line": 160
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.trace_eq_diagonal_sum": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 23
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.trace_add": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 26
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.trace_scalar": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 30
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.trace_identity": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 34
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.trace_empty": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 38
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.trace_cyclic": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 41
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.trace_similarity": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 46
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.trace_eigenvalue_sum": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 51
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.characteristic_roots_count": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 55
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.characteristic_root_iff_eigenvector": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 59
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.endomorphism_trace": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 64
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.openingMatrix": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 69
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.opening_trace": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 71
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_three": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 74
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_one": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 79
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvectors_nonzero": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 84
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 88
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 90
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_product_AB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 92
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_product_BA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 98
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_trace_AB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 103
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_trace_BA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 107
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.jordanMatrix": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 111
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_trace": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 113
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_charpoly": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 116
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_characteristic_roots": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 121
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 125
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace_eq_span": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 135
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace_dimension": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 149
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_only_eigenvalue": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 157
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_no_eigenbasis": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean",
+      "line": 176
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.finite_orthonormal_coefficients": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 27
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.uniqueness_of_coefficients": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 33
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_operator_formula": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 40
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_operator_bound": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 49
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_kernel_representation": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 58
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.supporting_space_trace_independent": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 68
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_trace_identity": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 76
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_representation": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 85
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_representation_chosen_representatives": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 91
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_bound": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 100
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_support": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 106
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_basis_action": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 112
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_diagonal_integrable": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 117
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_diagonal_integrable_chosen_representatives": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 122
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_trace_identity": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 130
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.trace_identity_chosen_representatives": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 138
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.representative_diagonal_independence": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 146
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.identity_matrix_projection": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 152
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.projection_trace": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 158
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.point_indicator_kernel": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 163
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_normalization": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 167
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_eigenvector": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 169
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_zero_orthogonal": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 172
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_kernel": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 176
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_operator_integral": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 180
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_trace_identity": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 185
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section02.diagonal_counterexample": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean",
+      "line": 191
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.period": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 38
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.period_eq_integral": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 41
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_trace_identity": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 46
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.relative_kernel_identity": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 52
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.relative_diagonal_corollary": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 64
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_kernel_identity": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 73
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_diagonal_corollary": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 86
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.relative_representatives": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 93
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_representatives": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 102
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 111
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 113
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.firstIndicator": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 115
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.secondIndicator": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 117
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 119
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 124
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 129
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 134
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 139
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 142
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 145
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 150
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 155
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 159
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 163
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 168
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 173
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 178
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 187
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 191
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 195
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 199
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleA": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 203
+    },
+    "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleB": {
+      "source": "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean",
+      "line": 207
+    }
+  }
+}

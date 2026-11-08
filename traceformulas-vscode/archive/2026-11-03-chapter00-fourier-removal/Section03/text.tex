@@ -1,0 +1,98 @@
+\phantomsection\label{finite-circle-frequencies}
+
+Let $G=\mathbb Z/N\mathbb Z$, where $N\geq1$, with normalized counting measure $\mu_G$, so each point has measure $1/N$. Write
+\[
+e(t)=\exp(2\pi i t),\qquad
+\chi_j(x)=e(jx/N)\quad(0\leq j<N).
+\]
+The functions $\chi_j$ are well defined on residue classes, since $e(t+1)=e(t)$, and satisfy $\chi_j(x+y)=\chi_j(x)\chi_j(y)$. They are characters: homomorphisms from $G$ to the complex unit circle. The complex-valued functions on $G$ form $L^2(G,\mu_G;\mathbb C)$, with inner product
+\[
+\langle f,g\rangle_{L^2(G,\mu_G)}=\frac1N\sum_{x=0}^{N-1}f(x)\overline{g(x)},
+\]
+linear in the first argument.
+
+\begin{lemma}[Character orthogonality]\label{finite-character-orthogonality}
+For every integer $r$,
+\[
+\frac1N\sum_{x=0}^{N-1}e(rx/N)
+=\begin{cases}1,&N\mid r,\\0,&N\nmid r.\end{cases}
+\]
+\end{lemma}
+
+\begin{proof}
+If $N\mid r$, every summand is one. Otherwise $q=e(r/N)$ satisfies $q\ne1$ and $q^N=1$. Consequently
+\[
+(1-q)\sum_{x=0}^{N-1}q^x=1-q^N=0,
+\]
+and division by $1-q$ proves the assertion. For $N=1$, only the first case occurs.
+\end{proof}
+
+It follows that $\langle\chi_j,\chi_k\rangle_{L^2(G,\mu_G)}=\delta_{jk}$. The characters are linearly independent, since taking the inner product of a linear relation with $\chi_k$ gives its $k$-th coefficient. There are $N$ of them in an $N$-dimensional space, so they form an orthonormal basis.
+
+\begin{definition}[Fourier coefficients]\label{finite-fourier-coefficients}
+Define the Fourier coefficients of $f:G\to\mathbb C$ by
+\[
+\widehat f(j)=\langle f,\chi_j\rangle_{L^2(G,\mu_G)}
+=\frac1N\sum_{y=0}^{N-1}f(y)e(-jy/N).
+\]
+\end{definition}
+
+\begin{proposition}[Fourier inversion]\label{finite-fourier-inversion}
+For every $x\in G$,
+\[
+f(x)=\sum_{j=0}^{N-1}\widehat f(j)e(jx/N).
+\]
+\end{proposition}
+
+\begin{proof}
+Substitution and interchange of the finite sums give
+\[
+\sum_j\widehat f(j)e(jx/N)
+=\frac1N\sum_y f(y)\sum_j e(j(x-y)/N).
+\]
+By character orthogonality the inner sum equals $N$ if $x=y$ in $G$, and zero otherwise. The result is $f(x)$.
+\end{proof}
+
+With normalized counting measure, the factor $1/N$ occurs in coefficient extraction; the inversion sum has no prefactor.
+
+We now use this basis to compute the trace of a convolution operator.
+
+\begin{definition}[Convolution]\label{finite-convolution-operator}
+For $a:G\to\mathbb C$, define
+\[
+(C_a f)(x)=\frac1N\sum_{y\in G}a(x-y)f(y).
+\]
+\end{definition}
+
+\begin{proposition}[The trace of convolution]\label{finite-fourier-trace}
+The characters are eigenvectors of $C_a$, with eigenvalues $\widehat a(j)$, and
+\[
+\boxed{\operatorname{tr}(C_a)=a(0)=\sum_{j=0}^{N-1}\widehat a(j).}
+\]
+\end{proposition}
+
+\begin{proof}
+In the basis of point indicators, the matrix of $C_a$ has entries $a(x-y)/N$. Its $N$ diagonal entries are all $a(0)/N$, giving the trace $a(0)$. For the spectral calculation, substitute $t=x-y$:
+\[
+\begin{aligned}
+(C_a\chi_j)(x)
+&=\frac1N\sum_{t\in G}a(t)e(j(x-t)/N)\\
+&=\chi_j(x)\frac1N\sum_{t\in G}a(t)e(-jt/N)
+=\widehat a(j)\chi_j(x).
+\end{aligned}
+\]
+The characters form a basis. In that basis the operator is diagonal, so basis invariance of trace proves the second expression.
+\end{proof}
+
+The kernel with respect to normalized counting measure is $K(x,y)=a(x-y)$. Its diagonal integral is $N^{-1}\sum_x K(x,x)=a(0)$, agreeing with the finite-kernel identity. Fourier inversion at zero gives the same equality. Thus position, kernel, and frequency calculations express one trace.
+
+\begin{example}[Normalization of convolution]
+For $N=4$ and $a=(2,1,0,1)$, the Fourier coefficients are
+\[
+(\widehat a(0),\widehat a(1),\widehat a(2),\widehat a(3))
+=\left(1,\frac12,0,\frac12\right).
+\]
+Their sum is $2$, as is the sum of the four diagonal matrix entries $1/2$. The identity operator corresponds to $a=N1_{\{0\}}$: substitution gives $C_a f=f$, every Fourier coefficient is one, and the trace is $N$.
+\end{example}
+
+The analytic Fourier transform and Poisson summation are developed in \hyperref[v1a-ch02-s2]{Section 2.2}. The finite calculation here requires only character orthogonality and finite-dimensional linear algebra.

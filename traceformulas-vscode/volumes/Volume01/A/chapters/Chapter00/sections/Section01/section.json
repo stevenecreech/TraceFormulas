@@ -1,0 +1,35 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter00.Section01.trace_eq_diagonal_sum",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.trace_add",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.trace_scalar",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.trace_identity",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.trace_empty",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.trace_cyclic",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.trace_similarity",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.trace_eigenvalue_sum",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.characteristic_roots_count",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.characteristic_root_iff_eigenvector",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.endomorphism_trace",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.opening_trace",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_three",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_one",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvectors_nonzero",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_product_AB",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_product_BA",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_trace_AB",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_trace_BA",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_trace",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_charpoly",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_characteristic_roots",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace_eq_span",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace_dimension",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_only_eigenvalue",
+      "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_no_eigenbasis"
+    ]
+  },
+  "videos": []
+}

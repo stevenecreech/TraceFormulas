@@ -1,0 +1,2464 @@
+{
+  "started_at_utc": "2026-11-04T17:50:51.622076+00:00",
+  "status": "passed",
+  "human_correspondence_review": "not-reviewed",
+  "scope": "Chapter 0 shared library and all three section companions",
+  "allowed_foundational_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "commands": [
+    {
+      "stage": "build",
+      "argv": [
+        "/Users/stevencreech/.elan/toolchains/leanprover--lean4---v4.21.0-rc3/bin/lake",
+        "build"
+      ],
+      "cwd": "lean",
+      "exit_code": 0
+    },
+    {
+      "stage": "axioms",
+      "argv": [
+        "/Users/stevencreech/.elan/toolchains/leanprover--lean4---v4.21.0-rc3/bin/lake",
+        "env",
+        "lean",
+        "Audit.lean"
+      ],
+      "cwd": "lean",
+      "exit_code": 0
+    }
+  ],
+  "source_sha256": {
+    "lean/Audit.lean": "b1e165b6e775fe148f40a579cb0c7d5ff31861ccd015c3059f38c823e4846aae",
+    "lean/TraceFormulas/Analysis/FiniteCountingKernel.lean": "003491468a9bc3cbc8cb66c91b39ca35302655d57bf955e7918c09092049b7b7",
+    "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean": "71a35e83184b3dd7616a511c4099e010f0c10776a3b3da3b72b10e95789ff733",
+    "lean/TraceFormulas/Analysis/FiniteKernel.lean": "e9c27965fb0fa680a07aeb739f744051b16b39e3ff996fc3a9d9afeb543aeb27",
+    "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean": "c03495ed27c7d08fb9d74cc9ec5c4044bc01f2d16170a51308c4b754fdff2c29",
+    "lean/TraceFormulas/Analysis/FiniteProjection.lean": "7d5ac7941a94770e28360b196788bd418afd431642ec955bf398e2ab60f0d853",
+    "lean/TraceFormulas/Analysis/FiniteRankTrace.lean": "49e06536fa7f446de93158f6743c1bb9f2e3949a95fc13f58cc4c1880b275cef",
+    "lean/TraceFormulas/Analysis/KernelRepresentatives.lean": "0b9471729fed39841931de4946322705c9622b088c9b9647b75b894ded782585",
+    "lean/TraceFormulas/Analysis/RankOneExample.lean": "4250be4933a256af8f5da03f999255f1f602e3349742b20c3f5ce5a5396ab280",
+    "lean/TraceFormulas/Analysis/RelativeKernel.lean": "67d641d6f5e51c710ee0530612a4721dd0ab48b51c664e3b9153baaac725dc4a",
+    "lean/TraceFormulas/Analysis/SpectralKernel.lean": "68f021fffec797ce7a31fd57c21cff81c91250d083c8e4a2d7895ecb6801943e",
+    "lean/TraceFormulas/Analysis/WeightedKernel.lean": "27efe609425bb7b40b881547fb01cdc01f9a7bf340d74bfe8dff8739ac41c902",
+    "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean": "eab9febd8c63ead9dd2e960e0e13b7dd65320b50dbebcf8057536bdd726f1c95",
+    "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean": "fa07df94d8458d9af6e541a10112db5448bba8e6fa738a862122749904aeff54",
+    "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean": "ebb715be9cfdf061291e6d22969b3dc0d545d19204d8b9ad5ba9ffecbe08fb6a",
+    "lean/TraceFormulas.lean": "5663a312be65bc8524b1d3317724d0bfb22bd66d972ec51e2d5b8072b50cac16",
+    "lean/lake-manifest.json": "ae6df1b12f07689db46ffb94428df01a42b5f9ef53a2b3779620a990c3e0eef7",
+    "lean/lakefile.toml": "1472dc4f86d6c26209077af0ef45bcd6709d5f39db62f4af0e39e59b9bdfdc4a",
+    "lean/lean-toolchain": "4a621e65aac8f17691d825e7dfedb432e2658f3a96002cab94fad5320a18c9fc",
+    "scripts/audit_lean.py": "e5332c28e75f522baded78ef6ab25ca7eb8f44e1def836b5460fa912d82464a7",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section01/Formalization.lean": "47ffed7b2aaa4a58cfebeee461fa4e10561195d5bb169805f8c9c867c83cff7a",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section01/compare.tex": "df421e1b0564b6d8622e237063d8d8007de4043b0b26791f083a09f1beded178",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section01/section.json": "29818ac6ead6b9cf7f69b0045ed756a42ef28638d35d7c3fb21b0d7046aec124",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section01/text.tex": "6199de547e43acee1acf4172cd1002a25817529018dcfa8459704f08004d9879",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section02/Formalization.lean": "646e5c3421feb287e285bb466076e3ab4bf0788484b465dfceeb7d5af8179aa5",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section02/compare.tex": "955debf0f4ef24928f8e1273c3446aae36779edefb8dde06dde032357847fa92",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section02/section.json": "c5aedeaecb050a87c2a66c7b9c30467e34a5bbdd1629cc45fe75646faa7d12fd",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section02/text.tex": "81bf4b16dc1e3b3aad1ccbd05ff4c2053c443193a94a214ce29a8ab0af5af772",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean": "657db5694fe1b9ccacdd0b3272e40e76f20680548e4b46dbed78fa94d4b0b645",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section03/compare.tex": "9a3f1d904db7578ff5107a90fee5f82af1c4e3dc1b330de2543de6c0290fad3e",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section03/section.json": "3f3c32346ea484ba1c7e9420f7234d1621890e043c250129ef6513593a921843",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section03/text.tex": "40a3bceb5e0be123228d90608c02b3d78eec3e18f1a9efe7a4847abf3fb306a7"
+  },
+  "toolchain_pin": "leanprover/lean4:v4.21.0-rc3",
+  "lean_version": "Lean (version 4.21.0-rc3, arm64-apple-darwin23.6.0, commit 6741444a63ee, Release)",
+  "verified_lean_version": "4.21.0-rc3",
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "revision": "39d8416ae1e1083477f7546f1fd10e460ad37936",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "plausible",
+      "url": "https://github.com/leanprover-community/plausible",
+      "revision": "1603151ac0db4e822908e18094f16acc250acaff",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "revision": "6c62474116f525d2814f0157bb468bf3a4f9f120",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "importGraph",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "revision": "e25fe66cf13e902ba550533ef681cc35a9f18dc2",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "proofwidgets",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "revision": "6980f6ca164de593cb77cd03d8eac549cc444156",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "aesop",
+      "url": "https://github.com/leanprover-community/aesop",
+      "revision": "c3a19fa17982c5c1413fea335f371869b8b12e1d",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "Qq",
+      "url": "https://github.com/leanprover-community/quote4",
+      "revision": "e1d2994e0acdee2f0c03c9d84d28a5df34aa0020",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "batteries",
+      "url": "https://github.com/leanprover-community/batteries",
+      "revision": "ef9acd3acba42efed1162b7e9112e668c09916aa",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "Cli",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "revision": "a0abd472348dd725adbb26732e79b26e7e220913",
+      "tracked_source_clean": true
+    }
+  ],
+  "dependency_verification_stages": [
+    "before-build",
+    "after-build",
+    "after-axioms"
+  ],
+  "declarations": [
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.characteristic_root_iff_eigenvector",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.characteristic_roots_count",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.endomorphism_trace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.jordanMatrix",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.jordanMatrix.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_characteristic_roots",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_charpoly",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace_dimension",
+      "axioms": [
+        "Quot.sound",
+        "propext",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_eigenspace_eq_span",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_no_eigenbasis",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_only_eigenvalue",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.jordan_trace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.openingMatrix",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.openingMatrix._proof_1",
+      "axioms": []
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.openingMatrix.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_one",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvector_three",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.opening_eigenvectors_nonzero",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.opening_trace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularA.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularB._proof_1",
+      "axioms": []
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularB._proof_2",
+      "axioms": []
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.rectangularB.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_product_AB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_product_BA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_trace_AB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.rectangular_trace_BA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.trace_add",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.trace_cyclic",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.trace_eigenvalue_sum",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.trace_empty",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.trace_eq_diagonal_sum",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.trace_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.trace_scalar",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section01.trace_similarity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.diagonal_counterexample",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_diagonal_integrable",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_diagonal_integrable_chosen_representatives",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_representation",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_representation_chosen_representatives",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.finite_kernel_trace_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_basis_action",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_bound",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.finite_operator_support",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.finite_orthonormal_coefficients",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.identity_matrix_projection",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.point_indicator_kernel",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.projection_trace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_eigenvector",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_kernel",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_normalization",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_operator_integral",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_trace_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.rank_one_zero_orthogonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.representative_diagonal_independence",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_kernel_representation",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_operator_bound",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_operator_formula",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.spectral_trace_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.supporting_space_trace_independent",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.trace_identity_chosen_representatives",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section02.uniqueness_of_coefficients",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.exampleA.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.exampleB.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.firstIndicator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.firstIndicator._proof_1",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.firstIndicator.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.input_exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.instMeasurableSpaceFinOfNatNat_volume01",
+      "axioms": [
+        "Quot.sound",
+        "propext",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_integral_exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.ordinary_trace_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.period",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.period._proof_1",
+      "axioms": [
+        "Quot.sound",
+        "propext",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.period._proof_2",
+      "axioms": []
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.period_eq_integral",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.relative_diagonal_corollary",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.relative_exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.relative_integral_exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.relative_kernel_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.relative_representatives",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.secondIndicator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.secondIndicator.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_diagonal_corollary",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_first_exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_integral_exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_kernel_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_matrix_exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_representatives",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleA",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter00.Section03.weighted_second_exampleB",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.bookInner",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.bookInner.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.coeFn_finiteOperator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.coeFn_l2_finset_sum",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.coeFn_l2_sum_smul",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.coefficient_of_sum",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.coefficients_unique",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.compressedFiniteOperator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.compressedFiniteOperator._proof_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.compressedFiniteOperator._proof_2",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.compressedFiniteOperator._proof_3",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.countingIndicator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.countingIndicator.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.countingIndicator_expansion",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.countingIndicator_orthonormal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.countingIndicator_orthonormal._proof_1_2",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.countingIndicator_projection",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.countingIndicator_span",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.countingL2",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.countingL2._proof_1",
+      "axioms": []
+    },
+    {
+      "declaration": "TraceFormulas.countingL2._proof_2",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.countingL2_coe",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.counting_kernel_diagonal_integral",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.counting_kernel_integral_eq_mulVec",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.diagonalIndicator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.diagonalIndicator.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.diagonalIndicator_diagonal_integral",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.diagonalIndicator_product_ae_zero",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.diagonalIndicator_product_ae_zero._proof_1_1",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.diagonalIndicator_row_ae_zero",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.diagonalIndicator_row_ae_zero._proof_1_1",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.diagonalIndicator_zero_operator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.endomorphism_basis_trace_independent",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.endomorphism_trace_eq_basis_trace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel_diagonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel_diagonal_ae_congr",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel_diagonal_integral_congr",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel_indicators",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel_mul_eq",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel_operator_ae_congr",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel_pointIndicators",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel_product_ae_congr",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteKernel_trace_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator._proof_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator._proof_2",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator._proof_3",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator._proof_4",
+      "axioms": [
+        "Quot.sound",
+        "propext",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator._proof_5",
+      "axioms": [
+        "Quot.sound",
+        "propext",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator._proof_6",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator._proof_7",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_apply",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_apply'",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_basis",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_diagonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_eq_integral_ae",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_eq_zero_of_mem_orthogonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_identity_eq_projection",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_mem_span",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_range_le",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteOperator_toMatrix",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteProjection",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteProjection.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteRankTrace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteRankTrace._proof_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteRankTrace._proof_2",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteRankTrace_eq_supported_trace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteRankTrace_finiteOperator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteRankTrace_identity_operator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteRankTrace_spectral_operator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteSpanProjection",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finiteSpanProjection._proof_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finite_orthonormal_decomposition",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finite_spectral_operator_eq_diagonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.finite_spectral_operator_expansion",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.indicator_period_count",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.indicator_period_count._proof_1_1",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integrable_finiteKernel_diagonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integrable_finiteKernel_diagonal_term",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integrable_finiteKernel_mul",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integrable_l2_mul_star",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integrable_relativeKernel",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integrable_relativeKernel_term",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integrable_spectralKernel_diagonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integrable_spectralKernel_mul",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integrable_weightedKernel",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integrable_weighted_l2_mul_star",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integral_finiteKernel_diagonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integral_finiteKernel_diagonal_eq_matrix_trace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integral_finiteKernel_eq_operator_trace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integral_finiteKernel_mul",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integral_l2_mul_star",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integral_rankOneFunction_square",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integral_rankOneFunction_square._proof_1_1",
+      "axioms": []
+    },
+    {
+      "declaration": "TraceFormulas.integral_unitInterval_complex_sq",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integral_unitInterval_sq",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.integral_weighted_l2_mul_star",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.kernel_operator_ae_congr",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.matrix_charpoly_roots_card",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.matrix_isRoot_charpoly_iff",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.matrix_trace_cyclic",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.matrix_trace_eq_sum_roots",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.matrix_trace_similarity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.matrix_trace_similarity_of_isUnit",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator._proof_1",
+      "axioms": [
+        "Quot.sound",
+        "propext",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator._proof_10",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator._proof_2",
+      "axioms": []
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator._proof_3",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator._proof_4",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator._proof_5",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator._proof_6",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator._proof_7",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator._proof_8",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator._proof_9",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.multiplicationOperator_coe",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.norm_finiteOperator_le",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.norm_spectral_operator_le",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.ordinaryKernelIntegral_count",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneFamily",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneFamily.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneFamily_orthonormal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneFunction",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneFunction._proof_1",
+      "axioms": []
+    },
+    {
+      "declaration": "TraceFormulas.rankOneFunction.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneFunction_continuous",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneFunction_memLp",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneFunction_mul_star",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneLp",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneLp._proof_1",
+      "axioms": []
+    },
+    {
+      "declaration": "TraceFormulas.rankOneLp_ae",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneLp_inner_self",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneLp_norm",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneOperator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneOperator._proof_1",
+      "axioms": [
+        "Quot.sound",
+        "propext",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneOperator.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneOperator_eigen",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneOperator_integral",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneOperator_trace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOneOperator_zero_orthogonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOne_diagonal_integral",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOne_diagonal_integral._proof_1_1",
+      "axioms": []
+    },
+    {
+      "declaration": "TraceFormulas.rankOne_kernel_formula",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.rankOne_trace_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeKernelPairing",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeKernelPairing.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeKernelPairing_congr_ae",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeKernelPairing_count",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeKernelPairing_diagonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeKernelPairing_eq_operator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeKernelPairing_eq_periods",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeKernelPairing_eq_periods._proof_1_1",
+      "axioms": [
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeKernelPairing_eq_sum",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeMatrixPairing",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeMatrixPairing.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeMatrixPairing_eq_sum",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.relativeMatrixPairing_single",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.residual_inner_eq_zero",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.residual_mem_orthogonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.spanBasis_repr",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.spectralKernel",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.spectralKernel.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.spectral_kernel_trace_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.spectral_operator_eq_integral_ae",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.supportedEndomorphism",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.supportedEndomorphism._proof_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.supportedEndomorphism._proof_2",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.supportedEndomorphism._proof_3",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.supported_trace_independent",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.trace_compressedFiniteOperator",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.unitIntervalMeasure",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedKernelIntegral",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedKernelIntegral.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedKernelIntegral_congr_diagonal_ae",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedKernelIntegral_count",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedKernelIntegral_diagonal",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedKernelIntegral_diagonal_norm",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedKernelIntegral_eq_sum",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedKernelIntegral_eq_trace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedMatrixTrace",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedMatrixTrace.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedMatrixTrace_eq_of_diag_eq",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedMatrixTrace_eq_sum",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedMatrixTrace_one",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.weightedMatrixTrace_single",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.zero_kernel_diagonal_integral",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "_private.TraceFormulas.Analysis.RelativeKernel.0.TraceFormulas.relative_integrand_eq",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    }
+  ],
+  "audited_declaration_count": 297,
+  "finished_at_utc": "2026-11-04T17:54:31.583908+00:00",
+  "log_sha256": {
+    "build.log": "a30d6eefe7ccec7803482bd446c3d48f7cc46ed86ba99cb839fca134dd7a5a3d",
+    "axioms.log": "a39cc4c8b9df66f94b249fd9e7f5c62321171706b0f0bc5adf9b1628c612f1c6"
+  }
+}

@@ -1,0 +1,142 @@
+\phantomsection\label{a-quantity-seen-in-two-ways}
+
+We begin with the simplest example of a trace formula.  Consider the complex matrix
+
+\[
+A=\begin{pmatrix}2&1\\1&2\end{pmatrix}.
+\]
+
+We compute its trace in two ways. The first is by adding its diagonal entries to get $4$. We regard this coordinate expression as the geometric side of this elementary trace formula: a choice of basis expresses the linear transformation as a matrix, whose diagonal entries we sum.
+
+\phantomsection\label{linear-algebra.transpose}
+
+The second way is to add up the eigenvalues. The vectors $(1,1)^{\mathsf{T}}$ and $(1,-1)^{\mathsf{T}}$ are eigenvectors with eigenvalues $3$ and $1$, so the eigenvalues also add to $4$. This is the spectral side. Thus, the trace formula in this example is simply $4=4$.
+
+The goal of this section is to turn this example into the following theorem from a first course in linear algebra. 
+
+\begin{theorem}[Trace as a sum of eigenvalues]\label{linear-algebra.trace-eigenvalue-sum}
+Let $A=(a_{ij})\in M_n(\mathbb C)$, where $n\geq0$. List the roots $\lambda_1,\ldots,\lambda_n$ of its characteristic polynomial $\det(tI_n-A)$, repeating each root according to its multiplicity. Then
+\[
+\sum_{i=1}^{n}a_{ii}=\sum_{j=1}^{n}\lambda_j.
+\]
+For $n=0$, both sums are empty and equal to zero.
+\end{theorem}
+
+The multiplicity in this statement is \textbf{algebraic multiplicity}: the multiplicity as a polynomial root. It is not the dimension of the corresponding eigenspace. A complex number $\lambda$ is such a root exactly when $\lambda I_n-A$ is singular, equivalently when there exists a nonzero vector $v$ with $Av=\lambda v$.
+
+We will prove the theorem after developing the basic properties of the trace.
+
+\begin{definition}[Trace]\label{definition-the-trace}
+
+For an $n\times n$ matrix $A=(a_{ij})$, define
+
+\[
+\operatorname{tr}(A)=\sum_{i=1}^{n}a_{ii}.
+\]
+
+For $n=0$ this is the empty sum, equal to zero.
+\end{definition}
+
+
+The definition immediately gives the following properties, for $A,B\in M_n(\mathbb C)$ and $c\in\mathbb C$:
+
+\begin{itemize}
+    \item $\operatorname{tr}(A+B)=\operatorname{tr}(A)+\operatorname{tr}(B)$
+    \item $\operatorname{tr}(cA)=c\operatorname{tr}(A)$
+    \item $\operatorname{tr}(I_n)=n$
+\end{itemize}
+
+While matrix multiplication is not commutative, reversing the order of two compatible factors leaves the trace unchanged. The two products need not even have the same size.
+
+\begin{example}[Rectangular matrices]
+Let $A=(1\;2)$ and $B=(3\;4)^{\mathsf{T}}$. Then $AB=(11)$ and
+\[
+BA=\begin{pmatrix}3&6\\4&8\end{pmatrix}.
+\]
+The traces are $11$ and $3+8=11$, although the matrices have different dimensions.
+\end{example}
+
+This equality holds for every pair of compatible rectangular matrices.
+
+\begin{proposition}[Cyclicity for two factors]\label{linear-algebra.trace-cyclic}
+
+Let $A$ be an $m\times n$ complex matrix and $B$ an $n\times m$ complex matrix, where $m,n\geq0$. Then
+
+\[
+\operatorname{tr}(AB)=\operatorname{tr}(BA).
+\]
+\end{proposition}
+
+\begin{proof} By the definition of matrix multiplication,
+
+\[
+\begin{aligned}
+\operatorname{tr}(AB)
+&=\sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij}b_{ji}\\
+&=\sum_{j=1}^{n}\sum_{i=1}^{m}b_{ji}a_{ij}
+=\operatorname{tr}(BA).
+\end{aligned}
+\]
+
+The middle equality interchanges two finite sums and commutes two complex numbers.
+\end{proof}
+
+We can now prove that the trace does not depend on the basis chosen to represent a linear transformation. A change of basis changes its matrix by conjugation, and cyclicity shows that this leaves the trace unchanged.
+
+\begin{corollary}[Invariance under a change of basis]\label{linear-algebra.trace-similarity}
+
+For $A\in M_n(\mathbb C)$ and invertible $S\in M_n(\mathbb C)$,
+
+\[
+\operatorname{tr}(S^{-1}AS)=\operatorname{tr}(A).
+\]
+\end{corollary}
+
+\begin{proof} Apply cyclicity to the two factors $S^{-1}A$ and $S$. Associativity and $SS^{-1}=I_n$ give
+
+\[
+\operatorname{tr}((S^{-1}A)S)
+=\operatorname{tr}(S(S^{-1}A))
+=\operatorname{tr}(A).
+\]
+\end{proof}
+
+\begin{definition}[Trace of an endomorphism]\label{linear-algebra.endomorphism-trace}
+If $T$ is a linear map from a finite-dimensional complex vector space to itself, its matrices in two bases are related by this change of basis. We can therefore define $\operatorname{tr}(T)$ using any basis: the answer is independent of that choice.
+\end{definition}
+
+We return to the \hyperref[linear-algebra.trace-eigenvalue-sum]{trace--eigenvalue theorem} stated at the beginning. In the notation just introduced, it says $\operatorname{tr}(A)=\sum_{j=1}^{n}\lambda_j$.
+
+\begin{proof}[Proof of the trace--eigenvalue theorem] The case $n=0$ says $0=0$. Assume $n\geq1$. We compute the coefficient of $t^{n-1}$ in the characteristic polynomial in two ways.
+
+In the determinant expansion, the identity permutation contributes
+
+\[
+\prod_{i=1}^{n}(t-a_{ii}),
+\]
+
+whose $t^{n-1}$ coefficient is $-\sum_i a_{ii}$. Every nonidentity permutation moves at least two indices. At each moved index its determinant factor is an off-diagonal entry of $tI_n-A$, which is independent of $t$. Such a term has degree at most $n-2$ and contributes nothing to the coefficient in question. For $n=1$ there are no nonidentity permutations. Thus the coefficient is $-\operatorname{tr}(A)$.
+
+By the fundamental theorem of algebra and monicity,
+
+\[
+\det(tI_n-A)=\prod_{j=1}^{n}(t-\lambda_j).
+\]
+
+The coefficient of $t^{n-1}$ in this product is $-\sum_j\lambda_j$. Equating the two coefficients proves the theorem.
+\end{proof}
+
+\phantomsection\label{check-the-statement-on-examples}
+
+For a diagonalizable matrix, the theorem also follows from change-of-basis invariance: choose a basis of eigenvectors, so that the diagonal entries are the eigenvalues. The strength of the coefficient proof is that it applies even when the matrix is not diagonalizable. It counts roots of the characteristic polynomial with their algebraic multiplicities, even when there are too few independent eigenvectors to form a basis. The following example illustrates this distinction.
+
+\begin{example}[A non-diagonalizable matrix]
+Take
+
+\[
+J=\begin{pmatrix}2&1\\0&2\end{pmatrix}.
+\]
+
+Its characteristic polynomial is $(t-2)^2$, while $(J-2I_2)(x,y)=(y,0)$. Its eigenspace consists of $(x,0)$ and is only one-dimensional. Nevertheless the theorem gives $\operatorname{tr}(J)=2+2=4$.
+\end{example}
+

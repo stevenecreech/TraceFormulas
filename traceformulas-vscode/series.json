@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "title": "Trace Formulas",
+  "defaultVolume": "v1a",
+  "volumes": [
+    {
+      "id": "v1a",
+      "number": 1,
+      "part": "a",
+      "label": "1a",
+      "topic": "SL₂(ℤ)",
+      "perspective": "Automorphic forms",
+      "description": "The modular group",
+      "path": "volumes/Volume01/A",
+      "status": "draft"
+    },
+    {
+      "id": "v1b",
+      "number": 1,
+      "part": "b",
+      "label": "1b",
+      "topic": "SL₂(ℤ)",
+      "perspective": "Automorphic representations",
+      "description": "The modular group",
+      "path": "volumes/Volume01/B",
+      "status": "planned"
+    },
+    {
+      "id": "v1c",
+      "number": 1,
+      "part": "c",
+      "label": "1c",
+      "topic": "SL₂(ℤ)",
+      "perspective": "Dictionary between forms and representations",
+      "description": "The modular group",
+      "path": "volumes/Volume01/C",
+      "status": "planned"
+    },
+    {
+      "id": "v2a",
+      "number": 2,
+      "part": "a",
+      "label": "2a",
+      "topic": "Congruence subgroups of SL₂(ℤ)",
+      "perspective": "Automorphic forms",
+      "description": "Including nebentypus",
+      "path": "volumes/Volume02/A",
+      "status": "planned"
+    },
+    {
+      "id": "v2b",
+      "number": 2,
+      "part": "b",
+      "label": "2b",
+      "topic": "Congruence subgroups of SL₂(ℤ)",
+      "perspective": "Automorphic representations",
+      "description": "Including nebentypus",
+      "path": "volumes/Volume02/B",
+      "status": "planned"
+    },
+    {
+      "id": "v2c",
+      "number": 2,
+      "part": "c",
+      "label": "2c",
+      "topic": "Congruence subgroups of SL₂(ℤ)",
+      "perspective": "Dictionary between forms and representations",
+      "description": "Including nebentypus",
+      "path": "volumes/Volume02/C",
+      "status": "planned"
+    },
+    {
+      "id": "v3a",
+      "number": 3,
+      "part": "a",
+      "label": "3a",
+      "topic": "Half-integral weight",
+      "perspective": "Automorphic forms",
+      "description": "Half-integral weight and metaplectic forms",
+      "path": "volumes/Volume03/A",
+      "status": "planned"
+    },
+    {
+      "id": "v3b",
+      "number": 3,
+      "part": "b",
+      "label": "3b",
+      "topic": "Half-integral weight",
+      "perspective": "Automorphic representations",
+      "description": "Half-integral weight and metaplectic forms",
+      "path": "volumes/Volume03/B",
+      "status": "planned"
+    },
+    {
+      "id": "v3c",
+      "number": 3,
+      "part": "c",
+      "label": "3c",
+      "topic": "Half-integral weight",
+      "perspective": "Dictionary between forms and representations",
+      "description": "Half-integral weight and metaplectic forms",
+      "path": "volumes/Volume03/C",
+      "status": "planned"
+    },
+    {
+      "id": "v4a",
+      "number": 4,
+      "part": "a",
+      "label": "4a",
+      "topic": "Quaternionic forms",
+      "perspective": "Automorphic forms",
+      "description": "Trace formulas in quaternionic settings",
+      "path": "volumes/Volume04/A",
+      "status": "planned"
+    },
+    {
+      "id": "v4b",
+      "number": 4,
+      "part": "b",
+      "label": "4b",
+      "topic": "Quaternionic forms",
+      "perspective": "Automorphic representations",
+      "description": "Trace formulas in quaternionic settings",
+      "path": "volumes/Volume04/B",
+      "status": "planned"
+    },
+    {
+      "id": "v4c",
+      "number": 4,
+      "part": "c",
+      "label": "4c",
+      "topic": "Quaternionic forms",
+      "perspective": "Dictionary between forms and representations",
+      "description": "Trace formulas in quaternionic settings",
+      "path": "volumes/Volume04/C",
+      "status": "planned"
+    }
+  ]
+}

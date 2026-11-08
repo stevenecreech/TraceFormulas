@@ -1,0 +1,89 @@
+from pathlib import Path
+import json, os, re, selectors, subprocess, time
+
+root = Path(__file__).resolve().parents[2]
+lake = '/Users/stevencreech/.elan/toolchains/leanprover--lean4---v4.21.0-rc3/bin/lake'
+folder = root / '.build/lean-editor-fix'
+err = (folder/'lsp-stderr.log').open('wb')
+p = subprocess.Popen([lake, 'serve'], cwd=root, stdin=subprocess.PIPE,
+                     stdout=subprocess.PIPE, stderr=err, bufsize=0)
+selector = selectors.DefaultSelector(); selector.register(p.stdout, selectors.EVENT_READ)
+buffer = b''
+
+def send(message):
+    data = json.dumps({'jsonrpc':'2.0', **message}, ensure_ascii=False).encode()
+    p.stdin.write(f'Content-Length: {len(data)}\r\n\r\n'.encode()+data)
+    p.stdin.flush()
+
+def receive(deadline):
+    global buffer
+    while time.monotonic() < deadline:
+        if b'\r\n\r\n' in buffer:
+            header, body = buffer.split(b'\r\n\r\n',1)
+            length = int(re.search(rb'Content-Length:\s*(\d+)',header,re.I)[1])
+            if len(body) >= length:
+                buffer = body[length:]
+                return json.loads(body[:length])
+        for key,_ in selector.select(min(1,max(0,deadline-time.monotonic()))):
+            chunk = os.read(key.fileobj.fileno(), 65536)
+            if not chunk: raise RuntimeError(f'Language server exited: {p.poll()}')
+            buffer += chunk
+    raise TimeoutError('Language-server response timeout')
+
+reports=[]
+try:
+    send({'id':1,'method':'initialize','params':{'processId':None,'rootUri':root.as_uri(),
+        'capabilities':{},'workspaceFolders':[{'uri':root.as_uri(),'name':root.name}]}})
+    deadline=time.monotonic()+120
+    while True:
+        msg=receive(deadline)
+        if 'id' in msg and 'method' in msg:
+            send({'id':msg['id'],'result':None}); continue
+        if msg.get('id')==1:
+            assert 'result' in msg,msg
+            break
+    send({'method':'initialized','params':{}})
+    for n in (1,2,3):
+        path=root/f'volumes/Volume01/A/chapters/Chapter00/sections/Section{n:02}/Formalization.lean'
+        source=path.read_text(); uri=path.as_uri()
+        lines=source.splitlines()
+        line,name=next((i,re.match(r'theorem\s+(\S+)',s)[1]) for i,s in reversed(list(enumerate(lines))) if re.match(r'theorem\s+',s))
+        send({'method':'textDocument/didOpen','params':{'textDocument':{
+            'uri':uri,'languageId':'lean4','version':1,'text':source}}})
+        send({'id':n+10,'method':'textDocument/hover','params':{'textDocument':{'uri':uri},
+            'position':{'line':line,'character':lines[line].index(name)+1}}})
+        deadline=time.monotonic()+240
+        diagnostics=[]; saw_processing=False; finished=False; hover=None
+        while not (hover and saw_processing and finished):
+            msg=receive(deadline)
+            if 'id' in msg and 'method' in msg:
+                send({'id':msg['id'],'result':None}); continue
+            method=msg.get('method'); params=msg.get('params',{})
+            if method=='textDocument/publishDiagnostics' and params.get('uri')==uri:
+                diagnostics=params.get('diagnostics',[])
+            if method=='$/lean/fileProgress' and params.get('textDocument',{}).get('uri')==uri:
+                processing=params.get('processing',[])
+                if processing: saw_processing=True
+                if saw_processing and not processing: finished=True
+            if msg.get('id')==n+10:
+                assert msg.get('result'),msg
+                hover=msg['result']
+        errors=[d for d in diagnostics if d.get('severity')==1]
+        assert not errors,errors
+        report={'section':f'0.{n}','path':str(path.relative_to(root)),
+                'processing_completed':True,'error_diagnostics':errors,
+                'hover_declaration':name,'hover':hover}
+        reports.append(report)
+        print(f'Section 0.{n}: language server finished with no errors; hover resolved {name}.',flush=True)
+        send({'method':'textDocument/didClose','params':{'textDocument':{'uri':uri}}})
+    (folder/'lsp-results.json').write_text(json.dumps(reports,indent=2)+'\n')
+finally:
+    try:
+        send({'id':99,'method':'shutdown','params':None})
+        send({'method':'exit','params':None})
+        p.wait(timeout=10)
+    except (BrokenPipeError,subprocess.TimeoutExpired):
+        p.terminate()
+        try:p.wait(timeout=5)
+        except subprocess.TimeoutExpired:p.kill();p.wait()
+    selector.close();err.close()

@@ -1,0 +1,10 @@
+{
+  "latex-workshop.latex.build.fromFolder": ".",
+  "task.saveBeforeRun": "always",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.watch.pdf.delay": 750,
+  "latex-workshop.latex.autoBuild.run": "never",
+  "workbench.editorAssociations": {
+    "*.pdf": "latex-workshop-pdf-hook"
+  }
+}

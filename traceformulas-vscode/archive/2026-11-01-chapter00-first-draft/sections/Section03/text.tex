@@ -1,0 +1,110 @@
+\subsection{Frequencies on a finite circle}\label{finite-circle-frequencies}
+
+The diagonal of a matrix singles out positions. Eigenvectors often single out frequencies. Fourier analysis gives a setting in which this change of viewpoint can be calculated explicitly. We begin with a finite circle, so every exchange of sums is justified before any analysis enters.
+
+Fix an integer \(N\geq1\), and let \(G=\mathbb Z/N\mathbb Z\). A function on \(G\) is a list of \(N\) complex numbers, indexed by \(0,\ldots,N-1\); additions and subtractions of indices are taken modulo \(N\). Write
+\[
+e(t)=\exp(2\pi i t),\qquad
+\chi_j(x)=e(jx/N)\quad(0\leq j<N).
+\]
+These functions are well defined on residue classes because adding an integer to the argument of \(e\) does not change its value. They satisfy \(\chi_j(x+y)=\chi_j(x)\chi_j(y)\). A homomorphism from an additive group to the complex unit circle is called a \emph{character}. Here the index \(j\) records a frequency.
+
+\subsection{Orthogonality and Fourier inversion}\label{finite-fourier-inversion}
+
+\textbf{Lemma.} For every integer \(r\),
+\[
+\frac1N\sum_{x=0}^{N-1}e(rx/N)
+=\begin{cases}1,&N\mid r,\\0,&N\nmid r.\end{cases}
+\]
+
+\textbf{Proof.} If \(N\mid r\), each summand is \(1\). Otherwise set \(q=e(r/N)\). Then \(q\ne1\), \(q^N=1\), and the finite geometric-series identity gives
+\[
+(1-q)\sum_{x=0}^{N-1}q^x=1-q^N=0.
+\]
+Division by the nonzero number \(1-q\) proves the other case. For \(N=1\), only the first case occurs.
+
+Equip the functions on \(G\) with the normalized inner product
+\[
+\langle f,g\rangle_G=\frac1N\sum_{x=0}^{N-1}f(x)\overline{g(x)}.
+\]
+It is linear in the first argument. The lemma says
+\(\langle\chi_j,\chi_k\rangle_G=\delta_{jk}\), where \(\delta_{jk}\) is \(1\) for equal indices and \(0\) otherwise. Thus the \(N\) characters are orthonormal. They are linearly independent: taking an inner product with \(\chi_k\) in a relation \(\sum_j c_j\chi_j=0\) gives \(c_k=0\). Since the space of functions on \(G\) has dimension \(N\), they form a basis.
+
+For a function \(f\), define its Fourier coefficients by
+\[
+\widehat f(j)=\langle f,\chi_j\rangle_G
+=\frac1N\sum_{y=0}^{N-1}f(y)e(-jy/N).
+\]
+\textbf{Fourier inversion.} For every \(x\in G\),
+\[
+f(x)=\sum_{j=0}^{N-1}\widehat f(j)e(jx/N).
+\]
+
+\textbf{Proof.} Substitute the coefficient definition and interchange the two finite sums:
+\[
+\sum_j\widehat f(j)e(jx/N)
+=\frac1N\sum_y f(y)\sum_j e(j(x-y)/N).
+\]
+The inner sum is \(N\) when \(x=y\) in \(G\) and zero otherwise, by the lemma. Exactly one term survives, namely \(f(x)\).
+
+The placement of \(1/N\) is part of the theorem. With our convention it belongs to coefficient extraction, and inversion has no prefactor. Replacing normalized counting measure by counting measure would change these formulas.
+
+\subsection{A complete finite Fourier trace formula}\label{finite-fourier-trace}
+
+Let \(a:G\to\mathbb C\). Define its convolution operator by
+\[
+(C_a f)(x)=\frac1N\sum_{y\in G}a(x-y)f(y).
+\]
+This operator mixes values according to their relative positions: its coefficient depends on \(x-y\), not separately on \(x\) and \(y\). In the basis of point indicators its matrix has entries \(a(x-y)/N\). All diagonal entries are \(a(0)/N\), so
+\[
+\operatorname{tr}(C_a)=a(0).
+\]
+On the other hand, set \(t=x-y\) in the defining sum. Subtraction from \(x\) permutes the residue classes, and therefore
+\[
+\begin{aligned}
+(C_a\chi_j)(x)
+&=\frac1N\sum_{t\in G}a(t)e(j(x-t)/N)\\
+&=\chi_j(x)\frac1N\sum_{t\in G}a(t)e(-jt/N)
+=\widehat a(j)\chi_j(x).
+\end{aligned}
+\]
+Thus our explicit basis diagonalizes \(C_a\), with eigenvalues \(\widehat a(j)\). Similarity invariance of the trace, proved in \hyperref[v1a-ch00-s1]{Section 0.1}, now gives
+\[
+\boxed{\quad a(0)=\operatorname{tr}(C_a)
+=\sum_{j=0}^{N-1}\widehat a(j).\quad}
+\]
+Fourier inversion at zero gives the same equality. This is already a trace formula: the position calculation and the frequency calculation evaluate one operator. There is no appeal to an infinite-dimensional trace.
+
+\textbf{Worked example.} Take \(N=4\) and the list
+\(a=(2,1,0,1)\). Direct substitution gives
+\[
+\bigl(\widehat a(0),\widehat a(1),\widehat a(2),\widehat a(3)\bigr)
+=\left(1,\frac12,0,\frac12\right).
+\]
+For example, the \(j=1\) numerator is \(2-i+i=2\), and the \(j=2\) numerator is \(2-1-1=0\). The four diagonal entries of the convolution matrix are all \(1/2\); their sum \(2\) agrees with the sum of the four eigenvalues. Neither the zero eigenvalue nor the repeated eigenvalue causes a difficulty.
+
+\textbf{Exercise with solution.} Which function \(a\) makes \(C_a\) the identity? It is \(a(0)=N\) and \(a(t)=0\) for \(t\ne0\). Indeed only \(y=x\) contributes, and the coefficient is \(N/N=1\). Every Fourier coefficient is then \(1\), so the trace formula reads \(N=\sum_{j=0}^{N-1}1\). This check detects a missing normalization factor immediately.
+
+\subsection{Poisson summation: the analytic preview}\label{poisson-preview}
+
+For a smooth function \(f:\mathbb R\to\mathbb C\), the Schwartz condition means that
+\[
+\sup_{x\in\mathbb R}(1+|x|)^a|f^{(b)}(x)|<\infty
+\quad\text{for all integers }a,b\geq0.
+\]
+Define
+\[
+\widehat f(\xi)=\int_{\mathbb R}f(x)e(-x\xi)\,dx.
+\]
+\textbf{Preview theorem: Poisson summation.} If \(f\) is Schwartz, then
+\[
+\sum_{n\in\mathbb Z}f(n)=\sum_{m\in\mathbb Z}\widehat f(m).
+\]
+Both series converge absolutely. More generally, the periodization satisfies
+\[
+\sum_{n\in\mathbb Z}f(x+n)
+=\sum_{m\in\mathbb Z}\widehat f(m)e(mx).
+\]
+The proof belongs to \hyperref[v1a-ch02-s2]{Section 2.2}. There we will establish smooth convergence of the periodization, compute its Fourier coefficients by a justified interchange of sum and integral, and prove convergence of its Fourier series. Evaluating at \(x=0\) then proves the displayed formula. A complementary account is in Miller and Piatetski-Shapiro's \href{https://sites.math.rutgers.edu/~sdmiller/480a/crashcourse.pdf}{notes on automorphic forms}, Section 1.4.
+
+The left side samples positions on an integer lattice; the right side samples frequencies on its dual lattice. The finite calculation has prepared us to recognize this pairing, but has not proved the analytic theorem. Passing from finitely many points to infinitely many introduces precisely the convergence questions that a trace formula must answer.

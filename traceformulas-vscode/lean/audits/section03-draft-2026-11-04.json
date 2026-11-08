@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-04",
+  "result_ids": [
+    "finite-relative-kernel-identity",
+    "finite-weighted-kernel-identity",
+    "finite-three-measurements-example"
+  ],
+  "scope": "Partial finite counting-measure matrix algebra and explicit two-point examples; general L2 integral identities unimplemented.",
+  "proof_status": "unverified-draft",
+  "build_status": "blocked-on-dependency-loading",
+  "axiom_audit_status": "not-run",
+  "human_correspondence_review": "not-reviewed",
+  "prose_status": "proof-draft",
+  "source_verification": "Pinned local Mathlib trace and matrix multiplication definitions and lemmas inspected; complete dependency closure not audited.",
+  "lean_toolchain": "leanprover/lean4:v4.21.0-rc3",
+  "mathlib_revision": "39d8416ae1e1083477f7546f1fd10e460ad37936",
+  "observed_local_mathlib_head": "unavailable",
+  "files": {
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section03/text.tex": "3be1252fe479d41eb226a33d7308a61fd4fb6b59eb5e1868d32e7cd46a651561",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section03/Formalization.lean": "bde7d0cb940eee04670dd16a8fec798170c876d932bba8bf748c69560ccc8dcc",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section03/compare.tex": "11a1a18e68160f4527bf91fa9ed304bcff495714df2ed05f48be3e57f0138edf",
+    "volumes/Volume01/A/chapters/Chapter00/sections/Section03/section.json": "1276dcc81855d5a0b086243e896f7efb973a49fe6f01dea6395c456ead49802c",
+    "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean": "5af5f04db8b6fe56ffecff1feff2af14d32eefcaabfc25216bda0f8971388240",
+    "lean/TraceFormulas.lean": "4f99d7cc59345609724ae85701ed3c091680326c8fcd9377230289cc4343affb",
+    "lean/Audit.lean": "aaec9ada0a042911f94fa9596efd8805e9256bf8228850445da68aadd4754127",
+    "lean/lakefile.toml": "5df8f50538ba37ab89ecc550ed0376ad7b9554e48614dd4e9f319d39ad544387",
+    "lean/lake-manifest.json": "ae6df1b12f07689db46ffb94428df01a42b5f9ef53a2b3779620a990c3e0eef7",
+    "lean/lean-toolchain": "4a621e65aac8f17691d825e7dfedb432e2658f3a96002cab94fad5320a18c9fc"
+  },
+  "import_probe": {
+    "command": [
+      "/Users/stevencreech/.elan/toolchains/leanprover--lean4---v4.21.0-rc3/bin/lean",
+      "/tmp/traceformulas-section03-import.lean"
+    ],
+    "source": "import Mathlib.LinearAlgebra.Matrix.Trace\nimport Mathlib.Data.Complex.Basic\n#check Matrix.trace\n#check Matrix.mulVec\n",
+    "lean_path": "Colon-separated existing .lake/build/lib/lean directories under /Users/stevencreech/Documents/LEAN/.lake/packages; no project package symlinks created.",
+    "outcome": "Timed out after 25 seconds; subprocess stopped; no Lean output."
+  },
+  "observed_checks": [
+    "Lake TOML and section JSON parsed successfully.",
+    "Pinned local source definitions Matrix.trace and Matrix.mulVec and lemmas Matrix.diagonal_mul, Matrix.mulVec_single_one, and Matrix trace operations inspected.",
+    "No theorem compilation succeeded; the failed dependency probe prevented proceeding to module builds."
+  ],
+  "limitations": [
+    "General L2 integral representation and absolute convergence are unimplemented.",
+    "Fubini, representative independence, bounded multiplication, orthogonal projection, and the compressed endomorphism trace remain unimplemented.",
+    "The counting-measure L2-to-coordinate-space equivalence has not been formalized.",
+    "Proof scripts are drafts without compilation or axiom evidence.",
+    "No dependency download, package update, or external cache mutation was performed.",
+    "Human correspondence review remains pending."
+  ]
+}

@@ -1,0 +1,114 @@
+\subsection{The setting and the vocabulary}\label{trace-formula-vocabulary}
+
+Our arithmetic symmetry group is
+\[
+\mathrm{SL}_2(\mathbb Z)
+=\left\{\begin{pmatrix}a&b\\c&d\end{pmatrix}:
+a,b,c,d\in\mathbb Z,\ ad-bc=1\right\}.
+\]
+It acts on the upper half-plane \(\mathbb H=\{x+iy:y>0\}\) by
+\(z\mapsto(az+b)/(cz+d)\). The matrices \(I\) and \(-I\) have the same action. The effective group is therefore \(\Gamma=\mathrm{PSL}_2(\mathbb Z)\), and we write \(X=\Gamma\backslash\mathbb H\) for the modular quotient. Its measure is \(d\mu=dx\,dy/y^2\). \hyperref[v1a-ch01]{Chapter 1} will explain its finite area, its elliptic points, and its noncompact end, the \emph{cusp}.
+
+A holomorphic modular form of integer weight \(k\) satisfies
+\[
+f\left(\frac{az+b}{cz+d}\right)=(cz+d)^k f(z)
+\]
+and a holomorphy condition at the cusp. The transformation \(z\mapsto z+1\) gives periodicity. In the coordinate \(q=e(z)\), holomorphy at the cusp means an expansion \(f(z)=\sum_{n\geq0}a_f(n)q^n\). A \emph{cusp form} has \(a_f(0)=0\). Applying the transformation law to \(-I\) shows that a nonzero form for this group must have even weight. The space of such cusp forms is denoted \(S_k\); its finite dimensionality will be proved later.
+
+A weight-zero \emph{Maass cusp form} is instead a smooth \(\Gamma\)-invariant function \(u\), square-integrable on \(X\), satisfying
+\[
+\Delta u=\lambda u,\qquad
+\Delta=-y^2(\partial_x^2+\partial_y^2),\qquad
+\int_0^1u(x+iy)\,dx=0\quad(y>0).
+\]
+Its periodicity also gives Fourier coefficients, now with nonholomorphic functions of \(y\). Holomorphic and Maass forms provide two kinds of arithmetic frequencies. Their definitions and spectral properties occupy different chapters; we do not assume that one theory is a special case of the other.
+
+The following five entries are a reading map. The displayed comparisons are \emph{schematic}: they specify the data being related, not formulas with suppressed constants that may be used in calculations. Each later theorem must supply its normalizations, test functions, convergence conditions, and all exceptional terms.
+
+\subsection{Petersson: how do Fourier coefficients correlate?}\label{petersson-preview}
+
+Fix an even weight \(k>2\) and positive integers \(m,n\). Give \(S_k\) the Petersson inner product
+\[
+\langle f,g\rangle_k=\int_X f(z)\overline{g(z)}y^k\,d\mu(z).
+\]
+\hyperref[v1a-ch03]{Chapter 3} proves invariance and convergence. For an orthonormal basis \(\mathcal B_k\), Petersson studies the finite sum
+\[
+\sum_{f\in\mathcal B_k}a_f(m)\overline{a_f(n)}.
+\]
+Its schematic description is
+\[
+\begin{aligned}
+&\text{Fourier-coefficient average}\\
+&\qquad\longleftrightarrow
+\text{diagonal term + Kloosterman--Bessel sum}.
+\end{aligned}
+\]
+The diagonal term distinguishes \(m=n\). The other terms involve finite exponential sums and a special-function transform. For example, for \(c\geq2\) the Kloosterman sum is
+\[
+S(m,n;c)=\sum_{\substack{d\bmod c\\(d,c)=1}}
+e\left(\frac{md+n\overline d}{c}\right),
+\qquad d\overline d\equiv1\pmod c;
+\]
+set \(S(m,n;1)=1\). Changing representatives or the choice of inverse changes the argument by an integer, so this definition is unambiguous. The modulus \(c\) varies on the geometric side.
+
+\hyperref[v1a-ch07]{Chapter 7} proves the formula by comparing two descriptions of a Poincar\'e series, a function constructed by summing a seed over modular transformations. An orthonormal basis is not the same normalization as a basis with first Fourier coefficient \(1\); moving between them introduces norms. See also Gillman's \href{https://cs.brown.edu/people/ngillman/expository/petersson.pdf}{proof of Petersson's formula}.
+
+\subsection{Eichler--Selberg: what is the trace of a Hecke operator?}\label{eichler-selberg-preview}
+
+Hecke operators \(T_n\) are arithmetic averaging operators on modular forms, built from integral matrices of determinant \(n\). \hyperref[v1a-ch05]{Chapter 5} constructs them and fixes both classical and normalized conventions. For fixed \(k\), \(T_n\) acts on the finite-dimensional space \(S_k\), so its ordinary linear-algebraic trace is defined. In an eigenbasis it is the sum of its eigenvalues, counted with multiplicity.
+
+Eichler--Selberg gives a different calculation:
+\[
+\begin{aligned}
+&\text{Hecke trace on }S_k\\
+&\qquad\longleftrightarrow
+\text{class-number sums and explicit arithmetic terms}.
+\end{aligned}
+\]
+Class numbers here count equivalence classes of quadratic forms with specified weights for their symmetries. The formula also has divisor contributions and special cases that cannot be read from this schematic line. \hyperref[v1a-ch10]{Chapter 10} derives the precise statement; Zagier's \href{https://people.mpim-bonn.mpg.de/zagier/files/tex/UtrechtLectures/UtBook.pdf}{Utrecht lectures}, Section 6.3, give a classical reference.
+
+An immediate check requires no trace formula: \(T_1\) is the identity, so \(\operatorname{tr}(T_1\mid S_k)=\dim S_k\). Thus the arithmetic expression at \(n=1\) must recover the independently proved dimension formula. Petersson averages pairs of coefficients; Eichler--Selberg computes the trace of a specified operator. Those are different questions even when Hecke eigenvalues can be expressed using Fourier coefficients.
+
+\subsection{Selberg: how does the Laplace spectrum reflect geometry?}\label{selberg-preview}
+
+Selberg's formula compares a smoothed spectral count with geometric data:
+\[
+\begin{aligned}
+&\text{discrete spectrum and scattering data}\\
+&\qquad\longleftrightarrow
+\text{identity, elliptic, hyperbolic, and cusp terms}.
+\end{aligned}
+\]
+The hyperbolic terms involve closed geodesics, including their repetitions. Elliptic terms record finite stabilizers. Because \(X\) has a cusp, its spectral decomposition also involves a continuous part described by Eisenstein series. Its contribution cannot be replaced by a sum over Maass cusp forms alone.
+
+The spectral count uses a test function to weight eigenvalues. A rapidly decreasing weight suggests a convergent average, but the theorem must specify the actual analytic class and the corresponding geometric transform. \hyperref[v1a-ch19]{Chapter 19} does this after developing kernels and truncation. We will not identify an unregularized infinite diagonal integral with an operator trace merely by analogy with matrices. Goldfeld's \href{https://www.math.columbia.edu/~goldfeld/TraceFormulae-4-12-2020.pdf}{trace-formula lectures}, Sections 3--5, develop this modular setting.
+
+\subsection{Kuznetsov: how do Maass Fourier coefficients correlate?}\label{kuznetsov-preview}
+
+Kuznetsov retains Fourier information in a spectral average. Its schematic comparison is
+\[
+\begin{aligned}
+&\text{weighted Fourier-coefficient products over the spectrum}\\
+&\qquad\longleftrightarrow
+\text{diagonal terms and transformed Kloosterman sums}.
+\end{aligned}
+\]
+Both the Maass cusp spectrum and the Eisenstein contribution must be accounted for. Same-sign and opposite-sign coefficient problems have different transforms; some formulations also include holomorphic cusp forms. Chapters 21--23 identify the precise version before any application. These distinctions matter when translating one author's formula into another's conventions.
+
+The construction extracts Fourier coefficients in the two kernel variables. Knowing only an ordinary scalar trace does not supply those coefficients: eigenvalues alone do not specify the chosen matrix entries or period functionals. Blomer's \href{https://arxiv.org/abs/1912.08137}{survey of the relative trace formula}, Section 2, explains the construction and the distinction between the spectral and inverted formulations.
+
+\subsection{Relative trace formulas: what do periods detect?}\label{relative-formula-preview}
+
+The fifth entry is a \emph{family}, called classical relative trace formulas, rather than one uniquely normalized identity. Choose two linear measurements of functions and apply one in each variable of a kernel. For example, if \(C\) is a closed geodesic, traversed once with hyperbolic arclength \(ds\), its period is
+\[
+P_C(u)=\int_C u\,ds.
+\]
+Applying periods over \(C\) and \(D\) to a spectral kernel produces terms of the shape \(h_jP_C(u_j)\overline{P_D(u_j)}\). Geometrically, the kernel expansion is organized by double cosets of the stabilizers of lifts of the two geodesics. \hyperref[v1a-ch24]{Chapter 24} will justify restriction to the curves, the interchange with the spectral expansion, the continuous contribution, and the geometric terms. Voskou's \href{https://arxiv.org/abs/2407.03134}{work on geodesic segments}, especially its treatment of noncompact finite-area quotients in Section 8, provides a model for the necessary continuous-spectrum terms. A compact-surface formula alone would not settle our modular case.
+
+A second example replaces geodesic periods by Mellin integrals of holomorphic cusp forms along the imaginary axis. Their relation to completed \(L\)-functions turns a kernel pairing into a moment of \(L\)-values. \hyperref[v1a-ch25]{Chapter 25} develops this construction with its own convergence and regularization arguments; see Wei's \href{https://arxiv.org/abs/2502.18593}{classical relative trace formula}. Fourier-coefficient extraction is itself a period construction, so the fifth entry overlaps conceptually with Petersson and Kuznetsov. It extends the kinds of measurements we ask a kernel to compare.
+
+\subsection{A further question: where is eigenfunction mass?}\label{weighted-preview}
+
+Chapters 26--28 add a separate operation: integrate the diagonal kernel against a weight \(w\). Its spectral terms involve \(\int_X w|u_j|^2\,d\mu\). These are weighted mass measurements, different from products of periods. The classical specializations of Zelditch's and Bir\'o's formulas belong here. Bir\'o and T\'oth's \href{https://arxiv.org/abs/2309.02163}{account of generalized Selberg formulas} describes the weighted diagonal construction. Any comparison of versions must match their test functions, weights, transforms, and boundary terms; it is a later mathematical task, not an identification assumed in this introduction.
+
+We now have several questions to ask of one kernel. The next section makes the distinction between taking its trace, pairing its variables separately, and weighting its diagonal completely explicit in finite-dimensional examples.

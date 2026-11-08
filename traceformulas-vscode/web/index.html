@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#145b52">
+  <meta name="description" content="Trace Formulas: a multimedia book series with automorphic forms, representations, Lean formalizations, and lectures.">
+  <title>Trace Formulas</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] },
+      startup: { typeset: false }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="mobile-scrim" class="mobile-scrim" hidden></div>
+  <aside id="sidebar" class="sidebar" aria-label="Book navigation"></aside>
+  <div class="workspace">
+    <header id="topbar" class="topbar"></header>
+    <main id="main" tabindex="-1"><div class="loading">Opening the volume…</div></main>
+    <footer id="footer" class="site-footer"></footer>
+  </div>
+  <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title"></dialog>
+  <noscript>This textbook uses JavaScript for its prototype navigation. Please enable JavaScript to browse the chapters.</noscript>
+</body>
+</html>

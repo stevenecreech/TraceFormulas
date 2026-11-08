@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import importlib.util
 from pathlib import Path
 import shutil
 import subprocess
@@ -27,7 +28,14 @@ class TexError(ValueError):
 
 def pandoc_path(root: Path) -> str:
     local = sorted(root.glob('.venv/lib/*/site-packages/pypandoc/files/pandoc'))
-    candidates = [os.environ.get('PANDOC'), *(str(p) for p in local), shutil.which('pandoc')]
+    candidates = [os.environ.get('PANDOC'), *(str(p) for p in local)]
+    # CI installs pypandoc_binary in the active interpreter, without a project
+    # .venv. Its bundled executable is not necessarily on PATH.
+    package = importlib.util.find_spec('pypandoc')
+    if package and package.submodule_search_locations:
+        candidates.extend(str(Path(directory) / 'files/pandoc')
+                          for directory in package.submodule_search_locations)
+    candidates.append(shutil.which('pandoc'))
     for candidate in candidates:
         if candidate and Path(candidate).is_file():
             return candidate

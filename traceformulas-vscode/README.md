@@ -41,7 +41,7 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 ```
 
-The pinned package supplies Pandoc 3.9. The builder finds the project-local binary automatically. An external Pandoc can be selected with `PANDOC`; use the pinned version for reproducible output. For PDF compilation, also install a TeX distribution providing `pdflatex`, Latin Modern, AMS packages, geometry, microtype, and hyperref (for example MacTeX or TeX Live).
+The pinned package supplies Pandoc 3.9. The builder finds the project-local binary or the binary installed in the active Python interpreter, including CI installs without a project `.venv`. An external Pandoc can be selected with `PANDOC`; use the pinned version for reproducible output. For PDF compilation, also install a TeX distribution providing `pdflatex`, Latin Modern, AMS packages, geometry, microtype, and hyperref (for example MacTeX or TeX Live).
 
 ## Build and preview
 
@@ -86,3 +86,5 @@ Run `python3 -m unittest discover -s tests -v` for source-pipeline regression te
 The repository-root workflow [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) runs on every push to `main`: it installs the converter and TeX packages, runs the pipeline tests, builds the website and PDFs from this directory (`working-directory: traceformulas-vscode`), and uploads `traceformulas-vscode/dist` to GitHub Pages. The published site is <https://stevenecreech.github.io/TraceFormulas/>. In the repository settings under Pages, the source must be set to "GitHub Actions" once.
 
 All site assets and generated data use relative paths, so the site can be hosted under a subdirectory. Mathematical display currently loads MathJax from the configured CDN. The website displays Lean source; it does not execute Lean or certify proof correctness. The supported LaTeX scope and current rendering limitations are documented in [AUTHORING.md](AUTHORING.md).
+
+For a clean CI reproduction, export tracked sources with `git archive` and apply any uncommitted fix explicitly. The website tests and PDF build do not need the Lean/Mathlib build cache. Avoid copying the whole working directory into a container: a recursive copy also includes gitignored `.venv`, `.build`, and `lean/.lake` directories. A `.dockerignore` does not filter a shell copy from a bind mount. Check the export size and available disk space before running a reproduction.

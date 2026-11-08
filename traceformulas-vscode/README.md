@@ -83,6 +83,6 @@ Run `python3 -m unittest discover -s tests -v` for source-pipeline regression te
 
 ## Publishing
 
-The supplied `.github/workflows/pages.yml` installs the converter and TeX packages, runs the pipeline tests, builds the website and PDF, and uploads `dist/`. For a standalone repository, keep this package at its root. For the current enclosing TraceFormulas repository, GitHub discovers workflows only in the repository-root `.github/workflows/`: move/integrate the workflow there, run its Python steps with `working-directory: traceformulas-vscode`, point its dependency install at that directory, and upload `traceformulas-vscode/dist`. No remote publication is configured by this migration.
+The repository-root workflow [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) runs on every push to `main`: it installs the converter and TeX packages, runs the pipeline tests, builds the website and PDFs from this directory (`working-directory: traceformulas-vscode`), and uploads `traceformulas-vscode/dist` to GitHub Pages. The published site is <https://stevenecreech.github.io/TraceFormulas/>. In the repository settings under Pages, the source must be set to "GitHub Actions" once.
 
 All site assets and generated data use relative paths, so the site can be hosted under a subdirectory. Mathematical display currently loads MathJax from the configured CDN. The website displays Lean source; it does not execute Lean or certify proof correctness. The supported LaTeX scope and current rendering limitations are documented in [AUTHORING.md](AUTHORING.md).

@@ -44,7 +44,7 @@ python3 -m http.server 8000 --directory dist --bind 127.0.0.1
 
 Open <http://127.0.0.1:8000/> to browse the local website. The generated PDF is `traceformulas-vscode/dist/pdf/v1a.pdf`, also available from the volume overview. The website has **Read**, **Watch**, **Formalization**, **Compare**, and **Map** views. It displays Lean source; Lean checking runs separately.
 
-To build only the website, omit `--pdf --volume v1a`. Generated files live in `dist/` and `.build/`; edit the sources under `volumes/` instead. GitHub Pages publishing instructions are in the [package README](traceformulas-vscode/README.md#publishing); the supplied workflow still needs integration at the repository root.
+To build only the website, omit `--pdf --volume v1a`. Generated files live in `dist/` and `.build/`; edit the sources under `volumes/` instead. The website publishes to GitHub Pages at <https://stevenecreech.github.io/TraceFormulas/> on every push to `main` via [`.github/workflows/pages.yml`](.github/workflows/pages.yml); see [Publishing](traceformulas-vscode/README.md#publishing).
 
 In VS Code, **Cmd+Shift+B** builds Volume 1a and the website. Keep `.build/v1a/main.pdf` open in LaTeX Workshop's PDF viewer. For the video script, select the chapter's `lecture.tex` and run **Tasks: Run Task → Preview active LaTeX file**. Selecting a manuscript file with that task builds its containing volume so hyperlinks and numbering resolve.
 

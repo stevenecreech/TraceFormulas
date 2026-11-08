@@ -127,6 +127,10 @@ Automatic numbered `\ref`/`\eqref` references work in the PDF engine but are not
 
 Documentation remains Markdown; the preserved archive remains Markdown. Neither is read as the live book manuscript.
 
+### Shared acknowledgments
+
+`volumes/acknowledgments.tex` contains the series-wide support statement and disclaimer, including NSF Award DMS-2602321. The PDF assembler includes this fragment on an unnumbered Acknowledgments page after the title page, with a contents entry. The website renders the same source on each volume's About page; its footer links directly to that section. This file is also included among the downloadable sources. Keep the repository-root README's acknowledgment synchronized when revising it. The source is optional for other uses of the build tools; when absent or empty, both editions omit the acknowledgment.
+
 ## How the website is populated
 
 | Reader view | Source |

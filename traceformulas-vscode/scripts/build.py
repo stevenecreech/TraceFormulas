@@ -438,6 +438,7 @@ def compile_book(root: Path, volume: dict, renderer: Renderer) -> tuple[dict, di
         "schemaVersion": 2, "bookId": "traceformulas-" + volume["id"], "format": "html",
         "features": {"exercises": False, "explore": False, **features},
         "repositoryUrl": url(settings.get("repositoryUrl", ""), "site.repositoryUrl"),
+        "acknowledgments": renderer.render(root / "volumes/acknowledgments.tex", optional=True),
         "chapters": {},
     }
     for record in records:

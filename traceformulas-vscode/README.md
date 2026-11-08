@@ -69,6 +69,7 @@ Without `--pdf`, the command builds the website only and does not advertise a PD
 | `site.json` | Optional features and repository URL |
 | `volumes/Volume01/A/outline.json` | Volume 1a chapter titles, stable IDs, ordering, and reading routes |
 | `volumes/VolumeNN/A`, `B`, `C` | Each volume part's own outline and manuscript |
+| `volumes/acknowledgments.tex` | Shared NSF acknowledgment for the PDF front matter and website About page |
 | `lean/TraceFormulas/` | Shared reusable Lean mathematics; see its layout notes |
 | `tex/macros.tex` | Semantic macros shared by PDF and web rendering |
 | `tex/preamble.tex` | Print packages and layout |

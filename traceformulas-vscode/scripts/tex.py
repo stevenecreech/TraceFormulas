@@ -88,8 +88,13 @@ def print_source(root: Path, outline: dict, records: list[dict], directories: di
              r'\title{' + escape(outline['title']) + r'\\[1ex]\large Volume ' + escape(outline['volume'])
              + r'\\' + escape(outline['subtitle']) + '}',
              r'\author{' + escape(outline['author']) + '}', r'\date{Draft edition}',
-             r'\begin{document}', r'\frontmatter', r'\maketitle', r'\tableofcontents',
-             r'\mainmatter']
+             r'\begin{document}', r'\frontmatter', r'\maketitle']
+    acknowledgments = root / 'volumes/acknowledgments.tex'
+    if acknowledgments.is_file() and acknowledgments.read_text(encoding='utf-8').strip():
+        lines.extend([r'\chapter*{Acknowledgments}', r'\label{series-acknowledgments}',
+                      r'\addcontentsline{toc}{chapter}{Acknowledgments}',
+                      r'\input{volumes/acknowledgments.tex}'])
+    lines.extend([r'\tableofcontents', r'\mainmatter'])
     division = None
     appendix = False
     for record in records:

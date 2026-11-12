@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-12",
+  "scope": "Restore concise Appendix A.1 uniqueness exposition with a cited theorem; preserve general Lean proofs",
+  "prose_status": "edited draft for Steven review; standard uniqueness theorem cited without proof at his request",
+  "changes": [
+    "Replaced pi/Dynkin definitions, pi-lambda proof, finite-exhaustion proof and separate corollaries by one theorem stating the interval and rectangle uniqueness cases.",
+    "Preserved measure.uniqueness-principle on Theorem A.1.15; retained the translation-invariance lemma and proof, now A.1.16, with its link text corrected to theorem.",
+    "Added the verified Rinaldo citation in the manuscript and appendix Resources.",
+    "Updated Compare and the appendix formalization summary to distinguish retained general Lean results from the shorter prose.",
+    "Removed unused development labels; no references to them remain in the manuscript sources."
+  ],
+  "source_verification": {
+    "source": "Alessandro Rinaldo, Advanced Probability, Spring 2018, Lecture Notes Set 1, Section 4.3, Theorem 21",
+    "url": "https://stat.cmu.edu/~arinaldo/Teaching/36752/S18/Notes/lec_notes_1.pdf#page=10",
+    "checked": "general uniqueness theorem and proof verified; manuscript interval and rectangle cases are specializations"
+  },
+  "formal_status": "all existing general and specialized Lean proofs and section declaration metadata retained byte-for-byte; overall appendix coverage remains partial",
+  "human_correspondence_review": "not-reviewed",
+  "ai_review": "independent read-only review of saved theorem, citation, semantic references and coverage notes passed",
+  "inherited_audit": {
+    "record": "lean/audits/chapter01-diagonal-character-2026-11-12/record.json",
+    "declarations": 266,
+    "unchanged_hashes": 67,
+    "total_hashes": 71,
+    "changed_inputs": [
+      "volumes/Volume01/A/appendices/A/sections/Section01/compare.tex",
+      "volumes/Volume01/A/appendices/A/sections/Section01/text.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex"
+    ],
+    "lean_configuration_metadata": "unchanged"
+  },
+  "validation": {
+    "combined_pdf_website_build": "passed",
+    "tex_log": "clean",
+    "numbering": "all 16 Appendix A.1 blocks match PDF and website; theorem A.1.15 and lemma A.1.16",
+    "citation_links": "exact URL with page=10 verified in generated HTML and actual PDF annotations using pdfinfo -url",
+    "exports": "exact manuscript/Compare/Lean/section metadata; displayed Lean matches unchanged source; PDF copies byte-identical",
+    "visual_inspection": "printed page 100",
+    "unit_browser_lean_checks": "not rerun for prose shortening and citation; no pipeline or Lean changes",
+    "git_diff_check": "passed"
+  },
+  "notation_index": "unchanged; no entries depended on removed development",
+  "publication": "local only; no commit, push, or deployment",
+  "source_sha256": {
+    "volumes/Volume01/A/appendices/A/sections/Section01/text.tex": "c78f255ff16e89038be31ce27cfb955833aac5ddc873f420944c8699a4033c03",
+    "volumes/Volume01/A/appendices/A/sections/Section01/compare.tex": "118b0bd494aaf1e4856f5ce36cc3925e8d9eb2af345f5543c0f8cd70a5b07947",
+    "volumes/Volume01/A/appendices/A/sections/Section01/Formalization.lean": "e9d9ddbb4df51c1e0a5054f7094103c8c4f3ba86895a429dd4ea5d3c1c273ffd",
+    "volumes/Volume01/A/appendices/A/sections/Section01/section.json": "1e53710345dcd5ca7f244754d4f503ed2937f86c966b030c7b57598b150f0a79",
+    "volumes/Volume01/A/appendices/A/formalization.tex": "0a86bd4daa3d7f338640a0f213c34746542ae246b2f0d2877411016900a6830d",
+    "volumes/Volume01/A/appendices/A/chapter.json": "1318d81100ce395e831f24ab2dfc8911f3f55871987c5223005c761cf8ec9261",
+    "lean/TraceFormulas/MeasureTheory/BorelUniqueness.lean": "4fb34a1f9c094fcbb97fc3e460d3986fcc7388840f8b918e9bca99ab3c68da53",
+    "lean/TraceFormulas/MeasureTheory/RealTranslation.lean": "8e4cc42fbed7f9f0f154269af59863a1bf3342239da5b38cef57ec42ebb80eb2"
+  }
+}

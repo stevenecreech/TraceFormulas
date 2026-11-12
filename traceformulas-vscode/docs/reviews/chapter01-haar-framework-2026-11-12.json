@@ -1,0 +1,104 @@
+{
+  "date": "2026-11-12",
+  "scope": "Reorganize Section1.8 around abstract Haar measure and hyperbolic quotient area; AppendixA.2 general proofs; real-line lemma/companion moved to AppendixA.1.",
+  "prose_status": "proof-draft; awaiting Steven review",
+  "formal_status": "in-progress; exact coverage and gaps recorded in each Compare source",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "general_scope": "Locally compact Hausdorff second-countable groups; Haar existence assumed in general arguments and explicitly constructed for Chapter1 groups.",
+  "source_checks": [
+    {
+      "source": "https://math.mit.edu/~dav/integration.pdf",
+      "locations": "Theorems2 and6",
+      "scope": "Haar/modular conventions and quotient-measure relationship"
+    },
+    {
+      "source": "https://imag.umontpellier.fr/~quint/Publications/courschine.pdf",
+      "locations": "Section2.2, Theorem2.2.1 and Proposition2.2.6",
+      "scope": "Haar uniqueness/modular-function conventions"
+    },
+    {
+      "source": "https://math.uchicago.edu/~may/VIGRE/VIGRE2010/REUPapers/Gleason.pdf",
+      "locations": "Proposition4.1 and Theorem4.6",
+      "scope": "Positive open sets and Haar uniqueness"
+    }
+  ],
+  "proof_route_changes": [
+    "Invariant-area uniqueness now uses Iwasawa lift, Haar uniqueness and projection rather than coordinate disintegration.",
+    "Unimodularity now uses positive characters on Iwasawa factors instead of the adjoint determinant.",
+    "Prose general Haar uniqueness uses compact support/Fubini approximation; Lean uses Mathlib invariant-measure uniqueness and positive compact normalization."
+  ],
+  "machine_evidence": {
+    "record": "lean/audits/chapter01-haar-framework-2026-11-12/record.json",
+    "declarations": 243,
+    "verified_source_hashes": 69,
+    "clean_dependencies": 9,
+    "allowed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "coverage": [
+    "left-Haar uniqueness up to finite positive scalar",
+    "left-to-right inversion",
+    "positivity on nonempty open sets",
+    "right-translation scalar existence/uniqueness and set-image convention",
+    "unchanged real-line lemma now in Appendix A.1"
+  ],
+  "remaining_formal_gaps": [
+    "right-Haar uniqueness and reverse/involutive inversion as exported companion theorems",
+    "modular homomorphism/continuity and integral law",
+    "compact/abelian consequences and affine example",
+    "actual Iwasawa Haar measures and hyperbolic quotient/lift",
+    "SL2 unimodularity and central pushforward",
+    "modular quotient integration, unfolding and central covolumes"
+  ],
+  "validation": {
+    "pdf_website_build": "passed: python3 scripts/build.py --pdf --volume v1a",
+    "tex_log": "clean",
+    "unit_tests": "48 passed: python3 -m unittest discover -s tests -v",
+    "axiom_audit": "passed; included appendices and private appendix helpers",
+    "numbering": "40 Chapter1 equations +3 appendix equations;90 Chapter1 theorem/remark blocks +12 appendix blocks agree with PDF",
+    "exports": "exact edited manuscript/Lean/Compare/metadata and supporting sources; identical editor/download PDFs",
+    "visual_inspection": "Printed pages55 and100",
+    "browser": "passed after appendix-numbering fix; desktop/mobile, direct appendix proof link, two appendix and eight Chapter1 exact Lean panes, sidebar/map labels, no math/page errors, downloads and subdirectory hosting",
+    "initial_browser_failure": "Appendix section labels incorrectly used record.number; fixed with sectionNumber using record.number ?? record.letter, also for sidebar and map",
+    "javascript_syntax": "passed: node --check web/app.js",
+    "ai_review": "Independent read-only mathematical review of main and appendix passed; not human review",
+    "notation_entries": 77,
+    "diff_check": "passed",
+    "commit_push_deployment": "not-performed"
+  },
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/intro.tex": "2b20d62fdde36552f83e68b003979b078927251e46390e3dcdc8c6ebfd85035b",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "68b29f767b0932c2f0281eb5da8a22aa52210396ce9dfc312b6bcb0d3074a061",
+    "volumes/Volume01/A/appendices/A/intro.tex": "5f0822cea64aae648971bc2bd4c361e569e0ff579a9cdd41e685846232ffad18",
+    "volumes/Volume01/A/appendices/A/formalization.tex": "6eec488dc3cd0b1424f888f57a98833527e072e8988d254de246733caabb9c87",
+    "volumes/Volume01/A/appendices/A/chapter.json": "bb0228c6eff72318ae0e170c96a4bfec19ff7c0bc1e9443d51bf8e7414c64794",
+    "volumes/Volume01/A/appendices/I/intro.tex": "f2573c9a0e6fb81f749685baa33236df81d0839fb1f1f209919e767896cd5b36",
+    "volumes/Volume01/A/outline.json": "e15a77be3560749ecd48bdc9fcabe165619b5fd1cea3f5dafa57d61bc886fe04",
+    "lean/TraceFormulas/MeasureTheory/HaarBasics.lean": "eb9f8e5edd2d3bc4ef9e7256d94132c546e76714a7f5e939febb0cb9c6abd503",
+    "lakefile.toml": "68aa133a72fef4d83574dc2d3e5b8f3334879975f5538546ddea254c66d00158",
+    "lean/AuditChapter01.lean": "9878e7a3f1fe98046c3056c69be89443c91fddc2e476264d293e71e0ef261401",
+    "scripts/audit_lean.py": "3f939d8b0ca1a20b010e8dca27adc75ee9a09c05ddc90e713e009b2b8831d671",
+    "scripts/check_browser.py": "e506ca624edadf28743f124de0cbc9837dad13102677620abb24ec2b5e4159be",
+    "tests/test_lean_audit.py": "ed1e43fba9ae5fea57dc158f4b56b6cc3ce6b70145c54a03bb517798df5895d3",
+    "web/app.js": "30a4abe124adb8ec64ce3787914dd0d16293b9a18e8e86a9094c5b7ce224743e",
+    "docs/STATUS.md": "eae5fb2a6fe24ea90760e0c2a1944004f2063892073f0fcea72bf6780fb5cb78",
+    "README.md": "89d4798883ef46f129ceb22e42cf1fb9c45723a70e2855325b7260a87e05d0a2",
+    "lean/README.md": "b5ad58f5eea1456fb9a1d0d26dcbe1ae91aff6c6a5bad37e325573d20e27020c",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "553041aa35572e49bebcf9e11510c41c33429477fa348da6c69c684bf234a2cd",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/Formalization.lean": "ba6cea90f836a8d82b38af0587e5c85748044f2b79b7624a12a86dace3fefff8",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex": "28b94e18e363d1dac8e51a25a472d67c06d507dd2e2683ea160fa964a3ade8bc",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/section.json": "99677c0dd1ad054946cd5375acd0d0dc4ba6ac85a0f3d3c43be4554f7e4ab78e",
+    "volumes/Volume01/A/appendices/A/sections/Section01/text.tex": "faeb5a0b3e0593f1bac416c31b27457bc5b1ed8d47da225d2c8c1422c20881db",
+    "volumes/Volume01/A/appendices/A/sections/Section01/Formalization.lean": "3a7cbcc1081623cc3ef2392e710b0e07e06d75905ca72c6be5b95b2f49e4642d",
+    "volumes/Volume01/A/appendices/A/sections/Section01/compare.tex": "ef463f7dcca19d343044641cbe8778491e4fbfd55460c3a9875c27a501d4461f",
+    "volumes/Volume01/A/appendices/A/sections/Section01/section.json": "09271621435ed87cc77e72ad7b31604087763e63835ef418e3f8e7d6fc5ecbcd",
+    "volumes/Volume01/A/appendices/A/sections/Section02/text.tex": "f4d7d2dae6f2232f8b8f79003f63b1b8e8615d450dcf15f5acdea662a617db0b",
+    "volumes/Volume01/A/appendices/A/sections/Section02/Formalization.lean": "355eb95ec933f5a8c82ba5d4b797b4f76b82807f9fa3bbcd4283d482c151af3e",
+    "volumes/Volume01/A/appendices/A/sections/Section02/compare.tex": "2c4c7e3e1eff52862979c4bac5e9d0f8841c360f9c64c4d585dda6096be8ebf7",
+    "volumes/Volume01/A/appendices/A/sections/Section02/section.json": "0a1ee25a36a5c2fbaac834430a32ec1c3ddb059bd4e076fb8eb4cc5af9997bd3"
+  }
+}

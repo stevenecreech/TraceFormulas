@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-10",
+  "scope": "Define divergence by integration by parts, parallel to the gradient characterization, replacing the deformation/determinant derivation.",
+  "prior_snapshot": "docs/reviews/chapter01-unit-speed-example-2026-11-10.json",
+  "prose_status": "proof-draft; edited at Steven’s request; further review pending",
+  "formal_status": "in-progress; no new checked declarations",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "changes": [
+    "Divergence is defined as the unique continuous real function satisfying the integral identity against every real smooth compactly supported test function.",
+    "The right side is first written using the metric gradient, then explained as the directional derivative of the test function.",
+    "Coordinate integration by parts proves existence and derives the weighted-density formula; a test function supported where a continuous difference has one sign proves uniqueness.",
+    "The correction -2Q/y is derived from the hyperbolic area density. The deformation F_t, its determinant and little-o notation are removed.",
+    "The notation index and Compare now use the integral characterization. Labels, numbering and the subsequent Laplacian/isometry proofs are retained."
+  ],
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "fe222249b7d46ec8cd53f015cdc879140395e8ad4e2b6b0c965e2a596e70e3fb",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "e4a7221c5e7012be7a75801af1ba3a0444279ea2797de458dad3f0538b1bc3e0",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c0541381425c82b75c7b8040866b805c0c66800bc040e9e126a9ce43ef665456",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "c43e8890da7b8780607280e05d9617a70a5e2db6ec873379a109378a51f8eb68",
+    "volumes/Volume01/A/appendices/I/intro.tex": "531f783f109a89b14f999375a18e60efd86666a06c85b29ddba4db079a54e4a4"
+  },
+  "formalization_impact": {
+    "inherited_audit": "lean/audits/chapter01-section03-expanded-2026-11-10/record.json",
+    "record_sha256": "00104d8d8d138bc10cd4289f5a7cfeb922798246462f302b029986a4f86bdf77",
+    "audited_declarations": 118,
+    "lean_source_drift": [],
+    "prose_and_comparison_changes_since_audit": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex"
+    ],
+    "remaining": "Define the weighted measure and differentiable vector-field interface, prove the integral characterization and pointwise uniqueness, then connect divergence to the gradient and analytic Laplacian. No coordinate-only proxy is claimed as this formalization.",
+    "mathlib_dependency_inspection": [
+      "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff: IsOpen.ae_eq_zero_of_integral_contDiff_smul_eq_zero supplies almost-everywhere uniqueness on an open subset after establishing local integrability and the test-function identity; continuity and positivity of the area density must still yield pointwise uniqueness.",
+      "Mathlib.Analysis.Calculus.LineDeriv.IntegrationByParts supplies directional/Fréchet integration-by-parts lemmas for additive Haar measure. Application requires localization to compact test supports and the density conversion; hyperbolic area itself is not additive Haar measure."
+    ],
+    "build_and_axiom_audit": "Not rerun: audited Lean sources, metadata and build configuration unchanged. Existing evidence covers the same partial formalization, not this new divergence definition."
+  },
+  "source_verification": "Elementary coordinate integration by parts and continuity argument checked; pinned local Mathlib interfaces inspected. No new external bibliographic audit.",
+  "validation": {
+    "command": "python3 scripts/build.py --pdf --volume v1a",
+    "result": "passed",
+    "checks": "Clean TeX log, retained divergence link and Laplacian number 1.3.6, new prose in website output, exact edited source exports, matching editor/download PDFs and git diff --check.",
+    "browser_and_unit_suites": "Not rerun; no pipeline or browser implementation changed."
+  },
+  "deployment": "Local only; no commit, push or deployment."
+}

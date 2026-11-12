@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-11",
+  "scope": "Final width-one remark and closure of Section 1.7 prose editing; Section 1.8 is next.",
+  "prose_status": "author-reviewed",
+  "author_decision": {
+    "basis": "Steven stated Section 1.7 would be done after the requested width-one remark and that editing would move to Section 1.8.",
+    "final_requested_edit": "Remark 1.7.6 after Definition 1.7.5 explicitly cites Proposition 1.7.4 and identifies integer translations in the original z coordinate.",
+    "scope": "Prose only; the requested final addition is included in the saved hash."
+  },
+  "formal_status": "in-progress; implementation and proof gaps unchanged",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "next_prose_section": "1.8",
+  "inherited_machine_evidence": {
+    "record": "lean/audits/chapter01-cusp-coordinate-2026-11-11/record.json",
+    "declarations": 224,
+    "unchanged_hashes": 54,
+    "changed_audited_files": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section07/text.tex"
+    ],
+    "new_build_or_audit": "not-run; Lean sources and all other audit inputs unchanged"
+  },
+  "validation": {
+    "pdf_website_build": "passed: python3 scripts/build.py --pdf --volume v1a",
+    "tex_log": "clean",
+    "references": "Proposition 1.7.4, Definition 1.7.5, Remark 1.7.6 and its direct hyperlink verified; remark follows definition; prior semantic labels preserved",
+    "exports": "Exact prose/index exports; editor/download PDFs identical",
+    "visual_inspection": "Printed PDF page 50",
+    "ai_review": "Read-only independent check of width-one wording, effective stabilizer and status scope; not human correspondence approval",
+    "unit_tests_browser": "not-rerun for this prose-only edit",
+    "section08_changes": "none",
+    "diff_check": "passed",
+    "commit_push_deployment": "not-performed"
+  },
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/text.tex": "cea3e09259e7766adc6f9c112479378188ee5f3a6c763327299ff4780e85a834",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/Formalization.lean": "46f240338439db6623ef33fa8130fdd0bfdc04de59a0e2ffb6b5b3c6103fba13",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/compare.tex": "8877181b476107e7994027a827e1da667abe9c39a425c8491dae474a5f71c797",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/section.json": "4db0a3e7cc16a5e1b2d97b5bc57f56537ac984f47f5a8c5b135a03affaddc3b5",
+    "volumes/Volume01/A/appendices/I/intro.tex": "71118394186f2f6631d785abaadca6b27088dafdee6eb63a2a5f3f65260890f9",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "83e7e52d7fb15cf98a7faacb85281724582652dbae46c2ea270e507c8589e773",
+    "docs/STATUS.md": "63f86ffd80bd212622435a5733eea32a70153427767c4598f411e59e33da06e3"
+  }
+}

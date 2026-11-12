@@ -1,0 +1,20 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter01.Section02.n_translates",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.a_scales",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.k_fixes_base_point",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.every_point_from_i",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.upper_half_plane_transitive",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.stabilizer_is_rotations",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.stabilizer_entry_equations",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.inverse_position_action",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.orbit_point_coordinates",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.same_point_modulo_stabilizer",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.iwasawa_factorization_exists",
+      "TraceFormulas.Volume01.A.Chapter01.Section02.unique_iwasawa_factors"
+    ]
+  },
+  "videos": []
+}

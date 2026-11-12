@@ -131,6 +131,7 @@ class SourcePipelineTests(unittest.TestCase):
             self.assertEqual(pdf, self.root / '.build/v1a/main.pdf')
             self.assertIn(r'\newlabel{preview-result}{{0.1.1}', pdf.with_suffix('.aux').read_text())
             self.assertNotIn('There were undefined references', pdf.with_suffix('.log').read_text())
+            self.assertNotIn('destination with the same identifier', pdf.with_suffix('.log').read_text())
             self.assertEqual(pdf.read_bytes(), (self.root / 'dist/pdf/v1a.pdf').read_bytes())
             self.assertFalse((self.root / '.build/previews').exists())
             complete_pdf = pdf.read_bytes()
@@ -151,6 +152,51 @@ class SourcePipelineTests(unittest.TestCase):
         self.assertTrue(pdf.read_bytes().startswith(b'%PDF-'))
         self.assertIn(r'\newlabel{lecture-only}', pdf.with_suffix('.aux').read_text())
         self.assertFalse((self.root / '.build/v1a/main.pdf').exists())
+
+    def figure_fixture(self):
+        directory = self.section / 'figures'
+        directory.mkdir()
+        pdf, svg = directory / 'geometry.pdf', directory / 'geometry.svg'
+        # Source-routing fixtures; the real book build checks the actual vector PDF.
+        pdf.write_bytes(b'%PDF-figure-fixture')
+        svg.write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><circle cx="5" cy="5" r="3"/></svg>')
+        name = pdf.relative_to(self.root).as_posix()
+        (self.section / 'text.tex').write_text(
+            r'\begin{figure}[htbp]\includegraphics[width=\linewidth]{' + name +
+            r'}\caption{A geometric diagram.}\label{geometry-picture}\end{figure}'
+            r'See \hyperref[geometry-picture]{the diagram}.')
+        return pdf, svg
+
+    def test_vector_figure_routes_to_svg_preserves_caption_and_exports_both_assets(self):
+        pdf, svg = self.figure_fixture()
+        content = self.content()
+        rendered = content['sections']['v1a-ch00-s1']
+        expected = 'sources/' + svg.relative_to(self.root).as_posix()
+        self.assertIn('src="' + expected + '"', rendered)
+        self.assertIn('<figcaption', rendered)
+        self.assertIn('A geometric diagram.', rendered)
+        self.assertIn('id="geometry-picture"', rendered)
+        self.assertIn('#/chapter/v1a-ch00/read/v1a-ch00-s1/geometry-picture', rendered)
+        self.assertEqual(content['comparisons'][0]['book'], rendered)
+        build(self.root, self.root / 'dist')
+        for path in (pdf, svg):
+            self.assertEqual(path.read_bytes(),
+                (self.root / 'dist/sources' / path.relative_to(self.root)).read_bytes())
+
+    def test_vector_figure_requires_web_counterpart(self):
+        _, svg = self.figure_fixture()
+        svg.unlink()
+        with self.assertRaisesRegex(TexError, 'requires a paired SVG'):
+            self.content()
+
+    def test_vector_figure_rejects_outside_source_tree(self):
+        _, svg = self.figure_fixture()
+        outside = self.root / 'private.svg'
+        outside.write_text('<svg/>')
+        svg.unlink()
+        svg.symlink_to(outside)
+        with self.assertRaisesRegex(TexError, 'requires a paired SVG'):
+            self.content()
 
     def test_compare_reads_both_sources_and_tracks_edits(self):
         first = self.content()
@@ -173,6 +219,24 @@ class SourcePipelineTests(unittest.TestCase):
         metadata = json.loads((self.section / 'section.json').read_text())
         metadata['formal']['status'] = 'in-progress'
         (self.section / 'section.json').write_text(json.dumps(metadata))
+        with self.assertRaisesRegex(BuildError, 'requires Formalization.lean'):
+            self.content()
+
+    def test_autoformalized_status_preserves_pending_review_in_exports(self):
+        status = 'autoformalized-awaiting-review'
+        chapter = json.loads((self.chapter / 'chapter.json').read_text())
+        chapter['formal'] = {'status': status, 'declarations': []}
+        (self.chapter / 'chapter.json').write_text(json.dumps(chapter))
+        section = json.loads((self.section / 'section.json').read_text())
+        section['formal']['status'] = status
+        (self.section / 'section.json').write_text(json.dumps(section))
+        content = self.content()
+        self.assertEqual(content['formal']['status'], status)
+        self.assertEqual(content['formal']['sources'][0]['status'], status)
+        self.assertEqual(content['comparisons'][0]['status'], status)
+        # Metadata is a declaration of status, never proof evidence created by
+        # the renderer. Even this status must not work without a source file.
+        (self.section / 'Formalization.lean').unlink()
         with self.assertRaisesRegex(BuildError, 'requires Formalization.lean'):
             self.content()
 
@@ -258,6 +322,96 @@ See \hyperref[result-proposition]{the earlier proposition}.
         self.assertIn('Theorem 0.1.1', renderer.render(source, number_prefix='0.1'))
         self.assertIn('Theorem B.2.1', renderer.render(source, number_prefix='B.2'))
         self.assertIn('Theorem 1', renderer.render(source))
+
+    def test_equation_numbers_and_forward_links_match_pdf_across_chapters(self):
+        (self.chapter / 'intro.tex').write_text(
+            r'\begin{equation}\label{eq:intro}0=0\end{equation}')
+        (self.section / 'text.tex').write_text(r'''
+\begin{proposition}\label{statement}A statement.
+\begin{equation}\label{eq:first}\begin{aligned}a&=b\\c&=d\end{aligned}\end{equation}
+\end{proposition}
+\[x=x\]
+\begin{equation*}y=y\end{equation*}
+\begin{equation}z=z\label{eq:second}\end{equation}
+See \eqref{eq:first}, \eqref{eq:later}, and \eqref{eq:appendix}.
+\begin{lemma}\label{after-equations}A later statement.\end{lemma}
+''')
+        (self.section / 'compare.tex').write_text(r'Compare with \eqref{eq:first}.')
+        outline_path = self.root / self.volume['path'] / 'outline.json'
+        outline = json.loads(outline_path.read_text())
+        directories = {'v1a-ch00': self.chapter}
+        for appendix, identifier, prefix, label in (
+            (False, 'v1a-ch02', '2.1', 'eq:later'),
+            (True, 'v1a-app-b', 'B.1', 'eq:appendix'),
+        ):
+            record = {'id': identifier, 'title': 'Later material', 'description': '',
+                      'sections': [{'id': identifier + '-s1', 'title': 'Formulas'}]}
+            record.update({'letter': 'B'} if appendix else {'number': 2, 'division': 'A'})
+            outline['appendices' if appendix else 'chapters'].append(record)
+            directory = self.root / self.volume['path'] / ('appendices/B' if appendix else 'chapters/Chapter02')
+            directories[identifier] = directory
+            (directory / 'sections/Section01').mkdir(parents=True)
+            (directory / 'chapter.json').write_text('{}')
+            (directory / 'intro.tex').write_text('')
+            (directory / 'formalization.tex').write_text('')
+            (directory / 'sections/Section01/text.tex').write_text(
+                r'\begin{equation}\label{' + label + r'}1=1\end{equation}'
+                r'See \eqref{eq:first} and \hyperref[eq:second]{the second equation}.')
+        outline_path.write_text(json.dumps(outline))
+        outline, content, records = compile_book(self.root, self.volume, Renderer(self.root))
+        chapter = content['chapters']['v1a-ch00']
+        source = chapter['sections']['v1a-ch00-s1']
+        self.assertIn('Proposition 0.1.1', source)
+        self.assertIn('Lemma 0.1.2', source)
+        for label, number in [('eq:first', '0.1.1'), ('eq:second', '0.1.2')]:
+            self.assertIn(f'id="{label}" class="numbered-equation" data-equation-number="{number}"', source)
+            self.assertIn('class="equation-number">(' + number + ')</span>', source)
+        self.assertNotIn(r'\label', source)
+        self.assertIn('href="#/chapter/v1a-ch02/read/v1a-ch02-s1/eq%3Alater" class="equation-reference">(2.1.1)</a>', source)
+        self.assertIn('>(B.1.1)</a>', source)
+        self.assertIn('>(0.1.1)</a>', chapter['comparisons'][0]['notes'])
+        self.assertEqual(source, chapter['comparisons'][0]['book'])
+        pdf = build_pdf(self.root, 'v1a', print_source(self.root, outline, records, directories))
+        aux = pdf.with_suffix('.aux').read_text()
+        for label, number in [('eq:intro', '0.0.1'), ('eq:first', '0.1.1'), ('eq:second', '0.1.2'),
+                              ('eq:later', '2.1.1'), ('eq:appendix', 'B.1.1'), ('after-equations', '0.1.2')]:
+            self.assertIn(r'\newlabel{' + label + '}{{' + number + '}', aux)
+
+    def test_equation_references_reject_missing_non_equation_and_duplicate_targets(self):
+        for source in (
+            r'See \eqref{absent}.',
+            r'\begin{theorem}\label{result}Text.\end{theorem} See \eqref{result}.',
+            r'\begin{equation}\label{duplicate}a=b\end{equation}'
+            r'\begin{equation}\label{duplicate}c=d\end{equation}',
+            r'\begin{equation}\label{duplicate}a=b\end{equation}'
+            r'\phantomsection\label{duplicate}Text.',
+        ):
+            with self.subTest(source=source):
+                (self.section / 'text.tex').write_text(source)
+                with self.assertRaises(BuildError):
+                    self.content()
+
+    def test_unsupported_equation_numbering_fails_instead_of_misnumbering(self):
+        for source in (
+            r'\begin{equation}a=b\end{equation}',
+            r'\begin{equation}\label{one}\label{two}a=b\end{equation}',
+            r'\begin{equation}\label{one}a=b\tag{custom}\end{equation}',
+            r'\begin{equation}\label{one}a=b\nonumber\end{equation}',
+            r'\begin{align}a&=b\label{one}\\c&=d\end{align}',
+            r'\[a=b\label{one}\]',
+            r'$\eqref{one}$',
+        ):
+            with self.subTest(source=source):
+                (self.section / 'text.tex').write_text(source)
+                with self.assertRaises(TexError):
+                    self.content()
+        path = self.section / 'text.tex'
+        path.write_text(r'\begin{equation}\label{one}a=b\end{equation}')
+        renderer = Renderer(self.root)
+        self.assertIn('class="equation-number">(1.3.1)</span>', renderer.render(path, number_prefix='1.3'))
+        self.assertIn('class="equation-number">(B.2.1)</span>', renderer.render(path, number_prefix='B.2'))
+        with self.assertRaises(TexError):
+            renderer.render(path)
 
     def test_unhandled_labels_and_tex_still_fail_inside_theorem_documents(self):
         for source in (

@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-12",
+  "scope": "Prove the Borel-measure uniqueness principle used by the real-line translation-invariant measure lemma",
+  "prose_status": "proof-draft for Steven review",
+  "changes": [
+    "Replaced unproved uniqueness remark by a definition of pi/Dynkin systems, a complete pi-lambda proof, finite-exhaustion uniqueness, and separate interval and rectangle corollaries.",
+    "Expanded the initial definition to define sigma-algebras explicitly.",
+    "Preserved measure.uniqueness-principle on the proved line corollary and updated the translation-invariance proof to cite it directly."
+  ],
+  "numbering": {
+    "pi_lambda": "A.1.16",
+    "generating_family": "A.1.17",
+    "line_uniqueness": "A.1.18",
+    "rectangle_uniqueness": "A.1.19",
+    "translation_invariant_line": "A.1.20"
+  },
+  "source_verification": [
+    {
+      "source": "Alessandro Rinaldo, Advanced Probability, Spring 2018, Lecture Notes Set 1, Section 4.3, Lemma 20 and Theorem 21",
+      "url": "https://stat.cmu.edu/~arinaldo/Teaching/36752/S18/Notes/lec_notes_1.pdf",
+      "checked": "pi-lambda and generating-family uniqueness; finite restrictions and exhaustion avoid a finite-total-mass assumption"
+    },
+    {
+      "source": "Pinned Mathlib PiSystem.lean, Measure/Restrict.lean, Constructions/BorelSpace/Order.lean, and MeasurableSpace/Prod.lean",
+      "checked": "actual pi-system/Dynkin definitions and measure uniqueness signatures; canonical Borel/subtype/product structures"
+    }
+  ],
+  "formal_status": "new uniqueness claims kernel-checked; complete refresher remains in-progress",
+  "new_companion_declarations": [
+    "pi_lambda",
+    "finite_measure_uniqueness",
+    "measure_uniqueness_of_finite_cover",
+    "real_borel_measure_uniqueness",
+    "rectangle_borel_measure_uniqueness"
+  ],
+  "proof_route_differences": "Mathlib permits nonempty-intersection closure and arbitrary countable finite covers; interval proof reuses ext_of_Ico; rectangle proof uses countable dense endpoint covers rather than the explicit increasing exhaustion. Existing translation proof still specializes additive invariant-measure uniqueness. All recorded in Compare.",
+  "machine_audit": {
+    "record": "lean/audits/chapter01-borel-uniqueness-2026-11-12/record.json",
+    "declarations": 259,
+    "matching_source_hashes": 70,
+    "locked_clean_dependencies": 9,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "human_correspondence_review": "not-reviewed",
+  "independent_ai_review": "saved prose and all five new companion declarations reviewed read-only; no gaps found; does not replace Steven review",
+  "validation": {
+    "combined_pdf_website_build": "passed",
+    "tex_log": "clean: no warnings, unresolved references, overfull or underfull boxes",
+    "pdf_website_numbering": "all 20 Appendix A.1 statement blocks match",
+    "source_exports": "exact text, Lean, Compare, and metadata; displayed Lean matches companion",
+    "pdf_copies": "editor and download byte-identical",
+    "visual_inspection": "printed page 99, including generating-family proof and line-uniqueness statement",
+    "browser": "full desktop/mobile check passed: MathJax, links, appendix labels, exact Lean panes, downloads and subdirectory hosting; no page errors",
+    "unit_tests": "not rerun: no pipeline code changes",
+    "git_diff_check": "passed"
+  },
+  "notation_index": "unchanged: new family symbols are local proof variables; all 77 entries and order retained",
+  "publication": "local only; no commit, push, or deployment",
+  "source_sha256": {
+    "volumes/Volume01/A/appendices/A/sections/Section01/text.tex": "c88e5ea752ffede32fb67c9c59895f5cebcb6bba5f18718c6262d77692590554",
+    "volumes/Volume01/A/appendices/A/sections/Section01/Formalization.lean": "e9d9ddbb4df51c1e0a5054f7094103c8c4f3ba86895a429dd4ea5d3c1c273ffd",
+    "volumes/Volume01/A/appendices/A/sections/Section01/compare.tex": "af89a212bbf7b10ec42049490cb52514e3206a57d6dccd4a6e154010d6e5ecbe",
+    "volumes/Volume01/A/appendices/A/sections/Section01/section.json": "1e53710345dcd5ca7f244754d4f503ed2937f86c966b030c7b57598b150f0a79",
+    "volumes/Volume01/A/appendices/A/formalization.tex": "1cd926b51d09445e632e24d16856812a6bdc56a11471e14cf4fbfb0f7f6386df",
+    "lean/TraceFormulas/MeasureTheory/BorelUniqueness.lean": "4fb34a1f9c094fcbb97fc3e460d3986fcc7388840f8b918e9bca99ab3c68da53",
+    "volumes/Volume01/A/appendices/I/intro.tex": "e47f83f80f92722eeab94065e24ef3f95b23e7e4b7068d77af6b91249958d741"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-12",
+  "scope": "Move measure terminology to Appendix A.1; retain real-line uniqueness lemma in Section1.8 with unchanged Lean companion.",
+  "author_direction": "Steven requested relocating the refresher to an appendix. This is an editorial instruction, not human mathematical correspondence approval.",
+  "prose_status": "proof-draft; awaiting Steven review",
+  "formal_status": "Section1.8 in-progress, existing real-line lemma checked; Appendix A.1 not-started",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "labels": {
+    "measure.borel": "A.1.1",
+    "measure.radon": "A.1.2",
+    "measure.translation-invariant-line": "1.8.1",
+    "hyperbolic.invariant-radon-measure": "1.8.2"
+  },
+  "inherited_machine_evidence": {
+    "record": "lean/audits/chapter01-measure-refresher-2026-11-12/record.json",
+    "declarations": 230,
+    "unchanged_source_hashes": 58,
+    "total_source_hashes": 60,
+    "changed_audited_sources": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex"
+    ],
+    "new_build_or_audit": "not-run; Lean and configuration unchanged"
+  },
+  "validation": {
+    "pdf_website_build": "passed: python3 scripts/build.py --pdf --volume v1a",
+    "tex_log": "clean",
+    "numbering": "83 Chapter1 theorem/remark blocks and two appendix definitions agree with PDF",
+    "references": "Preserved unique labels; generated Section1.8 and notation-index links target Appendix A.1; lemma links to recalled measure uniqueness principle",
+    "exports": "exact edited source exports; PDF copies identical",
+    "visual_inspection": "Appendix A opening, printed page94",
+    "ai_review": "read-only check of scope, dependencies, prose and labels passed",
+    "unit_tests_browser": "not-rerun for relocation",
+    "commit_push_deployment": "not-performed"
+  },
+  "source_sha256": {
+    "volumes/Volume01/A/appendices/A/intro.tex": "b21c9b0afb7f66efbe5907868bb003bde210bcf97ba23d6c9936d9ff1e1e38f2",
+    "volumes/Volume01/A/appendices/A/formalization.tex": "ead9ee614d31a3d9c7ea0fe6a67a35ff165b39ec4c0aaba7b640ee4d4b0f1041",
+    "volumes/Volume01/A/appendices/A/chapter.json": "8111e9dc6b542a014e324271b9e2a1ebe720f402d947d5538fb8691ef67fbc4d",
+    "volumes/Volume01/A/outline.json": "65e001897b7d5a2f01fc8fdb5cba180f0368ad7e4656811f4e3faebe79ad188c",
+    "volumes/Volume01/A/appendices/I/intro.tex": "3cbff90cfb439d1224068a2cfb5dad0fe26a34d765c10463c367749e1468c2fd",
+    "docs/STATUS.md": "b9f14e9026b9d5cd733ad78d53a78fbeae705c2e852f9067a478a5bbf2424101",
+    "volumes/Volume01/A/appendices/A/sections/Section01/text.tex": "da89aa7384ccc20abadcb6e6af8de871e62ecad48eba3c5d1e94df55684eed89",
+    "volumes/Volume01/A/appendices/A/sections/Section01/compare.tex": "8a1723fc4f292aeb4f5fee1a1b10e89344c79bdf533555ae15aac94f6f3e6fd9",
+    "volumes/Volume01/A/appendices/A/sections/Section01/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "531e252e8f3cf0dc3c1a917eaa49a0c061c2e046745eeb5b0c2962c8d10c85e8",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex": "32159a30cd6b5a17b8e2e105b7d1e91cfdedfac01714f061755fd51f9f6ccaf9",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/Formalization.lean": "93f4dcf1bede6cb6b4cb9d95e3361880f744aa1ccb5fef88ac3b901931975ead",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/section.json": "3301cd14bce7f2c9e0540d17c22e19efdd1e395ed771ef235cb8f8e4e7448d94"
+  }
+}

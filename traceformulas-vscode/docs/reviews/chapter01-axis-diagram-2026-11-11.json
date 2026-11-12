@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-11",
+  "scope": "Replace the hyperbolic ray illustration with the semicircular invariant axis and its conjugate imaginary axis; keep the parabolic illustration separately.",
+  "prior_snapshot": "docs/reviews/chapter01-isometry-types-2026-11-11.json",
+  "prose_status": "proof-draft; geometric explanation and diagrams revised; theorem statements and proofs retained",
+  "formal_status": "in-progress; implementation and existing gaps unchanged",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "mathematical_explanation": "Intrinsic translation along the invariant geodesic is dilation iy ↦ i exp(r)y after conjugation, or s ↦ s+r in arclength s=log y. Finite fixed points give a semicircular axis; an infinite fixed point gives a vertical axis. Off-axis points remain off-axis.",
+  "figure_model": {
+    "h": "(z+2)/(2-z)",
+    "inverse_h": "(2w-2)/(w+1)",
+    "scale": 3,
+    "g": "4(z+1)/(z+4)",
+    "fixed_points": [
+      -2,
+      2
+    ],
+    "initial_height": 0.5,
+    "final_height": 1.5,
+    "checks": "Both fixed points, conjugacy, actual corresponding endpoints, circle |z|=2, upper-half-plane positivity, logarithmic height ratio log(3)."
+  },
+  "inherited_machine_evidence": {
+    "record": "lean/audits/chapter01-isometry-types-2026-11-11/record.json",
+    "declarations": 196,
+    "unchanged_hashes": 43,
+    "changed_audited_files": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section05/text.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section05/compare.tex"
+    ],
+    "new_build_or_audit": "not-run; Lean sources, metadata, toolchain, locks and configuration unchanged"
+  },
+  "validation": {
+    "pdf_website_build": "passed: python3 scripts/build.py --pdf --volume v1a",
+    "tex_log": "clean; no warnings, unresolved references, or overfull/underfull boxes",
+    "source_exports": "Exact manuscript, Compare, Lean, metadata and all SVG/PDF asset copies; editor/download PDFs identical",
+    "labels_numbers": "All previous semantic labels retained; one new parabolic figure label; statement/equation numbers unchanged; hyperbolic diagram now Figure 1.4",
+    "visual_inspection": "Standalone axis/parabolic figures; physical PDF pages 48 and 50 (printed 40 and 42); desktop website axis figure",
+    "browser": "passed desktop/mobile checks including three Section 1.5 figures, math, links, source/PDF downloads and subdirectory hosting; no page errors or width overflow",
+    "browser_initial_failure": "Mobile screenshot used an element detached by route rendering; diagram checks now wait for navigation and MathJax; complete rerun passed",
+    "unit_tests": "not-rerun; no converter or Lean implementation changes",
+    "diff_check": "passed",
+    "commit_push_deployment": "not-performed"
+  },
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/text.tex": "94d5bd42d04db7eb6b0b748dd3a72bda394011b9fc9af95d5eb16e01fccb33fd",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/compare.tex": "6ede4665b37aaed672ba4c4b8e844b8550c18ff2ceb5f37d01a09265c35e2f96",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/Formalization.lean": "084ed8d4b0ca792ef08666eff567c58a32191936751953cef617e20df5eff23a",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/section.json": "ea02f2c43f1792252b2fd4f619ad03af75a6552f5fae5c777f8752b802d30885",
+    "lean/TraceFormulas/Geometry/IsometryTypes.lean": "3b0d1f151b7418d9591386c4d7cf15b1efbe31f2c3706bb7d4bba6fcdb5d0b3a",
+    "scripts/draw_isometry_types.py": "c4f76d3f967ffff9f0475aacbd32461fecbd226301b7dd6ba9cc7c1330585b77",
+    "scripts/check_browser.py": "7501b3d5a9b89b76f9fb96bc6f10bf2785ae2df810b529cc5c5b69d2e3494b6f",
+    "AUTHORING.md": "60d227afc72f3fd89f51baeb1911c518d3d7526e84646b9e758e5f6f7934b9fb",
+    "docs/STATUS.md": "611a02cd7754e3e806db4b872841e5428f7d6aa97f105d8e622a28d8369c896d",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/elliptic-motion.pdf": "cb45bb4b4cf07fd39b8ccefed87677cd30a7f2bf84b6af9c690586fac206427d",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/elliptic-motion.svg": "17bdb88b9a4f00ce127e01c70e764284ef523042ad9c5a1196b77ad171c7a9dd",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/parabolic-motion.pdf": "3fd3c0965d24e648a6c832dda3f71fee3130b1ec8d04f3a1f6e72e833fefff57",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/parabolic-motion.svg": "0e83143a03ccc2fde72f1150d75c436d6753da42e5864e0ad65549cf053a07d6",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/translation-dilation.pdf": "4b231383087145a807f67c7ebf48bfc534294fb4289b2111546894a7d8a025db",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/translation-dilation.svg": "d3c3631c1e667475be1951ba4b30128205d4761b42f141be0067268b7ed3548b"
+  }
+}

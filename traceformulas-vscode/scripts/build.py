@@ -232,8 +232,8 @@ def formal_metadata(value: dict, where: str) -> dict:
     formal = object_value(value, where)
     keys(formal, {"status", "url", "declarations"}, where)
     status = text(formal.get("status", "not-started"), where + ".status")
-    if status not in {"not-started", "in-progress", "linked"}:
-        fail(where, "formal.status must be not-started, in-progress, or linked")
+    if status not in {"not-started", "in-progress", "linked", "autoformalized-awaiting-review"}:
+        fail(where, "formal.status must be not-started, in-progress, linked, or autoformalized-awaiting-review")
     return {"status": status, "url": url(formal.get("url", ""), where + ".url"),
             "declarations": declarations(formal.get("declarations", []), where + ".declarations")}
 
@@ -314,14 +314,26 @@ class ManuscriptHTML(HTMLParser):
         super().__init__(convert_charrefs=False)
         self.ids = []
         self.links = []
+        self.equations = {}
+        self.equation_refs = []
+        self.pending_equation_ref = None
         self.feed(source)
 
     def handle_starttag(self, tag, attrs):
         attributes = dict(attrs)
         if attributes.get('id'):
             self.ids.append(attributes['id'])
+        if 'numbered-equation' in attributes.get('class', '').split():
+            self.equations[attributes['id']] = attributes['data-equation-number']
         if tag == 'a' and attributes.get('href'):
             self.links.append((self.getpos(), self.get_starttag_text(), attributes['href']))
+            if 'equation-reference' in attributes.get('class', '').split():
+                self.pending_equation_ref = (self.getpos(), self.get_starttag_text(), attributes['href'])
+
+    def handle_endtag(self, tag):
+        if tag == 'a' and self.pending_equation_ref:
+            self.equation_refs.append((*self.pending_equation_ref, self.getpos()))
+            self.pending_equation_ref = None
 
     handle_startendtag = handle_starttag
 
@@ -339,8 +351,9 @@ def prose_fields(chapter: dict):
 
 
 def resolve_manuscript_links(records: list[dict], chapters: dict) -> None:
-    """Route named LaTeX hyperlinks to their manuscript destination in this volume."""
+    """Resolve named links and equation numbers against this volume's manuscript."""
     targets = {}
+    equation_numbers = {}
 
     def add(label, route, where):
         targets.setdefault(label, []).append((route, where))
@@ -356,9 +369,15 @@ def resolve_manuscript_links(records: list[dict], chapters: dict) -> None:
         if not chapter:
             continue
         for section_id, source in [('', chapter['intro']), *chapter['sections'].items()]:
-            for label in ManuscriptHTML(source).ids:
+            parsed = ManuscriptHTML(source)
+            equation_numbers.update(parsed.equations)
+            for label in parsed.ids:
                 add(label, route + '/' + quote(section_id, safe='') + '/' + quote(label, safe=''),
                     (section_id or chapter_id + '.intro') + ':' + label)
+
+    for label in equation_numbers:
+        if len(targets[label]) != 1:
+            fail(label, 'ambiguous equation label; give every manuscript target a unique label')
 
     href_attribute = re.compile(r'''(?<![-\w:])href\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)''', re.I)
     for chapter_id, chapter in chapters.items():
@@ -368,7 +387,16 @@ def resolve_manuscript_links(records: list[dict], chapters: dict) -> None:
             line_offsets = [0]
             for match in re.finditer('\n', source):
                 line_offsets.append(match.end())
-            for (line, column), tag, href in ManuscriptHTML(source).links:
+            parsed = ManuscriptHTML(source)
+            for (line, column), tag, href, (end_line, end_column) in parsed.equation_refs:
+                label = unquote(href[1:])
+                if label not in equation_numbers:
+                    fail(chapter_id + '.' + location, f"unknown equation reference '{label}'; "
+                         "use a label in a manuscript equation environment")
+                start = line_offsets[line - 1] + column + len(tag)
+                end = line_offsets[end_line - 1] + end_column
+                replacements.append((start, end, '(' + equation_numbers[label] + ')'))
+            for (line, column), tag, href in parsed.links:
                 if not href.startswith('#') or href.startswith('#/') or href == '#':
                     continue
                 label = unquote(href[1:])
@@ -376,7 +404,7 @@ def resolve_manuscript_links(records: list[dict], chapters: dict) -> None:
                 where = chapter_id + '.' + location
                 if not candidates:
                     fail(where, f"unknown manuscript hyperlink target '{label}'; use an existing "
-                         "chapter/section ID or a label on a manuscript heading or theorem environment in this volume")
+                         "chapter/section ID or a label on a manuscript heading, theorem, or equation in this volume")
                 if len(candidates) != 1:
                     fail(where, f"ambiguous manuscript hyperlink target '{label}' in "
                          + ', '.join(place for _, place in candidates)
@@ -385,7 +413,7 @@ def resolve_manuscript_links(records: list[dict], chapters: dict) -> None:
                 updated = href_attribute.sub(lambda _: 'href="' + destination + '"', tag, count=1)
                 offset = line_offsets[line - 1] + column
                 replacements.append((offset, offset + len(tag), updated))
-            for start, end, replacement in reversed(replacements):
+            for start, end, replacement in sorted(replacements, reverse=True):
                 source = source[:start] + replacement + source[end:]
             owner[field] = source
 

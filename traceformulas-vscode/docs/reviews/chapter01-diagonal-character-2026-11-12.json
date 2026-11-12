@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-12",
+  "scope": "Expand the diagonal-factor step of Proposition 1.8.9 (modular.unimodular)",
+  "prose_status": "edited proof draft for Steven review; theorem statement and label unchanged",
+  "changes": [
+    "Displayed the three matrices in k(pi/2) a(y) k(pi/2)^-1 and their product a(y)^-1.",
+    "Explained conjugacy invariance of homomorphisms into an abelian group by the multiplication formula.",
+    "Derived Delta_G(a(y))^2=1 and explicitly excluded -1 by positivity."
+  ],
+  "formal_status": "diagonal-factor algebra checked; actual modular function and full unimodularity remain open",
+  "added_companion_declarations": [
+    "quarter_turn_conjugation",
+    "positive_reciprocal_fixed_point",
+    "positive_character_on_dilation"
+  ],
+  "shared_module": "TraceFormulas.Geometry.IwasawaCharacters",
+  "correspondence": "Existing determinant-one matrices; positive characters represented by homomorphisms into real units with explicit positivity. Continuity is unnecessary for this algebraic step. Compare records remaining obligations.",
+  "human_correspondence_review": "not-reviewed",
+  "ai_review": "Independent read-only review passed for matrix signs, scalar proof, Lean wrappers and Compare; not human correspondence approval",
+  "machine_audit": {
+    "record": "lean/audits/chapter01-diagonal-character-2026-11-12/record.json",
+    "declarations": 266,
+    "matching_source_hashes": 71,
+    "locked_dependencies": 9,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "validation": {
+    "targeted_lean_build": "passed",
+    "combined_pdf_website_build": "passed",
+    "tex_log": "clean",
+    "numbering": "Proposition 1.8.9 retained",
+    "exports": "exact text/Lean/Compare/metadata; displayed Lean matches source; editor and download PDFs byte-identical",
+    "visual_inspection": "final printed page 56",
+    "unit_tests_browser": "not rerun for proof exposition and Lean additions; no pipeline changes",
+    "git_diff_check": "passed"
+  },
+  "notation_index": "unchanged; no new manuscript notation",
+  "publication": "local only; no commit, push, or deployment",
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "d4f4443dba37b038a733ce6eabb943a670b42609842034836f861a19674066c2",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/Formalization.lean": "2b05110fde606e56eac543077a04dce49554d9c9fe72738055656de2877ab56b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex": "fe04d8cfa8bdd1d65781100e1e524f2b6cfab579bbb659afd72fdb6b626e5dd7",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/section.json": "6b90d605f7c8539f73590e7bbde019988f2d0d670a329db5335d5dd452e1b12e",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "59646cc01c6578b0f2a36a2f737e18cf0052a5ad28ec40e2eb6956e750194823",
+    "lean/TraceFormulas/Geometry/IwasawaCharacters.lean": "5ad9958117e241e663599a6b127243a5107b083b485f92d2055375ff15b0170e"
+  }
+}

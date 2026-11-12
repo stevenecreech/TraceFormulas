@@ -1,0 +1,355 @@
+Hyperbolic area is invariant under $G=\operatorname{SL}_2(\mathbb R)$. Haar measure places this invariance in a general framework: first measure the group itself, then pass to the homogeneous space $G/K\simeq\mathbb H$. We will define Haar measure, construct it in Iwasawa coordinates, and recover $d\mu=dx\,dy/y^2$ by integrating out the compact direction. The \hyperref[v1a-app-a-s1]{measure-theoretic refresher in Appendix A.1} recalls the Borel and Radon terminology; \hyperref[v1a-app-a-s2]{Appendix A.2} proves the general uniqueness and left/right results used here.
+
+\begin{definition}[Haar measure]\label{measure.haar}
+Let $L$ be a locally compact Hausdorff topological group. A left Haar measure on $L$ is a nonzero Radon measure $\nu$ on its Borel sets such that
+\[
+ \nu(hE)=\nu(E)
+ \qquad(h\in L,\ E\subset L\text{ Borel}).
+\]
+A right Haar measure satisfies $\nu(Eh)=\nu(E)$ instead. Unless a side is specified, Haar measure means left Haar measure.
+\end{definition}
+
+Left invariance says that translating all points by the same group element leaves their measure unchanged. Equivalently,
+\[
+ \int_L f(hg)\,d\nu(g)=\int_L f(g)\,d\nu(g)
+\]
+for nonnegative measurable $f$, and for integrable $f$. The Radon condition supplies finiteness on compact sets and approximation by compact and open sets. All the groups used in this section are locally compact Hausdorff groups with a countable base for their topology. We construct their Haar measures explicitly below; the following uniqueness theorem explains the remaining freedom in the normalization.
+
+\begin{theorem}[Uniqueness of Haar measure]\label{measure.haar-uniqueness-summary}
+Let $L$ be a locally compact Hausdorff group with a countable base. If $\nu$ and $\nu'$ are left Haar measures on $L$, then $\nu'=c\nu$ for a unique $c>0$. The same assertion holds for two right Haar measures.
+\end{theorem}
+
+A complete proof is given in \hyperref[measure.haar-uniqueness]{Appendix A.2}. Left and right Haar measures need not be scalar multiples of one another: uniqueness compares measures with the same side of invariance. Inversion changes the side: if $\nu$ is left Haar, then $E\mapsto\nu(E^{-1})$ is right Haar, as proved in the \hyperref[measure.haar-inversion]{inversion proposition in Appendix A.2}.
+
+\begin{definition}[Modular function and unimodularity]\label{measure.unimodular}
+For a left Haar measure $\nu$ on a locally compact Hausdorff group $L$ with a countable base, define $\Delta_L(h)>0$ by
+\begin{equation}\label{eq:haar-right-translation}
+ \nu(Eh)=\Delta_L(h)\nu(E)
+ \qquad(E\subset L\text{ Borel}).
+\end{equation}
+The function $\Delta_L$ is called the modular function, with the convention fixed by this equation. The group is unimodular if $\Delta_L(h)=1$ for all $h\in L$, equivalently if its left Haar measures are also right Haar measures.
+\end{definition}
+
+Indeed, $E\mapsto\nu(Eh)$ is another left Haar measure, so the scalar in the right-translation law \eqref{eq:haar-right-translation} exists and is unique. It is independent of the scale of $\nu$. Appendix A.2 proves that \hyperref[measure.haar-modular-function]{$\Delta_L$ is a continuous homomorphism to the positive real numbers}, and gives examples distinguishing the two sides. Thus unimodularity is a property to prove for our groups.
+
+\begin{example}[Translations, counting, and rotations]\label{measure.haar-examples}
+Lebesgue measure $dx$ is both left and right Haar measure on the additive group $\mathbb R$. Counting measure, assigning mass one to each element, is both left and right Haar measure on a countable discrete group. On $K=\operatorname{SO}(2)$, multiplication of $k(\theta)$ adds angles modulo $2\pi$, so
+\[
+ dk=\frac{d\theta}{2\pi}\qquad(0\leq\theta<2\pi)
+\]
+is Haar probability measure. On $\overline K=K/\{\pm I\}$ the matrix angle has period $\pi$, and the Haar probability measure is $d\overline k=d\theta/\pi$ for $0\leq\theta<\pi$. These invariances follow from translation invariance of length on the line or circle, or from the fact that group multiplication permutes the points being counted.
+\end{example}
+
+\begin{definition}[Haar normalizations in Iwasawa coordinates]\label{modular.haar-normalizations}
+Write $s(z)=n(x)a(y)$ for $z=x+iy\in\mathbb H$. Under the \hyperref[hyperbolic.iwasawa]{Iwasawa decomposition} $g=s(z)k(\theta)$, define the measure $dg$ by
+\begin{equation}\label{eq:haar-iwasawa}
+ \int_G F(g)\,dg
+ =\int_{\mathbb H}\int_0^{2\pi}
+ F(s(z)k(\theta))\,\frac{d\theta}{2\pi}\,\frac{dx\,dy}{y^2}
+\end{equation}
+for nonnegative measurable $F$, and hence for integrable $F$. In differential notation,
+\[
+ dg=\frac{dx\,dy}{y^2}\frac{d\theta}{2\pi}.
+\]
+On $\overline G=G/\{\pm I\}$ define $d\overline g$ by the same construction with $\overline K$ and $d\theta/\pi$ on $0\leq\theta<\pi$.
+\end{definition}
+
+The compact-fiber measures have total mass one. This is a normalization of the conditional angular integral, not an assertion that the subgroup $K$ has positive $dg$-measure as a subset of $G$. The angular variable is the matrix angle $\theta$; its geometric rotation angle is $2\theta$.
+
+\begin{proposition}[Haar invariance]\label{modular.haar-invariance}
+The measures $dg$ and $d\overline g$ just defined are left Haar measures on $G$ and $\overline G$, respectively.
+\end{proposition}
+
+\begin{proof}
+First check the measure-theoretic conditions. The map $(z,k)\mapsto s(z)k$ is a homeomorphism $\mathbb H\times K\to G$: its inverse is
+\[
+ g\longmapsto\bigl(g\cdot i,\ s(g\cdot i)^{-1}g\bigr),
+\]
+which is continuous and takes its second component in $K$ by the stabilizer calculation. Thus $dg$ is the image of the nonzero Radon product measure $d\mu\,dk$. It is Radon and finite on compact sets. Here we use the standard product-measure regularity theorem for locally compact spaces with countable bases. The same argument applies to $\mathbb H\times\overline K\to\overline G$.
+
+Next prove left invariance. Fix $h\in G$ and $z\in\mathbb H$. Since $hs(z)$ and $s(h\cdot z)$ both send $i$ to $h\cdot z$, there is a rotation
+\[
+ \kappa(h,z)=s(h\cdot z)^{-1}hs(z)\in K.
+\]
+Left multiplication by $h$ therefore sends $(z,k)$ to $(h\cdot z,\kappa(h,z)k)$. For nonnegative measurable $F$, the Iwasawa integration formula \eqref{eq:haar-iwasawa} gives
+\[
+ \begin{aligned}
+ \int_G F(hg)\,dg
+ &=\int_{\mathbb H}\int_K
+   F(s(h\cdot z)\kappa(h,z)k)\,dk\,d\mu(z)\\
+ &=\int_{\mathbb H}\int_K
+   F(s(h\cdot z)k)\,dk\,d\mu(z)\\
+ &=\int_{\mathbb H}\int_K F(s(w)k)\,dk\,d\mu(w)
+ =\int_G F(g)\,dg.
+ \end{aligned}
+\]
+The second equality uses rotation invariance of $dk$ for each fixed $z$; the third uses the \hyperref[hyperbolic.invariance]{invariance of hyperbolic area} and $w=h\cdot z$. Tonelli justifies the iterated nonnegative integrals. Taking indicator functions proves invariance of the measure. The same calculation on $\overline K$ proves the assertion for $d\overline g$.
+\end{proof}
+
+\begin{proposition}[Hyperbolic area as a quotient measure]\label{hyperbolic.haar-quotient}
+For the projection $\pi:G\to\mathbb H\simeq G/K$ given by $\pi(g)=g\cdot i$, the pushforward of $dg$ is $\mu$. In particular,
+\begin{equation}\label{eq:haar-hyperbolic-quotient}
+ \int_G f(g\cdot i)\,dg=\int_{\mathbb H}f(z)\,d\mu(z)
+\end{equation}
+for nonnegative measurable $f$, and for $f\in L^1(\mathbb H,\mu)$. The analogous assertion holds for $\overline G\to\mathbb H\simeq\overline G/\overline K$.
+\end{proposition}
+
+\begin{proof}
+Since $k\cdot i=i$ and $s(z)\cdot i=z$, the function $f(g\cdot i)$ is independent of $k$. Apply the Iwasawa integration formula \eqref{eq:haar-iwasawa} and use $\int_K dk=1$. This proves the quotient integration identity \eqref{eq:haar-hyperbolic-quotient}; taking $f$ to be the indicator of a Borel set proves the pushforward assertion. The argument for $\overline K$ is identical, since its probability measure also has total mass one.
+\end{proof}
+
+This is the precise sense in which Haar measure produces hyperbolic area. The group measure $dg$ includes both position and rotation; its quotient measure on $G/K$ records position. The identification of $\mathbb H$ with $G/K$ is an identification of homogeneous spaces and does not require a group law on $\mathbb H$.
+
+\begin{corollary}[Uniqueness of invariant area]\label{hyperbolic.invariant-radon-measure}
+Every nonzero $G$-invariant Radon measure $\nu$ on $\mathbb H$ is $C\mu$ for a unique constant $C>0$.
+\end{corollary}
+
+\begin{proof}
+Lift $\nu$ to a measure on $G$ by sending the product $d\nu\,dk$ through the Iwasawa homeomorphism $(z,k)\mapsto s(z)k$. This is a nonzero Radon measure. The proof of \hyperref[modular.haar-invariance]{Haar invariance} applies with $\nu$ in place of $\mu$: the only property of the base measure used there was its $G$-invariance. The lifted measure is therefore left Haar and, by \hyperref[measure.haar-uniqueness-summary]{uniqueness of Haar measure}, equals $C\,dg$ for some $C>0$.
+
+Project both measures back to $\mathbb H$. The lift of $\nu$ projects to $\nu$, because $dk$ has mass one, while $C\,dg$ projects to $C\mu$ by the \hyperref[hyperbolic.haar-quotient]{quotient-measure proposition}. Hence $\nu=C\mu$. Evaluation on any rectangle of finite positive hyperbolic area determines $C$ uniquely. No density for $\nu$ was assumed. This strengthens the earlier \hyperref[hyperbolic.invariant-density]{uniqueness result for smooth densities}.
+\end{proof}
+
+\begin{proposition}[Unimodularity of the real groups]\label{modular.unimodular}
+The groups $G$ and $\overline G$ are unimodular. In particular, $dg$ and $d\overline g$ are right invariant as well as left invariant.
+\end{proposition}
+
+\begin{proof}
+We show that the continuous homomorphism $\Delta_G:G\to\mathbb R_{>0}$ is one on each Iwasawa factor. Its image on the compact group $K$ is a compact subgroup of the positive real numbers. Such a subgroup is $\{1\}$: the integer powers of any positive number other than one are unbounded in one direction. Thus $\Delta_G(k)=1$ for $k\in K$.
+
+For the diagonal factor, conjugation by $k(\pi/2)$ interchanges the two diagonal entries. Indeed, $\cos(\pi/2)=0$ and $\sin(\pi/2)=1$, so for $y>0$,
+\[
+ \begin{aligned}
+ k(\pi/2)a(y)k(\pi/2)^{-1}
+ &=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+   \begin{pmatrix}\sqrt y&0\\0&1/\sqrt y\end{pmatrix}
+   \begin{pmatrix}0&-1\\1&0\end{pmatrix}\\
+ &=\begin{pmatrix}1/\sqrt y&0\\0&\sqrt y\end{pmatrix}
+ =a(y)^{-1}.
+ \end{aligned}
+\]
+Every homomorphism to an abelian group takes the same value on conjugate elements: for $g,h\in G$, multiplicativity gives
+\[
+ \Delta_G(hgh^{-1})
+ =\Delta_G(h)\Delta_G(g)\Delta_G(h)^{-1}
+ =\Delta_G(g).
+\]
+Applying this to the conjugation just computed gives
+\[
+ \Delta_G(a(y))=\Delta_G(a(y)^{-1})=\Delta_G(a(y))^{-1}.
+\]
+Thus $\Delta_G(a(y))^2=1$, whose real solutions are $\pm1$; since $\Delta_G$ takes positive values, $\Delta_G(a(y))=1$.
+
+For the translation factor, matrix multiplication gives
+\[
+ a(2)n(x)a(2)^{-1}=n(2x)=n(x)^2.
+\]
+Applying $\Delta_G$ gives $\Delta_G(n(x))=\Delta_G(n(x))^2$, so $\Delta_G(n(x))=1$. Every element of $G$ is a product of an $N$, an $A$, and a $K$ factor, proving $\Delta_G=1$. Finally $\Delta_{\overline G}$ composed with the surjection $G\to\overline G$ is also a continuous positive character of $G$; the same argument makes it trivial. Surjectivity gives $\Delta_{\overline G}=1$.
+\end{proof}
+
+\begin{proposition}[Haar measure under the central quotient]\label{modular.haar-central-projection}
+The projection $p:G\to\overline G$ pushes $dg$ forward to $d\overline g$.
+\end{proposition}
+
+\begin{proof}
+A function pulled back from $\overline G$ is $\pi$-periodic in the matrix angle $\theta$. Splitting the angular integral into $[0,\pi)$ and $[\pi,2\pi)$ gives
+\[
+ \int_0^{2\pi}F(p(s(z)k(\theta)))\,\frac{d\theta}{2\pi}
+ =\int_0^\pi F(p(s(z)k(\theta)))\,\frac{d\theta}{\pi}.
+\]
+Integrate in $z$ to obtain the pushforward assertion, first for nonnegative functions and then for integrable functions.
+\end{proof}
+
+\subsection*{Integration on the modular quotient}\label{modular.quotient-integration}
+
+We now use the induced area measure to integrate on the modular surface. Its normalization is inherited from the chosen Haar measure and probability measure on the compact fiber.
+
+\begin{definition}[Measure on the geometric quotient]\label{modular.quotient-measure}
+The notation $\Gamma\backslash\mathbb H$ denotes the space of orbits
+\[
+ \Gamma\cdot z=\{\gamma\cdot z:\gamma\in\Gamma\},\qquad z\in\mathbb H.
+\]
+Since $\gamma$ and $-\gamma$ act identically, $\Gamma$ and $\overline\Gamma$ have exactly the same orbits. Thus $\Gamma\backslash\mathbb H$ and $\overline\Gamma\backslash\mathbb H$ are canonically the same orbit space, and we use the same geometric measure under this identification.
+
+For a measurable function $f$ on this orbit space, its lift to $\mathbb H$ is the invariant function $z\mapsto f(\overline\Gamma\cdot z)$. Define the geometric quotient measure by
+\[
+ \int_{\Gamma\backslash\mathbb H} f\,d\mu
+ =\int_{\overline\Gamma\backslash\mathbb H} f\,d\mu
+ :=\int_{\mathcal F} f(\overline\Gamma\cdot z)\,\frac{dx\,dy}{y^2},
+\]
+first for nonnegative functions and then for complex integrable functions. The representative set $\mathcal F_*$ contains one point of each orbit, and replacing $\mathcal F$ by $\mathcal F_*$ or $\mathcal F^\circ$ leaves the integral unchanged because their differences lie in the null boundary.
+
+There is no division by $2$ in this definition: the two matrices $\gamma$ and $-\gamma$ do not give two different representatives of an orbit. We integrate over the same region with the same area element in either notation. The factor $1/2$ in the later \hyperref[modular.central-covolumes]{matrix-group covolume calculation} concerns the Haar quotient $\Gamma\backslash G$ with counting measure on $\Gamma$.
+\end{definition}
+
+To check independence of representatives, let $D$ be another measurable set containing one point of each orbit. Away from the null union of boundary translates, cut $D$ into the pieces $D\cap\overline\gamma\mathcal F^\circ$; translating them back by $\overline\gamma^{-1}$ partitions $\mathcal F^\circ$ up to a null set. Each translation preserves hyperbolic area and the lifted function, so summing the integrals over these pieces gives the same integral as over $\mathcal F$.
+
+\begin{proposition}[Area of the modular quotient]\label{modular.quotient-area}
+The geometric area of the modular quotient is
+\[
+ \mu(\overline\Gamma\backslash\mathbb H)=\frac\pi3.
+\]
+\end{proposition}
+
+\begin{proof}
+Integrating first in $y$ gives
+\[
+ \mu(\mathcal F)=\int_{-1/2}^{1/2}\int_{\sqrt{1-x^2}}^\infty
+       \frac{dy\,dx}{y^2}
+ =\int_{-1/2}^{1/2}\frac{dx}{\sqrt{1-x^2}}
+ =\arcsin(1/2)-\arcsin(-1/2)=\frac\pi3.
+\]
+\end{proof}
+
+\begin{proposition}[Geometric unfolding]\label{modular.area-unfolding}
+For every nonnegative measurable $\phi$ on $\mathbb H$,
+\[
+ \int_{\mathcal F}\sum_{\overline\gamma\in\overline\Gamma}
+       \phi(\overline\gamma z)\,d\mu(z)
+ =\int_{\mathbb H}\phi(z)\,d\mu(z).
+\]
+The identity also holds for complex $\phi\in L^1(\mathbb H,\mu)$, and then the sum is absolutely convergent for almost every $z\in\mathcal F$ and integrable there. If the sum is instead over all matrices $\gamma\in\Gamma$, its integral is twice the right-hand side.
+\end{proposition}
+
+\begin{proof}
+Tonelli permits interchanging the nonnegative sum and integral. The change of variables $w=\overline\gamma z$ turns each term into the integral of $\phi$ over $\overline\gamma\mathcal F$. These regions partition $\mathbb H$ up to a null set, which proves the formula. Applying the nonnegative case to $|\phi|$ proves absolute convergence and justifies the same calculation for complex integrable $\phi$. Finally, each effective transformation has exactly two lifts to $\Gamma$, so the matrix sum counts every summand twice.
+\end{proof}
+
+\subsection*{Central factors and lattices}\label{modular.central-factors}
+
+We use counting measure, of mass one per group element, when forming a quotient by a discrete matrix group. This last convention matters even though the Haar measure pushes forward under the central quotient.
+
+\begin{theorem}[Central factors and finite-index subgroups]\label{modular.central-covolumes}
+Let $\Lambda\subset\Gamma$ have finite index, let $\overline\Lambda$ be its image in $\overline\Gamma$, and set
+\[
+ m=\begin{cases}
+ 2,&\text{if }-I\in\Lambda,\\
+ 1,&\text{if }-I\notin\Lambda.
+ \end{cases}
+\]
+Equivalently, $m=|\Lambda\cap Z|$ is the size of the kernel of the projection $\Lambda\to\overline\Lambda$. The two subgroup indices satisfy
+\begin{equation}\label{eq:subgroup-effective-index}
+ [\overline\Gamma:\overline\Lambda]=\frac{m}{2}[\Gamma:\Lambda].
+\end{equation}
+The geometric area of the subgroup quotient is
+\begin{equation}\label{eq:subgroup-hyperbolic-area}
+ \mu(\overline\Lambda\backslash\mathbb H)
+ =[\overline\Gamma:\overline\Lambda]\frac\pi3.
+\end{equation}
+With the chosen Haar measure on the matrix group, the covolume is
+\begin{equation}\label{eq:subgroup-matrix-covolume}
+ \operatorname{vol}_{dg}(\Lambda\backslash G)
+ =\frac1m\mu(\overline\Lambda\backslash\mathbb H)
+ =[\Gamma:\Lambda]\frac\pi6.
+\end{equation}
+With the chosen Haar measure on the effective group, the covolume is
+\begin{equation}\label{eq:subgroup-effective-covolume}
+ \operatorname{vol}_{d\overline g}(\overline\Lambda\backslash\overline G)
+ =\mu(\overline\Lambda\backslash\mathbb H).
+\end{equation}
+In particular, $\operatorname{vol}_{dg}(\Gamma\backslash G)=\pi/6$, while the geometric quotient and the effective-group quotient with the specified measures both have volume $\pi/3$.
+\end{theorem}
+
+\begin{proof}
+First explain what $m$ counts. The projection $\Lambda\to\overline\Lambda$ identifies matrices that differ by sign, so its kernel is $\Lambda\cap Z$. If $-I\in\Lambda$, every effective transformation in $\overline\Lambda$ has exactly two lifts $\lambda$ and $-\lambda$ in $\Lambda$. If $-I\notin\Lambda$, these two lifts cannot both lie in $\Lambda$, since $(-\lambda)\lambda^{-1}=-I$; thus each effective transformation has exactly one lift in $\Lambda$. In this latter case the projection is an isomorphism, through which we may identify $\Lambda$ with $\overline\Lambda$. The factor $m$ therefore records whether the projection is two-to-one or one-to-one.
+
+The inverse image of $\overline\Lambda$ in $\Gamma$ is $\Lambda Z$, and $[\Lambda Z:\Lambda]=2/m$. Multiplicativity of finite indices gives
+\[
+ [\Gamma:\Lambda]=[\Gamma:\Lambda Z]\,[\Lambda Z:\Lambda]
+ =[\overline\Gamma:\overline\Lambda]\frac2m.
+\]
+Rearranging gives the index relation \eqref{eq:subgroup-effective-index}.
+
+We next calculate the geometric area in \eqref{eq:subgroup-hyperbolic-area}. Put $r=[\overline\Gamma:\overline\Lambda]$ and choose representatives so that
+\[
+ \overline\Gamma=\bigsqcup_{j=1}^{r}\overline\Lambda\,\overline\gamma_j.
+\]
+Discard the union of all translates of $\partial\mathcal F$, which is an invariant null set by the \hyperref[modular.tiling]{tiling corollary}. On the remaining points, set
+\[
+ \mathcal F_\Lambda=\bigcup_{j=1}^{r}\overline\gamma_j\mathcal F^\circ.
+\]
+This is a disjoint union of $r$ tiles, and it contains one representative of each remaining $\overline\Lambda$-orbit. For coverage, write a point as $\overline\gamma w$ with $w\in\mathcal F^\circ$, and then write $\overline\gamma=\overline\lambda\,\overline\gamma_j$ with $\overline\lambda\in\overline\Lambda$. Its orbit therefore meets $\overline\gamma_j\mathcal F^\circ$. For uniqueness, if
+\[
+ \overline\lambda\,\overline\gamma_j w=\overline\gamma_k v,
+ \qquad w,v\in\mathcal F^\circ,
+\]
+then $\overline\gamma_k^{-1}\overline\lambda\,\overline\gamma_j$ takes one point of $\mathcal F^\circ$ to another. The \hyperref[modular.fundamental-domain]{fundamental-domain theorem} makes this transformation the identity. Thus the two representatives belong to the same coset, so $j=k$, and then $\overline\lambda=1$ and $w=v$.
+
+We may therefore compute the quotient area by integrating over $\mathcal F_\Lambda$. Each tile has the same area as $\mathcal F^\circ$, by invariance of $d\mu$, and that area is $\pi/3$ by the \hyperref[modular.quotient-area]{modular-area calculation}. Explicitly,
+\[
+ \begin{aligned}
+ \mu(\overline\Lambda\backslash\mathbb H)
+ &=\int_{\mathcal F_\Lambda}d\mu(z)
+ =\sum_{j=1}^{r}\int_{\overline\gamma_j\mathcal F^\circ}d\mu(z)\\
+ &=\sum_{j=1}^{r}\int_{\mathcal F^\circ}d\mu(w)
+ =r\frac\pi3
+ =[\overline\Gamma:\overline\Lambda]\frac\pi3.
+ \end{aligned}
+\]
+
+We now calculate the matrix-group covolume in \eqref{eq:subgroup-matrix-covolume}. With counting measure on $\Lambda$, this covolume is the $dg$-measure of a measurable fundamental set for left multiplication by $\Lambda$ on $G$. Reduce the base point $g\cdot i$ to $z\in\mathcal F_\Lambda$, and write the resulting matrix as $s(z)k(\theta)$ by Iwasawa decomposition. To determine which angles still represent the same point of $\Lambda\backslash G$, suppose
+\[
+ \lambda s(z)k(\theta)=s(z)k(\theta'),\qquad\lambda\in\Lambda.
+\]
+Acting on $i$ gives $\lambda\cdot z=z$. The effective stabilizer at $z$ is trivial because $z$ lies in a translate of $\mathcal F^\circ$, so $\lambda\in\Lambda\cap Z$. When $m=1$, only $\lambda=I$ is possible, and the angle has its usual period $2\pi$. When $m=2$, multiplication by $-I$ gives the additional identification
+\[
+ (-I)s(z)k(\theta)=s(z)k(\theta+\pi).
+\]
+Thus a complete angular interval is $0\leq\theta<2\pi/m$. Together with $z\in\mathcal F_\Lambda$, it gives a fundamental set in $G$ up to measure zero. The discarded base points lift to a Haar-null set: in the Iwasawa integration formula \eqref{eq:haar-iwasawa}, their area is zero and the angular measure has total mass one.
+
+Using $dg=d\mu(z)\,d\theta/(2\pi)$, we obtain
+\[
+ \begin{aligned}
+ \operatorname{vol}_{dg}(\Lambda\backslash G)
+ &=\int_{\mathcal F_\Lambda}
+      \left(\int_0^{2\pi/m}\frac{d\theta}{2\pi}\right)d\mu(z)\\
+ &=\int_{\mathcal F_\Lambda}
+      \frac{2\pi/m}{2\pi}\,d\mu(z)
+ =\frac1m\mu(\overline\Lambda\backslash\mathbb H).
+ \end{aligned}
+\]
+Substituting the geometric-area formula \eqref{eq:subgroup-hyperbolic-area} and then the index relation \eqref{eq:subgroup-effective-index} gives
+\[
+ \begin{aligned}
+ \operatorname{vol}_{dg}(\Lambda\backslash G)
+ &=\frac1m[\overline\Gamma:\overline\Lambda]\frac\pi3\\
+ &=\frac1m\left(\frac m2[\Gamma:\Lambda]\right)\frac\pi3
+ =[\Gamma:\Lambda]\frac\pi6.
+ \end{aligned}
+\]
+
+Finally, calculate the effective-group covolume in \eqref{eq:subgroup-effective-covolume}. In $\overline G$, the matrix angle already has period $\pi$, and its probability measure is $d\theta/\pi$. Once $z\in\mathcal F_\Lambda$ is fixed, no further angular identifications arise from $\overline\Lambda$, since its stabilizer at $z$ is trivial. Consequently representatives are $p(s(z)k(\theta))$ with $z\in\mathcal F_\Lambda$ and $0\leq\theta<\pi$, up to the same null exception. Here $p:G\to\overline G$ is the central projection. The effective-group Iwasawa measure therefore gives
+\[
+ \begin{aligned}
+ \operatorname{vol}_{d\overline g}(\overline\Lambda\backslash\overline G)
+ &=\int_{\mathcal F_\Lambda}
+      \left(\int_0^\pi\frac{d\theta}{\pi}\right)d\mu(z)\\
+ &=\int_{\mathcal F_\Lambda}1\,d\mu(z)
+ =\mu(\overline\Lambda\backslash\mathbb H).
+ \end{aligned}
+\]
+This completes the three volume calculations.
+\end{proof}
+
+\begin{remark}[Which quotient measure is intended]\label{modular.measure-dictionary}
+For a right $K$-invariant function on $\Lambda\backslash G$, induced by a function $f$ on the geometric quotient, the same fiber calculation gives
+\[
+ \int_{\Lambda\backslash G}f(gi)\,dg
+ =\frac1m\int_{\overline\Lambda\backslash\mathbb H}f(z)\,d\mu(z)
+\]
+for nonnegative or integrable $f$. Dividing each side by its total volume makes the probability averages agree. If instead one chooses $dg'=2\,dg$, then the matrix quotient for the full modular group has covolume $\pi/3$, but its compact-fiber measure has mass $2$. Both normalizations are valid; a formula must state which one it uses. For a subgroup omitting $-I$, the factor $m$ is $1$, and its geometric index in the effective modular group is half its matrix index. These statements distinguish the central factor from elliptic stabilizer factors and from a separate normalization to probability measure.
+\end{remark}
+
+\begin{definition}[Lattices and arithmetic in this setting]\label{modular.arithmetic-lattice}
+A lattice in $G$ or $\overline G$ is a discrete subgroup whose quotient has finite Haar volume, using counting measure on the discrete group. It is nonuniform if that quotient is noncompact. Two subgroups are commensurable if their intersection has finite index in each. For the split rational matrix group $\operatorname{SL}_2$ used here, an arithmetic subgroup means a subgroup commensurable with its integer points $\operatorname{SL}_2(\mathbb Z)$. This specifies the rational structure; other rational forms, including the quaternionic groups in later volumes, require their own arithmetic models.
+\end{definition}
+
+\begin{corollary}[The modular arithmetic lattice]\label{modular.lattice}
+The group $\Gamma$ is a nonuniform arithmetic lattice in $G$, and $\overline\Gamma$ is a nonuniform lattice in $\overline G$. Every finite-index subgroup $\Lambda\subset\Gamma$ is again a nonuniform arithmetic lattice.
+\end{corollary}
+
+\begin{proof}
+Discreteness was proved above and passes to subgroups and to the quotient by the finite center. The covolume formulas give finiteness. The map $\Gamma\backslash G\to\Gamma\backslash\mathbb H$ is continuous and surjective, and the target is noncompact; hence its source cannot be compact. The same holds for the effective group. Each finite-index subgroup has finite covolume by the theorem and is commensurable with $\Gamma$. Its group quotient maps continuously onto $\Gamma\backslash G$, so it is noncompact as well.
+\end{proof}
+
+The resulting foundation separates three ingredients: the real homogeneous geometry, the discrete arithmetic group, and the chosen measures. Subsequent trace formulas will combine them. The point-pair invariant supplies radial kernels; the three conjugacy types describe possible geometric contributions; the cusp and elliptic stabilizers describe the quotient's exceptional geometry; and the explicit measure dictionary keeps their constants comparable.

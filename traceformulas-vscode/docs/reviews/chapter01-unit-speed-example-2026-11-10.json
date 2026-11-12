@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-10",
+  "scope": "Clarify Example 1.3.5: the cancellation of Euclidean speed against height, logarithmic height as arclength, and transport to a semicircular geodesic perpendicular to the real axis.",
+  "prior_snapshot": "docs/reviews/chapter01-section03-expanded-2026-11-10.json",
+  "prose_status": "proof-draft; author review pending",
+  "formal_status": "in-progress; existing Lean declarations unchanged",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "3f216583bcf06ec58f68876805f4a2acbb16b0c2a36613426fb6c8441d47ba8a",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "51de3c1a9c676f9bb4c0af7992708ff1ddd0fea8f2d5f340462d716e3fbd7304",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c0541381425c82b75c7b8040866b805c0c66800bc040e9e126a9ce43ef665456",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "c43e8890da7b8780607280e05d9617a70a5e2db6ec873379a109378a51f8eb68"
+  },
+  "inherited_machine_evidence": {
+    "record": "lean/audits/chapter01-section03-expanded-2026-11-10/record.json",
+    "record_sha256": "00104d8d8d138bc10cd4289f5a7cfeb922798246462f302b029986a4f86bdf77",
+    "audited_declarations": 118,
+    "lean_source_drift": [],
+    "changed_prose_or_comparison_since_audit": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex"
+    ],
+    "new_build_or_axiom_audit": "not-run; all audited Lean sources, metadata and build configuration unchanged",
+    "coverage_limit": "Tangent-length invariance is checked. The exponential-path derivative, its unit-speed specialization, path chain rule and arclength/distance claims remain open, as recorded in Compare."
+  },
+  "source_verification": "Elementary calculations checked against preceding manuscript results; no new external source audit.",
+  "validation": {
+    "command": "python3 scripts/build.py --pdf --volume v1a",
+    "result": "passed; clean TeX log, retained number 1.3.5 and label, new website title, exact source exports, matching editor/download PDFs",
+    "format": "git diff --check passed",
+    "browser_and_unit_suites": "not-rerun for this prose-only edit"
+  },
+  "deployment": "Local only; no commit, push or deployment."
+}

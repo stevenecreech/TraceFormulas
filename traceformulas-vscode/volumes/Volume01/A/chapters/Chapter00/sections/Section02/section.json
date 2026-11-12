@@ -1,6 +1,6 @@
 {
   "formal": {
-    "status": "in-progress",
+    "status": "autoformalized-awaiting-review",
     "declarations": [
       "TraceFormulas.Volume01.A.Chapter00.Section02.finite_orthonormal_coefficients",
       "TraceFormulas.Volume01.A.Chapter00.Section02.uniqueness_of_coefficients",

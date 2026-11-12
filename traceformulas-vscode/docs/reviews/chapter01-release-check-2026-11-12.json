@@ -1,0 +1,133 @@
+{
+  "date": "2026-11-12",
+  "scope": "Final pre-push review of Chapter 1, Appendix A and the related notation index",
+  "outcome": "No blocking issues found; edited manuscript and website ready for publication, with formalization coverage explicitly partial",
+  "ai_review": {
+    "geometry": "Sections 1.1–1.4, including Cayley signs, rotation angle, metric and radial measure normalizations, geodesic straightening, and Laplacian signs",
+    "modular": "Sections 1.5–1.8, including fixed points, fundamental region, side pairings, cusp widths, stabilizers, central indices and all three covolume normalizations",
+    "appendix": "A.1 cited uniqueness statement and elementary interval argument; A.2 Haar uniqueness, inversion, modular convention and continuity; relevant notation links",
+    "pipeline": "Bounded review of equation numbering, reference resolution, appendix labels, formalization status and vector figure publication",
+    "limit": "AI review is distinct from Steven’s review of prose–Lean correspondence; no exhaustive theorem-level bibliography audit was performed"
+  },
+  "corrections": [
+    "Made t >= Y explicit in the upward-cusp distance comment in Section 1.7.",
+    "Clarified that integration theorems are prerequisites listed in A.1, rather than results proved there.",
+    "Updated Chapter 1 Compare audit pointers and formalization summary to the current checked source snapshot.",
+    "Corrected the README section count to 158 and described Chapter 1 as an edited prose draft."
+  ],
+  "validation": {
+    "unit_tests": "48 passed in the working tree and 48 passed in the clean source-only export",
+    "clean_source_export": {
+      "source_files": 816,
+      "source_bytes": 6712622,
+      "method": "git-visible tracked and untracked sources only; no Docker, build artifacts, virtual environment or Lean caches",
+      "checks": [
+        {
+          "name": "tests",
+          "exit_code": 0
+        },
+        {
+          "name": "build",
+          "exit_code": 0
+        }
+      ]
+    },
+    "combined_pdf_website_build": "passed in working tree and clean source export",
+    "artifact_checks": {
+      "counts": {
+        "v1a-ch01": {
+          "equations": 44,
+          "blocks": 90
+        },
+        "v1a-app-a": {
+          "equations": 3,
+          "blocks": 25
+        }
+      },
+      "exact_source_exports": 61,
+      "clean_tex_log": true,
+      "pdf_copies_equal": true
+    },
+    "browser": "passed: 12 volume parts; chapter tabs; equation and named links; exact Lean; MathJax; downloads; mobile layout; subdirectory hosting; no page errors",
+    "visual_inspection": "PDF printed pages 46 (fundamental domain), 60 (covolumes), 100 (cited uniqueness); Chapter 1 desktop and Appendix A mobile screenshots",
+    "git_diff_check": "passed"
+  },
+  "lean_audit": {
+    "record": "lean/audits/chapter01-release-check-2026-11-12/record.json",
+    "status": "passed",
+    "declarations": 266,
+    "source_hashes_rechecked": 71,
+    "scope": "Implemented portions of Chapter 1 Sections 1.1–1.8, Appendices A.1–A.2 and their shared library; incomplete chapter coverage",
+    "allowed_foundational_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "human_correspondence_review": "not-reviewed",
+  "video": "no new script or production work",
+  "publication": "local only; no commit, push or deployment performed for this review",
+  "source_sha256": {
+    "volumes/Volume01/A/appendices/A/chapter.json": "1318d81100ce395e831f24ab2dfc8911f3f55871987c5223005c761cf8ec9261",
+    "volumes/Volume01/A/appendices/A/formalization.tex": "0a86bd4daa3d7f338640a0f213c34746542ae246b2f0d2877411016900a6830d",
+    "volumes/Volume01/A/appendices/A/intro.tex": "5f0822cea64aae648971bc2bd4c361e569e0ff579a9cdd41e685846232ffad18",
+    "volumes/Volume01/A/appendices/A/sections/Section01/Formalization.lean": "e9d9ddbb4df51c1e0a5054f7094103c8c4f3ba86895a429dd4ea5d3c1c273ffd",
+    "volumes/Volume01/A/appendices/A/sections/Section01/compare.tex": "118b0bd494aaf1e4856f5ce36cc3925e8d9eb2af345f5543c0f8cd70a5b07947",
+    "volumes/Volume01/A/appendices/A/sections/Section01/section.json": "1e53710345dcd5ca7f244754d4f503ed2937f86c966b030c7b57598b150f0a79",
+    "volumes/Volume01/A/appendices/A/sections/Section01/text.tex": "c78f255ff16e89038be31ce27cfb955833aac5ddc873f420944c8699a4033c03",
+    "volumes/Volume01/A/appendices/A/sections/Section02/Formalization.lean": "355eb95ec933f5a8c82ba5d4b797b4f76b82807f9fa3bbcd4283d482c151af3e",
+    "volumes/Volume01/A/appendices/A/sections/Section02/compare.tex": "2c4c7e3e1eff52862979c4bac5e9d0f8841c360f9c64c4d585dda6096be8ebf7",
+    "volumes/Volume01/A/appendices/A/sections/Section02/section.json": "0a1ee25a36a5c2fbaac834430a32ec1c3ddb059bd4e076fb8eb4cc5af9997bd3",
+    "volumes/Volume01/A/appendices/A/sections/Section02/text.tex": "b94d7048376c2d7264b945133fcbd35ff1c4af5216317f5ab87e01e787722a3d",
+    "volumes/Volume01/A/appendices/I/chapter.json": "8111e9dc6b542a014e324271b9e2a1ebe720f402d947d5538fb8691ef67fbc4d",
+    "volumes/Volume01/A/appendices/I/formalization.tex": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "volumes/Volume01/A/appendices/I/intro.tex": "6ff19228f9a1665b8a2adf512ac28c3a82f27bd9cf808ea59b903a52dfe1b1f1",
+    "volumes/Volume01/A/chapters/Chapter01/chapter.json": "8602cf43758ea28d9f49995a68e645d0e98839ffaccbf1be5674f7b9dc245fc9",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "c2de5a98fec572e5c1eeb2f9be56e004c1333a96e217198da4bedfce64c305c5",
+    "volumes/Volume01/A/chapters/Chapter01/intro.tex": "2b20d62fdde36552f83e68b003979b078927251e46390e3dcdc8c6ebfd85035b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "667bbc2c9fab39e4007b6e401790552f06d1cb9769ff5090bb82402db7f6322b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/section.json": "5682d101bb0f7e0838caa812969a06e6aac0979d56b0f26fcb384a9622e70e5e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "7f55c7a9bca3aac766479f2a5d134afbe4d366f6e049968ab7145daff9854259",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "9279d1e9634d80bd60f3a54cf1747c3fb8e263ecd0fa8bc88fe141c27d41a612",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "38a325b8a552ef0a6bc054a61d7a95071a2c1fa055d39a66dbdbab137677c56f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "b637a138068a8a0d5c3a899ff4bb01afa471b6bbf738338c05defc46ff4542f5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "e01f18586185d40e6d40cb9010b332c6718de79ad26559cd13cb86d5ae5b8696",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c95c8695388cddb4907305a3facfe39a79b3517036a1945b0f0f316d8a4fccf6",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "457bd99990cf89fb7086cf4cd29cfd4e4f10401d7c863bc4919b7e4f8b530c46",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/figures/geodesics.pdf": "23e5d54c5708be423d0ab927d4c9c3f00a1aa7fb4e07a03195f88bea0f5be232",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/figures/geodesics.svg": "1b586eb96874db56ff80c3abb97e956a33ca6e1183440a75acb4572ded006be9",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "c43e8890da7b8780607280e05d9617a70a5e2db6ec873379a109378a51f8eb68",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "b6a0cda9f97cc512a5ce5f056c5c76a352e0662a9b5c77e4356320c516522e52",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/Formalization.lean": "52bc27639ad97808ece7f84acced405e9cdcda9a1ba9b9bf0d60063a62a4a81b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/compare.tex": "fcc29c7022203775818f315e812c3ee458a1af913b70a43f9e8161d0fb8bca82",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/section.json": "833590322f6fb8d24362914ebf9d026b8556734c44c49d9c1f094e68918a719e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex": "2f3c6f5322242501fa9fcb91a8649f354af442251f08595e17fd3915839f5e2f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/Formalization.lean": "084ed8d4b0ca792ef08666eff567c58a32191936751953cef617e20df5eff23a",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/compare.tex": "fb424f9c6d6d135af8e64c87b84c0d2c9e74be84cdbf1bb3eb8c13d9d373af67",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/elliptic-motion.pdf": "cb45bb4b4cf07fd39b8ccefed87677cd30a7f2bf84b6af9c690586fac206427d",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/elliptic-motion.svg": "17bdb88b9a4f00ce127e01c70e764284ef523042ad9c5a1196b77ad171c7a9dd",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/parabolic-motion.pdf": "3fd3c0965d24e648a6c832dda3f71fee3130b1ec8d04f3a1f6e72e833fefff57",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/parabolic-motion.svg": "0e83143a03ccc2fde72f1150d75c436d6753da42e5864e0ad65549cf053a07d6",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/translation-dilation.pdf": "4b231383087145a807f67c7ebf48bfc534294fb4289b2111546894a7d8a025db",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/translation-dilation.svg": "d3c3631c1e667475be1951ba4b30128205d4761b42f141be0067268b7ed3548b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/section.json": "ea02f2c43f1792252b2fd4f619ad03af75a6552f5fae5c777f8752b802d30885",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/text.tex": "94d5bd42d04db7eb6b0b748dd3a72bda394011b9fc9af95d5eb16e01fccb33fd",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/Formalization.lean": "24edb7703c8d7e26fc379cb21b905454579cc3f178b48e331c3e2b93de83cd42",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/compare.tex": "89fb8d56f8f168523cc19d88d2c031ec5b4316a714810a650ca003e163db728b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/figures/fundamental-domain.pdf": "6414ddcd823115e1be5ed56496b108e5576f272652d20e0059d97f0899e79857",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/figures/fundamental-domain.svg": "4df344ee6d3357c13a379f9456b0ef3ad4cca3aad65c9622314bc6518172ce46",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/figures/modular-tiling.pdf": "ccadfe7323fcf1818bf771a6e55b98667d725d812b56fcdd59f1757f4ee0940c",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/figures/modular-tiling.svg": "887d2f072ee22bec58819246ba6651b2c33645301223af80cd44120a4853c719",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/section.json": "ad1857b0539f428ea2cd1f063f0c3a1cd06da374bf3506f3a3d7e063c723afc8",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/text.tex": "60abbfc7a2e8b69ebb772bd6eba641f8dd4546ae0ee7976e38034112a726ef4d",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/Formalization.lean": "46f240338439db6623ef33fa8130fdd0bfdc04de59a0e2ffb6b5b3c6103fba13",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/compare.tex": "c480c1a8c38dff410aac6fd1449b9b6ba826d1ad2288278117e02109eff9bef6",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/section.json": "4db0a3e7cc16a5e1b2d97b5bc57f56537ac984f47f5a8c5b135a03affaddc3b5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/text.tex": "5bba5b154e86f5bc72e3a7b86089c20f10e8b94144d9bebae793973f7d5129f0",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/Formalization.lean": "2b05110fde606e56eac543077a04dce49554d9c9fe72738055656de2877ab56b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex": "20c9e7c39732f0372cfec7945307004bbde0f376c06ab8af6965c9efe2804c51",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/section.json": "6b90d605f7c8539f73590e7bbde019988f2d0d670a329db5335d5dd452e1b12e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "551ac90ba60f1fe649c70892738b64cfe276771661eae2e145425138c45800e3"
+  }
+}

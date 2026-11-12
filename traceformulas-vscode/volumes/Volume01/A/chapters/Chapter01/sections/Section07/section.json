@@ -1,0 +1,17 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter01.Section07.parameter_formula",
+      "TraceFormulas.Volume01.A.Chapter01.Section07.parameter_nonzero",
+      "TraceFormulas.Volume01.A.Chapter01.Section07.parameter_radius",
+      "TraceFormulas.Volume01.A.Chapter01.Section07.parameter_integer_period",
+      "TraceFormulas.Volume01.A.Chapter01.Section07.parameter_modular_translation",
+      "TraceFormulas.Volume01.A.Chapter01.Section07.parameter_equal_iff",
+      "TraceFormulas.Volume01.A.Chapter01.Section07.parameter_radius_iff_height",
+      "TraceFormulas.Volume01.A.Chapter01.Section07.parameter_surjective",
+      "TraceFormulas.Volume01.A.Chapter01.Section07.parameter_tends_to_puncture"
+    ]
+  },
+  "videos": []
+}

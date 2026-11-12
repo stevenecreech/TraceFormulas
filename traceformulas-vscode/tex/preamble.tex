@@ -2,7 +2,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm}
+\numberwithin{equation}{section}
 \usepackage{longtable}
+% Figures are already PDF/PNG/JPEG; no EPS conversion or shell escape is needed.
+\newcommand{\DoNotLoadEpstopdf}{}
+\usepackage{graphicx}
 \usepackage[margin=1.15in]{geometry}
 \usepackage{microtype}
 \usepackage[unicode,colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}

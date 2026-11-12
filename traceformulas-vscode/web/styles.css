@@ -29,3 +29,14 @@ main{max-width:1600px;margin:auto;outline:none}.page{padding:47px 50px 60px;max-
 .prose .proof{margin:1em 0 1.5em}
 .prose .theorem-block>p:last-child,.prose .proof>p:last-child{margin-bottom:0}
 .prose [id]{scroll-margin-top:100px}
+
+/* Shared manuscript figures use vector SVG counterparts of print PDFs. */
+.prose figure{margin:26px 0}.prose figure img{display:block;width:100%;height:auto;margin-inline:auto}.prose figcaption{font-size:.87em;line-height:1.6;color:var(--muted);margin-top:12px}
+/* Keep equation numbers visible independently of horizontally scrolling math. */
+.prose .numbered-equation{display:flex;align-items:center;gap:1em}
+.prose .numbered-equation>.math.display{flex:1;min-width:0}
+.prose .equation-number{flex:none;font-style:normal;white-space:nowrap}
+@media(max-width:700px){.prose .numbered-equation{display:block;margin:20px 0}.prose .numbered-equation>.math.display{margin:0}.prose .equation-number{display:block;text-align:right;margin-top:4px}}
+
+/* Small print figures retain readable labels on narrow screens. */
+@media(max-width:600px){.prose figure img{width:100% !important}}

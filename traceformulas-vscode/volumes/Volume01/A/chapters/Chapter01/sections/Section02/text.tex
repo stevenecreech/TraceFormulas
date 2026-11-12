@@ -1,0 +1,139 @@
+The orbit calculation showed that every point of $\mathbb H$ can be reached from $i$. We now separate the matrix that accomplishes this into three elementary motions. A rotation in the stabilizer leaves $i$ fixed, a positive diagonal matrix moves it vertically by scaling, and a translation moves it horizontally. Because matrices act from the left, a product $nak$ performs these operations from right to left.
+
+\phantomsection\label{hyperbolic.group-abbreviations}
+For the quotient formulas, we abbreviate $G=\operatorname{SL}_2(\mathbb R)$ and $\overline G=\operatorname{PSL}_2(\mathbb R)=G/Z$.
+
+\begin{definition}[Three elementary subgroups]\label{hyperbolic.iwasawa-coordinates}
+Retain $n(x)$ and $a(y)$ from the orbit proof and introduce $k(\theta)$. Thus for $x\in\mathbb R$, $y>0$, and $\theta\in\mathbb R$,
+\[
+ n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix},\qquad
+ a(y)=\begin{pmatrix}\sqrt y&0\\0&1/\sqrt y\end{pmatrix},\qquad
+ k(\theta)=\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}.
+\]
+Write $N=\{n(x):x\in\mathbb R\}$, $A=\{a(y):y>0\}$, and $K=\{k(\theta):\theta\in\mathbb R\}=\operatorname{SO}(2)$. Here $\operatorname{SO}(2)$ is the group of real orthogonal determinant-one matrices: its columns form an oriented orthonormal basis, so they have the displayed form for an angle $\theta$. Each displayed matrix has determinant one. The identities $n(x)n(x')=n(x+x')$, $a(y)a(y')=a(yy')$, and $k(\theta)k(\theta')=k(\theta+\theta')$ show that these sets are subgroups, with inverses obtained by $-x$, $1/y$, and $-\theta$, respectively.
+\end{definition}
+
+The fractional formulas give $n(x)z=z+x$ and $a(y)z=yz$. For $k(\theta)$, substitution of $i$ gives
+\[
+ k(\theta)i=\frac{i\cos\theta+\sin\theta}{-i\sin\theta+\cos\theta}=i,
+\]
+because the numerator is $i$ times the denominator. Thus the successive images of the base point are
+\[
+ i\ \xrightarrow{k(\theta)}\ i\ \xrightarrow{a(y)}\ iy\ \xrightarrow{n(x)}\ x+iy.
+\]
+The angle does not affect the final point. This is why a point of $\mathbb H$ should correspond to a matrix modulo its right $K$-factor. To make this precise, we must show that every matrix admits this factorization and that the entire stabilizer of $i$ is $K$.
+
+The square root in $a(y)$ is chosen so that $y$ is precisely the height of $a(y)i$. A second common parameter is $t=\log y$, in which the diagonal entries are $e^{t/2},e^{-t/2}$.
+
+\phantomsection\label{hyperbolic.homogeneous-space}
+A space with a continuous transitive action of $G$ is called a $G$-homogeneous space: any point can be moved to any other by the action. We have proved this transitivity for $\mathbb H$. The quotient $G/K$ is the set of cosets $gK=\{gk:k\in K\}$, with $G$ acting by left multiplication. After determining the stabilizer and the Iwasawa factors, we will identify these cosets with points of $\mathbb H$, including their topology. We give $G$ its topology as a set of real matrices and $G/K$ the quotient topology.
+
+\begin{proposition}[The stabilizer of the base point]\label{hyperbolic.stabilizer}
+The stabilizer of $i$ in $G$ is $K$.
+\end{proposition}
+
+\begin{proof}
+First we show that the stabilizer of $i$ in $G$ is $K$. Let $g=\begin{smallpmatrix}a&b\\c&d\end{smallpmatrix}\in G$. Since $ci+d\ne0$, the condition $g\cdot i=i$ is equivalent to
+\[
+ \frac{ai+b}{ci+d}=i
+ \quad\Longleftrightarrow\quad
+ ai+b=i(ci+d)=-c+di.
+\]
+All four matrix entries are real. Comparing real parts gives $b=-c$, and comparing imaginary parts gives $a=d$. Substituting into $ad-bc=1$ gives $a^2+b^2=1$. Thus $(a,b)$ lies on the unit circle, so there is an angle $\theta$ with $a=\cos\theta$ and $b=\sin\theta$. Consequently $g=k(\theta)\in K$. Conversely, we have already checked that each $k(\theta)$ fixes $i$, proving the stabilizer assertion.
+\end{proof}
+
+\begin{theorem}[Iwasawa decomposition]\label{hyperbolic.iwasawa}
+Every $g\in G$ has a unique factorization
+\[
+ g=n(x)a(y)k(\theta),\qquad x\in\mathbb R,\quad y>0,\quad \theta\in\mathbb R/(2\pi\mathbb Z).
+\]
+\end{theorem}
+
+\begin{proof}
+We prove that every $g\in G$ admits the stated factorization. Write $g\cdot i=x+iy$, where $y>0$, and define
+\[
+ s(x+iy)=n(x)a(y).
+\]
+This matrix also sends $i$ to $x+iy$. Its inverse undoes the two motions: first translate by $-x$, then scale by $1/y$. In particular,
+\begin{equation}\label{eq:iwasawa-inverse-action}
+ s(x+iy)^{-1}\cdot w=\frac{w-x}{y},\qquad
+ s(x+iy)^{-1}\cdot(x+iy)=i.
+\end{equation}
+It follows that
+\[
+ \bigl(s(x+iy)^{-1}g\bigr)\cdot i
+ =s(x+iy)^{-1}\cdot(g\cdot i)
+ =s(x+iy)^{-1}\cdot(x+iy)=i.
+\]
+By the \hyperref[hyperbolic.stabilizer]{stabilizer description}, $s(x+iy)^{-1}g=k(\theta)$ for some $\theta$. Multiplying on the left by $s(x+iy)$ gives $g=n(x)a(y)k(\theta)$.
+
+To prove uniqueness, suppose also $g=n(x')a(y')k(\theta')$. Applying both factorizations to $i$ gives $x+iy=x'+iy'$. Equality of real and imaginary parts gives $x=x'$ and $y=y'$. Cancelling the common invertible factor $n(x)a(y)$ then gives $k(\theta)=k(\theta')$. Their entries have equal sines and cosines, so $\theta=\theta'$ modulo $2\pi$.
+\end{proof}
+
+\begin{proposition}[Explicit Iwasawa coordinates]\label{hyperbolic.iwasawa-explicit-coordinates}
+For $g=\begin{smallpmatrix}a&b\\c&d\end{smallpmatrix}\in G$, its coordinates satisfy
+\[
+ x=\frac{ac+bd}{c^2+d^2},\qquad y=\frac1{c^2+d^2},\qquad
+ \cos\theta=\frac d{\sqrt{c^2+d^2}},\quad \sin\theta=\frac{-c}{\sqrt{c^2+d^2}}.
+\]
+\end{proposition}
+
+\begin{proof}
+We compute the coordinates explicitly. The bottom row $(c,d)$ is nonzero because $\det g=1$, so $c^2+d^2>0$. Multiplying by the conjugate denominator gives
+\[
+ \begin{aligned}
+ g\cdot i
+ &=\frac{ai+b}{ci+d}
+  =\frac{(ai+b)(d-ci)}{(ci+d)(d-ci)}\\
+ &=\frac{ac+bd+i(ad-bc)}{c^2+d^2}
+  =\frac{ac+bd}{c^2+d^2}+i\frac1{c^2+d^2}.
+ \end{aligned}
+\]
+Since $g\in G$, we have $ad-bc=1$. Comparing with $x+iy$ proves the formulas for $x$ and $y$.
+
+For the angle, left multiplication by $n(x)$ leaves a matrix's bottom row unchanged. The bottom row of $a(y)$ is $\begin{smallpmatrix}0&1/\sqrt y\end{smallpmatrix}$, so the bottom row of the factorization gives
+\[
+ \begin{pmatrix}c&d\end{pmatrix}
+ =\begin{pmatrix}0&1/\sqrt y\end{pmatrix}k(\theta)
+ =\begin{pmatrix}-\sin\theta/\sqrt y&\cos\theta/\sqrt y\end{pmatrix}.
+\]
+Therefore $\cos\theta=d\sqrt y$ and $\sin\theta=-c\sqrt y$. Inserting $y=1/(c^2+d^2)$ gives the stated angle formulas.
+\end{proof}
+
+\begin{theorem}[The quotient description of the half-plane]\label{hyperbolic.quotient-description}
+The map $gK\mapsto g\cdot i$ is a homeomorphism $G/K\simeq\mathbb H$ that respects the $G$-actions, with smooth coordinates supplied by the Iwasawa factorization. Likewise $\overline G/\overline K\simeq\mathbb H$, where $\overline K=K/Z$.
+\end{theorem}
+
+\begin{proof}
+We identify the quotient $G/K$ with $\mathbb H$. If $g$ is replaced by $gk$ with $k\in K$, its image of $i$ is unchanged, since $(gk)\cdot i=g\cdot(k\cdot i)=g\cdot i$. Thus the map $gK\mapsto g\cdot i$ is well defined. It is onto because $s(x+iy)\cdot i=x+iy$. If $g_1\cdot i=g_2\cdot i$, then $g_2^{-1}g_1$ fixes $i$ and lies in $K$; hence $g_1K=g_2K$. This proves injectivity. Left multiplication is respected because $(hg)\cdot i=h\cdot(g\cdot i)$.
+
+The orbit map $g\mapsto g\cdot i$ is continuous by its fractional formula, so its induced map on $G/K$ is continuous by the quotient topology. The inverse sends $z=x+iy$ to $s(x+iy)K$; it is continuous because the entries of $s(x+iy)$ vary continuously with $x$ and $y>0$. This proves the homeomorphism. The entries in fact vary smoothly, as do the coordinates $x,y$ above and the remaining matrix $s(x+iy)^{-1}g\in K$. Thus the factorization identifies $G$ smoothly with $\mathbb H\times K$, with inverse $(z,k)\mapsto s(z)k$, and supplies the claimed smooth coordinates on $G/K$. Since $Z\subset K$, the same construction for $\overline G$ has stabilizer $\overline K=K/Z$ and gives $\overline G/\overline K\simeq\mathbb H$.
+\end{proof}
+
+Here $gK$ is a coset with $K$ on the right, and $G$ acts by left multiplication. In particular,
+\[
+ \Gamma\backslash\mathbb H\simeq\Gamma\backslash G/K
+ \simeq\overline\Gamma\backslash\overline G/\overline K
+\]
+as orbit spaces. This is the geometric bridge to the representation viewpoint; no representation theory is needed to establish it.
+
+\begin{proposition}[The angular double covering]\label{hyperbolic.angular-cover}
+Identify the tangent plane at $i$ with $\mathbb C$. The derivative of the transformation $z\mapsto k(\theta)\cdot z$ at $i$ sends a tangent vector $v$ to $e^{2i\theta}v$. It therefore rotates tangent directions by $2\theta$ modulo $2\pi$. The resulting map from $K$ to rotations of the tangent plane is two-to-one, with kernel $Z=\{I,-I\}$. It identifies $\overline K=K/Z$ with that rotation group: the matrix parameter has period $2\pi$ in $K$ and period $\pi$ in $\overline K$.
+\end{proposition}
+
+\begin{proof}
+Write $F_\theta(z)=k(\theta)\cdot z$. We have $F_\theta(i)=i$, so its derivative acts on tangent vectors at the same point. The chain rule makes this tangent action a group homomorphism. The Möbius derivative formula in \eqref{eq:mobius-identities} gives
+\begin{equation}\label{eq:stabilizer-derivative}
+ F_\theta'(i)
+ =\frac1{(-\sin\theta\,i+\cos\theta)^2}
+ =\frac1{(e^{-i\theta})^2}
+ =e^{2i\theta}.
+\end{equation}
+Thus for a fixed tangent vector $v\in\mathbb C$ and real $t\to0$,
+\[
+ F_\theta(i+tv)=i+t e^{2i\theta}v+o(t).
+\]
+For small $t$ the point $i+tv$ remains in $\mathbb H$. This first-order formula explains the tangent action: multiplying by $e^{2i\theta}$ turns a nonzero vector through angle $2\theta$ and preserves its length.
+
+Every tangent rotation through an angle $\varphi$ is obtained by choosing $\theta=\varphi/2$. Its derivative is the identity precisely when $e^{2i\theta}=1$, or $\theta\in\pi\mathbb Z$. Modulo the matrix period $2\pi$, these are the two matrices $k(0)=I$ and $k(\pi)=-I$. Equivalently, $k(\theta+\pi)=-k(\theta)$ gives the two lifts of every tangent rotation. As $\theta$ runs from $0$ to $\pi$, the tangent directions make one full turn while the matrix goes from $I$ to $-I$; the matrix returns to $I$ only at $2\pi$. Quotienting by $Z$ identifies the two lifts and gives the asserted rotation group $\overline K$.
+\end{proof}

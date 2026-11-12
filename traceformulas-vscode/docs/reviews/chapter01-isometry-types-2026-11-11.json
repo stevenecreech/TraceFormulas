@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-11",
+  "scope": "Separate fixed-point classification, each normal form, and each translation length in Section 1.5; add geometric diagrams and start the corresponding Lean companion.",
+  "prior_snapshot": "docs/reviews/chapter01-separated-results-2026-11-11.json",
+  "prose_status": "proof-draft; all separated results include proofs",
+  "bibliographic_source_status": "unchanged; local pinned Mathlib and project interfaces inspected; no external source consultation or full source audit",
+  "human_correspondence_review": "not-reviewed",
+  "formal_status": "in-progress; 11 public companion theorems; full boundary and metric-infimum arguments remain open",
+  "video_status": "not-started; book illustrations do not constitute a video or storyboard",
+  "result_numbers": {
+    "hyperbolic.types": "1.5.1",
+    "hyperbolic.fixed-point-classification": "1.5.2",
+    "eq:mobius-fixed-point": "1.5.1",
+    "hyperbolic.normal-forms": "1.5",
+    "hyperbolic.elliptic-normal-form": "1.5.3",
+    "hyperbolic.elliptic-motion-diagram": "1.2",
+    "hyperbolic.parabolic-normal-form": "1.5.4",
+    "hyperbolic.hyperbolic-normal-form": "1.5.5",
+    "hyperbolic.translation-dilation-diagram": "1.3",
+    "hyperbolic.translation-length": "1.5.6",
+    "eq:translation-length": "1.5.2",
+    "hyperbolic.translation-length-conjugacy": "1.5.7",
+    "hyperbolic.elliptic-length": "1.5.8",
+    "hyperbolic.parabolic-length": "1.5.9",
+    "hyperbolic.hyperbolic-length": "1.5.10",
+    "hyperbolic.axis-orientation": "1.5.11"
+  },
+  "public_companion_declarations": [
+    "TraceFormulas.Volume01.A.Chapter01.Section05.discriminant_lift_independent",
+    "TraceFormulas.Volume01.A.Chapter01.Section05.quadratic_discriminant",
+    "TraceFormulas.Volume01.A.Chapter01.Section05.fixed_point_equation",
+    "TraceFormulas.Volume01.A.Chapter01.Section05.interior_fixed_point_discriminant",
+    "TraceFormulas.Volume01.A.Chapter01.Section05.fixed_point_conjugates_to_rotation",
+    "TraceFormulas.Volume01.A.Chapter01.Section05.translation_has_fixed_point_iff",
+    "TraceFormulas.Volume01.A.Chapter01.Section05.dilation_has_fixed_point_iff",
+    "TraceFormulas.Volume01.A.Chapter01.Section05.translation_point_pair",
+    "TraceFormulas.Volume01.A.Chapter01.Section05.dilation_point_pair",
+    "TraceFormulas.Volume01.A.Chapter01.Section05.dilation_displacement_lower_bound",
+    "TraceFormulas.Volume01.A.Chapter01.Section05.dilation_minimizers_are_on_imaginary_axis"
+  ],
+  "coverage": [
+    {
+      "prose_label": "hyperbolic.types",
+      "checked": "Actual matrix-trace discriminant and invariance under changing the lift sign.",
+      "remaining": "Full type classification with the central identity excluded."
+    },
+    {
+      "prose_label": "hyperbolic.fixed-point-classification",
+      "checked": "Quadratic discriminant, fixed-point equation for actual upper-half-plane points, and D(g)=-4(c Im(z))² from such a point.",
+      "remaining": "Existence and uniqueness from discriminant signs, projective boundary fixed points and the infinity cases."
+    },
+    {
+      "prose_label": "hyperbolic.elliptic-normal-form",
+      "checked": "Given an interior fixed point p, s(p)⁻¹ g s(p) is a rotation.",
+      "remaining": "Supply the point from ellipticity, exclude central angles, and prove the Cayley rotation action."
+    },
+    {
+      "prose_labels": [
+        "hyperbolic.parabolic-normal-form",
+        "hyperbolic.hyperbolic-normal-form"
+      ],
+      "checked": "Exact interior fixed-point conditions for n(t) and a(y), including identities.",
+      "remaining": "Full conjugation of arbitrary transformations of each type to their normal forms."
+    },
+    {
+      "prose_labels": [
+        "hyperbolic.parabolic-length",
+        "hyperbolic.hyperbolic-length"
+      ],
+      "checked": "Point-pair displacement formulas; dilation lower bound and equality exactly on the imaginary axis.",
+      "proof_difference": "Lean uses arbitrary y>0, with y≠1 for the minimizing-set assertion. Prose specializes to y=exp(r), r>0. This y is the scale, not Im(z).",
+      "remaining": "Bridge to the manuscript path metric, actual translation-length infima, conjugacy invariance, limit/attainment arguments, trace-length identity, and intrinsic geodesic axis."
+    }
+  ],
+  "figures": {
+    "generator": "scripts/draw_isometry_types.py",
+    "assets": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/elliptic-motion.pdf",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/elliptic-motion.svg",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/translation-dilation.pdf",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/translation-dilation.svg"
+    ],
+    "meaning": "Elliptic subgroup curves mapped from disk circles using inverse Cayley; individual rotation endpoints checked. Horizontal translations and positive dilations drawn from their formulas. Captions distinguish trajectories from geodesics.",
+    "build_dependencies": "Saved PDF/SVG pairs; Matplotlib needed only for regeneration."
+  },
+  "validation": {
+    "targeted_lean_build": "passed: lake build TraceFormulas.Geometry.IsometryTypes",
+    "full_build_and_axioms": "passed",
+    "machine_audit": "lean/audits/chapter01-isometry-types-2026-11-11/record.json",
+    "audited_declarations": 196,
+    "allowed_foundations": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": "Nine locked clean dependencies verified before build and after build/axioms.",
+    "audit_hashes": "All 45 match current saved sources.",
+    "unit_suite": "44 tests passed, including rejection of unaudited Section 1.5 metadata.",
+    "pdf_website_build": "passed: python3 scripts/build.py --pdf --volume v1a",
+    "tex_log": "No warnings, unresolved references, or overfull/underfull boxes.",
+    "equations_and_links": "All previous destinations retained; 26 equation numbers agree in PDF/HTML; earlier equation numbers unchanged.",
+    "exports": "Section 1.5 prose, Lean, Compare, metadata and both figure pairs are exact copies; editor/download PDFs are byte-identical.",
+    "visual_inspection": "Standalone diagrams; physical PDF pages 46,48,49,50 (printed 38,40,41,42); elliptic mobile and translation/dilation desktop browser screenshots.",
+    "browser": "Passed desktop/mobile navigation, both diagram destinations and SVG/PDF downloads, 26 equation renderings, five exact Lean companions, MathJax, subdirectory hosting; no page errors or page-width overflow.",
+    "diff_check": "passed",
+    "commit_push_deployment": "not-performed"
+  },
+  "source_sha256": {
+    "lean/TraceFormulas/Geometry/IsometryTypes.lean": "3b0d1f151b7418d9591386c4d7cf15b1efbe31f2c3706bb7d4bba6fcdb5d0b3a",
+    "lean/AuditChapter01.lean": "4dbb4d023094a36c3db149a216290e282f63a553bb1d9e07cc9b64773172afdb",
+    "lakefile.toml": "93ef7726c10f29a64557a9fd5232f830cddad62e78f91fd20d966888aaefbb44",
+    "scripts/audit_lean.py": "826d8025481e98b4429d99d81da4b1d613d6bf84db7715363a44ce8c4adc711f",
+    "scripts/draw_isometry_types.py": "78a4fec6e61e025e70f57bb8ef24cea44fbd4c50aee290c0f87b2b44802fae20",
+    "scripts/check_browser.py": "e5e8f3acd6404b7f4892251f9b295bdf11e1c6de6dcd5dc00e287d1e2a01539c",
+    "tests/test_lean_audit.py": "1b3270d274127c0aa06c2ce8809574a49813f402f1733e8e21b57f10cca3b90a",
+    "AUTHORING.md": "8dd80bebb719503d1bc4d5029c2364346ce203208aa7e7b1ae6284ad2291cf5f",
+    "docs/STATUS.md": "f5853e8b51589140b27481e78c3aa4bc49f259fd4b410cad4ffa0b43c22d3b1c",
+    "README.md": "e90acf86dcdef25c4e5e7546f4e749a30256445c60c4d59708750807feb49c1f",
+    "../README.md": "908432ff3091a2f3abadbd8203d15f683863a3b5dd14b449e2b50184bdf22745",
+    "lean/README.md": "85754d6c7758500ca355fb21e05132c3ba14a5b6d06b61da5a550ede230e278d",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "98f4ff8916be28e61cd1840e4400463dd3742489f1f14d76e43c75c2ecf3f204",
+    "volumes/Volume01/A/appendices/I/intro.tex": "d15bd965eefacb3f9254e1de7466ec7e8d3e7689272da1e410f10f4f76fa13c8",
+    "lean/audits/chapter01-isometry-types-2026-11-11/record.json": "2353aa4794aa2949d82a788580fe2087026c00982ea580bcdb7d919371bf67c1",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/text.tex": "11af462af10c0d8431c73901ec1c4d6df6040773ec07957dba3847cda548968b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/Formalization.lean": "084ed8d4b0ca792ef08666eff567c58a32191936751953cef617e20df5eff23a",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/compare.tex": "08133d9923b6bac007a0554db8e1a47a592ad5a19169dafd1f34d3b04357cfcb",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/section.json": "ea02f2c43f1792252b2fd4f619ad03af75a6552f5fae5c777f8752b802d30885",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/translation-dilation.pdf": "e21e4b924919093cf9edb32ae9ec4efbb8075ad1e397a4283172c7abc96fc374",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/translation-dilation.svg": "c74fd9489927fae16423cd21810348806d0062aee8a64570a026ae045271a806",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/elliptic-motion.svg": "17bdb88b9a4f00ce127e01c70e764284ef523042ad9c5a1196b77ad171c7a9dd",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/figures/elliptic-motion.pdf": "cb45bb4b4cf07fd39b8ccefed87677cd30a7f2bf84b6af9c690586fac206427d",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "64417a190642a9477b4a2b43854997a87e392a26d15d22683bc88449237f9370",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "86d527fec88242b4ce2790a9966f7c307aadc1e1a12a586db99f1bc299273577",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "26d0cb4c2f63f7d1be48e52e7a3ef2c222381d933bbe4daf285c1de466209e0d",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/compare.tex": "714e4df2cabeecc485eb87c55675fdc3fadb5db34d71d4904d353efa704c1300"
+  }
+}

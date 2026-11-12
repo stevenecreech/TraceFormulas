@@ -23,9 +23,12 @@ Chapter 0 develops matrix traces, finite-rank integral kernels, relative pairing
 
 All three Chapter 0 companions and their shared Lean mathematics passed the recorded build and axiom audit on November 5, 2026. Formalization reuses Mathlib's linear algebra and measure theory. **Machine verification and Steven's review of the prose–Lean correspondence are separate:** that human correspondence review remains pending. See the [audit evidence](traceformulas-vscode/lean/audits/chapter00-2026-11-05-editor/record.json), [quality criteria](traceformulas-vscode/docs/QUALITY.md), and [project status](traceformulas-vscode/docs/STATUS.md).
 
+Chapter 1 has an edited prose draft covering the upper half-plane, Iwasawa decomposition, hyperbolic geometry, and the modular arithmetic lattice, with explicit SL₂/PSL₂ measure conventions. Partial Lean companions for Sections 1.1–1.8 and Appendices A.1–A.2 accompany that work, with explicit coverage gaps in Compare. The measure-theory refresher and general Haar proofs are collected in Appendix A.
+
 Useful starting points:
 
 - [Chapter 0 introduction](traceformulas-vscode/volumes/Volume01/A/chapters/Chapter00/intro.tex) and [first section](traceformulas-vscode/volumes/Volume01/A/chapters/Chapter00/sections/Section01/text.tex).
+- [Chapter 1 introduction](traceformulas-vscode/volumes/Volume01/A/chapters/Chapter01/intro.tex) and [first section](traceformulas-vscode/volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex).
 - [Chapter 0 visual lecture script](traceformulas-vscode/volumes/Volume01/A/chapters/Chapter00/lecture.tex).
 - [Shared Lean library and build instructions](traceformulas-vscode/lean/README.md).
 - [Detailed setup guide](traceformulas-vscode/README.md) and [authoring guide](traceformulas-vscode/AUTHORING.md).

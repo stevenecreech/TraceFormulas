@@ -1,0 +1,22 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter01.Section03.fractional_action_derivative",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_squared_length_positive",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.euclidean_normalization_at_i",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_squared_length_invariant",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.invariant_metric_coefficients",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.area_density_covariance",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.invariant_positive_density_unique",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_formula",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_symmetric",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_positive",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_invariant",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_length_invariant",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.gradient_duality",
+      "TraceFormulas.Volume01.A.Chapter01.Section03.two_point_ratio_invariant"
+    ]
+  },
+  "videos": []
+}

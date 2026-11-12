@@ -8,6 +8,10 @@ from pathlib import Path
 import shutil
 import subprocess
 import tempfile
+import html
+from html.parser import HTMLParser
+import re
+from urllib.parse import quote, unquote, urlsplit
 
 
 def publish_file(source: Path, destination: Path) -> None:
@@ -24,6 +28,57 @@ def publish_file(source: Path, destination: Path) -> None:
 
 class TexError(ValueError):
     pass
+
+
+def manuscript_images(source: str, root: Path) -> str:
+    """Use a paired SVG for each print PDF; publish both under sources/volumes.
+
+    Manuscripts specify package-relative paths, as required by the TeX build.
+    Check both assets before emitting an image URL, including during --check.
+    """
+    changes = []
+    offsets = [0]
+    for line in source.splitlines(keepends=True):
+        offsets.append(offsets[-1] + len(line))
+    volume_root = (root / 'volumes').resolve()
+
+    class Images(HTMLParser):
+        def handle_starttag(self, tag, attrs):
+            if tag not in {'img', 'embed'}:
+                return
+            src = dict(attrs).get('src', '')
+            url = urlsplit(src)
+            if url.scheme or url.netloc or url.query or url.fragment:
+                raise TexError('Manuscript figures must use local paths under volumes/.')
+            path = (root / unquote(url.path)).resolve()
+            if not path.is_relative_to(volume_root) or not path.is_file():
+                raise TexError(f'Missing or out-of-tree manuscript figure: {src}')
+            if path.suffix.lower() == '.pdf':
+                web = path.with_suffix('.svg').resolve()
+                if not web.is_relative_to(volume_root) or not web.is_file():
+                    raise TexError(f'Manuscript PDF figure requires a paired SVG: {src}')
+            elif path.suffix.lower() in {'.png', '.jpg', '.jpeg'}:
+                web = path
+            else:
+                raise TexError('Use PDF with a paired SVG, or PNG/JPEG, for manuscript figures.')
+            target = 'sources/' + quote(web.relative_to(root.resolve()).as_posix())
+            old = self.get_starttag_text()
+            new = re.sub(r'''\bsrc\s*=\s*(["']).*?\1''',
+                         lambda _: 'src="' + html.escape(target, quote=True) + '"', old, count=1)
+            if tag == 'embed':
+                # Pandoc emits PDF images as <embed>; browsers need the paired
+                # vector image. The adjacent figure caption describes it.
+                new = re.sub(r'^<embed\b', '<img alt=""', new)
+            line, col = self.getpos()
+            start = offsets[line - 1] + col
+            changes.append((start, start + len(old), new))
+
+        handle_startendtag = handle_starttag
+
+    Images(convert_charrefs=True).feed(source)
+    for start, end, replacement in reversed(changes):
+        source = source[:start] + replacement + source[end:]
+    return source
 
 
 def pandoc_path(root: Path) -> str:
@@ -79,7 +134,8 @@ class Renderer:
             ]
             if number_prefix is not None:
                 command.append('--metadata=theorem-prefix:' + number_prefix)
-            self.cache[key] = run(command, cwd=path.parent, source=self.macros + '\n' + source)
+            rendered = run(command, cwd=path.parent, source=self.macros + '\n' + source)
+            self.cache[key] = manuscript_images(rendered, self.root)
         return self.cache[key]
 
 
@@ -96,7 +152,11 @@ def print_source(root: Path, outline: dict, records: list[dict], directories: di
              r'\title{' + escape(outline['title']) + r'\\[1ex]\large Volume ' + escape(outline['volume'])
              + r'\\' + escape(outline['subtitle']) + '}',
              r'\author{' + escape(outline['author']) + '}', r'\date{Draft edition}',
-             r'\begin{document}', r'\frontmatter', r'\maketitle']
+             r'\begin{document}', r'\frontmatter',
+             # book.cls resets the page number after its title page. Suppress
+             # that page's anchor so the first front-matter page owns page.i.
+             r'\hypersetup{pageanchor=false}', r'\maketitle',
+             r'\hypersetup{pageanchor=true}']
     acknowledgments = root / 'volumes/acknowledgments.tex'
     if acknowledgments.is_file() and acknowledgments.read_text(encoding='utf-8').strip():
         lines.extend([r'\chapter*{Acknowledgments}', r'\label{series-acknowledgments}',

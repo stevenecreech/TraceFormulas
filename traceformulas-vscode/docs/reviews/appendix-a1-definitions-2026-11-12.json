@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-12",
+  "scope": "Delineate Appendix A.1 definitions with AMS environments; shorten exposition; separate examples",
+  "prose_status": "draft for Steven review",
+  "definitions": 12,
+  "theorem_style_blocks": 16,
+  "lemma_proof": "unchanged byte-for-byte",
+  "references": "all prior labels retained; index pushforward link targets measure.pushforward",
+  "formal_status": "unchanged partial companion",
+  "human_correspondence_review": "not-reviewed; unchanged",
+  "inherited_audit": {
+    "record": "lean/audits/chapter01-haar-framework-2026-11-12/record.json",
+    "declarations": 243,
+    "unchanged_hashes": 68,
+    "total_hashes": 69,
+    "only_changed_input": "volumes/Volume01/A/appendices/A/sections/Section01/text.tex"
+  },
+  "validation": {
+    "combined_pdf_website_build": "passed",
+    "tex_log": "clean",
+    "pdf_website_numbers": "all16 A.1 blocks agree",
+    "exports": "exact sources; PDF copies identical",
+    "visual_inspection": "printed page97",
+    "ai_review": "read-only review passed; not human correspondence review",
+    "unit_tests_browser_lean": "not-rerun for presentation edit"
+  },
+  "source_sha256": {
+    "volumes/Volume01/A/appendices/A/sections/Section01/text.tex": "9cff5aed83e740e9ce601241350306b9a87578c4b5fc61af608e8b7b7f6de78f",
+    "volumes/Volume01/A/appendices/A/sections/Section01/Formalization.lean": "3a7cbcc1081623cc3ef2392e710b0e07e06d75905ca72c6be5b95b2f49e4642d",
+    "volumes/Volume01/A/appendices/A/sections/Section01/compare.tex": "ef463f7dcca19d343044641cbe8778491e4fbfd55460c3a9875c27a501d4461f",
+    "volumes/Volume01/A/appendices/I/intro.tex": "e47f83f80f92722eeab94065e24ef3f95b23e7e4b7068d77af6b91249958d741"
+  }
+}

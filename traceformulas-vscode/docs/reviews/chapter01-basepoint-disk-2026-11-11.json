@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-11",
+  "scope": "Explain the disk-coordinate substitution in the converse proof of Proposition 1.4.3; formalize its base-point specialization.",
+  "prior_snapshot": "docs/reviews/chapter01-named-equation-references-2026-11-11.json",
+  "prose_status": "proof-draft; explanation expanded; statement and proof route unchanged",
+  "human_correspondence_review": "not-reviewed",
+  "formal_status": "in-progress; base-point identity checked; full orbit theorem and other documented gaps remain open",
+  "video_status": "not-started",
+  "new_claim": {
+    "prose_label": "hyperbolic.pair-orbits",
+    "prose_scope": "u(i,w) = |C(w)|²/(1−|C(w)|²), for every upper-half-plane point w.",
+    "shared_declaration": "TraceFormulas.Hyperbolic.pointPair_basepoint_cayley",
+    "companion_declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_from_i",
+    "proof_route": "Substitute cayleyToDisk I and cayleyToDisk w into pointPair_disk; use the genuine equivalence left inverses; simplify C(i)=0.",
+    "remaining_obligations": "Matching the two disk points by a stabilizer rotation, both directions of the complete orbit theorem, invariant-function factorization, and existing distance/measure gaps."
+  },
+  "validation": {
+    "targeted_lean_build": "passed: lake build TraceFormulas.Geometry.DiskGeometry",
+    "machine_audit": "lean/audits/chapter01-basepoint-disk-2026-11-11/record.json",
+    "full_build_and_axioms": "passed",
+    "audited_declarations": 170,
+    "allowed_foundations": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": "All nine clean at locked revisions, checked before build and after build/axioms.",
+    "pdf_website_build": "passed: python3 scripts/build.py --pdf --volume v1a",
+    "tex_log": "No warnings, unresolved references, or overfull/underfull boxes.",
+    "equations": "All 24 numbers retained; Proposition 1.4.3 retained.",
+    "source_exports_and_pdfs": "Exact copies verified.",
+    "visual_inspection": "PDF physical page 43 / printed page 35.",
+    "new_pipeline_tests_browser_source_consultation": "not-run",
+    "diff_check": "passed"
+  },
+  "source_sha256": {
+    "lean/TraceFormulas/Geometry/DiskGeometry.lean": "c275d5c59d5c3c730d7475f2c02d5e6c4cac32d10b1246026e622f6e7082c5a0",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "5e0164f2099f9559029de05cebb6db76dc8ee504678735d138bbd3aa59da4efe",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "7f55c7a9bca3aac766479f2a5d134afbe4d366f6e049968ab7145daff9854259",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "a6adf5ee316bc7cf75349f7cbe5d82adc89560a57ff94ec207083c43a3896cb1",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/section.json": "5682d101bb0f7e0838caa812969a06e6aac0979d56b0f26fcb384a9622e70e5e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "f2066c543b7d33e8f8e12f28fa946c1369c48bc20a249bc895d50e093191825b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "0f55e04cdd89f905126ad7143a971f6a4c83eac50d02bdf6210997a78629964f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "19b17531cd063c5a639f0c8f58555ebffcbd1e19e3de7279971375bc010e8512",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "b637a138068a8a0d5c3a899ff4bb01afa471b6bbf738338c05defc46ff4542f5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "a53cd2bb42a21279662d22e8610dcb26111d5faa2bb554af56cdd4614ce23c67",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c0541381425c82b75c7b8040866b805c0c66800bc040e9e126a9ce43ef665456",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "89d3a916e22199e285aa42c43ff381fb6253a9bfa11ccf01d989b8f82c8aa900",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "c43e8890da7b8780607280e05d9617a70a5e2db6ec873379a109378a51f8eb68",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex": "4fe83f6abe62297dc483e8fbb968c9b47210c73a6e46a84d38b680d5e0e25db9",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/Formalization.lean": "6bbdd4e621af924816b52ecd42fd5446369a771e52eff8edf0273266ed99989a",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/compare.tex": "1cc7bf7b4f0994aa0e27d90a869c5e77ad6ca2e882a940209d600f32000c0b22",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/section.json": "833590322f6fb8d24362914ebf9d026b8556734c44c49d9c1f094e68918a719e",
+    "lean/audits/chapter01-basepoint-disk-2026-11-11/record.json": "ea6930733b099a9a06d065f6e7e0493a5b70025e949f491b92b95255010324d3",
+    "docs/STATUS.md": "d8c0bb41402daadd55ec092a7b79a32259492365befb87594a31703e7f56c786"
+  }
+}

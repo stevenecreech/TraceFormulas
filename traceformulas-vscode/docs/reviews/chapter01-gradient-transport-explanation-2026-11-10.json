@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-10",
+  "scope": "Explain the nondegeneracy step and the two explicit substitutions in the gradient part of Theorem 1.3.7.",
+  "prior_snapshot": "docs/reviews/chapter01-laplacian-isometries-2026-11-10.json",
+  "changes": [
+    "Rewrite the pairing entirely in the image tangent plane using preservation of inner products.",
+    "Name the two compared vectors in words; explain that surjectivity tests against every vector, and their difference has zero squared norm.",
+    "Explicitly substitute u=phi and u=f, display the resulting gradient inner-product identity and explain its use in changing integration variables."
+  ],
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "f987f8f76fff5fa82f48fe8bf7c88085912c4a567d1d44256ecd724f038d18c1"
+  },
+  "prose_status": "proof-draft; further author review pending",
+  "formal_status": "in-progress; mathematical targets and Lean declarations unchanged",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "inherited_audit": "lean/audits/chapter01-section03-expanded-2026-11-10/record.json",
+  "lean_build_or_axiom_audit": "not-rerun; audited Lean sources, metadata and build configuration hashes verified unchanged. The analytic gradient/Laplacian targets remain unformalized as recorded in Compare.",
+  "validation": "Combined website/PDF build passed; clean TeX log, preserved theorem number and link, expanded argument present in website data, exact source export, matching editor/download PDFs and git diff --check. Browser and unit suites not repeated for this proof-explanation edit.",
+  "deployment": "Local only; no commit, push or deployment."
+}

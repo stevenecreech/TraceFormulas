@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-09",
+  "scope": "Theorem 1.1.5 successive actions and inline parenthesized-matrix convention",
+  "prior_snapshot": "docs/reviews/chapter01-section01-editorial-2026-11-09.json",
+  "changes": [
+    "Replaced the named product b(x,y) with separate calculations a(y)·z=yz and n(x)·z=x+z, followed successively on i and -i.",
+    "Started a new paragraph for the extended-real orbit.",
+    "Added the shared smallpmatrix environment, changed all current inline matrices and column vectors to it, and retained pmatrix in displays. Homogeneous coordinates [u:v] keep their brackets.",
+    "Updated the notation entry, comparison explanation, AUTHORING and standing AGENTS instructions."
+  ],
+  "result": "hyperbolic.three-orbits",
+  "statement_changed": false,
+  "prose_status": "proof-draft; further author review pending",
+  "formal_status": "in-progress; existing partial coverage unchanged",
+  "human_correspondence_review": "not-reviewed",
+  "lean_evidence": {
+    "record": "lean/audits/chapter01-section01-editorial-2026-11-09/record.json",
+    "all_audited_lean_sources_match": true,
+    "matched_lean_source_count": 20,
+    "new_build_or_axiom_audit": false,
+    "reason": "No Lean sources or mathematical statements changed. The existing Section 1.2 motion theorems and shared sectionMatrix_smul_I proof already apply scaling and translation successively; the complete sphere-orbit theorem remains unformalized."
+  },
+  "source_sha256": {
+    "tex/macros.tex": "9d31222f34531852fdaa8ad7031c934db14cd7d64947e0bed9c11912d2bbdbe6",
+    "AUTHORING.md": "9852afc8853ab380734a9533013bb6a0dd067e599afe11c06c556f80caeacd8e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "0fa92f57022e52da95a523aa273782ed7511a28dc0ac0fd37ad345c4d841f8fb",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "e2825776c5692d0b889752efeaba602f168b942a6d8508aeff792bb6320fae0c",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "524bbfd9376b5d187935121a9f80f576f8d6acddd3273591a4b5ac28704f2bbf",
+    "volumes/Volume01/A/appendices/I/intro.tex": "d3b5248e9813db805428b26fa2ed8f0e0236183bcd97f45867c5b9d888d57fa0"
+  },
+  "standing_instructions_sha256": "643558d8c422d03ebd65e5bec8d0b67c9e2b8e8f5a4f92e10a1276643998dbe2",
+  "validation": {
+    "website_pdf": "python3 scripts/build.py --pdf --volume v1a passed; no TeX warnings or unresolved references; editor/download PDFs match.",
+    "pdf_visual": "Physical page 24 inspected for Theorem 1.1.5, separate actions, boundary paragraph and compact parenthesized matrices.",
+    "source_exports": "Edited manuscript and Compare exports match their source files.",
+    "numbering": "Theorem 1.1.5 retains its semantic label and number.",
+    "browser": ".venv/bin/python scripts/check_browser.py passed desktop/mobile math rendering, navigation, exact Lean display, hyperlinks, downloads and subdirectory hosting; no MathJax or browser errors.",
+    "unit_tests": "Not rerun; existing build and browser checks used for this exposition and shared-formatting change.",
+    "git_diff_check": "passed"
+  },
+  "deployment": "Local changes only; no commit, push or deployment."
+}

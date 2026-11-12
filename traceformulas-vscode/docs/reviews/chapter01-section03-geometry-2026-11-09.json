@@ -1,0 +1,144 @@
+{
+  "date": "2026-11-09",
+  "scope": "Trim Section 1.2 proofs; motivate Section 1.3 metric and area by invariance; add the general Radon uniqueness proof to Section 1.8; begin Section 1.3 Lean companion.",
+  "prior_snapshot": "docs/reviews/chapter01-section02-expanded-2026-11-09.json",
+  "prose_status": "proof-draft; revised following Steven’s direction, further author review pending",
+  "formal_status": "in-progress; seven new public companion theorems checked; incomplete section and chapter coverage",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "editorial_changes": [
+    "Removed the i² explanation in Theorem 1.2.2 and used g in G to invoke ad-bc=1. Removed the named Euler-formula explanation in Proposition 1.2.3.",
+    "Introduced the search for invariant Riemannian geometry before defining path length, distance and area. Rotations at i force scalar Euclidean tangent coefficients; the affine position map forces the height factor y^-2.",
+    "Added Proposition 1.3.1 with complete proofs of metric uniqueness, induced area, and uniqueness among smooth positive area densities, including verification of invariance.",
+    "Normalized the tangent vector 1 at i to have length one and derived area from perpendicular length scaling. Explicitly distinguished the square-root scaling of lengths from the scaling of area.",
+    "Retained all previous Section 1.3 semantic labels and later geodesic/Laplacian content; the normalized metric definition is now 1.3.2.",
+    "Added a clearly linked stronger Radon-measure uniqueness theorem in Section 1.8, with a complete proof using horizontal translations, dilations, and a logarithmic change of coordinates. No abstract Haar uniqueness or circular dependency is used.",
+    "Updated the existing tangent inner-product and metric/area entries in the 63-entry notational index."
+  ],
+  "new_formal_claims": [
+    {
+      "label": "hyperbolic.mobius",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.fractional_action_derivative",
+      "scope": "The genuine complex derivative of the determinant-one fractional transformation at each point of the upper half-plane."
+    },
+    {
+      "label": "hyperbolic.metric",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_squared_length_positive",
+      "scope": "Positivity of normSq(v)/y² for nonzero complex tangent vectors."
+    },
+    {
+      "label": "hyperbolic.metric",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.euclidean_normalization_at_i",
+      "scope": "Squared tangent length agrees with the Euclidean norm squared at i."
+    },
+    {
+      "label": "hyperbolic.invariance",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_squared_length_invariant",
+      "scope": "Squared tangent length is preserved by the actual fractional derivative; no path-distance claim."
+    },
+    {
+      "label": "hyperbolic.invariant-geometry",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.invariant_metric_coefficients",
+      "scope": "A field of symmetric positive-definite real bilinear forms invariant under the actual derivative has coefficients c Re(v conj(w))/y² with c>0. Smoothness is unnecessary for this uniqueness direction; no manifold bundle construction is claimed."
+    },
+    {
+      "label": "hyperbolic.invariant-geometry",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.area_density_covariance",
+      "scope": "The density 1/y² satisfies the pointwise squared-derivative covariance law."
+    },
+    {
+      "label": "hyperbolic.invariant-geometry",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.invariant_positive_density_unique",
+      "scope": "Every positive function satisfying that covariance law is C/y², with C>0; the measure/change-of-variables bridge remains open."
+    }
+  ],
+  "proof_correspondence": [
+    "The bilinear uniqueness proof follows the prose: the derivative of k(pi/4) is i; invariance and symmetry remove the mixed coefficient; the derivative of s(x+iy) transports the base form.",
+    "The derivative theorem uses the complex quotient rule and determinant one. The density classification evaluates covariance at i using s(x+iy).",
+    "The tangent statements use real bilinear forms on complex coordinates. The later L² product remains complex and linear in its first argument."
+  ],
+  "remaining_formalization": [
+    "Smooth tangent-bundle/Riemannian structure and existence of the candidate as such a structure",
+    "Real Jacobian, change of variables, continuity upgrade from almost-everywhere equality, induced Riemannian volume and actual invariant measures",
+    "Path lengths, distance infimum, minimizing geodesics, distance identity and Laplacian",
+    "Section 1.8 Radon-measure uniqueness, quotient measures and Haar claims",
+    "Previously recorded sphere-action, full orbit, angle/covering and quotient-topology obligations"
+  ],
+  "source_verification": {
+    "status": "partial background check and AI proof review; no independent or complete theorem-level bibliographic audit",
+    "consulted": {
+      "title": "A. V. Sutherland, Geometry of the complex upper half plane",
+      "url": "https://math.mit.edu/classes/18.786/2024/LectureNotes1.pdf",
+      "location": "Section 1.3, physical page 3",
+      "scope": "Metric, length, area and Haar normalizations. The notes omit proofs; the manuscript supplies the rotation/transport and Radon-measure uniqueness arguments rather than claiming a source-certified proof."
+    },
+    "mathlib": "Pinned local complex differentiation, bilinear-form and upper-half-plane APIs inspected and reused."
+  },
+  "machine_evidence": {
+    "record": "lean/audits/chapter01-section03-geometry-2026-11-09/record.json",
+    "record_sha256": "5bea3294f3bd52fd9f1428479804e22d1f6ffd781e01d6b6031dbbbe6817ffad",
+    "status": "passed",
+    "audited_logical_declarations_including_helpers": 87,
+    "public_companion_theorems": 27,
+    "allowed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "source_drift": [],
+    "notes": "Full project build and Chapter 1 gate passed; all nine locked dependencies verified clean before/after. No new Chapter 0 axiom audit or fresh-checkout reproduction claimed."
+  },
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "7289b75979b5d405dd2c6c1dabc57257d07288e7e3fc6d1cdc47e8329834c5c4",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "5ca1efd88e41b6489b24d1aa72e588c9bd9fee06b046936772b363acd25547b5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/section.json": "5682d101bb0f7e0838caa812969a06e6aac0979d56b0f26fcb384a9622e70e5e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "112d54bb73f41149a1b99d930cd2a0ddfeba39dfa165691bf922ca305b54be0f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "56deda900fb37ab11fbd9b2546aaf304d1f6fde15c5e4a3610e4457a7203c74c",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "b637a138068a8a0d5c3a899ff4bb01afa471b6bbf738338c05defc46ff4542f5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "0f55e04cdd89f905126ad7143a971f6a4c83eac50d02bdf6210997a78629964f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "c639b377d3c10bcaf5626ab94ad2c1745f76fbfc89b733bc1e9e8c6c44e9e031",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "633932291349d091334b1831e74fba371e11be170439f6fbea2f14b5fa54454a",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "e2242ab4afea2942be11e1d15a14074303aa3c884ba5573492c8df88b6e8c931",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "e45a31fc8ab1a2371648de36581263e55ea0ee17e5a143e255b53ed59730993a",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "bcc35eec0bc03b5f4c756421fb815c9059b4dabaf6a2e56085a5454819573871",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex": "524c22224fb568f60e9fc6dd9b30b30c053ecc1fab9e1097edf93bb766518c59",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "e0f986517d48eb9836aa044e3e7f8b0e34586e33b6d96f19b1b27394deb9f9fe",
+    "volumes/Volume01/A/appendices/I/intro.tex": "9521b4db0cd03f9fb67290a74988d6b4498afd1a72b21c40ef15cd5ff600e807",
+    "lean/TraceFormulas/Geometry/InvariantGeometry.lean": "70edfe423eb0cdf1119c06182fb15a9552899259090b6e7368b8dd4fb585c23e",
+    "lean/AuditChapter01.lean": "3bca122218d41e41e709c8b029a0ea76a1fbc04fc9d66869e1b401ef5b032dbf",
+    "lakefile.toml": "b5adf95e6c070092262a06a2830a2811876cde703cffc0b0d0c384d480cddb57",
+    "scripts/audit_lean.py": "22fa014afe6424959809a2163325f2949699b4f2683fd4dcb3d41d56e3260c61",
+    "tests/test_lean_audit.py": "9368a3cba7d43adfcbb930bafbd10d9f5bc78c0067bd8f2eb3f6451278455352",
+    "scripts/check_browser.py": "dbd75c7079b49ab4d07889dc7de31afb7a7f30ebb4c70f739cc6eb719024a520"
+  },
+  "validation": {
+    "pipeline_tests": "All 36 unittest tests passed, including a new regression that rejects unaudited Section 1.3 metadata.",
+    "website_pdf": "python3 scripts/build.py --pdf --volume v1a passed; twelve volume parts, 31 chapters, 156 sections, nine appendices and one PDF.",
+    "pdf": "Clean TeX log; no warnings, overfull/underfull boxes, duplicate destinations or unresolved references. Physical pages 30–31 visually inspected. Editor/download PDFs match.",
+    "exports": "Final edited prose, companions, comparisons and metadata exports match saved sources; audit hashes have no drift.",
+    "browser": "All existing desktop/mobile browser assertions passed with Page.screenshot patched to a no-op for this run. Includes MathJax, exact source display for three companions, five missing-source notices, the new Section 1.3-to-1.8 link, downloads, navigation and subdirectory hosting; no page errors.",
+    "browser_limitation": "Initial normal browser run failed saving a screenshot with ENOSPC. Mac had about 185–190 MiB free. User was asked to free space. Screenshot capture was disabled for the successful assertion run to avoid large raster allocations; no new full browser screenshot set is claimed.",
+    "format": "git diff --check passed; inline/display math conventions, unique labels, normalization order and removed proof explanations checked.",
+    "disk_recovery_followup": {
+      "checked_at_utc": "2026-11-09T21:51:51.655252+00:00",
+      "user_report": "Steven confirmed freeing space.",
+      "free_space_after_bytes": 2444795904,
+      "command": ".venv/bin/python scripts/check_browser.py",
+      "result": "Passed with normal screenshot capture enabled, without patching any browser method. All desktop/mobile assertions passed; no browser or MathJax errors.",
+      "screenshots": {
+        ".build/series-desktop.png": "4b0fe6154ecf8088d00dcde27aa596d5e2ebacf996191cad951dd4a5e4f0f7d6",
+        ".build/compare-desktop.png": "d080148286f7a70d9621bb26ab953e1caa17da94efffe3c99fc3c34953238887",
+        ".build/chapter00-watch-desktop.png": "fe8f074b40d33ded7a5e9ae0f4970affde65915cc1002e85503a719675935061",
+        ".build/chapter01-read-desktop.png": "8686cbea52dd0843a41b484529892a050566a6e942f459d62d7389bc5983c72a",
+        ".build/chapter01-read-mobile.png": "b517f5a6ca81bf0469a00b181f273a30e36e568dcdec3afaeeade52859302c06",
+        ".build/chapter00-watch-mobile.png": "21695d3eb637afdb2b2a4029ecf589b90de907b42b17257698786165e254aedd",
+        ".build/volume-mobile.png": "e7e2d03ffe715790b28149179f203c8c8a978b0022f28e2735fbd29b5e7445b8"
+      },
+      "visual_review": "Chapter 1 desktop and mobile screenshots inspected.",
+      "source_check": "All source hashes covered by the 87-declaration Lean audit still match; editor/download PDFs match. No mathematical source changed or new Lean audit was needed."
+    }
+  },
+  "deployment": "Local changes only; no commit, push or deployment."
+}

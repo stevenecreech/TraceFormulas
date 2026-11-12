@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-12",
+  "scope": "State the two central-factor cases in Theorem 1.8.14 and explain the projection to the effective subgroup",
+  "prose_status": "edited draft for Steven review; equivalent convention and formulas preserved",
+  "changes": [
+    "Defined m=2 when -I belongs to Lambda and m=1 otherwise, retaining the equivalent kernel cardinality.",
+    "Explained the kernel of Lambda to barLambda and the two lifts lambda and -lambda when m=2.",
+    "Explained why the projection is an isomorphism when m=1, rather than asserting literal equality of groups in different ambient groups.",
+    "Updated the existing notation-index entry and Compare; retained all index and covolume formulas and semantic labels."
+  ],
+  "human_correspondence_review": "not-reviewed",
+  "formal_status": "unchanged partial companion; subgroup projection, finite-index identity and covolume formulas remain open",
+  "ai_review": "independent read-only mathematical review confirmed the case definition, kernel interpretation and unchanged normalizations",
+  "inherited_audit": {
+    "record": "lean/audits/chapter01-diagonal-character-2026-11-12/record.json",
+    "declarations": 266,
+    "unchanged_hashes": 69,
+    "total_hashes": 71,
+    "changed_inputs": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex"
+    ],
+    "lean_configuration_metadata": "unchanged"
+  },
+  "validation": {
+    "combined_pdf_website_build": "passed",
+    "tex_log": "clean",
+    "numbering": "Theorem 1.8.14 retained",
+    "exports": "exact section text/Compare/index sources; displayed Lean unchanged; editor/download PDFs match",
+    "visual_inspection": "printed page 58",
+    "unit_browser_lean_checks": "not rerun for equivalent explanatory edit",
+    "git_diff_check": "passed"
+  },
+  "publication": "local only; no commit, push, or deployment",
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "036e8fd91b063d66344564e8fb5c6a0399204fee5f5707c64d39a803afcd1cee",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex": "6b21645ce48e5d67ffc5bdc07adb76ab8a53188e63447188351b12b711f72952",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/Formalization.lean": "2b05110fde606e56eac543077a04dce49554d9c9fe72738055656de2877ab56b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/section.json": "6b90d605f7c8539f73590e7bbde019988f2d0d670a329db5335d5dd452e1b12e",
+    "volumes/Volume01/A/appendices/I/intro.tex": "6ff19228f9a1665b8a2adf512ac28c3a82f27bd9cf808ea59b903a52dfe1b1f1"
+  }
+}

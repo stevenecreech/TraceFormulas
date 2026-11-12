@@ -1,0 +1,198 @@
+{
+  "date": "2026-11-09",
+  "scope": "Chapter 1 Sections 1.1–1.2 editorial revision and first partial Lean companions",
+  "supersedes_for_edited_sources": "docs/reviews/chapter01-draft-2026-11-09.json",
+  "prose_status": "proof-draft; edited with Steven, further review pending",
+  "human_correspondence_review": "not-reviewed",
+  "formal_status": "in-progress; listed implemented portions checked, incomplete section and chapter coverage",
+  "video_status": "not-started",
+  "editorial_changes": [
+    "Begin on the Riemann sphere, prove exactly three real-group orbits, select the upper half-plane, then compute kernel and center before defining PSL_2(R).",
+    "Explain the NAK action on i from right to left and motivate the quotient by K.",
+    "Preview hyperbolic area versus group Haar measure, with full proofs and central-factor conventions deferred to Section 1.8.",
+    "Synchronize introduction and 60-entry notation index; retain original semantic IDs."
+  ],
+  "source_verification": {
+    "status": "partial background consultation; no complete theorem-level external audit",
+    "source": {
+      "title": "Keith Conrad, Ideal Classes and SL_2",
+      "url": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/SL2classno.pdf",
+      "locations": "Section 1, sphere orbits and homogeneous-coordinate action"
+    },
+    "mathematical_review": "AI self-check of revised prose and its implemented Lean portions; not independent or Steven correspondence review"
+  },
+  "sections": [
+    {
+      "number": "1.1",
+      "id": "v1a-ch01-s1",
+      "path": "volumes/Volume01/A/chapters/Chapter01/sections/Section01",
+      "labels": [
+        "hyperbolic.riemann-sphere",
+        "hyperbolic.sphere-action",
+        "hyperbolic.real-group",
+        "hyperbolic.half-plane",
+        "hyperbolic.imaginary-part",
+        "hyperbolic.three-orbits",
+        "hyperbolic.effective-action",
+        "hyperbolic.center",
+        "hyperbolic.projective-group",
+        "hyperbolic.faithful-quotient",
+        "hyperbolic.mobius",
+        "hyperbolic.central-sign",
+        "hyperbolic.positive-determinant"
+      ],
+      "formal_status": "in-progress",
+      "checked_companion_declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section01.fractional_action",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.denominator_nonzero",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.imaginary_part",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.automorphy_cocycle",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.center_exactly_signs",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.kernel_exactly_signs",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.kernel_is_center",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.nonreal_imaginary_part"
+      ]
+    },
+    {
+      "number": "1.2",
+      "id": "v1a-ch01-s6",
+      "path": "volumes/Volume01/A/chapters/Chapter01/sections/Section02",
+      "labels": [
+        "hyperbolic.iwasawa-coordinates",
+        "hyperbolic.iwasawa",
+        "hyperbolic.angular-cover"
+      ],
+      "formal_status": "in-progress",
+      "checked_companion_declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section02.n_translates",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.a_scales",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.k_fixes_base_point",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.every_point_from_i",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.upper_half_plane_transitive",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.stabilizer_is_rotations",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.same_point_modulo_stabilizer",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.iwasawa_factorization_exists"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "prose_label": "hyperbolic.imaginary-part",
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section01.denominator_nonzero",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.imaginary_part",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.nonreal_imaginary_part"
+      ],
+      "coverage": "Nonvanishing and imaginary-part identities, including both nonreal half-planes; the positivity/sign conclusion is not separately exported.",
+      "human_correspondence_review": "not-reviewed"
+    },
+    {
+      "prose_label": "hyperbolic.effective-action",
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section01.kernel_exactly_signs"
+      ],
+      "coverage": "Complete statement on the actual upper-half-plane action. Formal proof uses i and 2i; prose uses infinitely many polynomial zeros.",
+      "human_correspondence_review": "not-reviewed"
+    },
+    {
+      "prose_label": "hyperbolic.center",
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section01.center_exactly_signs",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.kernel_is_center"
+      ],
+      "coverage": "Complete center and kernel-equals-center statements. Mathlib scalar-center theorem replaces the prose test-matrix proof.",
+      "human_correspondence_review": "not-reviewed"
+    },
+    {
+      "prose_label": "hyperbolic.mobius",
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section01.fractional_action",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.automorphy_cocycle"
+      ],
+      "coverage": "Fractional formula and cocycle; difference and derivative identities remain open.",
+      "human_correspondence_review": "not-reviewed"
+    },
+    {
+      "prose_label": "hyperbolic.three-orbits",
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section02.every_point_from_i",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.upper_half_plane_transitive"
+      ],
+      "coverage": "Upper-half-plane transitivity only. Sphere action and lower/boundary orbits remain open.",
+      "human_correspondence_review": "not-reviewed"
+    },
+    {
+      "prose_label": "hyperbolic.iwasawa-coordinates",
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section02.n_translates",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.a_scales",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.k_fixes_base_point"
+      ],
+      "coverage": "Actual matrices and elementary actions; equality with the orthogonal-group interface remains open.",
+      "human_correspondence_review": "not-reviewed"
+    },
+    {
+      "prose_label": "hyperbolic.iwasawa",
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section02.stabilizer_is_rotations",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.same_point_modulo_stabilizer",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.iwasawa_factorization_exists"
+      ],
+      "coverage": "Full stabilizer characterization, algebraic orbit criterion, and factorization existence. Uniqueness, explicit coordinates and quotient homeomorphism remain open.",
+      "human_correspondence_review": "not-reviewed"
+    }
+  ],
+  "remaining_formalization": [
+    "Global GL_2(C) action on the Riemann sphere and all three SL_2(R) orbits",
+    "Explicit quotient-group action and its faithfulness",
+    "Difference and derivative identities, character parity, positive-determinant extension",
+    "Iwasawa uniqueness, explicit coordinate formulas, and the quotient homeomorphism",
+    "Identification with the orthogonal-group interface and the angular derivative/period proposition",
+    "Haar measure: only a prose preview here, with full prose derivation deferred to Section 1.8"
+  ],
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/intro.tex": "a62f5e8526f7d8d701d1ef4e71cf563e6f1283750210a8fcb9d509a3f1dc801f",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "550eabe214c3d4f1e99642720a25dfed463f9cb978dd6208f380e8b8f2fb19b2",
+    "volumes/Volume01/A/chapters/Chapter01/chapter.json": "8602cf43758ea28d9f49995a68e645d0e98839ffaccbf1be5674f7b9dc245fc9",
+    "volumes/Volume01/A/appendices/I/intro.tex": "a7356e7f7ff136891c6b72f0a6833f0e1432e24577239fa14f1ca06cf41d9fe7",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "33425a5658857de696be8ede930faab40b17e07f5415a7a75244a266ec76e4e9",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "62eb1061b2907a5d5f7b76acce8724bcf17baacc368a351c4bf6950037f437f6",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "ecca2ee1a37328ced31493322f0b18e3ddb2ef7c955b411365133c544f298e35",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/section.json": "b8483eca3ed9b2437d3c0d17f6355cc562812d3b34d91921435b243c7b6384dc",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "5be0629d1d24c0b9dc2e33707e95a97f8b2e5e0feaba998f7337a175f5d6e459",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "73678eaf41d988d20a1a1412435c8aeceab7f117cb2e2b89f3d1e0fcfc63d5d7",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "bbdf865ff30541efada61e351696ce619e79e9384c8941026b7006a3cac76172",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "46cc49b3d13619e2a3dc49b22e083c12f02d06e55f23bf9d6bb5a5d9073b1b17"
+  },
+  "machine_evidence": {
+    "record": "lean/audits/chapter01-sections01-02-2026-11-09/record.json",
+    "record_sha256": "28d43ebd0e56963f63edf8cdcd0819e66bce9e3684f0a300179a58a226329706",
+    "status": "passed",
+    "audited_declarations_including_generated_helpers": 49,
+    "public_companion_theorems": 16,
+    "foundational_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "source_drift_after_audit": [],
+    "notes": "Full lake build includes Chapter 0 and new Chapter 1 companions. This axiom gate checks the imported Chapter 1 geometry and its two companions; it is not a fresh Chapter 0 axiom audit. All nine locked dependencies verified clean before/after. No fresh-checkout reproduction claimed."
+  },
+  "validation": {
+    "pipeline_tests": {
+      "command": ".venv/bin/python -m unittest discover -s tests -v",
+      "result": "35 passed"
+    },
+    "build": {
+      "command": "python3 scripts/build.py --pdf --volume v1a",
+      "result": "passed; twelve volume parts, 31 chapters, 156 sections, nine appendices, one PDF"
+    },
+    "pdf": "No TeX warnings, overfull/underfull boxes, or unresolved references. Editor/download PDFs identical. Orbit and elementary-motion pages visually inspected.",
+    "source_export": "Chapter 1 exported manuscripts and both Lean companions match saved source files exactly.",
+    "browser": {
+      "command": ".venv/bin/python scripts/check_browser.py",
+      "result": "Passed in local Chrome at desktop and mobile sizes; no browser or MathJax errors, working section navigation, notation links, exact source display for both partial companions, six missing-source notices, correct in-progress status, PDF/source downloads, subdirectory hosting."
+    }
+  },
+  "deployment": "Local changes only; no commit, push or deployment."
+}

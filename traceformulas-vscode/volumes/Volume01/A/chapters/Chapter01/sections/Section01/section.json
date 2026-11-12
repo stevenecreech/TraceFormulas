@@ -1,0 +1,16 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter01.Section01.fractional_action",
+      "TraceFormulas.Volume01.A.Chapter01.Section01.denominator_nonzero",
+      "TraceFormulas.Volume01.A.Chapter01.Section01.imaginary_part",
+      "TraceFormulas.Volume01.A.Chapter01.Section01.difference_formula",
+      "TraceFormulas.Volume01.A.Chapter01.Section01.center_exactly_signs",
+      "TraceFormulas.Volume01.A.Chapter01.Section01.kernel_exactly_signs",
+      "TraceFormulas.Volume01.A.Chapter01.Section01.kernel_is_center",
+      "TraceFormulas.Volume01.A.Chapter01.Section01.nonreal_imaginary_part"
+    ]
+  },
+  "videos": []
+}

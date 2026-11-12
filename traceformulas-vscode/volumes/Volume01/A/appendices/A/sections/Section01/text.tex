@@ -1,0 +1,130 @@
+This refresher records the measure-theoretic language used in the volume. The construction of Lebesgue measure and the standard convergence theorems for its integral remain prerequisites.
+
+\begin{definition}[Sigma-algebras and Borel sets]\label{measure.borel-sets}
+A $\sigma$-algebra on a set $X$ is a collection of subsets containing $X$ and closed under complements in $X$ and countable unions. For a topological space $X$, the Borel $\sigma$-algebra is the smallest $\sigma$-algebra containing every open set. Its members are called Borel sets.
+\end{definition}
+
+\begin{definition}[Borel measures]\label{measure.borel}
+A Borel measure $\nu$ on a topological space $X$ assigns a value in $[0,\infty]$ to each Borel set, with $\nu(\varnothing)=0$ and
+\[
+ \nu\left(\bigcup_{n=1}^{\infty}E_n\right)
+ =\sum_{n=1}^{\infty}\nu(E_n)
+\]
+whenever the Borel sets $E_n$ are pairwise disjoint. This property is called countable additivity. All measures in this section are nonnegative.
+\end{definition}
+
+\begin{definition}[Null sets and almost everywhere]\label{measure.almost-everywhere}
+A measurable set of $\nu$-measure zero is called $\nu$-null. A property holds $\nu$-almost everywhere if its exceptional set is contained in a measurable $\nu$-null set.
+\end{definition}
+
+\begin{definition}[Lebesgue measure]\label{measure.lebesgue}
+Lebesgue measure on $\mathbb R$ is the Borel measure giving $[a,b)$ measure $b-a$ for $a<b$. We write it as $dx$, or write $|A|$ for the Lebesgue measure of a Lebesgue-measurable set $A\subset\mathbb R$. Its product $dx\,dy$ on $\mathbb R^2$ is Euclidean area, assigning $(b-a)(d-c)$ to $[a,b)\times[c,d)$ when $a<b$ and $c<d$.
+\end{definition}
+
+For uniqueness statements we work on the Borel sets. The usual completed Lebesgue measure additionally measures every subset of a null set; it agrees with the Borel measure on every Borel set.
+
+\begin{definition}[Regularity]\label{measure.regular}
+Let $\nu$ be a Borel measure on a Hausdorff space $X$. It is outer regular if, for every Borel set $E$,
+\[
+ \nu(E)=\inf_{\substack{E\subset U\\U\text{ open}}}\nu(U).
+\]
+It is inner regular if, for every Borel set $E$,
+\[
+ \nu(E)=\sup_{\substack{K\subset E\\K\text{ compact}}}\nu(K).
+\]
+It is regular if both conditions hold.
+\end{definition}
+
+Regularity recovers the measure by approximation from outside by open sets and from inside by compact sets. If $\nu$ is regular and $\nu(E)<\infty$, then for every $\varepsilon>0$ there are $K\subset E\subset U$, with $K$ compact and $U$ open, such that $\nu(U\setminus K)<\varepsilon$.
+
+\begin{definition}[Local finiteness]\label{measure.locally-finite}
+A Borel measure is locally finite if every point has an open neighborhood of finite measure.
+\end{definition}
+
+On $\mathbb R$, $(0,\infty)$, open subsets of $\mathbb R^2$, and the Lie groups used here, local finiteness is equivalent to finiteness on compact sets. Finiteness on compact sets does not require the whole space to have finite measure.
+
+\begin{definition}[Sigma-finiteness]\label{measure.sigma-finite}
+A measure is $\sigma$-finite if its space is a countable union of measurable sets of finite measure.
+\end{definition}
+
+For example, finiteness on compact sets implies $\sigma$-finiteness on $\mathbb R$ by the exhaustion $[-n,n]$, $n\geq1$. On the open half-plane $\mathbb H=\{x+iy:x,y\in\mathbb R,\ y>0\}$, use the compact sets
+\[
+ \{x+iy:|x|\leq n,\ 1/n\leq y\leq n\},\qquad n\geq1.
+\]
+
+\begin{definition}[Radon measures]\label{measure.radon}
+A Borel measure on a Hausdorff space is a Radon measure if it is regular and finite on every compact set.
+\end{definition}
+
+\begin{definition}[Measurable maps]\label{measure.measurable-map}
+For topological spaces $X$ and $Y$ equipped with their Borel $\sigma$-algebras, a map $f:X\to Y$ is measurable if $f^{-1}(E)$ is Borel in $X$ for every Borel set $E\subset Y$.
+\end{definition}
+
+\phantomsection\label{measure.density-pushforward}
+Two useful ways to form new measures are weighting and pushforward.
+
+\begin{definition}[Weighted measures and densities]\label{measure.density}
+Let $\nu$ be a Borel measure on $X$ and let $w$ be a nonnegative measurable function on $X$. The measure $\tau$ defined by
+\[
+ \tau(E)=\int_E w\,d\nu
+ \qquad(E\subset X\text{ Borel})
+\]
+is written $d\tau=w\,d\nu$. We call $w$ a density of $\tau$ with respect to $\nu$.
+\end{definition}
+
+\begin{example}[Lebesgue and hyperbolic area]\label{measure.radon-area-examples}
+Lebesgue measure $dx$ is Radon on $\mathbb R$, although $\mathbb R$ has infinite length. On $\mathbb H$, the measure $d\mu=dx\,dy/y^2$ is Radon: on each compact subset the height is bounded away from zero and its density is bounded. These assertions use the standard regularity of Lebesgue measure and of measures with continuous nonnegative densities on open subsets of Euclidean space.
+\end{example}
+
+\begin{example}[A point mass]\label{measure.radon-point-mass}
+A unit point mass assigns measure $1$ to a set containing a chosen point and $0$ to any set not containing that point. On $\mathbb R$ it is Radon, but it has no density with respect to Lebesgue measure: a singleton has Lebesgue measure zero, so integrating a density over it always gives zero. Thus regularity does not imply the existence of such a density.
+\end{example}
+
+\begin{definition}[Pushforward measures]\label{measure.pushforward}
+Let $\nu$ be a Borel measure on $X$ and let $f:X\to Y$ be measurable for the Borel $\sigma$-algebras. The pushforward measure $f_*\nu$ on $Y$ is defined by
+\[
+ (f_*\nu)(E)=\nu(f^{-1}(E))
+ \qquad(E\subset Y\text{ Borel}).
+\]
+\end{definition}
+
+Thus a set in $Y$ is measured by the measure of its preimage in $X$. Correspondingly,
+\[
+ \int_Y h\,d(f_*\nu)=\int_X h\circ f\,d\nu
+\]
+for nonnegative measurable $h$, and for $h$ integrable with respect to $f_*\nu$.
+
+\begin{definition}[Invariant measures]\label{measure.invariant}
+Suppose a topological group $L$ acts continuously on $X$. A Borel measure $\nu$ on $X$ is invariant under this action if
+\[
+ \nu(g\cdot E)=\nu(E)
+ \qquad(g\in L,\ E\subset X\text{ Borel}).
+\]
+Equivalently, for each $g\in L$, the map $x\mapsto g\cdot x$ has pushforward $\nu$.
+\end{definition}
+
+\begin{theorem}[Uniqueness of Borel measures]\label{measure.uniqueness-principle}
+Two Borel measures on $\mathbb R$ that are finite on compact sets are equal if they agree on every bounded half-open interval $[a,b)$, $a<b$.
+
+On $\mathbb R\times(0,\infty)$, two Borel measures finite on compact sets are equal if they agree on every rectangle $[a,b)\times[c,d)$ with $a<b$ and $0<c<d$.
+\end{theorem}
+
+We use this standard result without proof. These are the interval and rectangle cases of \href{https://stat.cmu.edu/~arinaldo/Teaching/36752/S18/Notes/lec_notes_1.pdf\#page=10}{A. Rinaldo, \emph{Advanced Probability}, Lecture Notes Set 1 (2018), Section 4.3, Theorem 21}.
+
+The following elementary uniqueness result is a useful model for the general Haar theorem.
+
+\begin{lemma}[Translation-invariant measure on the line]\label{measure.translation-invariant-line}
+Let $\nu$ be a translation-invariant Borel measure on $\mathbb R$ that is finite on compact sets. Then $\nu=c\,dx$, where $c=\nu([0,1))\geq0$. In particular, this constant is unique.
+\end{lemma}
+
+\begin{proof}
+First determine the measures of intervals. The constant $c$ is finite since $[0,1)\subset[0,1]$. For a positive integer $n$, the interval $[0,1)$ is the disjoint union of $n$ translates of $[0,1/n)$. Translation invariance and additivity therefore give $\nu([0,1/n))=c/n$. Taking $m$ such intervals gives $\nu([0,m/n))=cm/n$ for positive integers $m,n$.
+
+For a real $t>0$, choose positive rationals $q<t<r$. Monotonicity gives
+\[
+ cq\leq\nu([0,t))\leq cr.
+\]
+Letting $q$ and $r$ tend to $t$ proves $\nu([0,t))=ct$. Translating an interval now gives $\nu([a,b))=c(b-a)$ for all $a<b$.
+
+Thus $\nu$ and $c\,dx$ agree on all bounded half-open intervals. Both are finite on compact sets, so the cited \hyperref[measure.uniqueness-principle]{uniqueness theorem for Borel measures} gives equality on every Borel set. Evaluating at $[0,1)$ proves uniqueness of $c$. The argument includes $c=0$.
+\end{proof}

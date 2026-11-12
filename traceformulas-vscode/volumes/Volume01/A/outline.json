@@ -92,15 +92,27 @@
       "id": "v1a-ch01",
       "number": 1,
       "title": "The Upper Half-Plane and the Modular Group",
-      "description": "Develop Möbius transformations, hyperbolic geometry, and the modular group action from explicit formulas. Prove the standard fundamental-domain description, its side identifications, and the quotient integration rules. Explain the cusp and elliptic points as part of the geometry rather than as later corrections.",
+      "description": "Möbius actions and the central sign; the real homogeneous space and Iwasawa coordinates; hyperbolic geodesics, the disk model, and the point-pair invariant; conjugacy types; the modular fundamental domain, cusps, and elliptic stabilizers; arithmetic lattices and explicit area and Haar normalizations.",
       "sections": [
         {
           "id": "v1a-ch01-s1",
           "title": "Möbius transformations and the role of the center"
         },
         {
+          "id": "v1a-ch01-s6",
+          "title": "The homogeneous space and Iwasawa decomposition"
+        },
+        {
           "id": "v1a-ch01-s2",
           "title": "Hyperbolic metric, measure, distance, and geodesics"
+        },
+        {
+          "id": "v1a-ch01-s7",
+          "title": "The disk model and the point-pair invariant"
+        },
+        {
+          "id": "v1a-ch01-s8",
+          "title": "Elliptic, parabolic, and hyperbolic transformations"
         },
         {
           "id": "v1a-ch01-s3",
@@ -112,12 +124,12 @@
         },
         {
           "id": "v1a-ch01-s5",
-          "title": "Quotient integration and the area calculation"
+          "title": "Haar measure, quotient integration, and arithmetic lattices"
         }
       ],
-      "endpoint": "A concrete understanding of the quotient on which the formulas live.",
-      "prerequisites": "Elementary group theory, real calculus, and complex arithmetic.",
-      "checkpoint": "Distinguish SL_2(Z) from its effective PSL_2 action. Track stabilizers, boundary identifications, and any factors caused by the center.",
+      "endpoint": "An explicit geometric and measure-theoretic foundation for automorphic kernels, with the point-pair invariant, the modular fundamental domain, and center-sensitive covolume formulas.",
+      "prerequisites": "Elementary linear algebra and group theory; real multivariable calculus, complex arithmetic, and Lebesgue integration.",
+      "checkpoint": "Use the effective group for geometric orbit sums. Distinguish hyperbolic area from Haar covolume, state the compact-fiber normalization, and retain the central factor for subgroups that do not contain -I.",
       "division": "A"
     },
     {
@@ -1054,8 +1066,17 @@
       "id": "v1a-app-a",
       "letter": "A",
       "title": "Analytic Foundations",
-      "description": "Convergence theorems; Fourier and Mellin inversion; Poisson summation supplements; contour integration; Gamma and Beta functions; the zeta preliminaries used by the Eisenstein theory. State exactly which undergraduate results are assumed and which specialized statements are proved here.",
-      "sections": []
+      "description": "Borel and Radon measures, Lebesgue measure, densities, and pushforwards; Haar uniqueness, left/right invariance, and the modular function; convergence theorems; Fourier and Mellin inversion; Poisson summation supplements; contour integration; Gamma and Beta functions; the zeta preliminaries used by the Eisenstein theory. State exactly which undergraduate results are assumed and which specialized statements are proved here.",
+      "sections": [
+        {
+          "id": "v1a-app-a-s1",
+          "title": "Measure-theoretic refresher"
+        },
+        {
+          "id": "v1a-app-a-s2",
+          "title": "Haar measure: uniqueness and left/right invariance"
+        }
+      ]
     },
     {
       "id": "v1a-app-b",
@@ -1110,7 +1131,7 @@
       "id": "v1a-app-i",
       "letter": "I",
       "title": "Notational Index",
-      "description": "Symbols, meanings, and conventions, with links to the definitions in the manuscript. The current entries cover Chapter 0 and grow as the volume develops.",
+      "description": "Symbols, meanings, and conventions, with links to their definitions. Current entries cover Chapters 0 and 1 and grow as the volume develops.",
       "sections": []
     }
   ],

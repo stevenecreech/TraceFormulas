@@ -39,12 +39,13 @@ function renderedHTML(value) {
   if (!value) return '';
   const template = document.createElement('template');
   template.innerHTML = value;
-  const allowed = new Set(['P','DIV','SPAN','H1','H2','H3','H4','H5','H6','A','UL','OL','LI','DL','DT','DD','BLOCKQUOTE','PRE','CODE','STRONG','EM','DEL','HR','BR','TABLE','CAPTION','THEAD','TBODY','TR','TH','TD','IMG','SUP','SUB']);
+  const allowed = new Set(['P','DIV','SPAN','H1','H2','H3','H4','H5','H6','A','UL','OL','LI','DL','DT','DD','BLOCKQUOTE','PRE','CODE','STRONG','EM','DEL','HR','BR','TABLE','CAPTION','THEAD','TBODY','TR','TH','TD','FIGURE','FIGCAPTION','IMG','SUP','SUB']);
   const forbidden = new Set(['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','FORM','INPUT','BUTTON','TEXTAREA','SELECT','SVG','MATH','LINK','META','BASE']);
   for (const el of Array.from(template.content.querySelectorAll('*'))) {
     if (forbidden.has(el.tagName)) { el.remove(); continue; }
     if (!allowed.has(el.tagName)) { el.replaceWith(...el.childNodes); continue; }
     const href = el.getAttribute('href'), src = el.getAttribute('src'), alt = el.getAttribute('alt');
+    const imageWidth = el.tagName === 'IMG' ? el.style.width : '';
     const id = el.id, classes = el.className;
     for (const attr of Array.from(el.attributes)) el.removeAttribute(attr.name);
     if (id) el.id = id;
@@ -55,11 +56,22 @@ function renderedHTML(value) {
     }
     if (el.tagName === 'IMG') {
       if (contentURL(src)) { el.src=contentURL(src); el.alt=alt||''; el.loading='lazy'; } else el.remove();
+      // Preserve only bounded percentage widths, never arbitrary source styles.
+      if (/^\d+(?:\.\d+)?%$/.test(imageWidth) && parseFloat(imageWidth) > 0 && parseFloat(imageWidth) <= 100) {
+        el.style.width = imageWidth;
+      }
     }
   }
   return template.innerHTML;
 }
 function prose(value) { return '<div class="prose">'+renderedHTML(value)+'</div>'; }
+const formalStatusLabels = {
+  'not-started': 'Not started',
+  'in-progress': 'In progress',
+  linked: 'Source linked',
+  'autoformalized-awaiting-review': 'Autoformalized · awaiting human review'
+};
+function formalStatusLabel(status) { return formalStatusLabels[status] || status; }
 function volumeLabel() { return 'Volume '+currentVolume.label; }
 function volumeURL(volume) { return '?volume='+encodeURIComponent(volume.id)+'#/overview'; }
 function sourceLink(path,label) { return path ? '<a class="text-link source-link" href="'+esc(path)+'" download>'+esc(label)+' '+icon('download',13)+'</a>' : ''; }
@@ -76,6 +88,7 @@ function content(id) {
   return {...blankContent(),...c,formal:{...blankContent().formal,...c.formal}};
 }
 function chapterLabel(record) { return record.number !== undefined ? 'Chapter '+record.number : 'Appendix '+record.letter; }
+function sectionNumber(record, index) { return (record.number ?? record.letter)+'.'+(index+1); }
 function chapterLink(record, tab = 'read', section = '') { return record ? '#/chapter/'+record.id+'/'+tab+(section?'/'+section:'') : '#/contents'; }
 function nodeLink(id) { const n=nodes.get(id); return n ? chapterLink(n.record,'read',n.sectionId||'') : '#/map'; }
 function hasWriting(record) { const c=content(record.id); return !!(c.intro.trim()||Object.values(c.sections).some(t=>t.trim())); }
@@ -146,9 +159,9 @@ function chapterView(record, requestedTab) {
     '<nav class="chapter-pager" aria-label="Adjacent chapters">'+(prev?'<a class="pager-link" href="'+chapterLink(prev)+'">'+icon('chevron',14).replace('M9 5l7 7-7 7','M15 5l-7 7 7 7')+'<span><small>Previous · '+chapterLabel(prev)+'</small>'+esc(prev.title)+'</span></a>':'<span></span>')+(next?'<a class="pager-link" href="'+chapterLink(next)+'"><span><small>Next · '+chapterLabel(next)+'</small>'+esc(next.title)+'</span>'+icon('chevron',14)+'</a>':'<span></span>')+'</nav></div>';
 }
 function readView(record,c) {
-  const aside=record.sections.length?'<aside class="reading-aside"><h3>In this chapter</h3>'+record.sections.map((s,i)=>'<a href="'+chapterLink(record,'read',s.id)+'"><span class="aside-number">'+record.number+'.'+(i+1)+'</span><span>'+esc(s.title)+'</span></a>').join('')+'<div class="aside-later"><h3>Connections</h3><a href="'+chapterLink(record,'map')+'">'+icon('map',13)+' Chapter & section map</a><a href="'+chapterLink(record,'formal')+'">'+icon('code',13)+' Formalization</a></div></aside>':'';
+  const aside=record.sections.length?'<aside class="reading-aside"><h3>In this chapter</h3>'+record.sections.map((s,i)=>'<a href="'+chapterLink(record,'read',s.id)+'"><span class="aside-number">'+sectionNumber(record,i)+'</span><span>'+esc(s.title)+'</span></a>').join('')+'<div class="aside-later"><h3>Connections</h3><a href="'+chapterLink(record,'map')+'">'+icon('map',13)+' Chapter & section map</a><a href="'+chapterLink(record,'formal')+'">'+icon('code',13)+' Formalization</a></div></aside>':'';
   return '<div class="reading-layout"><article class="reading-content"><div class="chapter-intro">'+(c.intro?prose(c.intro):'<div class="scope-note"><strong>Planned destination</strong><p>'+esc(record.endpoint||record.description)+'</p>'+(record.prerequisites?'<p><strong>Preparation.</strong> '+esc(record.prerequisites)+'</p>':'')+'</div>')+'</div>'+
-    (record.sections.length?record.sections.map((s,i)=>'<section class="section-content" id="'+s.id+'"><div class="section-title-row"><div><span class="section-number">SECTION '+record.number+'.'+(i+1)+'</span><h2>'+esc(s.title)+'</h2></div><a class="section-link" href="'+chapterLink(record,'read',s.id)+'" aria-label="Link to section '+record.number+'.'+(i+1)+'">#</a></div>'+(c.sections[s.id]?prose(c.sections[s.id]):'<div class="empty-section"><p>Exposition, definitions, examples, and proofs are in preparation.</p></div>')+'</section>').join(''):(!c.intro?emptyView('This appendix is in preparation.','Background material, formulas, and references will accompany the chapter exposition.','book','writing'):''))+
+    (record.sections.length?record.sections.map((s,i)=>'<section class="section-content" id="'+s.id+'"><div class="section-title-row"><div><span class="section-number">SECTION '+sectionNumber(record,i)+'</span><h2>'+esc(s.title)+'</h2></div><a class="section-link" href="'+chapterLink(record,'read',s.id)+'" aria-label="Link to section '+sectionNumber(record,i)+'">#</a></div>'+(c.sections[s.id]?prose(c.sections[s.id]):'<div class="empty-section"><p>Exposition, definitions, examples, and proofs are in preparation.</p></div>')+'</section>').join(''):(!c.intro?emptyView('This appendix is in preparation.','Background material, formulas, and references will accompany the chapter exposition.','book','writing'):''))+
     (c.resources.length?'<section class="section-content"><h2>Further reading</h2><div class="resource-list">'+c.resources.map(r=>externalLink(r.url,r.title,'resource-link')).join('')+'</div></section>':'')+(published.features?.exercises&&c.exercises.length?'<section class="section-content"><h2>Exercises</h2>'+exercisesView(c)+'</section>':'')+(published.features?.explore&&c.explorations.length?'<section class="section-content"><h2>Further exploration</h2>'+exploreView(c)+'</section>':'')+'</article>'+aside+'</div>';
 }
 function externalLink(url,label,className='btn') {
@@ -176,11 +189,11 @@ function watchView(c) {
 }
 function formalView(c) {
   if(c.formal.status==='not-started'&&!c.formal.summary&&!c.formal.url&&!c.formal.declarations&&!c.formal.sources.length)return emptyView('Connect the formal argument.','Lean source, declarations, and a description of the scope of formalization will appear here.','code','lean',['Source links','Declaration names','Scope & assumptions']);
-  return '<section class="formal-panel"><p class="eyebrow">'+esc({'not-started':'Not started','in-progress':'In progress',linked:'Source linked'}[c.formal.status])+'</p><h2>The formalization</h2>'+(c.formal.summary?prose(c.formal.summary):'<p>The scope and conventions of this formalization are in preparation.</p>')+(c.formal.url?'<div style="margin-top:20px">'+externalLink(c.formal.url,'Open formal source')+'</div>':'')+'<div class="declaration-list">'+c.formal.declarations.split('\n').map(x=>x.trim()).filter(Boolean).map(name=>'<code>'+esc(name)+'</code>').join('')+'</div></section>'+c.formal.sources.map(s=>'<section class="formal-panel" id="'+s.sectionId+'"><p class="eyebrow">'+esc(s.status)+'</p><h2>'+esc(s.title)+'</h2>'+sourceLink(s.source,'Download Lean source')+'<pre class="lean-source"><code>'+esc(s.code)+'</code></pre></section>').join('')+'<p class="reference-note">This page displays author-supplied source links and status. It does not run Lean or certify that a declaration matches the written statement.</p>';
+  return '<section class="formal-panel"><p class="eyebrow">'+esc(formalStatusLabel(c.formal.status))+'</p><h2>The formalization</h2>'+(c.formal.summary?prose(c.formal.summary):'<p>The scope and conventions of this formalization are in preparation.</p>')+(c.formal.url?'<div style="margin-top:20px">'+externalLink(c.formal.url,'Open formal source')+'</div>':'')+'<div class="declaration-list">'+c.formal.declarations.split('\n').map(x=>x.trim()).filter(Boolean).map(name=>'<code>'+esc(name)+'</code>').join('')+'</div></section>'+c.formal.sources.map(s=>'<section class="formal-panel" id="'+s.sectionId+'"><p class="eyebrow">'+esc(formalStatusLabel(s.status))+'</p><h2>'+esc(s.title)+'</h2>'+sourceLink(s.source,'Download Lean source')+'<pre class="lean-source"><code>'+esc(s.code)+'</code></pre></section>').join('')+'<p class="reference-note">This page displays author-supplied source links and status. It does not run Lean or certify that a declaration matches the written statement.</p>';
 }
 function compareView(c) {
   if(!c.comparisons.length)return emptyView('Put the two arguments together.','The written section and its Lean source will appear here as they are developed.','columns','compare',['Written argument','Lean source','Alignment notes']);
-  return c.comparisons.map(row=>'<article class="comparison" id="'+row.sectionId+'"><h2>'+esc(row.title)+'</h2><div class="comparison-columns"><section class="comparison-column"><p class="eyebrow">In the book</p>'+sourceLink(row.texSource,'Download LaTeX source')+(row.book?prose(row.book):'<p>The exposition is in preparation.</p>')+'</section><section class="comparison-column"><p class="eyebrow">In the formalization · '+esc(row.status)+'</p>'+sourceLink(row.leanSource,'Download Lean source')+(row.lean?'<pre><code>'+esc(row.lean)+'</code></pre>':'<p>No Lean source has been written for this section.</p>')+'</section></div>'+(row.notes?'<section class="comparison-notes"><p class="eyebrow">Alignment notes</p>'+prose(row.notes)+'</section>':'')+'</article>').join('')+'<p class="reference-note">These are the section’s manuscript and Lean source. Displaying a file does not certify its proofs or agreement with the written statement.</p>';
+  return c.comparisons.map(row=>'<article class="comparison" id="'+row.sectionId+'"><h2>'+esc(row.title)+'</h2><div class="comparison-columns"><section class="comparison-column"><p class="eyebrow">In the book</p>'+sourceLink(row.texSource,'Download LaTeX source')+(row.book?prose(row.book):'<p>The exposition is in preparation.</p>')+'</section><section class="comparison-column"><p class="eyebrow">In the formalization · '+esc(formalStatusLabel(row.status))+'</p>'+sourceLink(row.leanSource,'Download Lean source')+(row.lean?'<pre><code>'+esc(row.lean)+'</code></pre>':'<p>No Lean source has been written for this section.</p>')+'</section></div>'+(row.notes?'<section class="comparison-notes"><p class="eyebrow">Alignment notes</p>'+prose(row.notes)+'</section>':'')+'</article>').join('')+'<p class="reference-note">These are the section’s manuscript and Lean source. Displaying a file does not certify its proofs or agreement with the written statement.</p>';
 }
 function dependencyNode(id) {
   const n=nodes.get(id);return n?'<a class="dep-node" href="'+nodeLink(id)+'">'+esc(n.label)+'</a>':'';
@@ -188,7 +201,7 @@ function dependencyNode(id) {
 function chapterMapView(record,c) {
   const target=record.sections.some(s=>s.id===mapTarget)?mapTarget:record.id;
   const selected=nodes.get(target),prereqs=target===record.id?c.prerequisites:(c.sectionPrerequisites[target]||[]);
-  return '<div class="section-heading"><div><p class="eyebrow">Local dependency map</p><h2>What this builds on</h2></div>'+'</div><div class="map-focus-field"><label for="map-focus">Focus</label><select id="map-focus"><option value="'+record.id+'">Whole '+chapterLabel(record).toLowerCase()+'</option>'+record.sections.map((s,i)=>'<option value="'+s.id+'"'+(target===s.id?' selected':'')+'>'+record.number+'.'+(i+1)+' · '+esc(s.title)+'</option>').join('')+'</select></div>'+
+  return '<div class="section-heading"><div><p class="eyebrow">Local dependency map</p><h2>What this builds on</h2></div>'+'</div><div class="map-focus-field"><label for="map-focus">Focus</label><select id="map-focus"><option value="'+record.id+'">Whole '+chapterLabel(record).toLowerCase()+'</option>'+record.sections.map((s,i)=>'<option value="'+s.id+'"'+(target===s.id?' selected':'')+'>'+sectionNumber(record,i)+' · '+esc(s.title)+'</option>').join('')+'</select></div>'+
     '<div class="map-legend"><span><span class="legend-line"></span>Prerequisite → selected item</span><span><span class="legend-dot"></span>Connections supplied by the author</span></div><div class="dependency-map">'+
     (prereqs.length?'<div class="dependency-row">'+prereqs.map(dependencyNode).join('')+'</div><div class="dep-connector" aria-label="These prerequisites lead to the selected item">↓</div>':'<p class="dep-caption">Prerequisite connections are in preparation</p>')+
     '<div class="dependency-row"><span class="dep-node current">'+esc(selected.label)+'</span></div>'+
@@ -260,7 +273,7 @@ function validateDocument(doc) {
     if(c.formal!==undefined) {
       if(!obj(c.formal))throw new Error('Invalid formalization data.');
       for(const field of ['summary','url','declarations'])str(c.formal[field],'formalization');
-      if(c.formal.status!==undefined&&!['not-started','in-progress','linked'].includes(c.formal.status))throw new Error('Invalid formalization status.');
+      if(c.formal.status!==undefined&&!Object.hasOwn(formalStatusLabels,c.formal.status))throw new Error('Invalid formalization status.');
     }
     const refs=(list,target)=>{
       if(!Array.isArray(list)||list.length>1000||list.some(v=>typeof v!=='string'||!nodes.has(v)||v===target))throw new Error('Invalid prerequisite connection.');

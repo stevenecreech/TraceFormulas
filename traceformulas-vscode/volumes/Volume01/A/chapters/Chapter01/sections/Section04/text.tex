@@ -1,0 +1,344 @@
+\begin{proposition}[The Cayley bijection]\label{hyperbolic.cayley}
+The maps
+\begin{equation}\label{eq:cayley-maps}
+ C(z)=\frac{z-i}{z+i},\qquad C^{-1}(\zeta)=i\frac{1+\zeta}{1-\zeta}
+\end{equation}
+are inverse bijections between $\mathbb H$ and the disk $\mathbb D=\{\zeta\in\mathbb C:|\zeta|<1\}$. The map $C$ sends $i$ to $0$.
+\end{proposition}
+
+\begin{proof}
+We first check that the maps take values in the claimed domains. For $z=x+iy\in\mathbb H$, the denominator $z+i$ is nonzero, and
+\[
+ \begin{aligned}
+ 1-|C(z)|^2
+ &=\frac{|z+i|^2-|z-i|^2}{|z+i|^2}\\
+ &=\frac{x^2+(y+1)^2-x^2-(y-1)^2}{|z+i|^2}
+ =\frac{4y}{|z+i|^2}>0.
+ \end{aligned}
+\]
+Thus $C(z)\in\mathbb D$, and substitution gives $C(i)=0$. Conversely, if $\zeta\in\mathbb D$, then $1-\zeta\ne0$. Multiplication by the conjugate denominator gives
+\[
+ \begin{aligned}
+ C^{-1}(\zeta)
+ &=\frac{i(1+\zeta)(1-\overline\zeta)}{|1-\zeta|^2}\\
+ &=\frac{-2\operatorname{Im}\zeta+i(1-|\zeta|^2)}{|1-\zeta|^2}.
+ \end{aligned}
+\]
+Here we expanded $(1+\zeta)(1-\overline\zeta)=1-|\zeta|^2+\zeta-\overline\zeta$ and used $\zeta-\overline\zeta=2i\operatorname{Im}\zeta$. In particular,
+\begin{equation}\label{eq:inverse-cayley-height}
+ \operatorname{Im}C^{-1}(\zeta)=\frac{1-|\zeta|^2}{|1-\zeta|^2}>0,
+\end{equation}
+so the inverse formula takes values in $\mathbb H$. The two compositions simplify to
+\[
+ \begin{aligned}
+ C^{-1}(C(z))
+ &=i\frac{(z+i)+(z-i)}{(z+i)-(z-i)}=z,\\
+ C(C^{-1}(\zeta))
+ &=\frac{(1+\zeta)-(1-\zeta)}{(1+\zeta)+(1-\zeta)}=\zeta.
+ \end{aligned}
+\]
+This proves bijectivity.
+\end{proof}
+
+\begin{proposition}[The metric and area in the disk]\label{hyperbolic.disk-metric}
+If $\zeta=\xi+i\eta$ with $\xi,\eta\in\mathbb R$, the metric and area in disk coordinates are
+\begin{equation}\label{eq:disk-metric-area}
+ ds^2=\frac{4|d\zeta|^2}{(1-|\zeta|^2)^2},\qquad
+ d\mu_{\mathbb D}(\zeta)=\frac{4\,d\xi\,d\eta}{(1-|\zeta|^2)^2},
+ \qquad |d\zeta|^2=d\xi^2+d\eta^2.
+\end{equation} With this metric, $C$ preserves path lengths and distances.
+\end{proposition}
+
+\begin{proof}
+We express the hyperbolic metric in disk coordinates. The quotient rule gives
+\[
+ C'(z)=\frac{(z+i)-(z-i)}{(z+i)^2}
+       =\frac{2i}{(z+i)^2},\qquad
+ (C^{-1})'(\zeta)=\frac{2i}{(1-\zeta)^2}.
+\]
+Thus, when $z=C^{-1}(\zeta)$, Euclidean squared lengths transform by
+\[
+ |dz|^2=\frac{4}{|1-\zeta|^4}|d\zeta|^2,
+ \qquad
+ (\operatorname{Im}z)^2=\frac{(1-|\zeta|^2)^2}{|1-\zeta|^4}.
+\]
+Substituting both expressions into the half-plane metric \eqref{eq:half-plane-metric-area} yields
+\[
+ ds^2=\frac{|dz|^2}{(\operatorname{Im}z)^2}
+ =\frac{4}{|1-\zeta|^4}
+   \frac{|1-\zeta|^4}{(1-|\zeta|^2)^2}|d\zeta|^2
+ =\frac{4|d\zeta|^2}{(1-|\zeta|^2)^2}.
+\]
+Equivalently, a tangent vector of Euclidean length $|v|$ at $\zeta$ has hyperbolic length $2|v|/(1-|\zeta|^2)$. The $\xi$ and $\eta$ coordinate directions remain perpendicular, and each length is multiplied by $2/(1-|\zeta|^2)$. Their area is therefore multiplied by the square of this factor, which gives the stated formula for $d\mu_{\mathbb D}$. Since the metric was obtained by this change of coordinates, $C$ preserves path lengths and hence distances.
+\end{proof}
+
+\begin{proposition}[The stabilizer acts by disk rotations]\label{hyperbolic.disk-rotations}
+For $\theta\in\mathbb R$ and $\zeta\in\mathbb D$, the action of $k(\theta)$ in disk coordinates is $C(k(\theta)\cdot C^{-1}(\zeta))=e^{2i\theta}\zeta$. Thus $C$ conjugates the stabilizer $K$ to the group of rotations of the disk.
+\end{proposition}
+
+\begin{proof}
+We compute the action of $k(\theta)$ in the disk. Its fractional transformation is
+\[
+ k(\theta)\cdot z
+ =\frac{\cos\theta\,z+\sin\theta}{-\sin\theta\,z+\cos\theta}.
+\]
+Substitute this fraction into $C$ and clear the common denominator:
+\begin{equation}\label{eq:cayley-rotation}
+ \begin{aligned}
+ C(k(\theta)\cdot z)
+ &=\frac{(\cos\theta\,z+\sin\theta)
+                -i(-\sin\theta\,z+\cos\theta)}
+         {(\cos\theta\,z+\sin\theta)
+                +i(-\sin\theta\,z+\cos\theta)}\\
+ &=\frac{(\cos\theta+i\sin\theta)(z-i)}
+         {(\cos\theta-i\sin\theta)(z+i)}
+ =e^{2i\theta}C(z).
+ \end{aligned}
+\end{equation}
+Putting $z=C^{-1}(\zeta)$ gives the conjugated action
+$C(k(\theta)\cdot C^{-1}(\zeta))=e^{2i\theta}\zeta$. Thus the matrix angle $\theta$ produces the geometric disk angle $2\theta$.
+\end{proof}
+
+\begin{proposition}[Geodesics in the disk]\label{hyperbolic.disk-geodesics}
+Geodesics in the disk are diameters and arcs of circles orthogonal to its boundary.
+\end{proposition}
+
+\begin{proof}
+We identify the disk geodesics. A real-centered circle or a vertical line has an equation $A|z|^2+B\operatorname{Re}z+D=0$ with real coefficients. Using the inverse Cayley formula in \eqref{eq:cayley-maps}, substitution gives
+\[
+ A|1+\zeta|^2-2B\operatorname{Im}\zeta+D|1-\zeta|^2=0,
+\]
+which, for $\zeta=\xi+i\eta$, is
+\[
+ (A+D)(1+\xi^2+\eta^2)+2(A-D)\xi-2B\eta=0.
+\]
+If $A+D=0$, this is a line through the origin, whose portion in $\mathbb D$ is a diameter. Otherwise it is a circle whose squared radius is the squared distance of its center from $0$ minus $1$. At its intersections with the unit circle, this relation says that the two radii are perpendicular, so the circles meet orthogonally. Conversely, an orthogonal circle has precisely this relation between center and radius, and a diameter is a line through the origin; reversing the substitution gives a real-centered circle or vertical line. The \hyperref[hyperbolic.disk-metric]{Cayley isometry} preserves lengths, so the \hyperref[hyperbolic.geodesics]{half-plane classification of geodesics} gives the disk classification.
+\end{proof}
+
+The disk places the stabilizer of the base point in a particularly simple form: it is the ordinary rotation group. We will use these rotations to compare pairs of points with equal distance.
+
+\begin{definition}[The point-pair invariant]\label{hyperbolic.point-pair}
+For $z,w\in\mathbb H$, define
+\begin{equation}\label{eq:point-pair-definition}
+ u(z,w)=\frac{|z-w|^2}{4\operatorname{Im}z\operatorname{Im}w}.
+\end{equation}
+This convention includes the factor $4$ in the denominator. It will be the radial variable used for invariant kernels.
+\end{definition}
+
+\begin{proposition}[Elementary properties of the point-pair invariant]\label{hyperbolic.point-pair-properties}
+The point-pair invariant $u$ is symmetric and nonnegative and vanishes precisely when its two arguments coincide. For $z,w\in\mathbb H$ and $g\in G$,
+\begin{equation}\label{eq:point-pair-invariance}
+ u(g\cdot z,g\cdot w)=u(z,w).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Symmetry, nonnegativity and the zero condition follow from the defining formula for $u$ in \eqref{eq:point-pair-definition} and the positivity of both imaginary parts. For $g=\begin{smallpmatrix}a&b\\c&d\end{smallpmatrix}\in G$, the Möbius difference formula in \eqref{eq:mobius-identities} and the imaginary-part formula \eqref{eq:mobius-imaginary-part} give
+\[
+ \begin{aligned}
+ |g\cdot z-g\cdot w|^2
+ &=\frac{|z-w|^2}{|cz+d|^2|cw+d|^2},\\
+ (\operatorname{Im}(g\cdot z))(\operatorname{Im}(g\cdot w))
+ &=\frac{(\operatorname{Im}z)(\operatorname{Im}w)}{|cz+d|^2|cw+d|^2}.
+ \end{aligned}
+\]
+The same factors cancel between the numerator and denominator of $u(g\cdot z,g\cdot w)$, proving invariance.
+\end{proof}
+
+\begin{corollary}[The point-pair invariant and distance]\label{hyperbolic.point-pair-distance}
+For $z,w\in\mathbb H$,
+\begin{equation}\label{eq:point-pair-distance}
+ u(z,w)=\sinh^2\!\left(\frac{d_{\mathbb H}(z,w)}2\right).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The half-plane distance formula \eqref{eq:hyperbolic-distance} states explicitly that
+\[
+ \cosh\bigl(d_{\mathbb H}(z,w)\bigr)
+ =1+\frac{|z-w|^2}{2\operatorname{Im}z\operatorname{Im}w}
+ =1+2u(z,w).
+\]
+Using the hyperbolic half-angle identity gives
+\[
+ u(z,w)=\frac{\cosh(d_{\mathbb H}(z,w))-1}{2}
+       =\sinh^2\!\left(\frac{d_{\mathbb H}(z,w)}2\right).
+\]
+\end{proof}
+
+\begin{proposition}[The point-pair invariant in disk coordinates]\label{hyperbolic.point-pair-disk}
+For $\zeta,\eta\in\mathbb D$,
+\begin{equation}\label{eq:point-pair-disk}
+ u(C^{-1}(\zeta),C^{-1}(\eta))
+ =\frac{|\zeta-\eta|^2}{(1-|\zeta|^2)(1-|\eta|^2)}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+We compute $u$ in disk coordinates by substituting both inverse Cayley transforms directly. Subtracting the fractions gives
+\[
+ \begin{aligned}
+ C^{-1}(\zeta)-C^{-1}(\eta)
+ &=i\frac{(1+\zeta)(1-\eta)-(1+\eta)(1-\zeta)}
+           {(1-\zeta)(1-\eta)}\\
+ &=\frac{2i(\zeta-\eta)}{(1-\zeta)(1-\eta)},
+ \end{aligned}
+\]
+so
+\begin{equation}\label{eq:inverse-cayley-difference-squared}
+ |C^{-1}(\zeta)-C^{-1}(\eta)|^2
+ =\frac{4|\zeta-\eta|^2}{|1-\zeta|^2|1-\eta|^2}.
+\end{equation}
+The inverse Cayley imaginary-part formula \eqref{eq:inverse-cayley-height} gives
+\begin{equation}\label{eq:inverse-cayley-height-product}
+ 4\operatorname{Im}C^{-1}(\zeta)\operatorname{Im}C^{-1}(\eta)
+ =\frac{4(1-|\zeta|^2)(1-|\eta|^2)}{|1-\zeta|^2|1-\eta|^2}.
+\end{equation}
+Dividing the inverse Cayley squared-difference formula \eqref{eq:inverse-cayley-difference-squared} by the imaginary-part product formula \eqref{eq:inverse-cayley-height-product} cancels both the factor $4$ and the factors $|1-\zeta|^2|1-\eta|^2$, proving the disk formula for the point-pair invariant \eqref{eq:point-pair-disk}.
+\end{proof}
+
+\begin{proposition}[Classification of ordered-pair orbits]\label{hyperbolic.pair-orbits}
+Two ordered pairs in $\mathbb H\times\mathbb H$ are in the same diagonal $G$-orbit if and only if they have the same value of $u$.
+\end{proposition}
+
+\begin{proof}
+We prove the orbit assertion, in both directions. The diagonal action means that one group element acts on both entries: $g\cdot(z,w)=(g\cdot z,g\cdot w)$. If $(z_2,w_2)=(g\cdot z_1,g\cdot w_1)$ for some $g\in G$, the invariance identity for $u$ in \eqref{eq:point-pair-invariance} gives $u(z_2,w_2)=u(z_1,w_1)$. This proves that pairs in the same orbit have equal invariant.
+
+Conversely, suppose $u(z_1,w_1)=u(z_2,w_2)$. Choose $g_j=s(z_j)^{-1}$, so that $g_j\cdot z_j=i$, and set $w'_j=g_j\cdot w_j$, for $j=1,2$. The point-pair invariance identity \eqref{eq:point-pair-invariance} gives
+\[
+ u(i,w'_j)=u(g_j\cdot z_j,g_j\cdot w_j)=u(z_j,w_j).
+\]
+Our assumption therefore gives $u(i,w'_1)=u(i,w'_2)$.
+
+We now express each of these values in disk coordinates. For each $j$, substitute $\zeta=C(i)=0$ and $\eta=C(w'_j)$ into the disk formula for $u$ in \eqref{eq:point-pair-disk}. These are points of $\mathbb D$, and their inverse Cayley images are $C^{-1}(0)=i$ and $C^{-1}(C(w'_j))=w'_j$. Thus
+\[
+ \begin{aligned}
+ u(i,w'_j)
+ &=u\bigl(C^{-1}(0),C^{-1}(C(w'_j))\bigr)\\
+ &=\frac{|0-C(w'_j)|^2}{(1-|0|^2)(1-|C(w'_j)|^2)}\\
+ &=\frac{|C(w'_j)|^2}{1-|C(w'_j)|^2}.
+ \end{aligned}
+\]
+Once the first point has been moved to $i$, its disk coordinate is $0$, so the invariant depends only on the Euclidean disk radius $|C(w'_j)|$ of the second point.
+
+Since $C(w'_j)\in\mathbb D$, both denominators are positive. Equality of the two invariant values therefore gives, on cross-multiplying,
+\[
+ |C(w'_1)|^2\bigl(1-|C(w'_2)|^2\bigr)
+ =|C(w'_2)|^2\bigl(1-|C(w'_1)|^2\bigr).
+\]
+Expanding both sides cancels the common product $|C(w'_1)|^2|C(w'_2)|^2$, leaving $|C(w'_1)|^2=|C(w'_2)|^2$. Taking nonnegative square roots shows that the two disk points have the same radius.
+
+If that radius is zero, both $w'_j$ equal $i$, and we take $k=I$. Otherwise choose $\theta$ such that $e^{2i\theta}C(w'_1)=C(w'_2)$ and set $k=k(\theta)$. Such an angle exists because two nonzero complex numbers of the same modulus differ by a rotation. The Cayley rotation formula \eqref{eq:cayley-rotation} and injectivity of $C$ then give $k\cdot w'_1=w'_2$, while $k\cdot i=i$. In either case the single element $g=g_2^{-1}kg_1$ satisfies
+\[
+ g\cdot z_1=g_2^{-1}\cdot i=z_2,\qquad
+ g\cdot w_1=g_2^{-1}\cdot w'_2=w_2.
+\]
+This proves that equal invariant implies the same diagonal orbit.
+\end{proof}
+
+\begin{corollary}[Invariant functions depend only on the point-pair invariant]\label{hyperbolic.radial-functions}
+Any complex-valued function $F(z,w)$ invariant under simultaneous action of $G$ has the form $F(z,w)=h(u(z,w))$ for a unique function $h:[0,\infty)\to\mathbb C$.
+\end{corollary}
+
+\begin{proof}
+Every value $t\geq0$ occurs: the real disk point $\zeta=\sqrt{t/(1+t)}$ has $0\leq\zeta<1$ and gives $u(i,C^{-1}(\zeta))=t$. If $F$ is invariant, the \hyperref[hyperbolic.pair-orbits]{orbit classification} says that it is constant on all pairs with a given value $t$ of $u$. Define $h(t)$ to be this common value. Then $F(z,w)=h(u(z,w))$; since every $t\geq0$ occurs, this also determines $h$ uniquely.
+\end{proof}
+
+\begin{proposition}[Hyperbolic polar coordinates]\label{hyperbolic.polar-coordinates}
+In polar coordinates centered at any point of $\mathbb H$, with distance $r\geq0$ and geometric angle $\varphi$ modulo $2\pi$, one has
+\[
+ ds^2=dr^2+\sinh^2 r\,d\varphi^2,\qquad
+ d\mu=\sinh r\,dr\,d\varphi.
+\]
+\end{proposition}
+
+\begin{proof}
+First take the center to be $i$. Write $\zeta=C(w)=\rho e^{i\varphi}$, where $0\leq\rho<1$ is the Euclidean disk radius, and put $r=d_{\mathbb H}(i,w)$. We begin by relating these two radii. The disk formula for $u$ in \eqref{eq:point-pair-disk} and its distance formula \eqref{eq:point-pair-distance} give
+\[
+ \frac{\rho^2}{1-\rho^2}
+ =u(i,w)
+ =\sinh^2\!\left(\frac{d_{\mathbb H}(i,w)}2\right)
+ =\sinh^2(r/2).
+\]
+Solving for $\rho^2$ yields
+\[
+ \rho^2=\frac{\sinh^2(r/2)}{1+\sinh^2(r/2)}
+       =\frac{\sinh^2(r/2)}{\cosh^2(r/2)}
+       =\tanh^2(r/2).
+\]
+Both radii are nonnegative, so $\rho=\tanh(r/2)$. This is the precise distance relation needed for the change to hyperbolic polar coordinates.
+
+We next transform the metric. Differentiating $\zeta=\rho e^{i\varphi}$ gives
+\[
+ d\zeta=e^{i\varphi}\,d\rho+i\rho e^{i\varphi}\,d\varphi,
+ \qquad |d\zeta|^2=d\rho^2+\rho^2d\varphi^2,
+\]
+since the radial and angular directions are perpendicular. Thus the disk metric in \eqref{eq:disk-metric-area} becomes
+\[
+ ds^2=\frac{4\,d\rho^2}{(1-\rho^2)^2}
+      +\frac{4\rho^2\,d\varphi^2}{(1-\rho^2)^2}.
+\]
+Differentiating $\rho=\tanh(r/2)$ and using the hyperbolic double-angle identity give, respectively,
+\begin{equation}\label{eq:polar-radius-change}
+ \frac{d\rho}{dr}=\frac{1}{2\cosh^2(r/2)}
+                 =\frac{1-\rho^2}{2},\qquad
+ \frac{2\rho}{1-\rho^2}
+ =2\sinh(r/2)\cosh(r/2)=\sinh r.
+\end{equation}
+Therefore $2\,d\rho/(1-\rho^2)=dr$, and substituting these identities into the two metric coefficients proves $ds^2=dr^2+\sinh^2r\,d\varphi^2$.
+
+For area, ordinary polar coordinates satisfy $d\xi\,d\eta=\rho\,d\rho\,d\varphi$. Hence the disk area formula in \eqref{eq:disk-metric-area} and the radial change-of-variable identities \eqref{eq:polar-radius-change} give
+\[
+ d\mu_{\mathbb D}
+ =\frac{4\rho\,d\rho\,d\varphi}{(1-\rho^2)^2}
+ =\frac{2\rho}{1-\rho^2}\frac{2\,d\rho}{1-\rho^2}\,d\varphi
+ =\sinh r\,dr\,d\varphi.
+\]
+The angle $\varphi$ is the geometric angle, with a full turn of $2\pi$. These coordinates are nonsingular for $r>0$; the center $r=0$ has area zero and does not affect integration.
+
+For a different center $z$, the inverse action formula \eqref{eq:iwasawa-inverse-action} shows that $s(z)^{-1}$ moves it to $i$. This preserves both distance and area, so the same formulas hold there.
+\end{proof}
+
+\begin{corollary}[Area of a hyperbolic disk]\label{hyperbolic.ball-area}
+A disk of hyperbolic radius $R\geq0$, centered at any point of $\mathbb H$, has area $2\pi(\cosh R-1)$.
+\end{corollary}
+
+\begin{proof}
+By the \hyperref[hyperbolic.polar-coordinates]{polar area formula}, the area inside radius $R$ is
+\[
+ \int_0^{2\pi}\int_0^R\sinh r\,dr\,d\varphi
+ =2\pi[\cosh r]_0^R=2\pi(\cosh R-1).
+\]
+\end{proof}
+
+\begin{proposition}[Radial integration]\label{hyperbolic.radial-integration}
+For measurable $h:[0,\infty)\to\mathbb C$ and fixed $z\in\mathbb H$, if $\int_0^\infty|h(t)|\,dt<\infty$, then
+\[
+ \int_{\mathbb H}h(u(z,w))\,d\mu(w)=4\pi\int_0^\infty h(t)\,dt.
+\]
+The same equality holds for nonnegative measurable $h$, allowing the value $+\infty$.
+\end{proposition}
+
+\begin{proof}
+First take the center to be $i$. Begin with nonnegative measurable $h$. Tonelli's theorem and the \hyperref[hyperbolic.polar-coordinates]{polar area formula} give
+\[
+ \int_{\mathbb H}h(u(i,w))\,d\mu(w)
+ =\int_0^{2\pi}\int_0^\infty
+     h\bigl(\sinh^2(r/2)\bigr)\sinh r\,dr\,d\varphi.
+\]
+Make the substitution $t=\sinh^2(r/2)$. It increases from $0$ to $\infty$ as $r$ does, and
+\[
+ \frac{dt}{dr}=\sinh(r/2)\cosh(r/2)=\frac12\sinh r.
+\]
+Thus $\sinh r\,dr=2\,dt$, while integration in $\varphi$ contributes $2\pi$. We obtain
+\[
+ \int_{\mathbb H}h(u(i,w))\,d\mu(w)
+ =2\pi\int_0^\infty h(t)\,2\,dt
+ =4\pi\int_0^\infty h(t)\,dt.
+\]
+For arbitrary fixed $z$, change variables by $s(z)^{-1}$ and use invariance of $u$ and $\mu$ to obtain the same identity. Finally, for complex measurable $h$ with $\int_0^\infty|h(t)|\,dt<\infty$, apply the nonnegative identity to $|h|$. It proves absolute integrability of $w\mapsto h(u(z,w))$. Applying the identity to the positive and negative parts of the real and imaginary parts of $h$ then proves the complex-valued formula.
+\end{proof}
+
+\begin{remark}[Other radial conventions]\label{hyperbolic.radial-conventions}
+The variables $\cosh(d_{\mathbb H}(z,w))$, $\sinh^2(d_{\mathbb H}(z,w)/2)$, and $|z-w|^2/(\operatorname{Im}z\operatorname{Im}w)$ are respectively $1+2u(z,w)$, $u(z,w)$, and $4u(z,w)$. Changing the radial variable changes both the kernel function and the integration density. The calculation above fixes our convention before any Selberg transform is introduced.
+\end{remark}

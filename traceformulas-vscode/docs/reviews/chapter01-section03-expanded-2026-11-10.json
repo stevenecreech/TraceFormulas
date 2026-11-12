@@ -1,0 +1,184 @@
+{
+  "date": "2026-11-10",
+  "scope": "Expand Section 1.3 proofs, add a geodesic diagram to both editions, derive Laplace–Beltrami from the metric, and extend the partial Lean companion.",
+  "prior_snapshot": "docs/reviews/chapter01-section03-geometry-2026-11-09.json",
+  "prose_status": "proof-draft; revised following Steven’s direction; further author review pending",
+  "formal_status": "in-progress; seven additional public Section 1.3 theorems checked; incomplete section and chapter coverage",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "editorial_changes": [
+    "Proposition 1.3.1 proves existence first and names each following proof goal. It specifies every crucial g,z,v,w substitution, expands real bilinearity in the basis 1,i, defines the variable point ζ and scalar α, and explains transport by s(z).",
+    "Definition 1.3.2 derives speed and path length from ds². Proposition 1.3.3 separates tangent, length, distance and area arguments and expands the Jacobian cancellation.",
+    "Theorem 1.3.4 begins with the full length integral, solves explicitly for the real circle center, describes its perpendicular-bisector construction, straightens the circle by a Möbius transformation, computes the inverse, and transfers both minimizing arcs and distance from the vertical case. The final invariant-ratio calculation returns to the original points.",
+    "A mathematical vector diagram shows the same circle and its exact vertical image, with matching endpoints, center, equal radii, perpendicular bisector and caption. It is explanatory artwork, not proof evidence.",
+    "The height example retains its length computations without unexplained cusp/horocycle terms. Horocycles are introduced with cusps in Section 1.7. The stronger Radon discussion is now situated in Section 1.8 with Haar measure.",
+    "Gradient is derived from metric duality; divergence is derived from the first variation of the area density under a local deformation and characterized by integration against test functions.",
+    "Definition 1.3.6 defines Δ as -div grad and derives the coordinate cancellation. Theorem 1.3.7 proves commutation with smooth Riemannian isometries, including orientation reversal, through gradient transport, area preservation and divergence transport.",
+    "Proposition 1.3.8 proves the Green identity, symmetry and nonnegativity on compactly supported smooth functions. Self-adjoint domains and quotient operators are explicitly deferred to Chapter 11.",
+    "Retained labels and numbers 1.3.1–1.3.6 are preserved. The notational index now has 65 entries, adding gradient and divergence and clarifying the Laplacian convention."
+  ],
+  "new_formal_claims": [
+    {
+      "label": "hyperbolic.metric",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_formula",
+      "scope": "The constructed real bilinear form has coefficients Re(v conjugate(w))/y²."
+    },
+    {
+      "label": "hyperbolic.invariant-geometry",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_symmetric",
+      "scope": "The actual candidate real bilinear form is symmetric."
+    },
+    {
+      "label": "hyperbolic.invariant-geometry",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_positive",
+      "scope": "The candidate is positive on every nonzero tangent vector."
+    },
+    {
+      "label": "hyperbolic.invariance",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_invariant",
+      "scope": "The full tangent product is preserved by the actual fractional derivative."
+    },
+    {
+      "label": "hyperbolic.invariance",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_length_invariant",
+      "scope": "The unsquared coordinate tangent norm is preserved; the path integration bridge remains open."
+    },
+    {
+      "label": "hyperbolic.gradient",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.gradient_duality",
+      "scope": "An arbitrary real linear differential is represented by the constructed gradient vector under the tangent form; the smooth-function/vector-field bridge remains open."
+    },
+    {
+      "label": "hyperbolic.geodesics",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.two_point_ratio_invariant",
+      "scope": "The two-point ratio J is invariant under the group action; this is not yet a path-distance characterization."
+    }
+  ],
+  "proof_correspondence": [
+    "The candidate tangent form is an actual real bilinear form, not only a numerical formula or a premise asserting the conclusion. Its invariance uses the complex pairing scaling identity and the previously proved derivative and imaginary-part formulas.",
+    "Unsquared tangent invariance follows from equality of squares and nonnegativity. Path differentiation and integration are distinct remaining steps.",
+    "Gradient duality proves equality against every real tangent vector for an arbitrary real linear differential. It does not yet formalize the differential of a C¹ function as a smooth vector field.",
+    "The two-point ratio uses the same denominator cancellation as the expanded prose; no distance is defined by this invariant to bypass the path-length target.",
+    "Previously recorded uniqueness, positive-density and Section 1.1–1.2 proof-route differences remain in the section comparisons."
+  ],
+  "remaining_formalization": [
+    "Smooth tangent-bundle/Riemannian structure and its compatibility with the coordinate bilinear forms",
+    "Real Jacobian and change of variables, the almost-everywhere to pointwise density bridge, induced Riemannian volume and actual invariant measures",
+    "Piecewise smooth paths, speed integration, distance infimum, circle construction and straightening, existence/uniqueness of minimizing arcs and the distance formula",
+    "Gradient as a smooth vector field attached to a function; divergence and its area variation/test-function characterizations",
+    "Laplace–Beltrami operator, isometry commutation, Green identity, symmetry and nonnegativity as analytic statements",
+    "Section 1.8 Radon uniqueness, Haar and quotient measures, plus earlier sphere-action, full-orbit, angle/covering and quotient-topology obligations",
+    "Self-adjoint realizations are deferred manuscript work in the spectral chapter, not claims established here"
+  ],
+  "source_verification": {
+    "status": "partial background consultation and AI proof review; no independent or complete theorem-level bibliographic audit",
+    "consulted": {
+      "title": "Yaiza Canzani, Analysis on Manifolds via the Laplacian",
+      "url": "https://canzani.web.unc.edu/wp-content/uploads/sites/12623/2016/08/Laplacian.pdf",
+      "location": "Chapter 4, especially §4.4 on isometries; Chapter 7 on operator domains",
+      "scope": "Gradient, divergence, the nonnegative Laplace–Beltrami convention and isometry commutation. Domain discussion informed the distinction between symmetry and self-adjointness; the compact-manifold results are not cited as proving a self-adjoint realization on the upper half-plane."
+    },
+    "mathlib": "Pinned local bilinear-form, complex norm, upper-half-plane and differentiation APIs inspected and reused. The existing upper-half-plane metric uses a formula; importing that formula alone would not prove the manuscript’s path-infimum characterization."
+  },
+  "machine_evidence": {
+    "record": "lean/audits/chapter01-section03-expanded-2026-11-10/record.json",
+    "record_sha256": "00104d8d8d138bc10cd4289f5a7cfeb922798246462f302b029986a4f86bdf77",
+    "status": "passed",
+    "audited_logical_declarations_including_helpers": 118,
+    "public_companion_theorems": 34,
+    "section03_public_companion_theorems": 14,
+    "allowed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "source_drift": [],
+    "notes": "Full project build and Chapter 1 axiom gate passed. All nine locked dependencies verified clean before and after. No new Chapter 0 axiom audit or fresh-checkout reproduction claimed."
+  },
+  "source_sha256": {
+    "AUTHORING.md": "2087730cdaf7b71cf94cad8ea581c63e29116ed96035edec00e2c973f40710d0",
+    "docs/STATUS.md": "d97072fa0e17e36747429169e78255bc8d87cd65ce6970801fdf92b02eb834ca",
+    "lake-manifest.json": "c3d06c4bd61e3f79ce55c83d5b8ceaf73a495aa1822fe117a7227581855e0777",
+    "lakefile.toml": "b5adf95e6c070092262a06a2830a2811876cde703cffc0b0d0c384d480cddb57",
+    "lean-toolchain": "4a621e65aac8f17691d825e7dfedb432e2658f3a96002cab94fad5320a18c9fc",
+    "lean/AuditChapter01.lean": "3bca122218d41e41e709c8b029a0ea76a1fbc04fc9d66869e1b401ef5b032dbf",
+    "lean/TraceFormulas.lean": "5663a312be65bc8524b1d3317724d0bfb22bd66d972ec51e2d5b8072b50cac16",
+    "lean/TraceFormulas/Analysis/FiniteCountingKernel.lean": "003491468a9bc3cbc8cb66c91b39ca35302655d57bf955e7918c09092049b7b7",
+    "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean": "71a35e83184b3dd7616a511c4099e010f0c10776a3b3da3b72b10e95789ff733",
+    "lean/TraceFormulas/Analysis/FiniteKernel.lean": "e9c27965fb0fa680a07aeb739f744051b16b39e3ff996fc3a9d9afeb543aeb27",
+    "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean": "c03495ed27c7d08fb9d74cc9ec5c4044bc01f2d16170a51308c4b754fdff2c29",
+    "lean/TraceFormulas/Analysis/FiniteProjection.lean": "7d5ac7941a94770e28360b196788bd418afd431642ec955bf398e2ab60f0d853",
+    "lean/TraceFormulas/Analysis/FiniteRankTrace.lean": "49e06536fa7f446de93158f6743c1bb9f2e3949a95fc13f58cc4c1880b275cef",
+    "lean/TraceFormulas/Analysis/KernelRepresentatives.lean": "0b9471729fed39841931de4946322705c9622b088c9b9647b75b894ded782585",
+    "lean/TraceFormulas/Analysis/RankOneExample.lean": "4250be4933a256af8f5da03f999255f1f602e3349742b20c3f5ce5a5396ab280",
+    "lean/TraceFormulas/Analysis/RelativeKernel.lean": "67d641d6f5e51c710ee0530612a4721dd0ab48b51c664e3b9153baaac725dc4a",
+    "lean/TraceFormulas/Analysis/SpectralKernel.lean": "68f021fffec797ce7a31fd57c21cff81c91250d083c8e4a2d7895ecb6801943e",
+    "lean/TraceFormulas/Analysis/WeightedKernel.lean": "27efe609425bb7b40b881547fb01cdc01f9a7bf340d74bfe8dff8739ac41c902",
+    "lean/TraceFormulas/Geometry/InvariantGeometry.lean": "2f4687997aec6204ee065afe347252bfd7d2a95228914f652e8d93ede21239c1",
+    "lean/TraceFormulas/Geometry/Iwasawa.lean": "ec05ee0554639cee8d7fdac11e6a745b01c75251e3a77862c43c683171cf7fac",
+    "lean/TraceFormulas/Geometry/RealMobius.lean": "499e78c9109b299d56a7a68b1b48262ad31d515aa4f70b83d6ef0a5de1352e3b",
+    "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean": "eab9febd8c63ead9dd2e960e0e13b7dd65320b50dbebcf8057536bdd726f1c95",
+    "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean": "fa07df94d8458d9af6e541a10112db5448bba8e6fa738a862122749904aeff54",
+    "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean": "ebb715be9cfdf061291e6d22969b3dc0d545d19204d8b9ad5ba9ffecbe08fb6a",
+    "scripts/audit_lean.py": "22fa014afe6424959809a2163325f2949699b4f2683fd4dcb3d41d56e3260c61",
+    "scripts/check_browser.py": "5573e204800c8199f5dda0246f79a43ec306e7ddb3aee04ec09079f1a68cca58",
+    "scripts/draw_geodesics.py": "5b8d585d9eee8a6961dc93d5985a3ba4311e5e36842c2e7ba48aef8948bb47cb",
+    "scripts/tex.py": "4687f45c4792d05dd991959adf8e3f23efeb1a62312097661ccaf296f66ed388",
+    "tests/test_build.py": "538b5521292817cd074492381d847020d96f9ac1e539fcff27d46c0b5685497b",
+    "tex/preamble.tex": "d7319ba0affefb42c2ef137cd7e26d90cf459844e3498284410e0f7a6ad4905d",
+    "volumes/Volume01/A/appendices/I/intro.tex": "1cd7d303c074b8502f7aa9dbd810a95e0f152db79a76312db2f18193beb56128",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "ee7fb98ff912e79f26dd1343d23f004a9b6f16ebf90f5a1dc43382c19d052aa1",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "24e4c037a6ee27c230857bbbb5ae67fb0f407c03b2464f29e92c88039f2cfed8",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/section.json": "5682d101bb0f7e0838caa812969a06e6aac0979d56b0f26fcb384a9622e70e5e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "7289b75979b5d405dd2c6c1dabc57257d07288e7e3fc6d1cdc47e8329834c5c4",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "0f55e04cdd89f905126ad7143a971f6a4c83eac50d02bdf6210997a78629964f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "aaa5fd445b185acbaf3bbdf5da9b00c66af32e8c2e8457ef18420dacc97beacd",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "b637a138068a8a0d5c3a899ff4bb01afa471b6bbf738338c05defc46ff4542f5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "112d54bb73f41149a1b99d930cd2a0ddfeba39dfa165691bf922ca305b54be0f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c0541381425c82b75c7b8040866b805c0c66800bc040e9e126a9ce43ef665456",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "eb71a3c76407e0166b69f013722934ad858b74d2180abd19937d2c1f7e7a403f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/figures/geodesics.pdf": "23e5d54c5708be423d0ab927d4c9c3f00a1aa7fb4e07a03195f88bea0f5be232",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/figures/geodesics.svg": "1b586eb96874db56ff80c3abb97e956a33ca6e1183440a75acb4572ded006be9",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "c43e8890da7b8780607280e05d9617a70a5e2db6ec873379a109378a51f8eb68",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "4a89dbb26c3bc67a5b72256a956b2ecc0ff09b4d46021823d2590895ada3f515",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/compare.tex": "8c409a6df04c34b24acd62a940c8369a16f923d8e6000ea462fdcce2ae0e9c52",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/text.tex": "65fcc18c2171ce3ed68b951876490ad354de67b0ce84bc041fc9ae48a4bf4f18",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex": "524c22224fb568f60e9fc6dd9b30b30c053ecc1fab9e1097edf93bb766518c59",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "1bd4c6c23c22799a7f7d10ca415fb55d6a507fab358b1feee53fde31a9efe9ed",
+    "web/app.js": "37b0d98b3f2161c849c4fc1d2ae10aa9f93495f42c469707948a82f87f0cb658",
+    "web/styles.css": "f110636bc7c3eee55a03ceea7a53d2785058d9f7b728e8b4f3a8804039bbb0a5"
+  },
+  "figure": {
+    "generator": "scripts/draw_geodesics.py",
+    "authoring_dependency": "Matplotlib, optional; ordinary builds use the saved vector pair",
+    "data": "r=0, R=2; z=-1.2+1.6i, w=1.6+1.2i; h(z)=0.5i, h(w)=3i. Generator asserts these image values.",
+    "rendering": "PDF embedded in print; SVG displayed in website. Named figure links and captions preserved. Website figure numbers are not implemented.",
+    "regressions": "Successful asset routing/export/caption/link; missing SVG rejected; out-of-tree asset rejected. Browser verifies the rendered figure target, image decoding and both downloads."
+  },
+  "validation": {
+    "pipeline_tests": {
+      "command": "python3 -m unittest discover -s tests -v",
+      "result": "All 39 tests passed (21.470 seconds)."
+    },
+    "website_pdf": {
+      "command": "python3 scripts/build.py --pdf --volume v1a",
+      "result": "Passed: 12 volume parts, 31 chapters, 156 sections, nine appendices, three populated entries and one PDF."
+    },
+    "pdf": "No TeX warnings, overfull/underfull boxes or unresolved references. Physical pages 34,36,37 visually inspected for the geodesic diagram and Laplacian exposition. Editor/download PDFs match.",
+    "exports": "22 edited source exports checked byte-for-byte; 35 source hashes in the Lean audit match their recorded versions.",
+    "browser": {
+      "command": ".venv/bin/python scripts/check_browser.py",
+      "result": "Passed with normal screenshot capture, desktop/mobile navigation, exact Lean source display, math rendering, diagram decode/caption/hyperlink and PDF/SVG downloads, no page errors or page-width overflow, and subdirectory hosting. Desktop/mobile diagram screenshots visually inspected.",
+      "resolved_issue": "The initial browser run found that sanitization removed figure containers and link targets. Adding the safe FIGURE/FIGCAPTION elements preserved the existing attribute filtering. The full browser check then passed."
+    },
+    "format": "node --check web/app.js and git diff --check passed.",
+    "screenshots": {
+      ".build/chapter01-geodesics-desktop.png": "6f7a6da798a640ccb5abfb7e93682f3358fb5f74c48dab5bdd2a4c7ec349fbd8",
+      ".build/chapter01-geodesics-mobile.png": "bde76a35838e87f1cadbeb9ccd498b01022bef5b0463c52b218d31ceddf14095"
+    }
+  },
+  "deployment": "Local changes only; no commit, push or deployment."
+}

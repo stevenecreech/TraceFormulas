@@ -11,7 +11,9 @@ The collaboration process is recorded in [Steven's chapter workflow](docs/WORKFL
 | 3 | Half-integral weight | Automorphic forms | Automorphic representations | Dictionary |
 | 4 | Quaternionic forms | Automorphic forms | Automorphic representations | Dictionary |
 
-Volume 1a has **31 chapters (0–30), 153 sections, and nine appendices (A–I)**, including a [notational index](volumes/Volume01/A/appendices/I/intro.tex) with links to definitions. Chapter 0 is a compact reference introduction; individual trace formulas are developed in their own chapters. The series has no exercises. The other eleven parts have registered destinations and empty outlines, clearly marked as planned.
+Volume 1a has **31 chapters (0–30), 158 sections, and nine appendices (A–I)**, including a [notational index](volumes/Volume01/A/appendices/I/intro.tex) with links to definitions. Chapter 0 is a compact reference introduction; individual trace formulas are developed in their own chapters. The series has no exercises. The other eleven parts have registered destinations and empty outlines, clearly marked as planned.
+
+Chapter 1 now has an edited prose draft in eight sections, from the Möbius action and Iwasawa decomposition through hyperbolic geometry, the modular domain, and center-sensitive measure formulas. Sections 1.1–1.8 and Appendices A.1–A.2 have partial Lean companions, developed alongside the prose edits; their Compare notes list the remaining obligations. Section 1.8 introduces Haar measure and its quotient interpretation of hyperbolic area, with general uniqueness and left/right proofs in Appendix A.2. Chapter 0 is displayed as **Autoformalized · awaiting human review**, supported by its dated machine audit.
 
 ## Work on one section
 

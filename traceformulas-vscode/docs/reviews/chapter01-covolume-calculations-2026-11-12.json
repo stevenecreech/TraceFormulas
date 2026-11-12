@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-12",
+  "scope": "Expand the three volume calculations in Theorem 1.8.14",
+  "prose_status": "expanded proof draft for Steven review; all mathematical conclusions and normalizations preserved",
+  "changes": [
+    "Separated the four stated formulas with descriptive prose and semantic numbered equations (1.8.4)-(1.8.7).",
+    "Constructed the subgroup region from explicit coset representatives; proved coverage and uniqueness outside an invariant null set; displayed the area sum over all tiles.",
+    "Explained counting-measure normalization of the group quotient and derived angular representatives from the central stabilizer.",
+    "Evaluated the matrix angular integral over [0,2pi/m) with density 1/(2pi), then substituted the geometric-area and index formulas to obtain the matrix covolume.",
+    "Evaluated the effective angular integral over [0,pi) with density 1/pi and justified omission of boundary fibers using the Iwasawa product measure.",
+    "Updated Compare with the explicit formalization roadmap and the browser equation-count expectations from 40 to 44."
+  ],
+  "new_equations": {
+    "eq:subgroup-effective-index": "1.8.4",
+    "eq:subgroup-hyperbolic-area": "1.8.5",
+    "eq:subgroup-matrix-covolume": "1.8.6",
+    "eq:subgroup-effective-covolume": "1.8.7"
+  },
+  "formal_status": "unchanged partial Lean companion; measurable subgroup fundamental sets, quotient measures and volume calculations remain formalization targets",
+  "human_correspondence_review": "not-reviewed",
+  "ai_review": "read-only review of saved proof passed; checked coset orientation, representatives, null sets, angular intervals and all normalization factors",
+  "inherited_audit": {
+    "record": "lean/audits/chapter01-diagonal-character-2026-11-12/record.json",
+    "declarations": 266,
+    "unchanged_hashes": 69,
+    "total_hashes": 71,
+    "changed_inputs": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex"
+    ],
+    "lean_configuration_metadata": "unchanged"
+  },
+  "validation": {
+    "combined_pdf_website_build": "passed",
+    "tex_log": "clean",
+    "numbering": "all 44 Chapter 1 equations and 90 statement/remark blocks match PDF and website; Theorem 1.8.14 retained",
+    "exports": "exact manuscript/Compare/Lean/metadata; exact displayed Lean; editor/download PDFs byte-identical",
+    "visual_inspection": "printed pages 59 and 60",
+    "browser": "full desktop/mobile checks passed with 44 equations, MathJax, appendix links, exact Lean panes, downloads and subdirectory hosting; no page errors",
+    "unit_tests": "not rerun; only browser equation-count expectations changed outside prose",
+    "git_diff_check": "passed"
+  },
+  "notation_index": "unchanged; r is a local abbreviation and F_Lambda was already local proof notation",
+  "publication": "local only; no commit, push, or deployment",
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "551ac90ba60f1fe649c70892738b64cfe276771661eae2e145425138c45800e3",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex": "20c9e7c39732f0372cfec7945307004bbde0f376c06ab8af6965c9efe2804c51",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/Formalization.lean": "2b05110fde606e56eac543077a04dce49554d9c9fe72738055656de2877ab56b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/section.json": "6b90d605f7c8539f73590e7bbde019988f2d0d670a329db5335d5dd452e1b12e",
+    "scripts/check_browser.py": "d50e9fb864c653be63f0e1b4e32328285afb32ec7f2b1291bcd216a728fd5e52",
+    "volumes/Volume01/A/appendices/I/intro.tex": "6ff19228f9a1665b8a2adf512ac28c3a82f27bd9cf808ea59b903a52dfe1b1f1"
+  }
+}

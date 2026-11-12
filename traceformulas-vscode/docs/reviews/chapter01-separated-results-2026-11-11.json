@@ -1,0 +1,131 @@
+{
+  "date": "2026-11-11",
+  "scope": "Split bundled results in Chapter 1 Sections 1.2–1.4 into shorter statement–proof pairs, preserving mathematical scope and expanded calculations.",
+  "prior_snapshot": "docs/reviews/chapter01-basepoint-disk-2026-11-11.json",
+  "prose_status": "proof-draft; six bundled results reorganized into 21 focused statements",
+  "human_correspondence_review": "not-reviewed",
+  "formal_status": "in-progress; proof code unchanged; same 49 public companion theorems and existing coverage gaps",
+  "bibliographic_source_status": "unchanged; no new source consultation or complete source audit",
+  "video_status": "not-started",
+  "new_result_labels": {
+    "hyperbolic.stabilizer": {
+      "number": "1.2.2",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex"
+    },
+    "hyperbolic.iwasawa-explicit-coordinates": {
+      "number": "1.2.4",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex"
+    },
+    "hyperbolic.quotient-description": {
+      "number": "1.2.5",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex"
+    },
+    "hyperbolic.invariant-density": {
+      "number": "1.3.2",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex"
+    },
+    "hyperbolic.vertical-geodesics": {
+      "number": "1.3.5",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex"
+    },
+    "hyperbolic.distance-formula": {
+      "number": "1.3.7",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex"
+    },
+    "hyperbolic.disk-metric": {
+      "number": "1.4.2",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex"
+    },
+    "hyperbolic.disk-rotations": {
+      "number": "1.4.3",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex"
+    },
+    "hyperbolic.disk-geodesics": {
+      "number": "1.4.4",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex"
+    },
+    "hyperbolic.point-pair-properties": {
+      "number": "1.4.6",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex"
+    },
+    "hyperbolic.point-pair-distance": {
+      "number": "1.4.7",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex"
+    },
+    "hyperbolic.point-pair-disk": {
+      "number": "1.4.8",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex"
+    },
+    "hyperbolic.radial-functions": {
+      "number": "1.4.10",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex"
+    },
+    "hyperbolic.polar-coordinates": {
+      "number": "1.4.11",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex"
+    },
+    "hyperbolic.ball-area": {
+      "number": "1.4.12",
+      "source": "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex"
+    }
+  },
+  "retained_labels": "All previous manuscript labels remain; semantic references retargeted where they concern a newly separated result.",
+  "equation_changes": {
+    "eq:inverse-cayley-height": {
+      "old": "1.4.3",
+      "new": "1.4.2"
+    },
+    "eq:disk-metric-area": {
+      "old": "1.4.2",
+      "new": "1.4.3"
+    }
+  },
+  "lean_changes": "Explanatory headings in Sections 1.2–1.4 identify the separated prose results. Compared against the pre-edit snapshot with comments and whitespace removed: mathematical declarations and proofs unchanged. Compare notes preserve every existing coverage gap.",
+  "validation": {
+    "machine_audit": "lean/audits/chapter01-separated-results-2026-11-11/record.json",
+    "full_lean_build_and_axioms": "passed: 170 declarations, including generated helpers",
+    "allowed_foundations": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "dependencies": "Nine dependencies verified clean at locked revisions before build, after build, and after axioms.",
+    "audit_source_hashes": "All 40 match current sources.",
+    "pdf_website_build": "passed: python3 scripts/build.py --pdf --volume v1a",
+    "tex_log": "No warnings, unresolved references, or overfull/underfull boxes.",
+    "labels": "Retained labels and all 15 new targets present in PDF and HTML; all 24 equation numbers agree.",
+    "source_exports_and_pdfs": "Edited source, Lean, Compare, metadata exports match saved files; editor and download PDFs are byte-identical.",
+    "pdf_visual_inspection": "Printed pages 19, 34, 35, 37 (physical pages 27, 42, 43, 45).",
+    "browser": "passed: .venv/bin/python scripts/check_browser.py; desktop/mobile navigation, equation links, precise smooth-density link, MathJax, exact Lean display, downloads, subdirectory hosting; no page errors",
+    "unit_suite": "not-rerun; converter and mathematical proof implementations unchanged",
+    "diff_check": "passed",
+    "commit_push_deployment": "not-performed"
+  },
+  "source_sha256": {
+    "../AGENTS.md": "630796dfca476b8f873865ed4808bf62994cc16641506f7adc90f11ebdb70f7d",
+    "AUTHORING.md": "dda081f9e7103363f6d002690f77885a35494a0aadba54a97fe266a5c1b8ecb8",
+    "docs/WORKFLOW.md": "70fcea59630a96a3ee14ad53dc6f5cb983565250978ce9bca4a80da81d5be3b9",
+    "docs/STATUS.md": "e491aabff1c881381859d820acfc89ad2f2bc78de6a68c9951d8a3c2c1e89007",
+    "scripts/check_browser.py": "9d67b2ee776f3841f2d158a88533a3ededcaf53860f33fcff65204087cbeb8d0",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "4be988db55bd266f880935bada16555cc5ddb2bd69f9eb609f0d899cd870230b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "83e7e52d7fb15cf98a7faacb85281724582652dbae46c2ea270e507c8589e773",
+    "volumes/Volume01/A/appendices/I/intro.tex": "3a9ef222c1ca5c601bf533f3e1a09c6d73b6c3a137fe9a4c661851aa8388a370",
+    "lean/audits/chapter01-separated-results-2026-11-11/record.json": "fc614401355dcb85abe84235945859b7b261002559f123c19f39a206b10c3934",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "7f55c7a9bca3aac766479f2a5d134afbe4d366f6e049968ab7145daff9854259",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "40d43c2b08d85814bb551a59e965ea13093620f849b2b3488f3840430fa17b81",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/section.json": "5682d101bb0f7e0838caa812969a06e6aac0979d56b0f26fcb384a9622e70e5e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "e01f18586185d40e6d40cb9010b332c6718de79ad26559cd13cb86d5ae5b8696",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "9279d1e9634d80bd60f3a54cf1747c3fb8e263ecd0fa8bc88fe141c27d41a612",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "e0f81c1ff22d3aa6b3402759762f78d01666ca0b2bb911aab1b1281d49a1db5b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "b637a138068a8a0d5c3a899ff4bb01afa471b6bbf738338c05defc46ff4542f5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "64015a1451e105a90ada667be04c6e1fb2600c6ef9ad67095b90abd9be73f34c",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c95c8695388cddb4907305a3facfe39a79b3517036a1945b0f0f316d8a4fccf6",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "669ee0b30ad73d8aa06d25ccbf9b33b36ee6a986317d8150bb056e4f5145549d",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "c43e8890da7b8780607280e05d9617a70a5e2db6ec873379a109378a51f8eb68",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex": "2f3c6f5322242501fa9fcb91a8649f354af442251f08595e17fd3915839f5e2f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/Formalization.lean": "52bc27639ad97808ece7f84acced405e9cdcda9a1ba9b9bf0d60063a62a4a81b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/compare.tex": "7b1a46b2651de29bb2ed70f0422b1b1519172198420b0ec3e1bb76fb7a387011",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/section.json": "833590322f6fb8d24362914ebf9d026b8556734c44c49d9c1f094e68918a719e"
+  }
+}

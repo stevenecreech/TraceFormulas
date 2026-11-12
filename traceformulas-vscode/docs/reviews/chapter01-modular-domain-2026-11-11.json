@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-11",
+  "scope": "Section 1.6 fundamental-domain definition, row-operation generation, separated boundary and tiling results, named equations and two diagrams; Section 1.7 punctured-sphere topology.",
+  "prose_status": "proof-draft; edited with Steven; all prior semantic labels retained",
+  "formal_status": "in-progress; eleven checked Section 1.6 public results, explicit unimplemented obligations",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "source_check": {
+    "url": "https://www.jmilne.org/math/CourseNotes/MF.pdf",
+    "locations": [
+      "Theorem 2.12, printed pages 32\u201333",
+      "Proposition 2.21 and preceding cusp/local quotient discussion, printed pages 35\u201336"
+    ],
+    "scope": "Targeted check of modular domain, boundary pairing and compactified quotient; not a complete chapter source audit."
+  },
+  "structure_decision": "Keep Section 1.6 on domain reduction, side pairings and tiling. Put the sphere proof in Section 1.7 after the cusp and stabilizers; cone points are retained, only the cusp is removed.",
+  "formal_coverage": {
+    "shared_module": "TraceFormulas.Geometry.ModularDomain",
+    "companion": "Volume01.A.chapters.Chapter01.sections.Section06.Formalization",
+    "public_declarations": 11,
+    "checked": [
+      "S and T^q row operations",
+      "generation by S,T",
+      "S^2=(ST)^3=-I",
+      "T^n action",
+      "norm-based membership of fd/fdo",
+      "height bound",
+      "orbit meets closed domain",
+      "equality of strict representatives"
+    ],
+    "differences": [
+      "Generation reuses Mathlib integer-division reduction instead of nearest-integer division.",
+      "Orbit reduction reuses maximal-height/minimal-absolute-real-part construction.",
+      "Strict representative equality assumes both points strict and does not yet conclude matrix centrality."
+    ],
+    "open": [
+      "discreteness/properness",
+      "general closed-domain topology and topological interior bridge",
+      "full nonzero integer pair denominator bound",
+      "centrality with only one interior representative",
+      "effective quotient orders",
+      "boundary classification/exact representative set",
+      "measure-zero boundaries and tiling",
+      "all Section 1.7 topology and stabilizer/cusp results"
+    ]
+  },
+  "machine_evidence": {
+    "record": "lean/audits/chapter01-modular-domain-2026-11-11/record.json",
+    "declarations": 211,
+    "source_hashes_verified": 50,
+    "dependencies_verified": 9
+  },
+  "figure_model": {
+    "generator": "scripts/draw_modular_domain.py",
+    "formats": [
+      "pdf",
+      "svg"
+    ],
+    "domain": "x=\u00b11/2, |z|=1 arc, cut along imaginary axis; paired arrows match T and S",
+    "tiling": "Finite collection of actual integral determinant-one matrix images; ideal-end truncation at 10^5, visible lower crop at 0.075; only true boundary pieces stroked."
+  },
+  "validation": {
+    "build": "passed: python3 scripts/build.py --pdf --volume v1a",
+    "tex_log": "clean after shortening diagram crop to remove initial oversized-float warning",
+    "tests": "45 passed: python3 -m unittest discover -s tests -v",
+    "browser": "Final Chrome desktop/mobile run passed after figure resize; math, links, exact Lean panes, figure/PDF downloads, subdirectory hosting and no overflow/page errors.",
+    "number_parity": "33 equations and 72 theorem blocks match PDF auxiliary numbers",
+    "exports": "Exact Section 1.6/1.7 source and figure copies, actual companion text, matching editor/download PDFs",
+    "notation_entries": 67,
+    "visual_inspection": "Both standalone vector figures, final domain PDF physical page 54 (printed 46), tiling physical page 57 (printed 49), topology physical page 59 (printed 51), plus browser screenshots.",
+    "diff_check": "passed",
+    "commit_push_deploy": "not-performed"
+  },
+  "source_sha256": {
+    "AUTHORING.md": "be48fdef8e2a4280bc75953925751fa83e1f61cb0b3fe8ff86d98fa336fb0ffb",
+    "README.md": "619293631eb71da72b00c9651cfd45c3e13042e59b03a987a538d985e5a395f2",
+    "docs/STATUS.md": "5c80d6db9bc9ed217855965cced8b3ef6b55c155a9ace35fecbd40dfd32ebd6b",
+    "lakefile.toml": "1219039ed11add3353c056b4b4bd5e48c4ede9fc4e01e1d2da2a363f35db66b9",
+    "lean/AuditChapter01.lean": "46d7254ba51fa71f8a156edaf112ba51b9af787578e7fa33c638a27c42241628",
+    "lean/README.md": "bcc2973fa59e24cf9a132f8f6e7162f496bab5f4bb63852f89efcb519d3587f9",
+    "lean/TraceFormulas/Geometry/ModularDomain.lean": "0f959db683cf41e48929c918615f0364945b4619475a24e5fa051348d7649a1b",
+    "scripts/audit_lean.py": "dc1f64dec7667c86fea5bd6bb3de6770466917cc37617076e133bea0d8262621",
+    "scripts/check_browser.py": "bfec87f57bb5ad9eb53f63730c0a22c27eda45a75d5f9c72bfa3f62b0ceb4a41",
+    "scripts/draw_modular_domain.py": "f2c086a102cdad39ee5ef4b15613bed2333e76f02f13e9a6e4a06194e382727f",
+    "tests/test_lean_audit.py": "05c2bd4d02e4a70c11536aa826266cafa3a1e7edd36953d472eeb7caee2ecaa1",
+    "volumes/Volume01/A/appendices/I/intro.tex": "aad1886862070af4c7ba026e5f66dcd8772196a82b0611135d8f2e9221a98051",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "a3441ebdd45543f1154c065494e147a37ca05b463cc45ad20255bdccb53d0e96",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/Formalization.lean": "24edb7703c8d7e26fc379cb21b905454579cc3f178b48e331c3e2b93de83cd42",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/compare.tex": "d84e8f740866156922b56cc6aa42e8556facedf45cb8347fa91028b589e1a735",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/figures/fundamental-domain.pdf": "6414ddcd823115e1be5ed56496b108e5576f272652d20e0059d97f0899e79857",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/figures/fundamental-domain.svg": "4df344ee6d3357c13a379f9456b0ef3ad4cca3aad65c9622314bc6518172ce46",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/figures/modular-tiling.pdf": "ccadfe7323fcf1818bf771a6e55b98667d725d812b56fcdd59f1757f4ee0940c",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/figures/modular-tiling.svg": "887d2f072ee22bec58819246ba6651b2c33645301223af80cd44120a4853c719",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/section.json": "ad1857b0539f428ea2cd1f063f0c3a1cd06da374bf3506f3a3d7e063c723afc8",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/text.tex": "9133ed5dccdc53df55c128f1f0511efe3fb513a66604d028646388fe72fe19d9",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/compare.tex": "24f44f66fb0b26fad203c44c6a1d22952a79fe12b485892d334ae41d4a816d25",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/text.tex": "7c493f6d6f6b7b65fefb68fb3436c6687e193c03b840a589ff2cf1c031da8737"
+  }
+}

@@ -21,5 +21,15 @@ srcDir = "volumes"
 roots = [
   "Volume01.A.chapters.Chapter00.sections.Section01.Formalization",
   "Volume01.A.chapters.Chapter00.sections.Section02.Formalization",
-  "Volume01.A.chapters.Chapter00.sections.Section03.Formalization"
+  "Volume01.A.chapters.Chapter00.sections.Section03.Formalization",
+  "Volume01.A.chapters.Chapter01.sections.Section01.Formalization",
+  "Volume01.A.chapters.Chapter01.sections.Section02.Formalization",
+  "Volume01.A.chapters.Chapter01.sections.Section03.Formalization",
+  "Volume01.A.chapters.Chapter01.sections.Section04.Formalization",
+  "Volume01.A.chapters.Chapter01.sections.Section05.Formalization",
+  "Volume01.A.chapters.Chapter01.sections.Section06.Formalization",
+  "Volume01.A.chapters.Chapter01.sections.Section07.Formalization",
+  "Volume01.A.chapters.Chapter01.sections.Section08.Formalization",
+  "Volume01.A.appendices.A.sections.Section01.Formalization",
+  "Volume01.A.appendices.A.sections.Section02.Formalization"
 ]

@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-09",
+  "scope": "Section 1.1 remark removal and relocation",
+  "prior_snapshot": "docs/reviews/chapter01-orbit-motions-2026-11-09.json",
+  "deferred_material": {
+    "label": "hyperbolic.central-sign",
+    "intended_destination": "Chapter 3 or a later volume, when transformation laws and characters are developed",
+    "latex": "\\begin{remark}[The central sign still acts on transformation laws]\\label{hyperbolic.central-sign}\nThe matrices $g$ and $-g$ give the same transformation, but their denominators $cz+d$ and $-cz-d$ have opposite signs. For example, suppose a complex-valued function satisfies\n\\[\n f(\\gamma\\cdot z)=\\chi(\\gamma)(cz+d)^k f(z),\\qquad\n \\gamma=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix},\n\\]\nfor an integer $k$ and a character $\\chi$ of a subgroup containing $-I$. Substitution of $-I$ gives $f(z)=\\chi(-I)(-1)^k f(z)$, so a function that is not identically zero requires $\\chi(-I)(-1)^k=1$. With the trivial character this forces $k$ to be even. This calculation explains why the geometric action may pass to $\\operatorname{PSL}_2$ while a transformation law must still remember the chosen matrices. The automorphy factor, its cocycle identity, and the slash action will be developed in \\hyperref[v1a-ch03]{the chapter on holomorphic modular forms}.\n\\end{remark}"
+  },
+  "moved_material": {
+    "label": "hyperbolic.positive-determinant",
+    "placement": "Immediately after the proof of hyperbolic.imaginary-part",
+    "content_changed": false
+  },
+  "lean_change": {
+    "kind": "module documentation only",
+    "file": "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean",
+    "sha256_before": "b19c1cb8de41b7ff8538b6f97c6d205b6fc6c31d9a4a3316a6fc4a2e878a1bac",
+    "sha256_after": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "content_outside_module_doc_unchanged": true,
+    "prior_audit": "lean/audits/chapter01-section01-editorial-2026-11-09/record.json",
+    "new_build_or_axiom_audit": false
+  },
+  "human_correspondence_review": "not-reviewed",
+  "formal_status": "in-progress; retained mathematical declarations unchanged",
+  "validation": {
+    "build": "python3 scripts/build.py --pdf --volume v1a passed; 12 volume parts, 31 chapters, 156 sections, nine appendices, one PDF.",
+    "numbering_and_order": "PDF auxiliary labels and rendered website verify Lemma 1.1.4, Remark 1.1.5 (positive determinant), Theorem 1.1.6 (three orbits), in that order.",
+    "removed_remark": "Absent from rendered website and PDF labels; no live incoming manuscript references found before removal.",
+    "tex_log": "No warnings, overfull/underfull boxes, or unresolved references.",
+    "exports": "Edited prose, Compare, companion and chapter formalization-note exports match saved sources; editor/download PDFs are identical.",
+    "browser_and_unit_tests": "Not rerun for this prose relocation; rendered HTML and full PDF were checked directly.",
+    "lean": "Only the module documentation changed; declarations and proof bodies are unchanged, so no Lean build or axiom audit rerun."
+  },
+  "deployment": "Local changes only; no commit, push or deployment.",
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "263f0b63d5c6a49c015809519a8d951fbae6f3cd330c0edc6a5cb698a6da97be",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "f475578b79a5a7edfc975c73da03aea032b5ea127b2a69e41bcbfd810a56784b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "e0035a79dad141f104d3f2fb626292b5db2ca663422c5ad2446096eed90e90d6"
+  }
+}

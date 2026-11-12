@@ -1,0 +1,1080 @@
+{
+  "started_at_utc": "2026-11-10T16:14:19.481322+00:00",
+  "status": "passed",
+  "human_correspondence_review": "not-reviewed",
+  "scope": "Implemented portions of Chapter 1 Sections 1.1\u20131.3 and their shared library; incomplete chapter coverage",
+  "allowed_foundational_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "commands": [
+    {
+      "stage": "build",
+      "argv": [
+        "/Users/stevencreech/.elan/toolchains/leanprover--lean4---v4.21.0-rc3/bin/lake",
+        "build"
+      ],
+      "cwd": ".",
+      "exit_code": 0
+    },
+    {
+      "stage": "axioms",
+      "argv": [
+        "/Users/stevencreech/.elan/toolchains/leanprover--lean4---v4.21.0-rc3/bin/lake",
+        "env",
+        "lean",
+        "lean/AuditChapter01.lean"
+      ],
+      "cwd": ".",
+      "exit_code": 0
+    }
+  ],
+  "source_sha256": {
+    "lake-manifest.json": "c3d06c4bd61e3f79ce55c83d5b8ceaf73a495aa1822fe117a7227581855e0777",
+    "lakefile.toml": "b5adf95e6c070092262a06a2830a2811876cde703cffc0b0d0c384d480cddb57",
+    "lean/AuditChapter01.lean": "3bca122218d41e41e709c8b029a0ea76a1fbc04fc9d66869e1b401ef5b032dbf",
+    "lean/TraceFormulas/Analysis/FiniteCountingKernel.lean": "003491468a9bc3cbc8cb66c91b39ca35302655d57bf955e7918c09092049b7b7",
+    "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean": "71a35e83184b3dd7616a511c4099e010f0c10776a3b3da3b72b10e95789ff733",
+    "lean/TraceFormulas/Analysis/FiniteKernel.lean": "e9c27965fb0fa680a07aeb739f744051b16b39e3ff996fc3a9d9afeb543aeb27",
+    "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean": "c03495ed27c7d08fb9d74cc9ec5c4044bc01f2d16170a51308c4b754fdff2c29",
+    "lean/TraceFormulas/Analysis/FiniteProjection.lean": "7d5ac7941a94770e28360b196788bd418afd431642ec955bf398e2ab60f0d853",
+    "lean/TraceFormulas/Analysis/FiniteRankTrace.lean": "49e06536fa7f446de93158f6743c1bb9f2e3949a95fc13f58cc4c1880b275cef",
+    "lean/TraceFormulas/Analysis/KernelRepresentatives.lean": "0b9471729fed39841931de4946322705c9622b088c9b9647b75b894ded782585",
+    "lean/TraceFormulas/Analysis/RankOneExample.lean": "4250be4933a256af8f5da03f999255f1f602e3349742b20c3f5ce5a5396ab280",
+    "lean/TraceFormulas/Analysis/RelativeKernel.lean": "67d641d6f5e51c710ee0530612a4721dd0ab48b51c664e3b9153baaac725dc4a",
+    "lean/TraceFormulas/Analysis/SpectralKernel.lean": "68f021fffec797ce7a31fd57c21cff81c91250d083c8e4a2d7895ecb6801943e",
+    "lean/TraceFormulas/Analysis/WeightedKernel.lean": "27efe609425bb7b40b881547fb01cdc01f9a7bf340d74bfe8dff8739ac41c902",
+    "lean/TraceFormulas/Geometry/InvariantGeometry.lean": "2f4687997aec6204ee065afe347252bfd7d2a95228914f652e8d93ede21239c1",
+    "lean/TraceFormulas/Geometry/Iwasawa.lean": "ec05ee0554639cee8d7fdac11e6a745b01c75251e3a77862c43c683171cf7fac",
+    "lean/TraceFormulas/Geometry/RealMobius.lean": "499e78c9109b299d56a7a68b1b48262ad31d515aa4f70b83d6ef0a5de1352e3b",
+    "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean": "eab9febd8c63ead9dd2e960e0e13b7dd65320b50dbebcf8057536bdd726f1c95",
+    "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean": "fa07df94d8458d9af6e541a10112db5448bba8e6fa738a862122749904aeff54",
+    "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean": "ebb715be9cfdf061291e6d22969b3dc0d545d19204d8b9ad5ba9ffecbe08fb6a",
+    "lean/TraceFormulas.lean": "5663a312be65bc8524b1d3317724d0bfb22bd66d972ec51e2d5b8072b50cac16",
+    "lean-toolchain": "4a621e65aac8f17691d825e7dfedb432e2658f3a96002cab94fad5320a18c9fc",
+    "scripts/audit_lean.py": "22fa014afe6424959809a2163325f2949699b4f2683fd4dcb3d41d56e3260c61",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "24e4c037a6ee27c230857bbbb5ae67fb0f407c03b2464f29e92c88039f2cfed8",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/section.json": "5682d101bb0f7e0838caa812969a06e6aac0979d56b0f26fcb384a9622e70e5e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "7289b75979b5d405dd2c6c1dabc57257d07288e7e3fc6d1cdc47e8329834c5c4",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "0f55e04cdd89f905126ad7143a971f6a4c83eac50d02bdf6210997a78629964f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "aaa5fd445b185acbaf3bbdf5da9b00c66af32e8c2e8457ef18420dacc97beacd",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "b637a138068a8a0d5c3a899ff4bb01afa471b6bbf738338c05defc46ff4542f5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "112d54bb73f41149a1b99d930cd2a0ddfeba39dfa165691bf922ca305b54be0f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c0541381425c82b75c7b8040866b805c0c66800bc040e9e126a9ce43ef665456",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "eb71a3c76407e0166b69f013722934ad858b74d2180abd19937d2c1f7e7a403f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "c43e8890da7b8780607280e05d9617a70a5e2db6ec873379a109378a51f8eb68",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "4a89dbb26c3bc67a5b72256a956b2ecc0ff09b4d46021823d2590895ada3f515"
+  },
+  "toolchain_pin": "leanprover/lean4:v4.21.0-rc3",
+  "lean_version": "Lean (version 4.21.0-rc3, arm64-apple-darwin23.6.0, commit 6741444a63ee, Release)",
+  "verified_lean_version": "4.21.0-rc3",
+  "dependencies": [
+    {
+      "name": "mathlib",
+      "url": "https://github.com/leanprover-community/mathlib4.git",
+      "revision": "39d8416ae1e1083477f7546f1fd10e460ad37936",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "plausible",
+      "url": "https://github.com/leanprover-community/plausible",
+      "revision": "1603151ac0db4e822908e18094f16acc250acaff",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "LeanSearchClient",
+      "url": "https://github.com/leanprover-community/LeanSearchClient",
+      "revision": "6c62474116f525d2814f0157bb468bf3a4f9f120",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "importGraph",
+      "url": "https://github.com/leanprover-community/import-graph",
+      "revision": "e25fe66cf13e902ba550533ef681cc35a9f18dc2",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "proofwidgets",
+      "url": "https://github.com/leanprover-community/ProofWidgets4",
+      "revision": "6980f6ca164de593cb77cd03d8eac549cc444156",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "aesop",
+      "url": "https://github.com/leanprover-community/aesop",
+      "revision": "c3a19fa17982c5c1413fea335f371869b8b12e1d",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "Qq",
+      "url": "https://github.com/leanprover-community/quote4",
+      "revision": "e1d2994e0acdee2f0c03c9d84d28a5df34aa0020",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "batteries",
+      "url": "https://github.com/leanprover-community/batteries",
+      "revision": "ef9acd3acba42efed1162b7e9112e668c09916aa",
+      "tracked_source_clean": true
+    },
+    {
+      "name": "Cli",
+      "url": "https://github.com/leanprover/lean4-cli",
+      "revision": "a0abd472348dd725adbb26732e79b26e7e220913",
+      "tracked_source_clean": true
+    }
+  ],
+  "dependency_verification_stages": [
+    "before-build",
+    "after-build",
+    "after-axioms"
+  ],
+  "declarations": [
+    {
+      "declaration": "TraceFormulas.Hyperbolic.IsInvariantBilinearField",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.IsInvariantBilinearField._proof_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.RealGroup",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.action_difference",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.action_formula",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.action_im",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.action_kernel_eq_center",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.action_kernel_iff",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.areaDensity",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.areaDensity.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.areaDensity_covariant",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.base_point_coordinates",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.bilinear_rotation_unique",
+      "axioms": [
+        "Quot.sound",
+        "propext",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.center_iff",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.density_unique",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.derivative_normSq",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.dilation",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.dilation._proof_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.dilation.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.dilation_action",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.distanceRatio",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.distanceRatio.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.distanceRatio_invariant",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.factor",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.factor._proof_1",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.factor.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.factor_cocycle",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.factor_ne_zero",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.fixes_I_iff_entries",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.fixes_I_iff_rotation",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.gradientFromDifferential",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.gradientFromDifferential.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.gradientFromDifferential_duality",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.hasDerivAt_fractional_action",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.invariantBilinearField_unique",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.iwasawa_existence",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.iwasawa_unique",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.mobiusDerivative",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.mobiusDerivative.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.nak_smul_I",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.nonreal_imaginary_part",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.position_stabilizer_factorization",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.quarter_rotation_derivative",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.real_pairing_complex_scale",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.rotation",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.rotation._proof_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.rotation.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.rotation_fixes_I",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.same_point_iff_stabilizer",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.sectionMatrix",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.sectionMatrix.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.sectionMatrix_action",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.sectionMatrix_derivative",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.sectionMatrix_derivative._proof_1_2",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.sectionMatrix_derivative._proof_1_3",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.sectionMatrix_inverse_action",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.sectionMatrix_smul_I",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentEnergy",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentEnergy.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentEnergy_at_I",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentEnergy_invariant",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentEnergy_positive",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm._proof_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm._proof_2",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm._proof_3",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm._proof_4",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm._proof_5",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm._proof_6",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm._proof_7",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm._proof_8",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm_apply",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm_invariant",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm_positive",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm_self",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangentForm_symmetric",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangent_norm_invariant",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.tangent_norm_invariant._proof_1_2",
+      "axioms": [
+        "propext"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.transitive_action",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.translation",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.translation._proof_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.translation.eq_1",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Hyperbolic.translation_action",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section01.center_exactly_signs",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section01.denominator_nonzero",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section01.difference_formula",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section01.fractional_action",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section01.imaginary_part",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section01.kernel_exactly_signs",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section01.kernel_is_center",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section01.nonreal_imaginary_part",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.a_scales",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.every_point_from_i",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.inverse_position_action",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.iwasawa_factorization_exists",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.k_fixes_base_point",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.n_translates",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.orbit_point_coordinates",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.same_point_modulo_stabilizer",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.stabilizer_entry_equations",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.stabilizer_is_rotations",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.unique_iwasawa_factors",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.upper_half_plane_transitive",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.area_density_covariance",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.euclidean_normalization_at_i",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.fractional_action_derivative",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.gradient_duality",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.invariant_metric_coefficients",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.invariant_positive_density_unique",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_formula",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_invariant",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_positive",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_inner_product_symmetric",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_length_invariant",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_squared_length_invariant",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.tangent_squared_length_positive",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    },
+    {
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section03.two_point_ratio_invariant",
+      "axioms": [
+        "propext",
+        "Quot.sound",
+        "Classical.choice"
+      ]
+    }
+  ],
+  "audited_declaration_count": 118,
+  "finished_at_utc": "2026-11-10T16:15:47.478568+00:00",
+  "log_sha256": {
+    "build.log": "a30d6eefe7ccec7803482bd446c3d48f7cc46ed86ba99cb839fca134dd7a5a3d",
+    "axioms.log": "361c5f235dc4b9a0b46dd18c57ce43026f605bccd9f27f54cf6cc715e7f02cf2"
+  }
+}

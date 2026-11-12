@@ -113,6 +113,58 @@ local function anchor_paragraph(para)
   return pandoc.Plain(para.content)
 end
 
+-- Number only explicitly labeled equation environments. The volume assembler
+-- supplies chapter.section; the visible number is ordinary HTML, never a
+-- MathJax counter whose value could depend on the page/tab rendering order.
+local function equations(doc)
+  local prefix = doc.meta["theorem-prefix"]
+  prefix = prefix and pandoc.utils.stringify(prefix) or nil
+  local ordinal = 0
+  return doc:walk({Math = function(el)
+    local body = el.text:match("^\\begin{equation}%s*(.-)%s*\\end{equation}$")
+    if body then
+      if not prefix then
+        error("Define numbered equations in manuscript introductions or text.tex sections.")
+      end
+      local label, count
+      body, count = body:gsub("\\label%s*{([^{}%s]+)}", function(target)
+        label = target
+        return ""
+      end)
+      if count ~= 1 then
+        error("Each equation environment needs exactly one semantic \\label{...}.")
+      end
+      if body:match("\\tag") or body:match("\\notag") or body:match("\\nonumber")
+          or body:match("\\eqref") or body:match("\\ref%s*{") then
+        error("Equation numbers are automatic; put references in prose and omit tag/notag/nonumber.")
+      end
+      ordinal = ordinal + 1
+      local number = prefix .. "." .. ordinal
+      el.text = body
+      local tag = pandoc.Span({pandoc.Str("(" .. number .. ")")},
+                              pandoc.Attr("", {"equation-number"}))
+      return pandoc.Span({el, tag}, pandoc.Attr(label, {"numbered-equation"},
+                         {["data-equation-number"] = number}))
+    end
+    if el.text:match("\\label") or el.text:match("\\tag")
+        or el.text:match("\\eqref") or el.text:match("\\ref%s*{")
+        or el.text:match("\\begin{equation}") or el.text:match("\\begin{align}")
+        or el.text:match("\\begin{gather}") or el.text:match("\\begin{multline}")
+        or el.text:match("\\begin{eqnarray}") then
+      error("Use a labeled equation (with aligned for multiple lines), and put \\eqref in prose.")
+    end
+  end, RawInline = function(el)
+    if el.format ~= "latex" and el.format ~= "tex" then return nil end
+    local label = el.text:match("^\\eqref%s*{([^{}%s]+)}%s*$")
+    if label then
+      -- Resolved against all manuscript equations after the volume is rendered,
+      -- so forward references and references from Compare work as well.
+      return pandoc.Link({pandoc.Str("?")}, "#" .. label, "",
+                         pandoc.Attr("", {"equation-reference"}))
+    end
+  end})
+end
+
 -- Pandoc can silently drop raw LaTeX it cannot render. Make that an authoring error.
 local function reject(el)
   error("Unsupported LaTeX in website conversion: " .. el.text ..
@@ -122,5 +174,6 @@ return {
   {Pandoc = theorem_blocks},
   {Inlines = prose_anchors},
   {Para = anchor_paragraph},
+  {Pandoc = equations},
   {RawBlock = reject, RawInline = reject},
 }

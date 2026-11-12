@@ -1,0 +1,19 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter01.Section06.generator_S_rows",
+      "TraceFormulas.Volume01.A.Chapter01.Section06.generator_T_rows",
+      "TraceFormulas.Volume01.A.Chapter01.Section06.generators",
+      "TraceFormulas.Volume01.A.Chapter01.Section06.generator_S_square",
+      "TraceFormulas.Volume01.A.Chapter01.Section06.generator_ST_cube",
+      "TraceFormulas.Volume01.A.Chapter01.Section06.translation_action",
+      "TraceFormulas.Volume01.A.Chapter01.Section06.domain_membership",
+      "TraceFormulas.Volume01.A.Chapter01.Section06.strict_domain_membership",
+      "TraceFormulas.Volume01.A.Chapter01.Section06.domain_height_bound",
+      "TraceFormulas.Volume01.A.Chapter01.Section06.orbit_meets_domain",
+      "TraceFormulas.Volume01.A.Chapter01.Section06.strict_representatives_equal"
+    ]
+  },
+  "videos": []
+}

@@ -54,13 +54,13 @@ Section~\ref{v1a-ch08-s1}, equation~\eqref{v1a-eq:sample-eight} holds.
             for label, number in {
                 'v1a-ch08': '8', 'v1a-ch08-s1': '8.1',
                 'v1a-ch10': '10', 'v1a-ch10-s1': '10.1',
-                'v1a-thm:sample-eight': '8.1.1', 'v1a-eq:sample-eight': '8.1',
+                'v1a-thm:sample-eight': '8.1.1', 'v1a-eq:sample-eight': '8.1.1',
             }.items():
                 self.assertIn('\\newlabel{' + label + '}{{' + number + '}', aux)
             data = pdf.read_bytes()
             for destination in (
                 'chapter.8', 'section.8.1', 'chapter.10', 'section.10.1',
-                'theorem.8.1.1', 'equation.8.1',
+                'theorem.8.1.1', 'equation.8.1.1',
             ):
                 name = destination.encode('ascii')
                 self.assertIn(b'/A << /S /GoTo /D (' + name + b') >>', data)

@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-10",
+  "scope": "Replace the temporary density symbol rho with y^-2 throughout the divergence derivation; explain dx dy = y² dμ.",
+  "prior_snapshot": "docs/reviews/chapter01-divergence-definition-2026-11-10.json",
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "aed29cba39380d7b45e2138663073fbaaf0a4731cfe85fb5344caffc9e62dda2"
+  },
+  "prose_status": "proof-draft",
+  "formal_status": "in-progress; no mathematical statement or Lean source changed",
+  "human_correspondence_review": "not-reviewed",
+  "inherited_lean_audit": "lean/audits/chapter01-section03-expanded-2026-11-10/record.json",
+  "lean_build_or_axiom_audit": "not-rerun; existing audited Lean sources and metadata hashes verified unchanged",
+  "validation": "python3 scripts/build.py --pdf --volume v1a passed; clean TeX log, no rho in the divergence passage, exact source export, matching editor/download PDFs, and git diff --check. Browser and unit tests not repeated for this notation edit.",
+  "deployment": "Local only; no commit, push or deployment."
+}

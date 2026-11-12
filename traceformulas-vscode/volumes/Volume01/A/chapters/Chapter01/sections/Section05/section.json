@@ -1,0 +1,19 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter01.Section05.discriminant_lift_independent",
+      "TraceFormulas.Volume01.A.Chapter01.Section05.quadratic_discriminant",
+      "TraceFormulas.Volume01.A.Chapter01.Section05.fixed_point_equation",
+      "TraceFormulas.Volume01.A.Chapter01.Section05.interior_fixed_point_discriminant",
+      "TraceFormulas.Volume01.A.Chapter01.Section05.fixed_point_conjugates_to_rotation",
+      "TraceFormulas.Volume01.A.Chapter01.Section05.translation_has_fixed_point_iff",
+      "TraceFormulas.Volume01.A.Chapter01.Section05.dilation_has_fixed_point_iff",
+      "TraceFormulas.Volume01.A.Chapter01.Section05.translation_point_pair",
+      "TraceFormulas.Volume01.A.Chapter01.Section05.dilation_point_pair",
+      "TraceFormulas.Volume01.A.Chapter01.Section05.dilation_displacement_lower_bound",
+      "TraceFormulas.Volume01.A.Chapter01.Section05.dilation_minimizers_are_on_imaginary_axis"
+    ]
+  },
+  "videos": []
+}

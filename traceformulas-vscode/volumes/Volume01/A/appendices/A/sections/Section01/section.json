@@ -1,0 +1,16 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Appendices.A.Section01.pi_lambda",
+      "TraceFormulas.Volume01.A.Appendices.A.Section01.finite_measure_uniqueness",
+      "TraceFormulas.Volume01.A.Appendices.A.Section01.measure_uniqueness_of_finite_cover",
+      "TraceFormulas.Volume01.A.Appendices.A.Section01.real_borel_measure_uniqueness",
+      "TraceFormulas.Volume01.A.Appendices.A.Section01.rectangle_borel_measure_uniqueness",
+      "TraceFormulas.Volume01.A.Appendices.A.Section01.translation_invariant_eq",
+      "TraceFormulas.Volume01.A.Appendices.A.Section01.translation_invariant_interval",
+      "TraceFormulas.Volume01.A.Appendices.A.Section01.translation_invariant_unique_scale"
+    ]
+  },
+  "videos": []
+}

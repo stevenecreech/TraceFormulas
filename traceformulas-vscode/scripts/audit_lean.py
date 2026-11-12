@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Chapter 0 and record its Lean axiom audit against exact source snapshots.
+"""Build the Lean project and record a selected chapter's axiom audit.
 
 This records machine evidence only. It cannot approve the correspondence with
 the manuscript on Steven's behalf and never changes the manuscript or sources.
@@ -19,16 +19,28 @@ from datetime import datetime, timezone
 ROOT = Path(__file__).resolve().parents[1]
 LEAN = ROOT / "lean"
 FOUNDATIONS = {"propext", "Classical.choice", "Quot.sound"}
+CHAPTER_SECTIONS = {0: (1, 2, 3), 1: (1, 2, 3, 4, 5, 6, 7, 8)}
+CHAPTER_APPENDIX_SECTIONS = {0: (), 1: (("A", 1), ("A", 2))}
 
 
-def source_hashes() -> dict[str, str]:
+def audited_sections(chapter: int):
+    for number in CHAPTER_SECTIONS[chapter]:
+        yield f"Section {number}", ROOT / f"volumes/Volume01/A/chapters/Chapter{chapter:02}/sections/Section{number:02}"
+    for letter, number in CHAPTER_APPENDIX_SECTIONS[chapter]:
+        yield f"Appendix {letter}.{number}", ROOT / f"volumes/Volume01/A/appendices/{letter}/sections/Section{number:02}"
+
+
+def audit_file(chapter: int) -> str:
+    return "Audit.lean" if chapter == 0 else "AuditChapter01.lean"
+
+
+def source_hashes(chapter: int = 0) -> dict[str, str]:
     sources = list((LEAN / "TraceFormulas").rglob("*.lean"))
-    sources += [LEAN / name for name in ("TraceFormulas.lean", "Audit.lean")]
+    sources += [LEAN / name for name in ("TraceFormulas.lean", audit_file(chapter))]
     sources += [ROOT / name for name in (
         "lean-toolchain", "lakefile.toml", "lake-manifest.json",
     )]
-    for number in (1, 2, 3):
-        section = ROOT / f"volumes/Volume01/A/chapters/Chapter00/sections/Section{number:02}"
+    for _, section in audited_sections(chapter):
         sources += [section / name for name in (
             "text.tex", "Formalization.lean", "compare.tex", "section.json",
         )]
@@ -123,20 +135,23 @@ def forbidden_lean_modifier(source: str) -> str | None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--lake", default="lake", help="Lake executable for the pinned toolchain")
-    parser.add_argument("--output", type=Path, default=LEAN / "audits/chapter00-current")
+    parser.add_argument("--chapter", type=int, choices=CHAPTER_SECTIONS, default=0,
+                        help="0: all three sections; 1: implemented portions of sections 1–8 and Appendices A.1–A.2")
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    destination = args.output.resolve()
+    destination = (args.output or LEAN / f"audits/chapter{args.chapter:02}-current").resolve()
     destination.mkdir(parents=True, exist_ok=True)
     record: dict = {
         "started_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "in-progress",
         "human_correspondence_review": "not-reviewed",
-        "scope": "Chapter 0 shared library and all three section companions",
+        "scope": ("Chapter 0 shared library and all three section companions" if args.chapter == 0
+                  else "Implemented portions of Chapter 1 Sections 1.1–1.8, Appendices A.1–A.2 and their shared library; incomplete chapter coverage"),
         "allowed_foundational_axioms": sorted(FOUNDATIONS),
         "commands": [],
     }
     try:
-        record["source_sha256"] = source_hashes()
+        record["source_sha256"] = source_hashes(args.chapter)
         for relative in record["source_sha256"]:
             if relative.endswith(".lean"):
                 modifier = forbidden_lean_modifier((ROOT / relative).read_text())
@@ -151,7 +166,7 @@ def main() -> int:
         record["dependency_verification_stages"] = ["before-build"]
         for stage, command in (
             ("build", [args.lake, "build"]),
-            ("axioms", [args.lake, "env", "lean", "lean/Audit.lean"]),
+            ("axioms", [args.lake, "env", "lean", "lean/" + audit_file(args.chapter)]),
         ):
             print(f"Running {stage}; log: {destination / (stage + '.log')}", flush=True)
             with (destination / (stage + ".log")).open("w") as log:
@@ -173,15 +188,14 @@ def main() -> int:
             if set(report["axioms"]) - FOUNDATIONS:
                 raise RuntimeError(f"Unexpected axiom in {report['declaration']}")
         audited_names = {report["declaration"] for report in reports}
-        for number in (1, 2, 3):
-            section = ROOT / f"volumes/Volume01/A/chapters/Chapter00/sections/Section{number:02}"
+        for label, section in audited_sections(args.chapter):
             metadata = json.loads((section / "section.json").read_text())
             declared = metadata["formal"]["declarations"]
             if not declared or set(declared) - audited_names:
-                raise RuntimeError(f"Section {number} metadata has empty or unaudited declarations")
+                raise RuntimeError(f"{label} metadata has empty or unaudited declarations")
         record["declarations"] = sorted(reports, key=lambda item: item["declaration"])
         record["audited_declaration_count"] = len(reports)
-        if source_hashes() != record["source_sha256"]:
+        if source_hashes(args.chapter) != record["source_sha256"]:
             raise RuntimeError("A source changed during the audit; rerun against the final snapshot")
         record["status"] = "passed"
         print(f"Build and axiom checks passed for {len(reports)} declarations, including generated helpers.")

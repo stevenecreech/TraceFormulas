@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-11",
+  "scope": "Add names or concise descriptions alongside all numbered equation citations in Chapter 1 Sections 1.1–1.4.",
+  "prior_snapshot": "docs/reviews/chapter01-equation-references-2026-11-11.json",
+  "prose_status": "proof-draft; editorial citation wording only; mathematical statements and proof structure unchanged",
+  "formal_status": "in-progress; unchanged coverage and gaps; no Lean changes or new audit",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "validation": {
+    "build_command": "python3 scripts/build.py --pdf --volume v1a",
+    "build": "passed",
+    "tex_log": "No warnings, unresolved references, or overfull/underfull boxes.",
+    "preserved": "All display mathematics, theorem/equation labels, 34 citation targets and their order, and 24 equation numbers.",
+    "exports": "Saved manuscript/source exports agree; Compare uses identical prose; editor/download PDFs match.",
+    "lean_companions": "All four hashes match the preceding snapshot.",
+    "new_tests_browser_lean_audit": "not-run; text-only change",
+    "diff_check": "passed"
+  },
+  "source_sha256": {
+    "../AGENTS.md": "1c77fa1de7cb9941460856b5e2b5c81b47c8a354a27a77941ba16163411ae77f",
+    "AUTHORING.md": "50d026d27b7e0bce033239c1a91cde47796e68356c7b9fe15aae3e404aa2cf02",
+    "docs/WORKFLOW.md": "c73e1d9c5b115f67bc83b552e8f3bbc5fa9a0783cfae22b8c3a33cf76930e21f",
+    "docs/STATUS.md": "4949e3fa7f127db81e1b9a17cb80e1e712472388c8e559417c997f0036aca470",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "7f55c7a9bca3aac766479f2a5d134afbe4d366f6e049968ab7145daff9854259",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "f2066c543b7d33e8f8e12f28fa946c1369c48bc20a249bc895d50e093191825b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "0f55e04cdd89f905126ad7143a971f6a4c83eac50d02bdf6210997a78629964f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "a53cd2bb42a21279662d22e8610dcb26111d5faa2bb554af56cdd4614ce23c67",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c0541381425c82b75c7b8040866b805c0c66800bc040e9e126a9ce43ef665456",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex": "030e0425f6f38cd112351784ef3f7aec68b13e94995491cb95e4128616555c89",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/Formalization.lean": "e44e9736ab4946830cb268c7025e546713a318bae753dbb1f7b5670029653d27"
+  }
+}

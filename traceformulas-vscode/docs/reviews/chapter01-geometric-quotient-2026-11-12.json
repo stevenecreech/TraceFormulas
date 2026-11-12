@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-12",
+  "scope": "Clarify geometric quotient measure in Definition 1.8.11 and remove premature scalar-kernel preview",
+  "prose_status": "edited draft for Steven review; normalization unchanged",
+  "changes": [
+    "Defined Gamma backslash H as a space of point orbits and explained its canonical identification with the effective quotient.",
+    "Displayed the same geometric integral in both quotient notations, with the orbit argument of the lifted function explicit.",
+    "Explained why the geometric measure has no factor 1/2 and linked the later matrix-group Haar quotient calculation.",
+    "Condensed independence of representatives to a partition-and-translation argument outside the invariant null union of boundary translates.",
+    "Removed the scalar automorphic-kernel preview; retained the unfolding proposition and its matrix double-counting assertion."
+  ],
+  "formal_status": "existing partial companion unchanged; quotient action, quotient measure and independence proof remain open",
+  "checked_ingredients": "The existing real-group action-kernel theorem and pinned Mathlib UpperHalfPlane.SL_neg_smul identify the actions of g and -g; they do not construct the quotient measure.",
+  "human_correspondence_review": "not-reviewed",
+  "ai_review": "read-only normalization/proof/Compare review passed; null-set qualification incorporated",
+  "inherited_audit": {
+    "record": "lean/audits/chapter01-diagonal-character-2026-11-12/record.json",
+    "declarations": 266,
+    "unchanged_hashes": 69,
+    "total_hashes": 71,
+    "changed_inputs": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex"
+    ],
+    "lean_configuration_and_metadata": "unchanged"
+  },
+  "validation": {
+    "combined_pdf_website_build": "passed",
+    "tex_log": "clean",
+    "numbering": "Definition 1.8.11 retained",
+    "exports": "exact source exports and unchanged displayed Lean; editor/download PDFs byte-identical",
+    "visual_inspection": "final printed page 57",
+    "unit_browser_lean_checks": "not rerun for explanatory prose edit; no implementation changes",
+    "git_diff_check": "passed"
+  },
+  "notation_index": "77 entries unchanged; existing quotient-area entry already records common geometric measure",
+  "publication": "local only; no commit/push/deployment",
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "9ea03da4b2fa531dda6ff2338cf1842729ca53848611635eb673b4c23cc5f2e8",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex": "5cde53f5f62e683c76b37a3e004383fd599735d2d212337149a767e0cb9b4303",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/Formalization.lean": "2b05110fde606e56eac543077a04dce49554d9c9fe72738055656de2877ab56b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/section.json": "6b90d605f7c8539f73590e7bbde019988f2d0d670a329db5335d5dd452e1b12e",
+    "volumes/Volume01/A/appendices/I/intro.tex": "e47f83f80f92722eeab94065e24ef3f95b23e7e4b7068d77af6b91249958d741"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-10",
+  "scope": "Simplify the proof of Theorem 1.3.7 without changing its statement, label or number.",
+  "prior_snapshot": "docs/reviews/chapter01-divergence-density-2026-11-10.json",
+  "changes": [
+    "Remove temporary matrix/height abbreviations L and Y. Derive area invariance directly from Euclidean length and area scaling and cancellation of the destination density.",
+    "Use the defining gradient identity and chain rule to prove gradient covariance for any real C¹ function.",
+    "Apply integration by parts directly to the Laplacian, using a compactly supported test function composed with the isometry. Preserve the pair of gradient inner products and change variables.",
+    "Recover pointwise equality from continuity and equality against all test functions; extend from real to complex functions by linearity.",
+    "Remove the transported-field notation and separate divergence-transport lemma. Retain all smooth Riemannian isometries, including orientation reversal, and arbitrary C² functions without a global integrability requirement.",
+    "Update Compare with the revised proof route and unchanged analytic formalization obligations."
+  ],
+  "prose_status": "proof-draft; author review pending",
+  "formal_status": "in-progress; no new Lean declarations",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "248e6d7ae2119a3c677843a66e306322e70c52cdb82d104f65d6ca1c73b6a265",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "f7a6bda699d7d26e6f4eecaa5aba24b17a948331b54f6ab248841667a9a0ede7",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c0541381425c82b75c7b8040866b805c0c66800bc040e9e126a9ce43ef665456",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "c43e8890da7b8780607280e05d9617a70a5e2db6ec873379a109378a51f8eb68"
+  },
+  "inherited_machine_evidence": {
+    "record": "lean/audits/chapter01-section03-expanded-2026-11-10/record.json",
+    "record_sha256": "00104d8d8d138bc10cd4289f5a7cfeb922798246462f302b029986a4f86bdf77",
+    "audited_declarations": 118,
+    "lean_source_drift": [],
+    "new_build_or_audit": "not-run; audited Lean sources, metadata and build configuration unchanged",
+    "coverage_limit": "Existing tangent-form invariance and gradient duality supply pointwise ingredients. Smooth gradient transformation, general isometry/measure invariance, integration by parts, test-function uniqueness and Laplacian commutation remain unformalized."
+  },
+  "source_verification": "AI check of the proof using the preceding manuscript definitions; no new external bibliographic audit.",
+  "validation": {
+    "command": "python3 scripts/build.py --pdf --volume v1a",
+    "result": "passed",
+    "checks": "Clean TeX log, retained theorem number 1.3.7 and label, new proof in website data, exact source exports, matching editor/download PDFs, git diff --check.",
+    "browser_and_unit_suites": "not-rerun; no pipeline implementation changed"
+  },
+  "deployment": "Local only; no commit, push or deployment."
+}

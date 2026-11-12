@@ -1,16 +1,16 @@
-This index collects the notation used in Chapter 0, grouped by mathematical context. The links in the final column lead to the relevant definition or convention. Local meanings are recorded separately when the same letter serves different purposes.
+This index collects the notation used in Chapters 0 and 1 and Appendix A, in manuscript order. Chapter entries come first, followed by appendix entries; related notation is grouped within that order. The links in the final column lead to the relevant definition or convention. Local meanings are recorded separately when the same letter serves different purposes.
 
 \subsection*{Matrices and traces}\label{v1a-notation-matrices}
 
 \begin{longtable}{p{0.22\linewidth}p{0.58\linewidth}p{0.08\linewidth}}
 \textbf{Symbol} & \textbf{Meaning and convention} & \textbf{See} \\ \hline
-$A=(a_{ij})$ & Complex matrix, with entry $a_{ij}$ in row $i$, column $j$. & \hyperref[definition-the-trace]{0.1} \\
 $A^{\mathsf{T}}$ & Transpose: $(A^{\mathsf{T}})_{ij}=a_{ji}$; entries are not conjugated. A transposed row vector is a column vector. & \hyperref[linear-algebra.transpose]{0.1} \\
-$I_n$ & Identity matrix of size $n$; its trace is $n$. & \hyperref[definition-the-trace]{0.1} \\
-$M_n(\mathbb C)$ & Complex $n\times n$ matrices. & \hyperref[linear-algebra.trace-similarity]{0.1} \\
 $\det(tI_n-A)$ & Characteristic polynomial of $A$. & \hyperref[linear-algebra.trace-eigenvalue-sum]{0.1} \\
 $\lambda_j$ & Eigenvalues, repeated according to algebraic multiplicity. & \hyperref[linear-algebra.trace-eigenvalue-sum]{0.1} \\
+$A=(a_{ij})$ & Complex matrix, with entry $a_{ij}$ in row $i$, column $j$. & \hyperref[definition-the-trace]{0.1} \\
+$I_n$ & Identity matrix of size $n$; its trace is $n$. & \hyperref[definition-the-trace]{0.1} \\
 $\operatorname{tr}(A)$ & Sum of the diagonal entries; the empty sum is zero. & \hyperref[definition-the-trace]{0.1} \\
+$M_n(\mathbb C)$ & Complex $n\times n$ matrices. & \hyperref[linear-algebra.trace-similarity]{0.1} \\
 $\operatorname{tr}(T)$ & Trace of a finite-dimensional endomorphism, computed in any basis. & \hyperref[linear-algebra.endomorphism-trace]{0.1} \\
 \end{longtable}
 
@@ -26,10 +26,10 @@ $u_1,\ldots,u_N$ & Fixed orthonormal family with chosen measurable representativ
 $V$, $V^\perp$ & Span of the family and its orthogonal complement in $H$. & \hyperref[finite-kernel-model]{0.2} \\
 $T$, $\lambda_j$ & Operator with $Tu_j=\lambda_j u_j$ and $T|_{V^\perp}=0$ in the eigenbasis model. & \hyperref[finite-kernel-model]{0.2} \\
 $K_T(x,y)$ & Spectral kernel $\sum_j\lambda_j u_j(x)\overline{u_j(y)}$ from the chosen orthonormal eigenfunctions. & \hyperref[finite-spectral-kernel]{0.2} \\
-$\nu_j$ & Eigenvalues of the general matrix $A$, counted with algebraic multiplicity; the $u_j$ need not be eigenfunctions. & \hyperref[finite-kernel-trace-identity]{0.2} \\
+$\operatorname{tr}(T_A)$ & Trace of the restriction $T_A|_V$; likewise $\operatorname{tr}(T)=\operatorname{tr}(T|_V)$ in the eigenbasis model. & \hyperref[finite-kernel-trace-definition]{0.2} \\
 $K_A(x,y)$ & Finite kernel $\sum_{i,j}a_{ij}u_i(x)\overline{u_j(y)}$; the output variable comes first. & \hyperref[finite-kernel-operator]{0.2} \\
 $T_A$ & Operator with kernel $K_A$; it acts as $A$ on $V$ and vanishes on $V^\perp$. & \hyperref[finite-kernel-operator]{0.2} \\
-$\operatorname{tr}(T_A)$ & Trace of the restriction $T_A|_V$; likewise $\operatorname{tr}(T)=\operatorname{tr}(T|_V)$ in the eigenbasis model. & \hyperref[finite-kernel-trace-definition]{0.2} \\
+$\nu_j$ & Eigenvalues of the general matrix $A$, counted with algebraic multiplicity; the $u_j$ need not be eigenfunctions. & \hyperref[finite-kernel-trace-identity]{0.2} \\
 $K_A(x,x)$ & Diagonal supplied by the finite kernel formula, independent $\mu$-almost everywhere of the $u_j$ representatives. Arbitrary $(\mu\otimes\mu)$-null changes to a kernel need not preserve its diagonal integral. & \hyperref[kernel-diagonal-representatives]{0.2} \\
 \end{longtable}
 
@@ -40,16 +40,81 @@ $K_A(x,x)$ & Diagonal supplied by the finite kernel formula, independent $\mu$-a
 $\mathcal T(K_A)$ & Ordinary diagonal integral $\int_X K_A(x,x)\,d\mu(x)=\operatorname{tr}(A)$. & \hyperref[ordinary-finite-trace]{0.3} \\
 $P_p(u)$ & Test integral $\langle u,p\rangle_{L^2(X,\mu)}$, linear in $u\in H$ for fixed $p\in H$; an elementary model of a period. & \hyperref[relative-finite-pairing]{0.3} \\
 $\mathcal R_{p,q}(K_A)$ & Relative pairing $\langle T_Aq,p\rangle_{L^2(X,\mu)}$, with input $q\in H$ and output tested against $p\in H$. & \hyperref[relative-finite-pairing]{0.3} \\
-$1_{\{r\}}$ & Indicator of the point $r$ in the two-point counting-measure example; equals $1$ at $r$ and $0$ at the other point. & \hyperref[finite-three-measurements-example]{0.3} \\
 \end{longtable}
 
-\subsection*{Weights and multiplication operators}\label{v1a-notation-weights}
+\subsection*{Weights and worked examples}\label{v1a-notation-weights}
 
 \begin{longtable}{p{0.22\linewidth}p{0.58\linewidth}p{0.08\linewidth}}
 \textbf{Symbol} & \textbf{Meaning and convention} & \textbf{See} \\ \hline
 $L^\infty(X,\mu;\mathbb C)$ & Essentially bounded complex functions, identified when equal almost everywhere. & \hyperref[weighted-finite-trace]{0.3} \\
 $w$, $M_w$ & A weight $w\in L^\infty$ and its multiplication operator $M_wf=wf$. & \hyperref[weighted-finite-trace]{0.3} \\
 $P$ & Orthogonal projection onto $V$; distinct from the scalar period $P_p$. & \hyperref[weighted-finite-trace]{0.3} \\
-$S_w$ & Endomorphism $P M_wT_A|_V$, obtained by projecting the weighted output back to $V$. & \hyperref[finite-weighted-kernel-identity]{0.3} \\
 $\mathcal W_w(K_A)$ & Weighted diagonal integral $\int_Xw(x)K_A(x,x)\,d\mu(x)=\operatorname{tr}(S_w)$. & \hyperref[weighted-finite-trace]{0.3} \\
+$S_w$ & Endomorphism $P M_wT_A|_V$, obtained by projecting the weighted output back to $V$. & \hyperref[finite-weighted-kernel-identity]{0.3} \\
+$1_{\{r\}}$ & Indicator of the point $r$ in the two-point counting-measure example; equals $1$ at $r$ and $0$ at the other point. & \hyperref[finite-three-measurements-example]{0.3} \\
+\end{longtable}
+
+\subsection*{The real group and hyperbolic geometry}\label{v1a-notation-hyperbolic}
+
+\begin{longtable}{p{0.22\linewidth}p{0.58\linewidth}p{0.08\linewidth}}
+\textbf{Symbol} & \textbf{Meaning and convention} & \textbf{See} \\ \hline
+$g\cdot z$, $gz$ & Möbius action $(az+b)/(cz+d)$, with the pole and infinity conventions on the sphere; $gz$ abbreviates $g\cdot z$. & \hyperref[hyperbolic.riemann-sphere]{1.1} \\
+$\widehat{\mathbb C}$, $[u:v]$ & Riemann sphere and homogeneous coordinates: $[z:1]$ represents $z$, and $[1:0]$ represents infinity. & \hyperref[hyperbolic.sphere-action]{1.1} \\
+$\operatorname{GL}_2(\mathbb C)$, $\operatorname{SL}_2(\mathbb C)$ & Invertible and determinant-one complex two-by-two matrices. Scalar rescaling gives the same sphere transformations. & \hyperref[hyperbolic.scalar-normalization]{1.1} \\
+$\mathbb H$, $z=x+iy$ & Complex upper half-plane, with $y>0$; distinct from the Hilbert-space letter $H$ in Chapter 0. & \hyperref[hyperbolic.half-plane]{1.1} \\
+$\mathbb H^-$, $\widehat{\mathbb R}$ & Lower half-plane and extended real line, the other two real-group orbits besides $\mathbb H$. & \hyperref[hyperbolic.three-orbits]{1.1} \\
+$n(x)$, $a(y)$ & Translation matrix and positive diagonal matrix with entries $\sqrt y,1/\sqrt y$; $n(x)\cdot(a(y)\cdot i)=x+iy$. & \hyperref[hyperbolic.three-orbits]{1.1} \\
+$Z$ & The center $\{\pm I\}$ of $\operatorname{SL}_2(\mathbb R)$, also the kernel of its action on $\mathbb H$. & \hyperref[hyperbolic.projective-group]{1.1} \\
+$\Gamma$, $\overline\Gamma$ & Matrix modular group $\operatorname{SL}_2(\mathbb Z)$ and effective modular group $\operatorname{PSL}_2(\mathbb Z)$. & \hyperref[hyperbolic.projective-group]{1.1} \\
+$G$, $\overline G$ & Abbreviations for $\operatorname{SL}_2(\mathbb R)$ and its effective quotient $\operatorname{PSL}_2(\mathbb R)$ in the homogeneous-space and measure formulas. & \hyperref[hyperbolic.group-abbreviations]{1.2} \\
+$N$, $A$, $K$ & Translation, positive diagonal, and rotation subgroups of $G$; $K=\operatorname{SO}(2)$ fixes $i$. Here $A$ is a group, distinct from a matrix $A$ in Chapter 0. & \hyperref[hyperbolic.iwasawa-coordinates]{1.2} \\
+$G/K$, $gK$ & Space of cosets $gK=\{gk:k\in K\}$ with the quotient topology and left $G$-action; identified with $\mathbb H$ by $gK\mapsto g\cdot i$. & \hyperref[hyperbolic.homogeneous-space]{1.2} \\
+$s(z)$ & Matrix $s(x+iy)=n(x)a(y)$ sending $i$ to $z=x+iy$; its inverse sends $w$ to $(w-x)/y$. & \hyperref[hyperbolic.iwasawa]{1.2} \\
+$k(\theta)$, $\overline K$ & Matrix rotation $\begin{smallpmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{smallpmatrix}$ and $K/Z$. The matrix angle has period $2\pi$ in $K$, period $\pi$ in $\overline K$; its geometric angle is $2\theta$. & \hyperref[hyperbolic.angular-cover]{1.2} \\
+$ds^2$, $d\mu$ & Invariant Riemannian metric $(dx^2+dy^2)/y^2$, normalized to agree with the Euclidean metric at $i$, and its induced area $dx\,dy/y^2$. This $\mu$ is the specified hyperbolic area. & \hyperref[hyperbolic.metric]{1.3} \\
+$d_{\mathbb H}(z,w)$ & Distance defined by infimum of hyperbolic path lengths. & \hyperref[hyperbolic.metric]{1.3} \\
+$\langle v,w\rangle_{T_z\mathbb H}$, $\|v\|_{T_z\mathbb H}$ & Real tangent inner product $\operatorname{Re}(v\overline w)/(\operatorname{Im}z)^2$ and norm $|v|/\operatorname{Im}z$. & \hyperref[hyperbolic.metric]{1.3} \\
+$\operatorname{grad}_{\mathbb H}f$ & Real metric gradient $y^2(f_x\partial_x+f_y\partial_y)$, characterized by tangent inner-product duality with $df$. & \hyperref[hyperbolic.gradient]{1.3} \\
+$\operatorname{div}_{\mathbb H}V$ & Continuous function characterized by integration by parts against real smooth compactly supported test functions with measure $\mu$; for $V=P\partial_x+Q\partial_y$, it is $P_x+Q_y-2Q/y$. & \hyperref[hyperbolic.divergence]{1.3} \\
+$\Delta$ & Laplace--Beltrami operator $-\operatorname{div}_{\mathbb H}\operatorname{grad}_{\mathbb H}=-y^2(\partial_x^2+\partial_y^2)$. Symmetry is proved on $C_c^\infty$; the self-adjoint domain is treated later. & \hyperref[hyperbolic.laplacian]{1.3} \\
+$L^2(\mathbb H,\mu)$ & Complex functions with finite square integral against hyperbolic area; inner product $\int f\overline h\,d\mu$, linear in the first argument. & \hyperref[hyperbolic.laplacian]{1.3} \\
+$\mathbb D$, $C(z)$ & Unit disk and Cayley transform $(z-i)/(z+i)$, with inverse $C^{-1}(\zeta)=i(1+\zeta)/(1-\zeta)$; $i$ corresponds to $0$. & \hyperref[hyperbolic.cayley]{1.4} \\
+$u(z,w)$ & Nonnegative radial variable, with $\cosh d_{\mathbb H}(z,w)=1+2u(z,w)$. The denominator in its definition includes $4$. & \hyperref[hyperbolic.point-pair]{1.4} \\
+$r$, $\varphi$ & Hyperbolic polar distance from the chosen center and geometric angle of period $2\pi$; area density $\sinh r\,dr\,d\varphi$. & \hyperref[hyperbolic.polar-coordinates]{1.4} \\
+$\rho$ (disk radius) & Euclidean radius $|C(w)|=\tanh(d_{\mathbb H}(i,w)/2)$ when the center is $i$; $0\leq\rho<1$. Distinct from the elliptic vertex below. & \hyperref[hyperbolic.polar-coordinates]{1.4} \\
+$\partial\mathbb H$ & Ideal boundary $\mathbb R\cup\{\infty\}$, with the extended fractional action. & \hyperref[v1a-ch01-s8]{1.5} \\
+$D(g)$ & Discriminant $(\operatorname{tr}g)^2-4$ for $g\notin Z$; its sign distinguishes elliptic, parabolic, and hyperbolic types. & \hyperref[hyperbolic.types]{1.5} \\
+$\ell(\overline g)$ & Infimum of displacement $d_{\mathbb H}(z,g\cdot z)$; the \hyperref[hyperbolic.hyperbolic-length]{hyperbolic case} gives $2\operatorname{arcosh}(|\operatorname{tr}g|/2)$. & \hyperref[hyperbolic.translation-length]{1.5} \\
+\end{longtable}
+
+\subsection*{The modular quotient and its measures}\label{v1a-notation-modular}
+
+\begin{longtable}{p{0.22\linewidth}p{0.58\linewidth}p{0.08\linewidth}}
+\textbf{Symbol} & \textbf{Meaning and convention} & \textbf{See} \\ \hline
+$S$, $T$ & Modular generators acting by $-1/z$ and $z+1$, with $S^2=(ST)^3=-I$ in matrices. Distinct from finite-rank operators in Chapter 0. & \hyperref[modular.generator-relations]{1.6} \\
+$\Gamma$ (local use) & Arbitrary discrete subgroup of $\operatorname{PSL}_2(\mathbb R)$ in the general fundamental-domain definition only. & \hyperref[modular.fundamental-domain-definition]{1.6} \\
+$\mathcal F$ & Standard closed fundamental domain $|x|\leq1/2$, $|z|\geq1$ for the effective modular action; its boundary has paired points. & \hyperref[modular.fundamental-region]{1.6} \\
+$\rho$ & Left circular vertex $(-1+i\sqrt3)/2$; fixed by $ST$ and equivalent to $\rho+1$. & \hyperref[modular.fundamental-region]{1.6} \\
+$\mathcal F_*$ & Boundary-selected set containing exactly one point of each modular orbit. It retains point stabilizers. & \hyperref[eq:modular-representative-set]{1.6} \\
+$\Gamma_z$, $\overline\Gamma_z$ & Matrix and effective stabilizers. Their orders at $i$ are $4,2$ and at $\rho$ are $6,3$. & \hyperref[modular.elliptic-stabilizers]{1.7} \\
+$\Gamma_\infty$, $\overline\Gamma_\infty$ & Full cusp stabilizer $\{\pm T^n\}$ and effective translation group $\langle\overline T\rangle$. & \hyperref[modular.cusp-stabilizer]{1.7} \\
+$h$ (cusp width) & Least positive horizontal translation in the effective cusp stabilizer, in the chosen coordinate; \hyperref[modular.cusp-width-one]{$h=1$ at the modular cusp at infinity}. & \hyperref[modular.cusp-width]{1.7} \\
+$e(z)$ & Complex exponential notation $\exp(2\pi iz)$; period one. & \hyperref[modular.cusp-parameter]{1.7} \\
+$q(z)$, $q$ & Cusp parameter $e(z)$ for width $1$; on the cusp neighborhood it is a coordinate after identifying integer translates. Distinct from the test function $q$ of Chapter 0. & \hyperref[modular.cusp-parameter]{1.7} \\
+$\Delta_L$ & Modular function with convention $\nu(Eh)=\Delta_L(h)\nu(E)$ for left Haar $\nu$; distinct from the hyperbolic Laplacian $\Delta$. & \hyperref[measure.unimodular]{1.8} \\
+$dk$, $d\overline k$ & Haar probability measures on $K$ and $\overline K$: $d\theta/(2\pi)$ and $d\theta/\pi$ over their respective angle periods. & \hyperref[measure.haar-examples]{1.8} \\
+$dg$, $d\overline g$ & Haar measures on $G$ and $\overline G$, respectively. Both compact fibers have probability measure; angle periods are $2\pi$ and $\pi$. & \hyperref[modular.haar-normalizations]{1.8} \\
+$\pi$, $p$ (projections) & $\pi:G\to\mathbb H$, $g\mapsto g\cdot i$, and the \hyperref[modular.haar-central-projection]{central projection $p:G\to\overline G$}; distinguished from the numerical constant $\pi$. & \hyperref[hyperbolic.haar-quotient]{1.8} \\
+$\mu(\overline\Gamma\backslash\mathbb H)$ & Geometric hyperbolic area $\pi/3$. Writing $\Gamma\backslash\mathbb H$ uses the same measure. & \hyperref[modular.quotient-area]{1.8} \\
+$\Lambda$, $m$ & Finite-index subgroup of $\Gamma$; $m=2$ if $-I\in\Lambda$ and $m=1$ otherwise. Equivalently, $m=|\Lambda\cap Z|$ counts lifts in $\Lambda$ of each element of $\overline\Lambda$. Its matrix Haar covolume equals geometric area divided by $m$. & \hyperref[modular.central-covolumes]{1.8} \\
+\end{longtable}
+
+\subsection*{Measure theory and Haar measure in Appendix A}\label{v1a-notation-appendix-measures}
+
+\begin{longtable}{p{0.22\linewidth}p{0.58\linewidth}p{0.08\linewidth}}
+\textbf{Symbol} & \textbf{Meaning and convention} & \textbf{See} \\ \hline
+$dx$, $dx\,dy$, $|A|$ & Lebesgue length, product Euclidean area, and the Lebesgue measure of a measurable $A\subset\mathbb R$, respectively; uniqueness statements compare their Borel restrictions. & \hyperref[measure.lebesgue]{A.1} \\
+$f_*\nu$ & Pushforward measure: $(f_*\nu)(E)=\nu(f^{-1}(E))$. & \hyperref[measure.pushforward]{A.1} \\
+$C_c(L)$ & Real-valued continuous functions of compact support on the locally compact group $L$ in the Haar proofs. & \hyperref[measure.compact-support-functions]{A.2} \\
+$\nu^{\mathrm{inv}}$ & Inverse measure $\nu^{\mathrm{inv}}(E)=\nu(E^{-1})$; inversion exchanges left and right Haar measures. & \hyperref[measure.haar-inversion]{A.2} \\
 \end{longtable}

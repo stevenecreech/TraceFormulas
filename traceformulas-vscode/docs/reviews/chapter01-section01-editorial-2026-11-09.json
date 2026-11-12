@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-09",
+  "scope": "Section 1.1 notation and proof-detail editing; corresponding Section 1.2 aliases and notation index",
+  "prior_snapshot": "docs/reviews/chapter01-sections01-02-edit-2026-11-09.json",
+  "prose_status": "proof-draft; revised following Steven’s comments, further author review pending",
+  "formal_status": "in-progress; partial coverage",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "changes": [
+    "Explicit GL_2(C) membership, dot notation for the action and an explicit later gz abbreviation, compact bracketed smallmatrix columns.",
+    "Proved determinant-one rescaling over C after scalar invariance; distinguished the positive-determinant restriction over R.",
+    "Used SL_2(R) throughout Section 1.1; introduced G and Gbar only with the homogeneous-space formulas in Section 1.2.",
+    "Replaced the imaginary-part argument with conjugate-denominator multiplication and expanded numerator.",
+    "Introduced n(x), a(y) in the orbit proof and wrote b(x,y)=n(x)a(y).",
+    "Expanded the fixed-point equation and both commutation calculations with a(2)=diag(sqrt(2),1/sqrt(2)) and n(1).",
+    "Expanded the common-denominator and derivative proofs. Added a checked Lean difference theorem following that algebra.",
+    "Deferred automorphy-factor notation and cocycle to Chapter 3; retained the shared proved lemma but removed the Section 1.1 export.",
+    "Updated the notation index to 62 entries, retained numbered results and semantic destinations."
+  ],
+  "chapter03_followup": "Introduce j(g,z)=cz+d with the modular transformation/slash action. Prove its cocycle identity directly by multiplying matrices, then use it to establish composition compatibility. A transformation law alone can have zeros and yields at most a k-th power relation where cancellation is allowed; it does not establish the unpowered identity for every z.",
+  "source_verification": "Algebra checked against the saved manuscript and pinned local Mathlib source. Mathlib’s moebius_im uses Complex.div_im (the conjugate-denominator formula). No new external bibliographic audit or independent mathematical review.",
+  "sections": [
+    {
+      "id": "v1a-ch01-s1",
+      "number": "1.1",
+      "labels": [
+        "hyperbolic.riemann-sphere",
+        "hyperbolic.sphere-action",
+        "hyperbolic.scalar-normalization",
+        "hyperbolic.real-group",
+        "hyperbolic.half-plane",
+        "hyperbolic.imaginary-part",
+        "hyperbolic.three-orbits",
+        "hyperbolic.effective-action",
+        "hyperbolic.center",
+        "hyperbolic.projective-group",
+        "hyperbolic.faithful-quotient",
+        "hyperbolic.mobius",
+        "hyperbolic.central-sign",
+        "hyperbolic.positive-determinant"
+      ],
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section01.fractional_action",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.denominator_nonzero",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.imaginary_part",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.difference_formula",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.center_exactly_signs",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.kernel_exactly_signs",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.kernel_is_center",
+        "TraceFormulas.Volume01.A.Chapter01.Section01.nonreal_imaginary_part"
+      ],
+      "formal_status": "in-progress",
+      "human_correspondence_review": "not-reviewed"
+    },
+    {
+      "id": "v1a-ch01-s6",
+      "number": "1.2",
+      "labels": [
+        "hyperbolic.group-abbreviations",
+        "hyperbolic.iwasawa-coordinates",
+        "hyperbolic.iwasawa",
+        "hyperbolic.angular-cover"
+      ],
+      "declarations": [
+        "TraceFormulas.Volume01.A.Chapter01.Section02.n_translates",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.a_scales",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.k_fixes_base_point",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.every_point_from_i",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.upper_half_plane_transitive",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.stabilizer_is_rotations",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.same_point_modulo_stabilizer",
+        "TraceFormulas.Volume01.A.Chapter01.Section02.iwasawa_factorization_exists"
+      ],
+      "formal_status": "in-progress",
+      "human_correspondence_review": "not-reviewed"
+    }
+  ],
+  "new_formal_claim": {
+    "label": "hyperbolic.mobius",
+    "declaration": "TraceFormulas.Volume01.A.Chapter01.Section01.difference_formula",
+    "shared_declaration": "TraceFormulas.Hyperbolic.action_difference",
+    "statement": "For g in SL_2(R) and z,w in the upper half-plane, g·z-g·w=(z-w)/((cz+d)(cw+d)).",
+    "proof_route": "div_sub_div with nonzero denominators, numerator expansion, determinant one; follows the edited prose."
+  },
+  "retained_route_differences": [
+    "Center uses Mathlib’s scalar-center theorem instead of the prose commutation with a(2) and n(1).",
+    "Kernel uses the fixed-point equations at i and 2i instead of infinitely many zeros of a polynomial."
+  ],
+  "remaining_formalization": [
+    "Global sphere action and determinant-one rescaling over C",
+    "Full three-orbit theorem, including lower half-plane and boundary",
+    "Explicit quotient action and faithfulness",
+    "Derivative identity, central-character compatibility, positive-determinant extension",
+    "Iwasawa uniqueness, explicit coordinates, orthogonal-group interface, quotient homeomorphism, angular derivative/period",
+    "Remaining Chapter 1 sections, including Haar measure"
+  ],
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/intro.tex": "e4feb30054575e0cb015431db5c4eab3bc46897681682b600a45c324bf23053a",
+    "volumes/Volume01/A/chapters/Chapter01/chapter.json": "8602cf43758ea28d9f49995a68e645d0e98839ffaccbf1be5674f7b9dc245fc9",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "8037f484ffe9ff87824deb4e68631cc1de9729d0bc2c613150f4207033b4d281",
+    "volumes/Volume01/A/appendices/I/intro.tex": "7db1078e2fbcf881deca863fd910b9d17401041927502d0b194ee6d9c13aad13",
+    "lean/TraceFormulas/Geometry/RealMobius.lean": "499e78c9109b299d56a7a68b1b48262ad31d515aa4f70b83d6ef0a5de1352e3b",
+    "lean/TraceFormulas/Geometry/Iwasawa.lean": "c96b90d3a6f0985ebb4881237aa625652619af978b489996b12f4d82bab1d729",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "0b818be524f9dc76ff4fe42af848bdbfa025c21ccf2d8a664c3871e0b16ef8a9",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "4f034096ddf8e2b50ff17d95c518d072c6013e2f051f15319b27fbbcb8b3764f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b19c1cb8de41b7ff8538b6f97c6d205b6fc6c31d9a4a3316a6fc4a2e878a1bac",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/section.json": "5682d101bb0f7e0838caa812969a06e6aac0979d56b0f26fcb384a9622e70e5e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "069ca7ef47c68a1856393491987fdd7da1cae9bf9265b6e64d698b295967a930",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "fa8ee042d89b077f80ec56cd1d5f8789572690e73e8a3577cf717150ffd28b3e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "73678eaf41d988d20a1a1412435c8aeceab7f117cb2e2b89f3d1e0fcfc63d5d7",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "46cc49b3d13619e2a3dc49b22e083c12f02d06e55f23bf9d6bb5a5d9073b1b17"
+  },
+  "machine_evidence": {
+    "record": "lean/audits/chapter01-section01-editorial-2026-11-09/record.json",
+    "record_sha256": "bd8566afdf40842e247363031efe0a7f46435ed6ff859eb3408d7dd6837e23d4",
+    "status": "passed",
+    "audited_declarations_including_generated_helpers": 50,
+    "public_companion_theorems": 16,
+    "allowed_foundational_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "source_drift_after_audit": [],
+    "scope": "Implemented portions of Chapter 1 Sections 1.1–1.2 and their shared library; incomplete chapter coverage",
+    "notes": "Full Lake build passed. The Chapter 1 gate checks the imported geometry and two partial companions, including the retained shared cocycle lemma. All nine dependencies remained clean at their pinned revisions. No new Chapter 0 axiom audit or fresh-checkout reproduction claimed. Human correspondence review remains pending."
+  },
+  "validation": {
+    "targeted_lean_build": "Passed for RealMobius and the Section 1.1 companion.",
+    "website_pdf": {
+      "command": "python3 scripts/build.py --pdf --volume v1a",
+      "result": "passed; 12 volume parts, 31 chapters, 156 sections, nine appendices, one PDF"
+    },
+    "browser": {
+      "command": ".venv/bin/python scripts/check_browser.py",
+      "result": "Passed desktop/mobile rendering, no MathJax or browser errors, exact Lean display, navigation, notation link, PDF/source downloads and subdirectory hosting."
+    },
+    "pdf": "No warnings, overfull/underfull boxes or unresolved references; identical editor/download PDFs. Physical pages 23,25,26 visually inspected (compact columns, center proof, difference proof).",
+    "source_export": "All eight Chapter 1 prose exports and both Lean exports equal saved sources.",
+    "numbering": "Definition 1.1.1, Lemma 1.1.4, Theorem 1.1.5 and Propositions 1.1.6, 1.1.7, 1.1.10 retain their numbers.",
+    "pipeline_tests": "Not rerun: no pipeline implementation changes; validation targeted the manuscript, Lean, source exports, PDF and browser.",
+    "git_diff_check": "passed"
+  },
+  "deployment": "Local edits only; no commit, push or deployment."
+}

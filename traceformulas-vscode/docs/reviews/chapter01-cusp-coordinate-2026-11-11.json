@@ -1,0 +1,76 @@
+{
+  "date": "2026-11-11",
+  "scope": "Section 1.7: use F in the elliptic-stabilizer proposition; link the horizontal length calculation directly; define cusp width, e(z) and q(z); separate the stabilizer, coordinate and area arguments.",
+  "prose_status": "proof-draft; author editing in progress",
+  "human_correspondence_review": "not-reviewed",
+  "formal_status": "in-progress; partial exponential-coordinate coverage",
+  "video_status": "not-started",
+  "source_check": {
+    "url": "https://www.jmilne.org/math/CourseNotes/MF.pdf",
+    "location": "Example 2.20 and cusp-coordinate discussion, printed pages 35\u201337",
+    "scope": "Translation-period normalization and exponential description of the punctured cusp neighborhood; not a complete chapter source audit."
+  },
+  "formal_coverage": {
+    "public_companion_results": 9,
+    "exact": [
+      "actual exponential formula",
+      "nonvanishing",
+      "radius",
+      "integer periodicity",
+      "compatibility with modular T^n action",
+      "integer fibers",
+      "radius/height equivalence",
+      "punctured-disk preimages",
+      "limit as imaginary part tends to infinity"
+    ],
+    "proof_route": "Mathlib qParam and invQParam; a principal-log preimage replaces the prose local-argument construction. No continuity of a global logarithmic inverse is asserted.",
+    "hypotheses": "Surjectivity is established for Y>=0; the modular quotient embedding in the prose uses Y>1 and remains unimplemented. Shared translation-period results require h nonzero or positive as stated.",
+    "open": [
+      "stabilizer classifications",
+      "cusp width as a property of the effective stabilizer in a normalized coordinate",
+      "full trigonometric polar expression",
+      "modular identifications above the cutoff",
+      "quotient topology and continuous inverse",
+      "horizontal path length",
+      "cusp area",
+      "global quotient topology and noncompactness"
+    ]
+  },
+  "machine_evidence": {
+    "record": "lean/audits/chapter01-cusp-coordinate-2026-11-11/record.json",
+    "status": "passed",
+    "audited_declarations": 224,
+    "source_hashes_verified": 55,
+    "locked_dependencies": 9
+  },
+  "validation": {
+    "pdf_website_build": "passed",
+    "tex_log": "clean",
+    "tests": "46 passed",
+    "browser": "passed desktop/mobile, direct horizontal-equation hyperlink and back navigation, all MathJax rendering, seven exact Lean panes, source/PDF downloads and figure layouts; no page errors or overflow",
+    "pdf_website_number_parity": "37 equations and 76 theorem blocks match",
+    "semantic_labels": "All preexisting Section 1.3/1.7 labels retained; Proposition 1.7.1 and Proposition 1.7.4 retain their numbers",
+    "source_exports": "Exact edited prose and all displayed companions; editor/download PDFs identical",
+    "notation_entries": 70,
+    "visual_inspection": "PDF physical pages 58\u201359, printed pages 50\u201351, containing width/parameter definitions and the homeomorphism proof",
+    "commit_push_deploy": "not-performed",
+    "diff_check": "passed"
+  },
+  "source_sha256": {
+    "lakefile.toml": "e29556311b7c0606c22551612f003fdf3b6d5b542d3c98baabb40bc350f326be",
+    "lean/AuditChapter01.lean": "6e451e94ec327ea0a0a00450b6c1c3ec1a2855a267221c139b27a0c521b4679b",
+    "lean/TraceFormulas/Geometry/CuspCoordinate.lean": "7065792d0f4fddc5f91a5d2a5722744268dcdbcfc1dfaebf7593d7c7f7051a0e",
+    "scripts/audit_lean.py": "74fd36fd1d638322fbab406ae672a930f8c3e92cb5b9e888e79a9ca74b8c33fe",
+    "scripts/check_browser.py": "c3680f97715b146091885efc04fda4d7692de61548767edb86a4d31767e4dd73",
+    "tests/test_lean_audit.py": "d81a900045d984f46407c5a57b345dea44b06f42fa1f8cc735eb6e3868edcb68",
+    "volumes/Volume01/A/appendices/I/intro.tex": "55839c060d31f39528f77762ec031742590e9e746fd7c29b60972fe1401ac324",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "6c3dcf96ca42da0ac88c8c1c5d601eea56ef45d4e0baa28196655e76cfb68246",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "1477fad53e5a3cbee0e09768cdb4922daa2ad6a1ddf03fc124ca5d48efbad8b0",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "b6a0cda9f97cc512a5ce5f056c5c76a352e0662a9b5c77e4356320c516522e52",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/Formalization.lean": "46f240338439db6623ef33fa8130fdd0bfdc04de59a0e2ffb6b5b3c6103fba13",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/compare.tex": "8877181b476107e7994027a827e1da667abe9c39a425c8491dae474a5f71c797",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/section.json": "4db0a3e7cc16a5e1b2d97b5bc57f56537ac984f47f5a8c5b135a03affaddc3b5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/text.tex": "6f1cef64227fe26afc63f5697bb3dfdf89d671a9411d3aafc590297cfb3143fb",
+    "docs/STATUS.md": "b26ad972da757f06c1516071c58f14cfb0390c15393a73d5851115620b053515"
+  }
+}

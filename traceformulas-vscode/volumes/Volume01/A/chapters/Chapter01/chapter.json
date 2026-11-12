@@ -1,13 +1,48 @@
 {
   "videos": [],
   "prerequisites": [],
-  "resources": [],
+  "resources": [
+    {
+      "title": "J. S. Milne, Modular Functions and Modular Forms, §§1–2 (background reference)",
+      "url": "https://www.jmilne.org/math/CourseNotes/MF.pdf"
+    },
+    {
+      "title": "A. V. Sutherland, Geometry of the complex upper half plane (MIT 18.786, Lecture 1)",
+      "url": "https://math.mit.edu/classes/18.786/2024/LectureNotes1.pdf"
+    },
+    {
+      "title": "Keith Conrad, Ideal Classes and SL₂, §1 (the three real-group orbits)",
+      "url": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/SL2classno.pdf"
+    }
+  ],
   "exercises": [],
   "explorations": [],
   "formal": {
-    "status": "not-started",
+    "status": "in-progress",
     "url": "",
     "declarations": []
   },
-  "sectionPrerequisites": {}
+  "sectionPrerequisites": {
+    "v1a-ch01-s6": [
+      "v1a-ch01-s1"
+    ],
+    "v1a-ch01-s2": [
+      "v1a-ch01-s6"
+    ],
+    "v1a-ch01-s7": [
+      "v1a-ch01-s2"
+    ],
+    "v1a-ch01-s8": [
+      "v1a-ch01-s7"
+    ],
+    "v1a-ch01-s3": [
+      "v1a-ch01-s8"
+    ],
+    "v1a-ch01-s4": [
+      "v1a-ch01-s3"
+    ],
+    "v1a-ch01-s5": [
+      "v1a-ch01-s4"
+    ]
+  }
 }

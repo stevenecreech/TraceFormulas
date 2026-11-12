@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-11",
+  "scope": "Local Gamma notation and explicit set action in Definition 1.6.4; center and shrink Figure 1.5 to 55% text width, allow it to share a page with prose.",
+  "prose_status": "notation and layout edit; mathematical hypotheses and claims unchanged",
+  "human_correspondence_review": "not-reviewed",
+  "formal_status": "in-progress; unchanged partial implementation and gaps",
+  "inherited_machine_evidence": {
+    "record": "lean/audits/chapter01-modular-domain-2026-11-11/record.json",
+    "declarations": 211,
+    "unchanged_hashes": 49,
+    "changed_audited_files": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section06/text.tex"
+    ],
+    "new_build_or_audit": "not-run; Lean sources, metadata, dependencies and configuration unchanged"
+  },
+  "validation": {
+    "build": "passed: python3 scripts/build.py --pdf --volume v1a",
+    "tex_log": "clean; no warnings, unresolved references or overfull/underfull boxes",
+    "stable_numbers": [
+      "Definition 1.6.4",
+      "Figure 1.5"
+    ],
+    "source_exports": "exact manuscript and notation index; identical editor/download PDFs",
+    "visual_inspection": "printed page 46 now has the smaller figure, denominator-bound proof and following theorem statement; final desktop figure screenshot confirms centered reduced size",
+    "browser": "passed final rerun: centered 55% desktop figure, full-width mobile figure, bounded percentage widths only, other image styles and event handlers stripped; existing math/navigation/download/Lean-pane checks pass with no errors or overflow",
+    "unit_tests": "Python pipeline suite not rerun; new width and style-filtering assertions exercised in browser checks",
+    "notation_entries": 68,
+    "commit_push_deployment": "not-performed",
+    "initial_browser_check": "Existing smoke checks passed, but visual inspection found the sanitizer stripped fractional image width; the renderer and assertions were corrected.",
+    "javascript_syntax": "passed: node --check web/app.js",
+    "browser_harness_fix": "The added sanitizer check initially assumed a global function; it now loads the exact sanitizer and URL helpers from the built module for isolated DOM checks."
+  },
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/text.tex": "60abbfc7a2e8b69ebb772bd6eba641f8dd4546ae0ee7976e38034112a726ef4d",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/Formalization.lean": "24edb7703c8d7e26fc379cb21b905454579cc3f178b48e331c3e2b93de83cd42",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/compare.tex": "d84e8f740866156922b56cc6aa42e8556facedf45cb8347fa91028b589e1a735",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/section.json": "ad1857b0539f428ea2cd1f063f0c3a1cd06da374bf3506f3a3d7e063c723afc8",
+    "volumes/Volume01/A/appendices/I/intro.tex": "6e358e2a022274d4b10b6c05ab465af85d1be12051a805746459bbaae266f56d",
+    "web/styles.css": "83e8ad67c62cdb916470acfc6aeaf78f6afcd701eceff91e43c0d66c1f0e3bf5",
+    "AUTHORING.md": "7074a8b069acf73ca3ebe34facbcdfc9168dc07cca620a7928f8f375eeec9cf3",
+    "docs/STATUS.md": "bbbe07046bfe598c7775e1cc65936d05280b08689eeb0aff485915de998be84e",
+    "web/app.js": "bacd1420c4fe9581b2b04b75919944fea150a1e53bd86da3c90095c66750fc55",
+    "scripts/check_browser.py": "e5d5bb37e577444b2268a49b0f9d1afb8a7942ed610deeeb10ef7798ba563066"
+  }
+}

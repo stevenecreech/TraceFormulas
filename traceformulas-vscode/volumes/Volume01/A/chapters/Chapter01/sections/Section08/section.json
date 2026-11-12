@@ -1,0 +1,13 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter01.Section08.haar_unique_scale",
+      "TraceFormulas.Volume01.A.Chapter01.Section08.haar_inverse",
+      "TraceFormulas.Volume01.A.Chapter01.Section08.quarter_turn_conjugation",
+      "TraceFormulas.Volume01.A.Chapter01.Section08.positive_reciprocal_fixed_point",
+      "TraceFormulas.Volume01.A.Chapter01.Section08.positive_character_on_dilation"
+    ]
+  },
+  "videos": []
+}

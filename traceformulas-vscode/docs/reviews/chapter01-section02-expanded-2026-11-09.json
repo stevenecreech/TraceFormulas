@@ -1,0 +1,93 @@
+{
+  "date": "2026-11-09",
+  "scope": "Section 1.2 proof expansion and partial formalization extension; trim Remark 1.1.5 and relocate Haar motivation to Section 1.8",
+  "prior_snapshot": "docs/reviews/chapter01-remarks-2026-11-09.json",
+  "prose_status": "proof-draft; revised following Steven’s comments, further author review pending",
+  "formal_status": "in-progress; implemented portions checked, full section coverage incomplete",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "editorial_changes": [
+    "Removed the Hecke-matrix forward-looking sentence from Remark 1.1.5; retained the positive-determinant result and normalization.",
+    "Added respectively to the inverse-parameter list in Definition 1.2.1.",
+    "Defined homogeneous space via a continuous transitive action before Theorem 1.2.2; defined G/K and its topology, and made g in G explicit in the coordinate statement. Symmetric-space terminology is deferred until geometric structures are developed.",
+    "Separated stabilizer, existence, uniqueness, coordinates and quotient arguments into paragraphs, with the real/imaginary entry comparison written out.",
+    "Used s(x+iy) throughout the factorization argument and explained its inverse as (w-x)/y.",
+    "Expanded the conjugate-denominator calculation and the bottom-row computation for the angle.",
+    "Expanded Proposition 1.2.3 to explain the tangent derivative, the doubled angle, kernel {±I}, and two lifts of each tangent rotation.",
+    "Removed the Haar preview from Section 1.2 and placed its measure-space distinction before the normalization definition in Section 1.8.",
+    "Updated the notation index to 63 entries, adding the quotient G/K and clarifying s(z)."
+  ],
+  "new_formal_claims": [
+    {
+      "label": "hyperbolic.iwasawa",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.stabilizer_entry_equations",
+      "scope": "Fixing i is equivalent to a=d and b=-c, obtained by comparing real and imaginary parts."
+    },
+    {
+      "label": "hyperbolic.iwasawa",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.inverse_position_action",
+      "scope": "For z=x+iy and w in H, the actual matrix s(z) inverse acts by (w-x)/y."
+    },
+    {
+      "label": "hyperbolic.iwasawa",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.orbit_point_coordinates",
+      "scope": "Exact rational formulas for the real and imaginary parts of g·i."
+    },
+    {
+      "label": "hyperbolic.iwasawa",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section02.unique_iwasawa_factors",
+      "scope": "Equality of two NAK matrix factorizations implies equality of x, y and the rotation matrices; conversion to angle classes modulo 2π remains open."
+    }
+  ],
+  "remaining_formalization": [
+    "Angle sine/cosine coordinate formulas and equivalence of angle classes modulo 2π",
+    "Orthogonal-group interface",
+    "Quotient homeomorphism, smooth coordinates and explicit quotient action",
+    "Angular derivative and double-covering proposition",
+    "Previously recorded sphere-action and other Chapter 1 gaps, including Haar measure"
+  ],
+  "source_verification": {
+    "status": "partial background check and AI algebra review; not an independent or complete theorem-level audit",
+    "consulted": {
+      "title": "A. V. Sutherland, Geometry of the complex upper half plane",
+      "url": "https://math.mit.edu/classes/18.786/2024/LectureNotes1.pdf",
+      "scope": "Corollary 1.3 and the explicit Iwasawa parametrization on page 3. The draft supplies its own proofs and does not invoke the general orbit theorem."
+    }
+  },
+  "machine_evidence": {
+    "record": "lean/audits/chapter01-section02-expanded-2026-11-09/record.json",
+    "record_sha256": "c638b180e8bf212842c5f4a132c1c16d1167683f8ecff2c865d5086e6557c901",
+    "status": "passed",
+    "audited_logical_declarations_including_helpers": 59,
+    "public_companion_theorems": 20,
+    "allowed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "source_drift": [],
+    "notes": "All nine pinned dependencies verified clean before/after. No fresh-checkout reproduction or new Chapter 0 axiom audit claimed."
+  },
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "7289b75979b5d405dd2c6c1dabc57257d07288e7e3fc6d1cdc47e8329834c5c4",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "dfbf3fe4c10785ad463993d90775bff65cbb8ddb69ec1174d067cdc897268fcf",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "183ff380db02f65afa130bfa2b1b0c66397867e833e2eee6042ed2dad7146086",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "0f55e04cdd89f905126ad7143a971f6a4c83eac50d02bdf6210997a78629964f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "bc09f9d5a1aec28c0b58f52bd4c33b4363ec50b15eea8441fa5f1651ee8817b5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "b637a138068a8a0d5c3a899ff4bb01afa471b6bbf738338c05defc46ff4542f5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "6d18c130c117be74b5bb42ff1ff31e779fdde0129e7f8c1781775a26f25be81c",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "ed4483899cbd8a7891bec335416c5048bf89464a8c9589dcf17d3262f341f8dd",
+    "volumes/Volume01/A/appendices/I/intro.tex": "91852655e75857491cda6a792e1085ae583403965018b6abc07f69a1d67f7b36",
+    "lean/TraceFormulas/Geometry/Iwasawa.lean": "ec05ee0554639cee8d7fdac11e6a745b01c75251e3a77862c43c683171cf7fac"
+  },
+  "validation": {
+    "lean": "Targeted shared-module and companion build passed; full build and recorded Chapter 1 axiom gate passed.",
+    "website_pdf": "python3 scripts/build.py --pdf --volume v1a passed; 12 volume parts, 31 chapters, 156 sections, nine appendices and one PDF.",
+    "browser": ".venv/bin/python scripts/check_browser.py passed desktop/mobile MathJax, exact Lean display, navigation, hyperlinks, downloads and subdirectory hosting; no page errors.",
+    "pdf": "No TeX warnings, overfull/underfull boxes, or unresolved references; editor/download PDFs match. Physical pages 27–29 visually inspected.",
+    "exports": "Edited manuscript, Compare, metadata, Lean, Section 1.8 and index exports match saved sources.",
+    "numbering": "Remark 1.1.5 and Definition/Theorem/Proposition 1.2.1–1.2.3 retain their numbers and semantic labels.",
+    "pipeline_tests": "Not rerun; no pipeline implementation changed."
+  },
+  "deployment": "Local changes only; no commit, push or deployment."
+}

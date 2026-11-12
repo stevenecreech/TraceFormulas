@@ -1,0 +1,198 @@
+A fractional linear expression can have a pole, so the complex plane alone is not the natural domain for all such transformations. Adjoining one point at infinity gives a space on which every invertible matrix acts everywhere. We begin with that action and then ask which parts of the space are preserved when the matrix entries are real.
+
+\begin{definition}[Möbius transformations on the Riemann sphere]\label{hyperbolic.riemann-sphere}
+The Riemann sphere is $\widehat{\mathbb C}=\mathbb C\cup\{\infty\}$. For $g=\begin{smallpmatrix}a&b\\c&d\end{smallpmatrix}\in\operatorname{GL}_2(\mathbb C)$, the group of invertible complex two-by-two matrices, its Möbius transformation, also called a fractional linear transformation, is
+\[
+ g\cdot z=\frac{az+b}{cz+d}
+\]
+when $z\in\mathbb C$ and $cz+d\ne0$. If $c\ne0$, set $g\cdot(-d/c)=\infty$ and $g\cdot\infty=a/c$. If $c=0$, set $g\cdot\infty=\infty$; then $d\ne0$ and the finite-point formula has no pole. The dot denotes the action of the matrix on the sphere; we also use the abbreviation $gz=g\cdot z$ in later formulas.
+\end{definition}
+
+The numerator and denominator cannot vanish together: that would give the nonzero column vector $\begin{smallpmatrix}z\\1\end{smallpmatrix}$ in the kernel of an invertible matrix. Thus each prescribed value is unambiguous.
+
+\begin{proposition}[Matrix multiplication gives composition]\label{hyperbolic.sphere-action}
+These transformations define a left action of $\operatorname{GL}_2(\mathbb C)$ on $\widehat{\mathbb C}$. Multiplying a matrix by any nonzero complex scalar leaves its transformation unchanged.
+\end{proposition}
+
+\begin{proof}
+Represent a sphere point by homogeneous coordinates $[u:v]$, where $\begin{smallpmatrix}u\\v\end{smallpmatrix}\in\mathbb C^2\setminus\{0\}$ and proportional nonzero columns represent the same point. The point is $u/v$ when $v\ne0$, and is $\infty$ when $v=0$. Every finite point has the representative $[z:1]$, and infinity has $[1:0]$. The matrix action is
+\[
+ g\cdot[u:v]=[au+bv:cu+dv].
+\]
+Invertibility makes the output vector nonzero. Replacing the input column by a nonzero scalar multiple scales both output coordinates equally, so the map is well defined. Matrix multiplication gives
+\[
+ g\cdot(h\cdot[u:v])=(gh)\cdot[u:v],\qquad I\cdot[u:v]=[u:v].
+\]
+These are the left-action identities, and the inverse matrix gives the inverse transformation. Reading these coordinates in the finite chart gives exactly the formulas in the definition, including the values at poles and infinity. Scaling the matrix also scales both output coordinates equally, proving the final assertion.
+\end{proof}
+
+\phantomsection\label{hyperbolic.scalar-normalization}
+Scalar invariance lets us choose determinant-one representatives. If $g\in\operatorname{GL}_2(\mathbb C)$, choose $s\in\mathbb C$ with $s^2=\det g$. Then $s\ne0$ and
+\[
+ \det(s^{-1}g)=s^{-2}\det g=1,\qquad
+ (s^{-1}g)\cdot z=g\cdot z.
+\]
+Thus every Möbius transformation has a representative in $\operatorname{SL}_2(\mathbb C)$. The two square-root choices give representatives differing by sign. For real matrices this rescaling stays real when the determinant is positive; a negative determinant cannot be made positive by multiplying by a nonzero real scalar.
+
+\phantomsection\label{hyperbolic.real-group}
+We now restrict to the real determinant-one group
+\[
+ \operatorname{SL}_2(\mathbb R)
+   =\left\{\begin{pmatrix}a&b\\c&d\end{pmatrix}:a,b,c,d\in\mathbb R,\ ad-bc=1\right\}.
+\]
+Its action on the sphere has three orbits. The imaginary-part calculation explains why they are separated.
+
+\begin{definition}[The three regions]\label{hyperbolic.half-plane}
+Write
+\[
+ \begin{aligned}
+ \mathbb H&=\{z=x+iy\in\mathbb C:y>0\},\\
+ \mathbb H^-&=\{z=x+iy\in\mathbb C:y<0\},\\
+ \widehat{\mathbb R}&=\mathbb R\cup\{\infty\}.
+ \end{aligned}
+\]
+These are respectively the upper half-plane, lower half-plane, and extended real line. They partition $\widehat{\mathbb C}$.
+\end{definition}
+
+\begin{lemma}[The sign of the imaginary part]\label{hyperbolic.imaginary-part}
+For $g=\begin{smallpmatrix}a&b\\c&d\end{smallpmatrix}\in\operatorname{SL}_2(\mathbb R)$ and a nonreal $z\in\mathbb C$, the denominator $cz+d$ is nonzero and
+\begin{equation}\label{eq:mobius-imaginary-part}
+ \operatorname{Im}(g\cdot z)=\frac{\operatorname{Im}z}{|cz+d|^2}.
+\end{equation}
+In particular, $g$ preserves the sign of the imaginary part.
+\end{lemma}
+
+\begin{proof}
+If $c\ne0$, the only possible zero of $cz+d$ is the real point $-d/c$. If $c=0$, the determinant condition gives $ad=1$, hence $d\ne0$. Multiply the numerator and denominator by the conjugate of $cz+d$. Since the matrix entries are real,
+\[
+ \begin{aligned}
+ g\cdot z
+ &=\frac{az+b}{cz+d}
+  =\frac{(az+b)(c\overline z+d)}{|cz+d|^2}\\
+ &=\frac{ac|z|^2+ad z+bc\overline z+bd}{|cz+d|^2}.
+ \end{aligned}
+\]
+The terms $ac|z|^2$ and $bd$ are real, while $\operatorname{Im}(\overline z)=-\operatorname{Im}z$. Taking imaginary parts therefore gives
+\[
+ \operatorname{Im}(g\cdot z)
+ =\frac{(ad-bc)\operatorname{Im}z}{|cz+d|^2}
+ =\frac{\operatorname{Im}z}{|cz+d|^2}.
+\]
+The denominator is positive, so the sign is unchanged.
+\end{proof}
+
+\begin{remark}[Positive determinant]\label{hyperbolic.positive-determinant}
+A real matrix $g$ with positive determinant also acts on $\mathbb H$: the same calculation gives $\operatorname{Im}(g\cdot z)=\det(g)\operatorname{Im}z/|cz+d|^2$. Dividing all entries by $\sqrt{\det(g)}$ produces an element of $\operatorname{SL}_2(\mathbb R)$ with the same action.
+\end{remark}
+
+\begin{theorem}[The three real-group orbits]\label{hyperbolic.three-orbits}
+The action of $\operatorname{SL}_2(\mathbb R)$ on $\widehat{\mathbb C}$ has exactly the three orbits $\mathbb H$, $\mathbb H^-$, and $\widehat{\mathbb R}$. Representatives are $i$, $-i$, and $\infty$.
+\end{theorem}
+
+\begin{proof}
+The imaginary-part lemma shows that each half-plane is preserved. The formulas for the action show that real points and infinity map to real points or infinity; applying the same observation to the inverse shows that $\widehat{\mathbb R}$ is preserved as well. Thus an orbit cannot meet two of these regions.
+
+It remains to prove transitivity within each region. For $x\in\mathbb R$ and $y>0$, put
+\[
+ n(x)=\begin{pmatrix}1&x\\0&1\end{pmatrix},\qquad
+ a(y)=\begin{pmatrix}\sqrt y&0\\0&1/\sqrt y\end{pmatrix}.
+\]
+Both have determinant one. Their actions are
+\[
+ a(y)\cdot z=\frac{\sqrt y\,z}{1/\sqrt y}=yz,\qquad
+ n(x)\cdot z=\frac{z+x}{1}=x+z.
+\]
+Thus $a(y)$ first sends $i$ to $iy$, and $n(x)$ then sends $iy$ to $x+iy$. Starting from $-i$, the same two steps give $-iy$ and then $x-iy$. This reaches every point in the respective half-planes.
+
+For $r\in\mathbb R$, the determinant-one matrix $\begin{smallpmatrix}r&-1\\1&0\end{smallpmatrix}$ sends $\infty$ to $r$, while the identity fixes infinity. Every point in each region therefore lies in the orbit of its displayed representative. Since the regions are nonempty and partition the sphere, these are exactly all the orbits.
+\end{proof}
+
+We choose the upper half-plane as our domain for the rest of the chapter. Its transitivity means that all its points are equivalent under the real group. A different question is whether different matrices always induce different transformations. To obtain a faithful action, we must first find the matrices that fix every point.
+
+\begin{proposition}[The kernel on the upper half-plane]\label{hyperbolic.effective-action}
+An element $g\in\operatorname{SL}_2(\mathbb R)$ fixes every point of $\mathbb H$ if and only if $g=I$ or $g=-I$.
+\end{proposition}
+
+\begin{proof}
+Write $g=\begin{smallpmatrix}a&b\\c&d\end{smallpmatrix}$. If $g$ fixes every point, then for every $z\in\mathbb H$,
+\[
+ g\cdot z=\frac{az+b}{cz+d}=z.
+\]
+The denominator is nonzero, so $az+b=z(cz+d)$. Rearranging gives
+\[
+ cz^2+(d-a)z-b=0.
+\]
+A polynomial of degree at most two with infinitely many zeros is zero. Thus $c=b=0$ and $d=a$. The determinant gives $a^2=1$, hence $g=\pm I$. Conversely, the two scalar matrices $I$ and $-I$ leave every sphere point, and in particular every point of $\mathbb H$, unchanged.
+\end{proof}
+
+\begin{proposition}[The center of the real group]\label{hyperbolic.center}
+The center of $\operatorname{SL}_2(\mathbb R)$, namely the subgroup of matrices commuting with every element of $\operatorname{SL}_2(\mathbb R)$, is exactly $\{I,-I\}$. It therefore coincides with the kernel of the action on $\mathbb H$.
+\end{proposition}
+
+\begin{proof}
+The scalar matrices $\pm I$ commute with every matrix. Conversely, suppose $g=\begin{smallpmatrix}a&b\\c&d\end{smallpmatrix}$ is central. Using the matrices introduced in the orbit proof, it commutes in particular with
+\[
+ a(2)=\begin{pmatrix}\sqrt2&0\\0&1/\sqrt2\end{pmatrix},\qquad
+ n(1)=\begin{pmatrix}1&1\\0&1\end{pmatrix}.
+\]
+The products with $a(2)$ are
+\[
+ ga(2)=\begin{pmatrix}\sqrt2 a&b/\sqrt2\\\sqrt2 c&d/\sqrt2\end{pmatrix},\qquad
+ a(2)g=\begin{pmatrix}\sqrt2 a&\sqrt2 b\\c/\sqrt2&d/\sqrt2\end{pmatrix}.
+\]
+Their equality gives $b/\sqrt2=\sqrt2 b$ and $\sqrt2 c=c/\sqrt2$. Multiplying by $\sqrt2$ gives $b=2b$ and $2c=c$, hence $b=c=0$. Now $g$ is diagonal, and
+\[
+ gn(1)=\begin{pmatrix}a&a\\0&d\end{pmatrix},\qquad
+ n(1)g=\begin{pmatrix}a&d\\0&d\end{pmatrix}.
+\]
+Their equality gives $a=d$. Finally, $ad-bc=1$ becomes $a^2=1$, and $g=\pm I$. The kernel statement follows from the preceding proposition.
+\end{proof}
+
+\begin{definition}[The effective group]\label{hyperbolic.projective-group}
+Set $Z=Z(\operatorname{SL}_2(\mathbb R))=\{I,-I\}$ and define
+\[
+ \operatorname{PSL}_2(\mathbb R)=\operatorname{SL}_2(\mathbb R)/Z.
+\]
+A bar on a matrix denotes its class in this quotient. Similarly, put $\Gamma=\operatorname{SL}_2(\mathbb Z)$ and $\overline\Gamma=\Gamma/Z=\operatorname{PSL}_2(\mathbb Z)$. These are respectively the matrix modular group and its effective image.
+\end{definition}
+
+\begin{corollary}[Faithfulness after quotienting]\label{hyperbolic.faithful-quotient}
+The rule $\overline g\cdot z=g\cdot z$ defines a faithful action of $\operatorname{PSL}_2(\mathbb R)$ on $\mathbb H$. Passing from $\operatorname{SL}_2(\mathbb R)$ to $\operatorname{PSL}_2(\mathbb R)$, or from $\Gamma$ to $\overline\Gamma$, does not change point orbits.
+\end{corollary}
+
+\begin{proof}
+The two representatives $g,-g$ induce the same map, so the action is well defined. If $\overline g$ fixes every point, the kernel proposition gives $g\in Z$, hence $\overline g$ is the identity class. Every quotient element has a matrix representative, so the sets of reachable points are unchanged. The same argument applies to the restriction to $\Gamma$, which contains $Z$.
+\end{proof}
+
+\begin{proposition}[Basic identities on the upper half-plane]\label{hyperbolic.mobius}
+For $g=\begin{smallpmatrix}a&b\\c&d\end{smallpmatrix}\in\operatorname{SL}_2(\mathbb R)$ and $z,w\in\mathbb H$,
+\begin{equation}\label{eq:mobius-identities}
+ \begin{aligned}
+ \operatorname{Im}(g\cdot z)&=\frac{\operatorname{Im}z}{|cz+d|^2},\\
+ g\cdot z-g\cdot w&=\frac{z-w}{(cz+d)(cw+d)},\\
+ \frac{d}{dz}(g\cdot z)&=\frac1{(cz+d)^2}.
+ \end{aligned}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The Möbius imaginary-part formula \eqref{eq:mobius-imaginary-part} has already been proved. For the difference, put the two fractions over a common denominator:
+\[
+ \begin{aligned}
+ g\cdot z-g\cdot w
+ &=\frac{az+b}{cz+d}-\frac{aw+b}{cw+d}\\
+ &=\frac{(az+b)(cw+d)-(aw+b)(cz+d)}{(cz+d)(cw+d)}\\
+ &=\frac{ad(z-w)+bc(w-z)}{(cz+d)(cw+d)}\\
+ &=\frac{(ad-bc)(z-w)}{(cz+d)(cw+d)}
+  =\frac{z-w}{(cz+d)(cw+d)}.
+ \end{aligned}
+\]
+The $aczw$ and $bd$ terms cancel in the numerator, and the last equality uses $ad-bc=1$. The quotient rule likewise gives
+\[
+ \frac{d}{dz}(g\cdot z)
+ =\frac{a(cz+d)-c(az+b)}{(cz+d)^2}
+ =\frac{ad-bc}{(cz+d)^2}
+ =\frac1{(cz+d)^2}.
+\]
+All denominators are nonzero on $\mathbb H$.
+\end{proof}

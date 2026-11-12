@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-11",
+  "scope": "Number cited formulas and replace ambiguous proof references in Chapter 1 Sections 1.1–1.4; support matching PDF/website equation references.",
+  "prior_snapshot": "docs/reviews/chapter01-section04-expanded-2026-11-11.json",
+  "prose_status": "proof-draft; presentation and references revised; mathematical statements and proof arguments unchanged",
+  "formal_status": "in-progress; coverage and documented gaps unchanged",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "source_verification": "No new mathematical source consultation; no mathematical claims added.",
+  "equations": {
+    "eq:mobius-imaginary-part": "1.1.1",
+    "eq:mobius-identities": "1.1.2",
+    "eq:iwasawa-inverse-action": "1.2.1",
+    "eq:stabilizer-derivative": "1.2.2",
+    "eq:metric-invariance": "1.3.1",
+    "eq:half-plane-metric-area": "1.3.2",
+    "eq:hyperbolic-distance": "1.3.3",
+    "eq:gradient-characterization": "1.3.4",
+    "eq:gradient-coordinates": "1.3.5",
+    "eq:divergence-characterization": "1.3.6",
+    "eq:divergence-coordinates": "1.3.7",
+    "eq:gradient-transport": "1.3.8",
+    "eq:gradient-pairing-transport": "1.3.9",
+    "eq:cayley-maps": "1.4.1",
+    "eq:disk-metric-area": "1.4.2",
+    "eq:inverse-cayley-height": "1.4.3",
+    "eq:cayley-rotation": "1.4.4",
+    "eq:point-pair-definition": "1.4.5",
+    "eq:point-pair-invariance": "1.4.6",
+    "eq:point-pair-distance": "1.4.7",
+    "eq:point-pair-disk": "1.4.8",
+    "eq:inverse-cayley-difference-squared": "1.4.9",
+    "eq:inverse-cayley-height-product": "1.4.10",
+    "eq:polar-radius-change": "1.4.11"
+  },
+  "equation_reference_count": 34,
+  "numbering": "Separate equation counter reset by section; chapter.section.ordinal in PDF and website.",
+  "limitations": [
+    "Ordinary numbered ref commands are not supported by the website.",
+    "Use equation with aligned for one multiline number; per-line align numbering and custom tags are unsupported.",
+    "Define equations in manuscript intro.tex/text.tex; companion prose may reference those equations.",
+    "Cross-volume references are not implemented."
+  ],
+  "machine_evidence": {
+    "existing_audit": "lean/audits/chapter01-section04-expanded-2026-11-11/record.json",
+    "new_lean_build_or_audit": "not-run",
+    "changed_audited_files": [
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex",
+      "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex"
+    ],
+    "unchanged_audited_files": 36,
+    "impact": "Only prose labels, references, display grouping, and explicit cosh parentheses changed. All audited Lean and dependency pin hashes match the prior audit."
+  },
+  "validation": {
+    "build": {
+      "command": "python3 scripts/build.py --pdf --volume v1a",
+      "status": "passed",
+      "tex_log": "clean"
+    },
+    "tests": {
+      "command": "python3 -m unittest discover -s tests -v",
+      "status": "passed",
+      "count": 43
+    },
+    "browser": {
+      "command": ".venv/bin/python scripts/check_browser.py",
+      "status": "passed",
+      "scope": "Desktop/mobile; equation navigation and back navigation; Read/Compare; visible numbers; MathJax; no page overflow/errors; subdirectory hosting and source/PDF downloads."
+    },
+    "equation_number_agreement": 24,
+    "source_exports_and_editor_download_pdf": "byte-identical",
+    "visual_inspection": [
+      "PDF physical page 42 / printed page 34",
+      "Desktop equation 1.3.3",
+      "Mobile equation 1.4.7"
+    ],
+    "diff_check": "passed"
+  },
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "cf73d47f8a8ad5fecedac1fe6b4dfac8327d96f34634b2cac79b03cd7f67a97e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "f2066c543b7d33e8f8e12f28fa946c1369c48bc20a249bc895d50e093191825b",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "2bf4b17c8e15dbed035b1f734df6fbbbf36d307513d0cfba669e778aba77df27",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex": "36cd6454ea08a44366f814406b39621a1ac531566f959a07e94a62b3533c2776",
+    "../AGENTS.md": "4a80273c6ec48dacdc8447d2469b1ce64e700ca867b10cc956312a36911965fa",
+    "AUTHORING.md": "0b399f6518aaeb7e6d7821d7515d475dc115c406877d17105b04a476d71c28e4",
+    "docs/WORKFLOW.md": "1603e218dbe3a2ffae956d94bc3e2485dc35949925b3604b04c95b8bd6083b5b",
+    "docs/STATUS.md": "ceca07a7e8ff08ad2861174ca77aadcf5b94f0c21e8fc9c64ec87cc39efb0de9",
+    "scripts/build.py": "36f60fa1646f1a0deedd01b37d9f5a493baadb0d57ce854aa91fcaa9124e8ed2",
+    "scripts/strict-tex.lua": "3a2d336c4639b58c3df681831dbc323b0cfbe6822ded3e71fef5369a2bcde212",
+    "scripts/check_browser.py": "403d635bed8edd2395fc271abb79990c90de556707f0663d233c2b23e2a86fa0",
+    "tests/test_build.py": "85928db25a6a9ea815edd060c435d6881d745b76bc6bf6ccee91f6d8f49f870f",
+    "tests/test_references.py": "407a95ce1016269530038a18ef362e7a8b5a64001202ae0c449a2cf8d195b904",
+    "tex/preamble.tex": "9941d9dbf84a9304ee071c56cd5cf220ac70d9b0db09123b1ecaa4594457a72b",
+    "web/styles.css": "ca1741a7c45c2698a8b0fbce4148aac3e543b2963f6cae63732460807b2e6838",
+    "lean/audits/chapter01-section04-expanded-2026-11-11/record.json": "d2b590c57ac4291e612aaefca890d026e7326326d88452cd51a69520d0e7ddf5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "0f55e04cdd89f905126ad7143a971f6a4c83eac50d02bdf6210997a78629964f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c0541381425c82b75c7b8040866b805c0c66800bc040e9e126a9ce43ef665456",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/Formalization.lean": "e44e9736ab4946830cb268c7025e546713a318bae753dbb1f7b5670029653d27"
+  }
+}

@@ -37,4 +37,4 @@ The Compare view is a mathematical explanation of correspondence. In particular,
 | Lecture | planned → script-draft → recorded → reviewed | Recording, captions, result IDs, verified timestamps |
 | Build | not-run / passed / failed / unavailable | Command, environment, outcome |
 
-The website's existing chapter labels (`not-started`, `in-progress`, `linked`) remain navigation metadata. A source link or a successful website build cannot promote a theorem to `checked`.
+The website's labels (`not-started`, `in-progress`, `linked`, `autoformalized-awaiting-review`) are authored status metadata. The last displays “Autoformalized · awaiting human review” and is used only when recorded machine checks cover the corresponding mathematical sources while Steven's correspondence review is pending. It does not mean human-reviewed or Tau Ceti-certified. A source link or a successful website build cannot promote a theorem to `checked`.

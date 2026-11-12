@@ -1,0 +1,23 @@
+{
+  "formal": {
+    "status": "in-progress",
+    "declarations": [
+      "TraceFormulas.Volume01.A.Chapter01.Section04.cayley_disk_complement",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.inverse_cayley_imaginary_part",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.cayley_left_inverse",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.cayley_right_inverse",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.cayley_bijection",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.cayley_derivative",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.inverse_cayley_derivative",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.disk_metric_coefficients",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_nonnegative",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_zero",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_symmetry",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_invariance",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.inverse_cayley_difference",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_disk_formula",
+      "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_from_i"
+    ]
+  },
+  "videos": []
+}

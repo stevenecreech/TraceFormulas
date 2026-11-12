@@ -1,11 +1,24 @@
 {
   "videos": [],
   "prerequisites": [],
-  "resources": [],
+  "resources": [
+    {
+      "title": "A. Rinaldo, Advanced Probability (2018), Lecture Notes Set 1, §4.3, Theorem 21 (uniqueness of measures)",
+      "url": "https://stat.cmu.edu/~arinaldo/Teaching/36752/S18/Notes/lec_notes_1.pdf#page=10"
+    },
+    {
+      "title": "J.-F. Quint, Examples of unique ergodicity of algebraic flows, §2.2 (Haar measure and modular function)",
+      "url": "https://imag.umontpellier.fr/~quint/Publications/courschine.pdf"
+    },
+    {
+      "title": "J. Gleason, Existence and Uniqueness of Haar Measure (background reference)",
+      "url": "https://math.uchicago.edu/~may/VIGRE/VIGRE2010/REUPapers/Gleason.pdf"
+    }
+  ],
   "exercises": [],
   "explorations": [],
   "formal": {
-    "status": "not-started",
+    "status": "in-progress",
     "url": "",
     "declarations": []
   },

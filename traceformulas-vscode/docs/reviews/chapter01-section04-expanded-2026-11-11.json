@@ -1,0 +1,210 @@
+{
+  "date": "2026-11-11",
+  "scope": "Expand Section 1.4 Cayley/metric/rotation calculations, the distance and disk expressions for u, both directions of the pair-orbit classification, and the polar/radial integration proof; begin its partial Lean companion.",
+  "prior_snapshot": "docs/reviews/chapter01-gradient-transport-explanation-2026-11-10.json",
+  "prose_status": "proof-draft; revised following Steven’s comments; further review pending",
+  "formal_status": "in-progress; fourteen new public companion theorems checked; incomplete section and chapter coverage",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "editorial_changes": [
+    "Proposition 1.4.1 now displays the domain inequalities, conjugate-denominator calculation, both inverse compositions, quotient-rule derivatives, metric substitution and perpendicular-coordinate area scaling.",
+    "A new paragraph substitutes the full fractional k(theta) action into C and factors both numerator and denominator, displaying the geometric angle 2 theta. The geodesic proof displays the transformed circle/line equation.",
+    "Proposition 1.4.3 retains the full arguments of d_H and u throughout, and defines the domains of z,w,g,zeta,eta explicitly.",
+    "The disk formula is proved by directly subtracting the two inverse Cayley fractions and dividing by the product of their imaginary parts.",
+    "The orbit proof defines the diagonal action, separates same-orbit implies equal-invariant from its converse, handles radius zero, and exhibits g₂⁻¹kg₁ sending both entries to their targets.",
+    "The invariant-function conclusion explains surjectivity onto every t≥0 and why a unique common value defines h(t).",
+    "Proposition 1.4.4 derives rho=tanh(r/2) using r=d_H(i,w) and the two preceding expressions for u(i,w), then computes the polar metric and area and the ball-area integral.",
+    "The radial integral starts with the nonnegative Tonelli case, separates angular factor 2 pi from substitution factor 2, and proves the complex case after absolute integrability. The zero-area polar center and the geometric-angle convention are stated.",
+    "All five semantic labels and numbers 1.4.1–1.4.5 are retained. The notation index has 66 rows, distinguishing disk radius rho from the elliptic vertex rho.",
+    "Recorded the explicit-function-arguments convention in AGENTS.md for later editing rounds; any shorter symbol must first be defined locally."
+  ],
+  "new_formal_claims": [
+    {
+      "label": "hyperbolic.cayley",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.cayley_disk_complement",
+      "scope": "The exact squared-modulus identity 1−|C(z)|²=4 Im(z)/|z+i|²; positivity constructs a point in Mathlib’s actual unit disk."
+    },
+    {
+      "label": "hyperbolic.cayley",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.inverse_cayley_imaginary_part",
+      "scope": "The inverse imaginary-part formula for actual disk points; its positivity constructs a point in Mathlib’s actual upper half-plane."
+    },
+    {
+      "label": "hyperbolic.cayley",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.cayley_left_inverse",
+      "scope": "C⁻¹(C(z))=z for every upper-half-plane point."
+    },
+    {
+      "label": "hyperbolic.cayley",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.cayley_right_inverse",
+      "scope": "C(C⁻¹(ζ))=ζ for every disk point."
+    },
+    {
+      "label": "hyperbolic.cayley",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.cayley_bijection",
+      "scope": "Bijectivity between the actual domains via the inverse formulas; no smooth or metric-space isometry registration claimed."
+    },
+    {
+      "label": "hyperbolic.cayley",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.cayley_derivative",
+      "scope": "A genuine complex HasDerivAt statement for the Cayley fraction."
+    },
+    {
+      "label": "hyperbolic.cayley",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.inverse_cayley_derivative",
+      "scope": "A genuine complex HasDerivAt statement for the inverse Cayley fraction."
+    },
+    {
+      "label": "hyperbolic.cayley",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.disk_metric_coefficients",
+      "scope": "The actual inverse derivative sends a complex tangent vector to half-plane tangent energy 4|v|²/(1−|ζ|²)²."
+    },
+    {
+      "label": "hyperbolic.point-pair",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_nonnegative",
+      "scope": "The normalized quotient with denominator 4 Im(z) Im(w) is nonnegative."
+    },
+    {
+      "label": "hyperbolic.point-pair",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_zero",
+      "scope": "The quotient vanishes if and only if the two upper-half-plane points coincide."
+    },
+    {
+      "label": "hyperbolic.point-pair",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_symmetry",
+      "scope": "The normalized quotient is symmetric."
+    },
+    {
+      "label": "hyperbolic.pair-orbits",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_invariance",
+      "scope": "Invariance under the genuine simultaneous SL₂(R) action, by u=J/4 and the checked J invariance."
+    },
+    {
+      "label": "hyperbolic.pair-orbits",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.inverse_cayley_difference",
+      "scope": "The difference of inverse Cayley fractions is 2i(ζ−η)/((1−ζ)(1−η))."
+    },
+    {
+      "label": "hyperbolic.pair-orbits",
+      "declaration": "TraceFormulas.Volume01.A.Chapter01.Section04.point_pair_disk_formula",
+      "scope": "The exact quotient |ζ−η|²/((1−|ζ|²)(1−|η|²)) for two actual disk points."
+    }
+  ],
+  "proof_correspondence": [
+    "Complex normSq denotes the Euclidean squared modulus; half-plane and unit-disk objects retain Mathlib’s definitions. The maps are not represented by assumed equivalence data: both fraction identities and the domain inequalities are proved.",
+    "Both derivatives are genuine HasDerivAt proofs. The tangent-energy theorem substitutes the actual inverse derivative into the already checked half-plane coefficient formula.",
+    "The disk expression for u follows the edited inverse-subtraction route. Invariance reuses J after proving u=J/4, rather than repeating its denominator cancellation.",
+    "No arbitrary radial integral or covolume is defined to equal its desired formula; those measure-theoretic targets remain open."
+  ],
+  "remaining_formalization": [
+    "Cayley rotation conjugacy and the relation between matrix angle theta and disk angle 2 theta",
+    "Smooth equivalence and tangent bundle compatibility, induced area and real-Jacobian/change-of-variables bridges",
+    "Preservation of path lengths, distance as a path infimum, geodesic classification and the hyperbolic distance identity",
+    "Classification of ordered pairs, including zero radius, and factorization of invariant functions through u",
+    "The radius relation with actual distance, polar metric and genuine area measure, ball area, and the nonnegative and complex absolutely integrable radial formulas",
+    "Previously recorded incomplete Sections 1.1–1.3 and the later four section companions"
+  ],
+  "source_verification": {
+    "status": "partial background consultation and AI mathematical review; no independent or complete theorem-level bibliographic audit",
+    "consulted": {
+      "title": "A. V. Sutherland, Geometry of the complex upper half plane",
+      "url": "https://math.mit.edu/classes/18.786/2024/LectureNotes1.pdf",
+      "location": "Section 1.3, physical page 3",
+      "scope": "Background metric, area and group-angle conventions. These notes omit proofs and do not supply the expanded disk/orbit/radial proof; the manuscript’s detailed calculations were checked separately."
+    },
+    "mathlib": "Inspected and reused pinned Complex.UnitDisc.Basic, complex derivative and norm-square APIs, and existing project upper-half-plane/tangent geometry. Five missing UnitDisc dependencies compiled locally; no revision change or cache download."
+  },
+  "machine_evidence": {
+    "record": "lean/audits/chapter01-section04-expanded-2026-11-11/record.json",
+    "record_sha256": "d2b590c57ac4291e612aaefca890d026e7326326d88452cd51a69520d0e7ddf5",
+    "status": "passed",
+    "audited_logical_declarations_including_helpers": 167,
+    "public_chapter01_companion_theorems": 48,
+    "section04_public_companion_theorems": 14,
+    "allowed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "source_drift": [],
+    "notes": "Full project build and Chapter 1 gate passed; all nine locked dependencies clean before/after. No new Chapter 0 axiom audit or fresh-checkout reproduction claimed."
+  },
+  "source_sha256": {
+    "../README.md": "5ac86ed5dac65db6861324f5e7397783c7fef6ce20139dbcf0a94a22cc8ad315",
+    "README.md": "b0ecb9880fc7abdced5525fd06995723798dc8202e3ec89705bae5e7aa8b19d5",
+    "docs/STATUS.md": "3ca068654912478d4ed87452948bd597c23212f05e79fd3ed703679b3e24da22",
+    "lake-manifest.json": "c3d06c4bd61e3f79ce55c83d5b8ceaf73a495aa1822fe117a7227581855e0777",
+    "lakefile.toml": "63de0bd41d9a70dbb473ea1018f2cdb295ae939503858b1d42759f9af0e34584",
+    "lean-toolchain": "4a621e65aac8f17691d825e7dfedb432e2658f3a96002cab94fad5320a18c9fc",
+    "lean/AuditChapter01.lean": "a0457d5943050dcd29cba76d8f89d6c5627055532b4260cda55006fef54711fb",
+    "lean/README.md": "34cb1c904836b0e82c946167fbcdc13a84b88ac4673bc183cdc73e69bca264a2",
+    "lean/TraceFormulas.lean": "5663a312be65bc8524b1d3317724d0bfb22bd66d972ec51e2d5b8072b50cac16",
+    "lean/TraceFormulas/Analysis/FiniteCountingKernel.lean": "003491468a9bc3cbc8cb66c91b39ca35302655d57bf955e7918c09092049b7b7",
+    "lean/TraceFormulas/Analysis/FiniteCountingMeasure.lean": "71a35e83184b3dd7616a511c4099e010f0c10776a3b3da3b72b10e95789ff733",
+    "lean/TraceFormulas/Analysis/FiniteKernel.lean": "e9c27965fb0fa680a07aeb739f744051b16b39e3ff996fc3a9d9afeb543aeb27",
+    "lean/TraceFormulas/Analysis/FiniteKernelTrace.lean": "c03495ed27c7d08fb9d74cc9ec5c4044bc01f2d16170a51308c4b754fdff2c29",
+    "lean/TraceFormulas/Analysis/FiniteProjection.lean": "7d5ac7941a94770e28360b196788bd418afd431642ec955bf398e2ab60f0d853",
+    "lean/TraceFormulas/Analysis/FiniteRankTrace.lean": "49e06536fa7f446de93158f6743c1bb9f2e3949a95fc13f58cc4c1880b275cef",
+    "lean/TraceFormulas/Analysis/KernelRepresentatives.lean": "0b9471729fed39841931de4946322705c9622b088c9b9647b75b894ded782585",
+    "lean/TraceFormulas/Analysis/RankOneExample.lean": "4250be4933a256af8f5da03f999255f1f602e3349742b20c3f5ce5a5396ab280",
+    "lean/TraceFormulas/Analysis/RelativeKernel.lean": "67d641d6f5e51c710ee0530612a4721dd0ab48b51c664e3b9153baaac725dc4a",
+    "lean/TraceFormulas/Analysis/SpectralKernel.lean": "68f021fffec797ce7a31fd57c21cff81c91250d083c8e4a2d7895ecb6801943e",
+    "lean/TraceFormulas/Analysis/WeightedKernel.lean": "27efe609425bb7b40b881547fb01cdc01f9a7bf340d74bfe8dff8739ac41c902",
+    "lean/TraceFormulas/Geometry/DiskGeometry.lean": "963b44502b70852f5acc631d2b642e2db5d0423b78f4d5251f83f99d4af406fe",
+    "lean/TraceFormulas/Geometry/InvariantGeometry.lean": "2f4687997aec6204ee065afe347252bfd7d2a95228914f652e8d93ede21239c1",
+    "lean/TraceFormulas/Geometry/Iwasawa.lean": "ec05ee0554639cee8d7fdac11e6a745b01c75251e3a77862c43c683171cf7fac",
+    "lean/TraceFormulas/Geometry/RealMobius.lean": "499e78c9109b299d56a7a68b1b48262ad31d515aa4f70b83d6ef0a5de1352e3b",
+    "lean/TraceFormulas/LinearAlgebra/FiniteKernelMeasurements.lean": "eab9febd8c63ead9dd2e960e0e13b7dd65320b50dbebcf8057536bdd726f1c95",
+    "lean/TraceFormulas/LinearAlgebra/FiniteOrthonormal.lean": "fa07df94d8458d9af6e541a10112db5448bba8e6fa738a862122749904aeff54",
+    "lean/TraceFormulas/LinearAlgebra/MatrixTrace.lean": "ebb715be9cfdf061291e6d22969b3dc0d545d19204d8b9ad5ba9ffecbe08fb6a",
+    "scripts/audit_lean.py": "9ff4cea3ed80f7f8c4e0e6ac12cfcaa876d0256fe20f80fae2628364d27e30ab",
+    "scripts/check_browser.py": "0fc848c3acc858de2d40969bbc798e44e67284b3039ad1dce5a4cda7aded36c5",
+    "tests/test_lean_audit.py": "8fb34b81358a3cc360c3ee40d53c796dcc9921cd7f2b222c7fc21ea80d457676",
+    "volumes/Volume01/A/appendices/I/intro.tex": "c86ca02a377dbc1ec6a0473ccaef0a74c016cb47d5616ac660a0e296a01abd91",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "a896ef0bf76375b754b3132fcb2a186e270d998de95bbde9d6de5fdd39b46b46",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/Formalization.lean": "b4ae63820e6592f424fe40c68090a454a3735ecaf7ded15e4c224eb56e60e015",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "7b10a7aceb55adaf28a4f6a1f26a9cebe70ec1d2fe3c409c161b2d9cb798e507",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/section.json": "5682d101bb0f7e0838caa812969a06e6aac0979d56b0f26fcb384a9622e70e5e",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "7289b75979b5d405dd2c6c1dabc57257d07288e7e3fc6d1cdc47e8329834c5c4",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/Formalization.lean": "0f55e04cdd89f905126ad7143a971f6a4c83eac50d02bdf6210997a78629964f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "d8288837ba1f35e86c359f6f21e41a3bc28d86c4b589fc56df54ce08d2e3cdbe",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "b637a138068a8a0d5c3a899ff4bb01afa471b6bbf738338c05defc46ff4542f5",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "112d54bb73f41149a1b99d930cd2a0ddfeba39dfa165691bf922ca305b54be0f",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/Formalization.lean": "c0541381425c82b75c7b8040866b805c0c66800bc040e9e126a9ce43ef665456",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "a30567957b05b9ebd23cf2db29fc4e9f3f81fa851ebb8aecb34d9d7a18e36857",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "c43e8890da7b8780607280e05d9617a70a5e2db6ec873379a109378a51f8eb68",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "f987f8f76fff5fa82f48fe8bf7c88085912c4a567d1d44256ecd724f038d18c1",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/Formalization.lean": "e44e9736ab4946830cb268c7025e546713a318bae753dbb1f7b5670029653d27",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/compare.tex": "5a79bb65dc14f66f384c8c844a754243a7b32add09b92ef4ffb8e9b751c59910",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/section.json": "68172e8f5424f62c28c927e1891494d5e038adde4fd3af60917e1c80c9f43386",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex": "39a378c0d0190a19986908dae5919512ac0a69096bcf5c32ef1fcff6e5557179",
+    "../AGENTS.md": "ffb413e6fd11b221737a1a86a7e07e50675bc8504e36b6d6f886283920c53a16"
+  },
+  "validation": {
+    "targeted_lean": "lake build Volume01.A.chapters.Chapter01.sections.Section04.Formalization passed without warnings.",
+    "pipeline_tests": {
+      "command": "python3 -m unittest discover -s tests -v",
+      "result": "All 40 tests passed, including a new regression rejecting unaudited Section 1.4 metadata."
+    },
+    "website_pdf": {
+      "command": "python3 scripts/build.py --pdf --volume v1a",
+      "result": "Passed: twelve volume parts, 31 chapters, 156 sections, nine appendices, three populated entries and one PDF."
+    },
+    "pdf": "No warnings, overfull/underfull boxes or unresolved references. Physical pages 40–45 visually inspected. Editor/download PDFs match.",
+    "exports": "Edited manuscript, companion, comparison, metadata and index exports match saved sources. All forty audit source hashes match.",
+    "browser": {
+      "command": ".venv/bin/python scripts/check_browser.py",
+      "result": "Passed desktop/mobile checks with normal screenshots: MathJax, hyperlinks, subdirectory hosting, PDF/source downloads, and exact display of four Lean companions; four remaining missing-source notices. No page errors or page-width overflow."
+    },
+    "format": "git diff --check passed; existing labels and result numbers retained.",
+    "pdf_review_images": {
+      ".build/section14-page40.png": "14b6194b029c70380a0a9cb827e4b01e894b16dbeeddea3579040036cd85d1d9",
+      ".build/section14-page41.png": "9efdcea561e7b762c352b5423c393e89ffa410c2c8fd0cb0a9391f819f8a2aaa",
+      ".build/section14-page42.png": "310b3f100bb8a6a9af1a204dc655288420959e17149e30a0d3ebe8cdd8eba64c",
+      ".build/section14-page43.png": "ed9fc05715e8bacf78c5961345ce37a4febfe6b26ce4f7598a5ebf906ceb69c5",
+      ".build/section14-page44.png": "45ab0369dcf6655fc2ff40c3061221f6927a9d1267f833c108072e5b6fd39494",
+      ".build/section14-page45.png": "0696c7584a86b50989cd21e67818e17ee1871daa20ef27bcd69b173aab6d71bc"
+    }
+  },
+  "deployment": "Local changes only; no commit, push or deployment."
+}

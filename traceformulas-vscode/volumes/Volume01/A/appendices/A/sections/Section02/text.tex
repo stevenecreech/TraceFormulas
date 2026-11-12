@@ -1,0 +1,182 @@
+We prove the uniqueness and translation properties used in the chapter's definition of Haar measure. Throughout this section, $L$ is a locally compact Hausdorff topological group with a countable base, and $e$ is its identity. A left Haar measure is a nonzero Radon measure $\nu$ such that $\nu(hE)=\nu(E)$ for every $h\in L$ and Borel set $E$; a right Haar measure satisfies $\nu(Eh)=\nu(E)$. This repeats the hypotheses so that the proofs below are independent of the construction on $\operatorname{SL}_2(\mathbb R)$.
+
+The countability assumption makes every Radon measure here $\sigma$-finite. Indeed, local compactness gives a cover by open sets with compact closure; a countable base gives a countable subcover, and each member has finite measure. We may therefore apply the usual Fubini and Tonelli theorems. No general existence theorem is needed in these arguments: whenever a Haar measure is used, its existence is a hypothesis. In the chapter the required measures are constructed explicitly.
+
+\phantomsection\label{measure.compact-support-functions}
+Write $C_c(L)$ for the real-valued continuous functions with compact support, where the support is the closure of the set on which the function is nonzero. We use the standard compact-support form of the topological separation lemma: if a compact set $K$ lies in an open set $U$, there is an $f\in C_c(L)$ with $0\leq f\leq1$, $f=1$ on $K$, and support contained in $U$. In particular, every neighborhood of $e$ contains the support of a nonzero nonnegative function in $C_c(L)$. The following proofs use this topological fact together with the integration prerequisites listed in Appendix A.1.
+
+\begin{lemma}[Positive measure of open sets]\label{measure.haar-positive-open}
+Let $\nu$ be a left Haar measure on $L$. Every nonempty open subset of $L$ has positive $\nu$-measure.
+\end{lemma}
+
+\begin{proof}
+Because $\nu$ is nonzero and inner regular, there is a compact set $K$ with $\nu(K)>0$. Let $U$ be a nonempty open set and choose $u\in U$. For each $k\in K$, the left translate $ku^{-1}U$ contains $k$. Compactness gives finitely many such translates covering $K$. If $\nu(U)$ were zero, left invariance and finite subadditivity would then give $\nu(K)=0$, a contradiction.
+\end{proof}
+
+Consequently, every nonzero nonnegative function in $C_c(L)$ has a finite positive integral against a left Haar measure. Positivity follows because the function is bounded below by some positive number on a nonempty open set; finiteness follows from boundedness and compact support.
+
+\begin{proposition}[Inversion exchanges left and right]\label{measure.haar-inversion}
+If $\nu$ is a left Haar measure on $L$, then
+\[
+ \nu^{\mathrm{inv}}(E)=\nu(E^{-1})
+\]
+defines a right Haar measure. The same construction takes right Haar measures to left Haar measures, and applying it twice recovers the original measure.
+\end{proposition}
+
+\begin{proof}
+Inversion $x\mapsto x^{-1}$ is a homeomorphism. Its pushforward preserves nonzeroness, finiteness on compact sets, and inner and outer regularity, so $\nu^{\mathrm{inv}}$ is a nonzero Radon measure. For a Borel set $E$ and $h\in L$,
+\[
+ \nu^{\mathrm{inv}}(Eh)
+ =\nu((Eh)^{-1})
+ =\nu(h^{-1}E^{-1})
+ =\nu(E^{-1})
+ =\nu^{\mathrm{inv}}(E).
+\]
+Thus it is right invariant. The right-to-left assertion follows from $(hE)^{-1}=E^{-1}h^{-1}$, and the last assertion follows from $(E^{-1})^{-1}=E$.
+\end{proof}
+
+The uniqueness proof will use small right translations of a function. Their continuity does not require the measure to be right invariant.
+
+\begin{lemma}[Continuity under right translation]\label{measure.haar-translation-continuity}
+If $\mu$ is a Radon measure on $L$ and $f\in C_c(L)$, then the function
+\[
+ h\longmapsto\int_L f(xh)\,d\mu(x)
+\]
+is continuous on $L$.
+\end{lemma}
+
+\begin{proof}
+If $f=0$, the assertion is immediate. Otherwise fix $h_0\in L$ and choose a compact neighborhood $N$ of $h_0$. For $h\in N$, the functions $x\mapsto f(xh)$ all vanish outside the compact set
+\[
+ C=(\operatorname{supp}f)N^{-1}.
+\]
+Continuity of $(x,h)\mapsto f(xh)$, together with a finite cover of $C$, implies that $f(xh)$ tends uniformly to $f(xh_0)$ for $x\in C$ as $h\to h_0$. More explicitly, for every $\varepsilon>0$ each point of $C$ has a neighborhood and $h_0$ has a neighborhood on whose product $|f(xh)-f(xh_0)|<\varepsilon$; intersect the finitely many neighborhoods of $h_0$ obtained from a finite cover of $C$. Therefore
+\[
+ \left|\int_L f(xh)\,d\mu(x)-\int_L f(xh_0)\,d\mu(x)\right|
+ \leq \mu(C)\sup_{x\in C}|f(xh)-f(xh_0)|\longrightarrow0.
+\]
+The factor $\mu(C)$ is finite because $C$ is compact.
+\end{proof}
+
+\begin{theorem}[Uniqueness of Haar measure]\label{measure.haar-uniqueness}
+If $\mu$ and $\nu$ are left Haar measures on $L$, there is a unique constant $c>0$ such that $\mu=c\nu$. The corresponding statement holds for two right Haar measures.
+\end{theorem}
+
+\begin{proof}
+We first compare integrals of functions in $C_c(L)$. Choose a nonnegative $f_0\in C_c(L)$ with $\int_L f_0\,d\nu=1$, and put $c=\int_L f_0\,d\mu>0$. Such a function exists by the compact-support separation lemma and the \hyperref[measure.haar-positive-open]{positive-open-set lemma}.
+
+Let $f\in C_c(L)$ and let $\varepsilon>0$. By \hyperref[measure.haar-translation-continuity]{continuity under right translation}, there is a neighborhood $U$ of $e$ such that, for every $z\in U$,
+\[
+ \left|\int_L f(xz)\,d\mu(x)-\int_L f(x)\,d\mu(x)\right|<\varepsilon,
+ \qquad
+ \left|\int_L f_0(xz)\,d\mu(x)-c\right|<\varepsilon.
+\]
+Choose a nonnegative $\phi\in C_c(L)$ supported in $U$ and normalized by $\int_L\phi\,d\nu=1$. Set $a_\phi=\int_L\phi(x^{-1})\,d\mu(x)$.
+
+We now compare two orders of integration. For every fixed $y$, the substitution $x=yt$, using left invariance of $\mu$, gives
+\[
+ \int_L\phi(x^{-1}y)\,d\mu(x)
+ =\int_L\phi(t^{-1})\,d\mu(t)=a_\phi.
+\]
+In the other order, the substitution $y=xz$ uses left invariance of $\nu$. Thus Fubini yields the comparison identity
+\begin{equation}\label{eq:haar-integral-comparison}
+ \begin{aligned}
+ a_\phi\int_L f(y)\,d\nu(y)
+ &=\int_L\int_L f(y)\phi(x^{-1}y)\,d\nu(y)\,d\mu(x)\\
+ &=\int_L\phi(z)\left(\int_L f(xz)\,d\mu(x)\right)d\nu(z).
+ \end{aligned}
+\end{equation}
+All integrands are absolutely integrable: in the double integral, $y$ belongs to $\operatorname{supp}f$ and $x$ belongs to $(\operatorname{supp}f)(\operatorname{supp}\phi)^{-1}$, both compact sets, and the functions are bounded.
+
+Since $\phi$ is supported in $U$ and has $\nu$-integral one, the integral comparison identity \eqref{eq:haar-integral-comparison} implies
+\[
+ \left|a_\phi\int_L f\,d\nu-\int_L f\,d\mu\right|\leq\varepsilon.
+\]
+Applying the same identity to $f_0$ gives $|a_\phi-c|\leq\varepsilon$. Combining these two estimates gives
+\[
+ \left|\int_L f\,d\mu-c\int_L f\,d\nu\right|
+ \leq\varepsilon\left(1+\left|\int_L f\,d\nu\right|\right).
+\]
+Letting $\varepsilon$ tend to zero proves equality of the integrals for every $f\in C_c(L)$.
+
+It remains to pass from functions to Borel sets. If $K\subset E\subset U$ with $K$ compact and $U$ open, choose $0\leq f\leq1$ in $C_c(L)$, equal to one on $K$ and supported in $U$. Then
+\[
+ \mu(K)\leq\int_L f\,d\mu
+ =c\int_L f\,d\nu\leq c\nu(U).
+\]
+Inner regularity of $\mu$ and outer regularity of $\nu$ give $\mu(E)\leq c\nu(E)$. Interchanging the two measures gives the reverse inequality. Thus $\mu=c\nu$. The normalization of $f_0$ determines $c$, proving uniqueness. Finally, applying the \hyperref[measure.haar-inversion]{inversion proposition} reduces the right Haar case to the left Haar case.
+\end{proof}
+
+\begin{proposition}[The factor for right translations]\label{measure.haar-modular-function}
+Let $\nu$ be a left Haar measure on $L$. There is a unique continuous homomorphism $\Delta_L:L\to\mathbb R_{>0}$ such that
+\begin{equation}\label{eq:haar-modular-set-law}
+ \nu(Eh)=\Delta_L(h)\nu(E)
+\end{equation}
+for all Borel $E\subset L$ and $h\in L$. It is independent of the choice of left Haar measure. With this convention, for nonnegative measurable $f$, and also for integrable $f$,
+\begin{equation}\label{eq:haar-right-translation-integral}
+ \int_L f(xh)\,d\nu(x)
+ =\Delta_L(h)^{-1}\int_L f(x)\,d\nu(x).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For a fixed $h$, the measure $E\mapsto\nu(Eh)$ is the pushforward of $\nu$ by $x\mapsto xh^{-1}$. It is a nonzero Radon measure. It is also left invariant, since $\nu(gEh)=\nu(Eh)$. By \hyperref[measure.haar-uniqueness]{Haar uniqueness}, it is $\Delta_L(h)\nu$ for a unique $\Delta_L(h)>0$. Replacing $\nu$ by a positive multiple leaves this factor unchanged; uniqueness of Haar measure therefore makes it independent of the chosen left Haar measure.
+
+Choose a Borel set $E$ with $0<\nu(E)<\infty$. Applying the right-translation formula \eqref{eq:haar-modular-set-law} twice gives
+\[
+ \Delta_L(hk)\nu(E)=\nu((Eh)k)
+ =\Delta_L(k)\Delta_L(h)\nu(E).
+\]
+Division by $\nu(E)$ proves the homomorphism law. In particular, $\Delta_L(e)=1$ and $\Delta_L(h^{-1})=\Delta_L(h)^{-1}$.
+
+To prove continuity, choose a nonzero nonnegative $f\in C_c(L)$. The pushforward description gives
+\[
+ \Delta_L(h)=
+ \frac{\int_L f(xh^{-1})\,d\nu(x)}{\int_L f(x)\,d\nu(x)}.
+\]
+The denominator is finite and positive, and the numerator is continuous by \hyperref[measure.haar-translation-continuity]{continuity under right translation} and continuity of inversion. Finally, integrating against the pushforward by $x\mapsto xh$ gives the integral transformation law \eqref{eq:haar-right-translation-integral}; the factor is $\Delta_L(h^{-1})=\Delta_L(h)^{-1}$.
+\end{proof}
+
+\begin{corollary}[Unimodularity]\label{measure.haar-unimodular}
+A group $L$ possessing a left Haar measure is unimodular, meaning that its left Haar measures are also right invariant, if and only if $\Delta_L(h)=1$ for every $h\in L$. It suffices that one left Haar measure be right invariant.
+\end{corollary}
+
+\begin{proof}
+The equivalence is exactly the right-translation formula \eqref{eq:haar-modular-set-law}. By \hyperref[measure.haar-uniqueness]{Haar uniqueness}, all left Haar measures are positive multiples of any one of them, so right invariance of one implies right invariance of all.
+\end{proof}
+
+\begin{corollary}[Compact groups and probability normalization]\label{measure.haar-compact}
+If $L$ is compact and possesses a left Haar measure $\nu$, then $\nu/\nu(L)$ is its unique left Haar probability measure. This measure is also right invariant.
+\end{corollary}
+
+\begin{proof}
+Compactness and nonzeroness give $0<\nu(L)<\infty$. Hence $\nu/\nu(L)$ has total mass one, and \hyperref[measure.haar-uniqueness]{Haar uniqueness} makes this probability normalization unique. Taking $E=L$ in the right-translation formula \eqref{eq:haar-modular-set-law} gives $\nu(L)=\Delta_L(h)\nu(L)$, so $\Delta_L(h)=1$ for all $h$. The \hyperref[measure.haar-unimodular]{unimodularity criterion} proves right invariance.
+\end{proof}
+
+\begin{corollary}[Abelian groups]\label{measure.haar-abelian}
+If $L$ is abelian and possesses a left Haar measure, then it is unimodular.
+\end{corollary}
+
+\begin{proof}
+For every Borel $E$ and $h\in L$, commutativity gives $Eh=hE$. Thus left invariance is also right invariance.
+\end{proof}
+
+\begin{example}[Different left and right Haar measures]\label{measure.haar-affine}
+Consider the affine group of the real line, consisting of pairs $(a,b)$ with $a>0$ and $b\in\mathbb R$, acting by $t\mapsto at+b$. Its multiplication is
+\[
+ (a,b)(a',b')=(aa',b+ab').
+\]
+The measures
+\[
+ d\nu_{\mathrm{left}}=\frac{da\,db}{a^2},
+ \qquad
+ d\nu_{\mathrm{right}}=\frac{da\,db}{a}
+\]
+are respectively left and right Haar measures. Both are nonzero Radon measures because their densities are continuous and positive on the open set $(0,\infty)\times\mathbb R$.
+
+Left multiplication by $(a_0,b_0)$ sends $(a,b)$ to $(a_0a,b_0+a_0b)$ and has Jacobian determinant $a_0^2$. Thus the transformed density for $\nu_{\mathrm{left}}$ is $a_0^2/(a_0a)^2=1/a^2$. Right multiplication sends $(a,b)$ to $(aa_0,b+ab_0)$ and has Jacobian determinant $a_0$. It preserves the density $1/a$ because $a_0/(aa_0)=1/a$, but changes the left density by
+\[
+ \frac{a_0}{(aa_0)^2}=\frac1{a_0}\frac1{a^2}.
+\]
+Consequently $\Delta_L(a_0,b_0)=a_0^{-1}$ in the right-translation convention \eqref{eq:haar-modular-set-law}. This group is not unimodular, so left and right invariance cannot be identified in general.
+\end{example}

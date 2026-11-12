@@ -36,7 +36,9 @@ volumes/Volume01/A/
 
 Appendices may acquire `sections/Section01/` etc. by adding sections to their outline records. Empty manuscript files render as material in preparation. Do not fill every section with empty Lean theorem stubs.
 
-Volume 1a's notational index is maintained in `volumes/Volume01/A/appendices/I/intro.tex`. Add entries as notation is introduced, with a symbol, its meaning and relevant conventions, and a named hyperlink to the defining heading. Group entries by mathematical context and distinguish reused symbols. This is an authored index of the manuscript, not automatic symbol extraction. Its `longtable` tables can break across PDF pages and render as ordinary tables on the website.
+Formalization metadata accepts `not-started`, `in-progress`, `linked`, and `autoformalized-awaiting-review`. The last displays “Autoformalized · awaiting human review” in Formalization and Compare. Use it only with a successful recorded Lean build and axiom audit covering the mathematical sources being displayed. Record that version in the chapter's `formalization.tex` and `docs/STATUS.md`; website generation does not run those checks. Human correspondence review remains a separate record and is not implied by this label.
+
+Volume 1a's notational index is maintained in `volumes/Volume01/A/appendices/I/intro.tex`. Add entries as notation is introduced, with a symbol, its meaning and relevant conventions, and a named hyperlink to the defining heading. Follow manuscript order: chapters and sections first, then appendices, with entries ordered by their linked definitions within each section. Group related entries within that order and distinguish reused symbols. This is an authored index of the manuscript, not automatic symbol extraction. Its `longtable` tables can break across PDF pages and render as ordinary tables on the website.
 
 Use heading labels of the form `v1a-notation-topic` (with the appropriate volume prefix) for index groups. The website keeps the final reference column of the following table on one line, so section numbers remain readable on narrow screens.
 
@@ -44,7 +46,7 @@ The source paths are valid Lean module components. See [lean/TraceFormulas/READM
 
 ## LaTeX writing
 
-Write fragments without `\documentclass` or `\begin{document}`. The outline supplies chapter and section headings. Use `$...$` for inline mathematics and `\[...\]` for displays. Chapter 0 has continuous exposition within its three sections, with examples woven in and no subsection headings. Elsewhere, use `\subsection{...}` only when a broader topic needs a heading within a section.
+Write fragments without `\documentclass` or `\begin{document}`. The outline supplies chapter and section headings. Use `$...$` for inline mathematics and `\[...\]` for unnumbered displays; use labeled `equation` environments for formulas cited later (see below). Chapter 0 has continuous exposition within its three sections, with examples woven in and no subsection headings. Elsewhere, use `\subsection{...}` only when a broader topic needs a heading within a section.
 
 ```tex
 \subsection{The upper half-plane}
@@ -59,13 +61,17 @@ Put shared semantic commands in `tex/macros.tex`, which both builds read. Put pr
 
 Write transpose as `$A^{\mathsf{T}}$`, with an upright sans-serif `T`. Use the same form for row vectors, for example `$(1,1)^{\mathsf{T}}$`. It means ordinary transpose, without complex conjugation. Keep this convention consistent in manuscripts, comparison notes, and lecture scripts; it is recorded in Volume 1a's notational index.
 
+Use parentheses for matrices and column vectors: `\begin{smallpmatrix}a&b\\c&d\end{smallpmatrix}` inline and `\begin{pmatrix}a&b\\c&d\end{pmatrix}` in displays. The shared `smallpmatrix` environment expands to a parenthesized AMS `smallmatrix` in both editions. Homogeneous coordinates such as `[u:v]` keep their brackets.
+
 Give every inner product and norm an ambient-space subscript. For example, write `$\langle f,g\rangle_{L^2(X,\mu)}$` and `$\|f\|_{L^2(X,\mu)}$`. Define the measure and scalar field at first use. Preserve the book's convention that complex inner products are linear in their first argument, and update notation-index entries when a space or measure changes.
 
-Pandoc does not execute arbitrary TeX packages. Bibliography processing, automatic numbered reference commands, TikZ, and custom environments need explicit tested integration before relying on them for a release. The supported theorem environments below have matching numbering in the full PDF and manuscript views on the website. Use stable result IDs for correspondence. LaTeX PDF compilation checks ordinary unresolved references and citations.
+Pandoc does not execute arbitrary TeX packages. Bibliography processing, ordinary numbered `\ref` commands, TikZ, and custom environments need explicit tested integration before relying on them for a release. The supported theorem and equation environments below have matching numbering in the full PDF and manuscript views on the website. Use stable result IDs for correspondence. LaTeX PDF compilation checks ordinary unresolved references and citations.
 
 ### Definitions, statements, and proofs
 
 Use AMS environments for mathematical statements and proofs. The shared macros provide `definition`, `proposition`, `theorem`, `lemma`, `corollary`, `example`, and `remark`, together with the standard `proof` environment.
+
+Give each result one main mathematical task. Separate distinct constructions, formulas, classifications, and consequences into shorter statement–proof pairs, ordered so that each uses results already established. Preparatory results can be lemmas; direct consequences can be corollaries. Keep tightly related claims together when they form one result. Splitting must preserve the complete arguments and update links, notation entries, and Lean correspondence notes. Automatic numbering may change, so cite semantic labels rather than manually typing theorem numbers.
 
 ```tex
 \begin{proposition}[Cyclicity for two factors]\label{linear-algebra.trace-cyclic}
@@ -123,7 +129,22 @@ Use the complete `\phantomsection\label{...}` pair. A bare label in prose is uns
 
 These named links are clickable in both the full PDF and Read/Compare on the website; the website opens the destination chapter and scrolls to the section, heading, theorem block, or prose anchor. Missing or ambiguous manuscript targets fail the build. Keep labels unique within a volume. The link text is authored text, so update it if a chapter is renumbered, or use a descriptive name.
 
-Automatic numbered `\ref`/`\eqref` references work in the PDF engine but are not yet supported by the shared website converter; use the named form above for now. Equation labels still need further converter integration. Manuscript previews build the containing volume so that cross-section and cross-chapter links resolve. Standalone companion previews do not import manuscript references, and links across separately compiled volume PDFs need additional support.
+Numbered equation references using `\eqref` are supported as described below. Ordinary numbered `\ref` references still need website integration; use named links for theorems and sections. Manuscript previews build the containing volume so that cross-section and cross-chapter links resolve. Standalone companion previews do not import manuscript references, and links across separately compiled volume PDFs need additional support.
+
+### Numbered equations
+
+Number an equation when a proof refers back to it, and cite its name or a brief description together with the number, such as “the inverse Cayley imaginary-part formula (1.4.2).” This tells the reader both what the formula says and where to find it. When combining formulas, name each alongside its reference. Use ordinary descriptive language if there is no standard name. Leave routine calculations unnumbered. Write the label once in its `equation` environment and use `\eqref` in prose, outside math delimiters:
+
+```tex
+\begin{equation}\label{eq:mobius-height}
+  \operatorname{Im}(g\cdot z)=\frac{\operatorname{Im}z}{|cz+d|^2}.
+\end{equation}
+By the Möbius imaginary-part formula \eqref{eq:mobius-height}, the imaginary part remains positive.
+```
+
+Both editions display the same automatic chapter.section.number, for example `(1.4.3)`, and the reference is clickable. The equation counter resets in each section and is independent of theorem numbering. Introductions use section zero, and appendices use their letter. Labels are unique within a volume and should describe the formula, not contain its current number. Forward and backward references work across sections and chapters in the same volume, including from Compare notes. The website resolves these references without requiring a PDF build; navigation and MathJax rendering do not change the numbers.
+
+Use `\begin{aligned}...\end{aligned}` inside `equation` when several lines belong to one numbered calculation. Use separate `equation` environments when formulas need individual references. Define numbered equations only in manuscript `intro.tex` and `text.tex` files. The converter rejects missing or duplicate equation labels, missing/non-equation `\eqref` targets, custom `\tag` overrides, and unsupported per-line numbering such as `align`. Keep uncited displays as `\[...\]`; `equation*` is also unnumbered. A named `\hyperref` may target an equation when descriptive link text is more useful than its number.
 
 Documentation remains Markdown; the preserved archive remains Markdown. Neither is read as the live book manuscript.
 
@@ -166,7 +187,7 @@ Video kinds are `concept`, `proof`, and `formalization`. By default, plan one vi
 
 Chapter 0's current script is `volumes/Volume01/A/chapters/Chapter00/lecture.tex`. It has fifteen scenes, with spoken narration, visual directions, and estimated durations; it is available in Watch as an unrecorded draft. Its estimates are not measured video timestamps. The former Section 0.1 draft is preserved in `archive/2026-11-05-chapter00-lecture/`.
 
-The formal statuses are `not-started`, `in-progress`, and `linked`. A file's existence or a linked source does not certify a proof. Use the separate evidence ledger described in [QUALITY.md](docs/QUALITY.md). A section cannot list declarations or claim progress without its Lean source file.
+The formal statuses are `not-started`, `in-progress`, `linked`, and `autoformalized-awaiting-review`. A file's existence or a linked source does not certify a proof. Use the separate evidence ledger described in [QUALITY.md](docs/QUALITY.md). A section cannot list declarations or claim progress without its Lean source file.
 
 Resources have `title` and `url`; exploration fields are `title`, `url`, and `description`. Inline metadata strings are plain text, not Markdown or TeX; use files for mathematical prose. Prose fields support `.tex` alternatives such as `descriptionFile`. Exercise metadata (`title`, `question`, `hint`, `solution`, and corresponding file fields) remains supported for compatibility, but this series is a reference book without exercises: leave exercise lists empty and the `exercises` flag in `site.json` false. Use complete proofs and selected explanatory examples in the manuscript.
 
@@ -191,3 +212,22 @@ python3 scripts/build.py --pdf --volume v1a
 The PDF build generates `.build/v1a/main.tex` in outline order and includes only chapter introductions and section manuscript files. Lean source, correspondence notes, and lecture scripts remain website material. Chapter 0 and appendices retain their numbering; unwritten sections are visibly labeled. The PDF runs twice for contents and references. Do not edit `.build/` or `dist/`.
 
 The `--volume` flag selects the PDF part, while all parts remain available on the website. A website-only build does not advertise an old PDF as current; rebuild with `--pdf` when preparing a complete artifact. Open the printed edition and representative website sections as part of editorial review. Neither converter checks the mathematics.
+
+
+## Vector figures in both editions
+
+Use a package-relative path in `\includegraphics`, with a caption and semantic label:
+
+```tex
+\begin{figure}[htbp]
+\includegraphics[width=\linewidth]{volumes/Volume01/A/chapters/Chapter01/sections/Section03/figures/geodesics.pdf}
+\caption{Explain the geometry shown in the diagram.}
+\label{hyperbolic.geodesics-diagram}
+\end{figure}
+```
+
+Store a matching `.svg` beside each `.pdf`. The PDF edition embeds the PDF; the website validates both files and displays the SVG from `sources/volumes/...`. Both original assets are included in source downloads. Figure captions and named `\hyperref` destinations work in both editions; website captions do not display LaTeX figure numbers. Use `width=\linewidth` for full-width figures or a fraction such as `width=0.55\linewidth` for smaller ones. To center a smaller figure, wrap only `\includegraphics` in `\begin{center}...\end{center}`; `\centering` is not supported by the strict converter. The website retains the fractional width on larger screens and displays figures at full width on screens up to 600 px to keep their labels readable. PNG/JPEG images are also supported with the same package-relative path rule. Referenced files must resolve within `volumes/`.
+
+The Section 1.3 diagram can be regenerated with `python3 scripts/draw_geodesics.py` using Matplotlib. Its panels use the same explicit circle and Möbius transformation. Section 1.5's three diagrams are regenerated with `python3 scripts/draw_isometry_types.py`: the elliptic panels use the Cayley map and the same rotation, the parabolic figure shows horizontal translation, and the hyperbolic panels show a semicircular axis and its conjugate imaginary axis. The scripts check the plotted coordinate correspondences. Matplotlib is an optional authoring dependency; the ordinary build and Pages workflow use the saved SVG/PDF pairs and do not need it.
+
+Regenerate the Section 1.6 domain and tiling vector figures with `python3 scripts/draw_modular_domain.py` (Matplotlib required). Both PDF and SVG are manuscript assets. The tiling uses actual determinant-one integer matrices, with a finite lower cutoff; it is an illustration of the proved tiling theorem.

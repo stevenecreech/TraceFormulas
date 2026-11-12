@@ -1,0 +1,196 @@
+{
+  "date": "2026-11-09",
+  "scope": "Volume 1a Chapter 1 first natural-language draft and Chapter 0 display status",
+  "prose_status": "proof-draft",
+  "human_prose_review": "pending",
+  "lean_status": "not-started",
+  "human_correspondence_review": "not-reviewed",
+  "video_status": "not-started",
+  "source_verification": "Background references consulted; no complete theorem-level external source audit. Formulas and proofs were checked by the drafting AI, not an independent reviewer.",
+  "background_sources": [
+    {
+      "title": "J. S. Milne, Modular Functions and Modular Forms, v1.31 (2017)",
+      "url": "https://www.jmilne.org/math/CourseNotes/MF.pdf",
+      "locations": "Sections 1–2; Theorem 2.12 and Proposition 2.16 for the standard region, stabilizers, and effective-index distinction",
+      "convention_note": "This draft uses rho for the left vertex; Milne uses the right vertex."
+    },
+    {
+      "title": "A. V. Sutherland, Geometry of the complex upper half plane, MIT 18.786 Lecture 1",
+      "url": "https://math.mit.edu/classes/18.786/2024/LectureNotes1.pdf",
+      "locations": "Sections 1.1–1.2 for the homogeneous space and classification of transformations",
+      "scope_note": "Background summary, not a substitute for the proofs given in the draft."
+    }
+  ],
+  "sections": [
+    {
+      "number": "1.1",
+      "id": "v1a-ch01-s1",
+      "title": "Möbius transformations and the role of the center",
+      "path": "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex",
+      "labels": [
+        "hyperbolic.half-plane",
+        "hyperbolic.mobius",
+        "hyperbolic.effective-action",
+        "hyperbolic.central-sign",
+        "hyperbolic.positive-determinant"
+      ],
+      "lean_status": "not-started"
+    },
+    {
+      "number": "1.2",
+      "id": "v1a-ch01-s6",
+      "title": "The homogeneous space and Iwasawa decomposition",
+      "path": "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex",
+      "labels": [
+        "hyperbolic.iwasawa-coordinates",
+        "hyperbolic.iwasawa",
+        "hyperbolic.angular-cover"
+      ],
+      "lean_status": "not-started"
+    },
+    {
+      "number": "1.3",
+      "id": "v1a-ch01-s2",
+      "title": "Hyperbolic metric, measure, distance, and geodesics",
+      "path": "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex",
+      "labels": [
+        "hyperbolic.metric",
+        "hyperbolic.invariance",
+        "hyperbolic.geodesics",
+        "hyperbolic.vertical-flow",
+        "hyperbolic.laplacian"
+      ],
+      "lean_status": "not-started"
+    },
+    {
+      "number": "1.4",
+      "id": "v1a-ch01-s7",
+      "title": "The disk model and the point-pair invariant",
+      "path": "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex",
+      "labels": [
+        "hyperbolic.cayley",
+        "hyperbolic.point-pair",
+        "hyperbolic.pair-orbits",
+        "hyperbolic.radial-integration",
+        "hyperbolic.radial-conventions"
+      ],
+      "lean_status": "not-started"
+    },
+    {
+      "number": "1.5",
+      "id": "v1a-ch01-s8",
+      "title": "Elliptic, parabolic, and hyperbolic transformations",
+      "path": "volumes/Volume01/A/chapters/Chapter01/sections/Section05/text.tex",
+      "labels": [
+        "hyperbolic.types",
+        "hyperbolic.normal-forms",
+        "hyperbolic.translation-length",
+        "hyperbolic.axis-orientation"
+      ],
+      "lean_status": "not-started"
+    },
+    {
+      "number": "1.6",
+      "id": "v1a-ch01-s3",
+      "title": "Reduction to the standard fundamental domain",
+      "path": "volumes/Volume01/A/chapters/Chapter01/sections/Section06/text.tex",
+      "labels": [
+        "modular.properness",
+        "modular.generators",
+        "modular.fundamental-region",
+        "modular.denominator-bound",
+        "modular.fundamental-domain"
+      ],
+      "lean_status": "not-started"
+    },
+    {
+      "number": "1.7",
+      "id": "v1a-ch01-s4",
+      "title": "The cusp, elliptic points, and stabilizers",
+      "path": "volumes/Volume01/A/chapters/Chapter01/sections/Section07/text.tex",
+      "labels": [
+        "modular.elliptic-stabilizers",
+        "modular.orbifold",
+        "modular.cusps",
+        "modular.cusp-stabilizer",
+        "modular.noncompact"
+      ],
+      "lean_status": "not-started"
+    },
+    {
+      "number": "1.8",
+      "id": "v1a-ch01-s5",
+      "title": "Quotient integration, Haar measure, and arithmetic lattices",
+      "path": "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex",
+      "labels": [
+        "modular.quotient-measure",
+        "modular.area-unfolding",
+        "modular.haar-normalizations",
+        "modular.haar-invariance",
+        "modular.central-covolumes",
+        "modular.measure-dictionary",
+        "modular.arithmetic-lattice",
+        "modular.lattice"
+      ],
+      "lean_status": "not-started"
+    }
+  ],
+  "source_sha256": {
+    "volumes/Volume01/A/chapters/Chapter01/intro.tex": "348c645cea1bfcd3ced778b45bfcc18f1de1b46e7501c2e8e63dccceaf9605fe",
+    "volumes/Volume01/A/chapters/Chapter01/formalization.tex": "72412028aebf8d549f725ff29c2fd4979c682e48b928732df86a0c2e1d0ed714",
+    "volumes/Volume01/A/chapters/Chapter01/chapter.json": "3510b840b2be040028705e72d85625fc877efb125147662dbf2a1e4735653b1b",
+    "volumes/Volume01/A/outline.json": "dc6428dea1884779083208f63dfbb61936171c838927f06078d16bca00c14ab0",
+    "volumes/Volume01/A/appendices/I/intro.tex": "ce54b89a7eb341c0979bcd7c1a1e379eb0cfae15adf8e39967e989db15aaa623",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/text.tex": "ed9b00139b3cdf4fffcbccebd202d383c4ee90b44fe70524999c895fa9b13b16",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/compare.tex": "27e61a4bbc0109a5faf971506327f19e142e0dcd297024438c5fada49a591a39",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section01/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/text.tex": "c29be955dde9b801abffe3752db3e0a1ce4b27282316e338fd8f9dd3f9f053b1",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/compare.tex": "e5a3bc7d74081c3d9606b523b276f095cb4fd2c9ae53cec2227cbe01e36d5911",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section02/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/text.tex": "01824912e3badd8dc5506df69f30a0321dc35694e52a3dbd5bacd8a8db88d232",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/compare.tex": "1f9a2182ca8b30e2aec27db535d4eb8188896766db1ec451d7592ff8a07b74c0",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section03/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/text.tex": "cc67cfa7d67cdfc12036f1f2c18e69506160e8d749a146eb163848d1ec3f61f2",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/compare.tex": "e213542e14a40cdd1acb752b0b3f12e1c6eff3aa47114b1c07b72ac3a3188387",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section04/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/text.tex": "4e2fdc824d9ac495c0c102ab1b91550168a2f1cb08f0947678b8211b831a53f9",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/compare.tex": "0d7207c153e2c9a810e7aaba85c6bd405b85986af124559dcf73a0239876dee7",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section05/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/text.tex": "48f7fbd69f405e862100e18f15f5903f3e9cd09617f24d64a6e5abd1b6dab00d",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/compare.tex": "a5179acddd54a26d5ba84b456e440e84f4d12c6d6bba45c56283fb58a7858a00",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section06/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/text.tex": "642b3f669893aae9c1bed491cdfba14f0f123f10e6547af725b9f913afac3ca7",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/compare.tex": "8c409a6df04c34b24acd62a940c8369a16f923d8e6000ea462fdcce2ae0e9c52",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section07/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/text.tex": "700b56e182b57d91f46e43b7d0f919a82e5fdad7b7f1b1a0dc4b2ad1bca1ba92",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/compare.tex": "3e7ac13fad3cd9f550b82a69f32c9acbbfece983fb7c7071ef4b644ba1efbf8c",
+    "volumes/Volume01/A/chapters/Chapter01/sections/Section08/section.json": "c35a5a8035b8eb3752eca7e744fa30444002ef5d92fe4797045e9f6b45506436"
+  },
+  "chapter00_evidence": {
+    "audit_record": "lean/audits/chapter00-2026-11-05-editor/record.json",
+    "status": "autoformalized-awaiting-review",
+    "verification": "All 28 audited mathematical sources and pinned configuration files still match. No new Lean build or axiom audit was run. Section metadata now changes the display status; the prior removal of the Section 0.1 video entry is also outside the mathematical source snapshot.",
+    "human_correspondence_review": "not-reviewed"
+  },
+  "validation": {
+    "pipeline_tests": {
+      "command": ".venv/bin/python -m unittest discover -s tests -v",
+      "result": "34 passed"
+    },
+    "build": {
+      "command": "python3 scripts/build.py --pdf --volume v1a",
+      "result": "passed; 12 volume parts, 31 chapters, 156 sections, 9 appendices, one PDF"
+    },
+    "browser": {
+      "command": ".venv/bin/python scripts/check_browser.py",
+      "result": "passed in local Chrome at desktop and mobile sizes; equation rendering, stable reordered IDs, notation links, status labels, eight not-started Chapter 1 comparisons, downloads and subdirectory hosting checked"
+    },
+    "javascript": {
+      "command": "node --check web/app.js",
+      "result": "passed"
+    },
+    "pdf": "No warnings, overfull/underfull boxes, duplicate page destinations or unresolved references in the final TeX log. Editor and download PDFs match. Iwasawa and central-covolume pages visually inspected.",
+    "sources": "All eight exported Chapter 1 section manuscripts match the saved originals. Chapter 0 sources retain their mathematical audit hashes."
+  },
+  "deployment": "Local changes only; no commit, push, or deployment of this draft."
+}

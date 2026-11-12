@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-12",
+  "scope": "All 77 notation rows reordered to manuscript order, with Appendix A after Section1.8",
+  "row_preservation": "exact same authored rows including descriptions and links",
+  "validation": {
+    "combined_pdf_website": "passed",
+    "website_row_order": "77 rows match source order",
+    "tex_log": "clean",
+    "pdfs": "editor and download copies identical",
+    "visual_inspection": "printed page114",
+    "inherited_lean_audit": "all69 source hashes unchanged;243 declarations; no new Lean check",
+    "unit_tests_browser": "not-rerun for presentation-only change"
+  },
+  "human_correspondence_review": "unchanged; not-approved by this edit",
+  "source_sha256": {
+    "volumes/Volume01/A/appendices/I/intro.tex": "ff9af80c1ae0bb9ec5acf5a9616cb7b27903477fe4bd8e5716640999c457ca15",
+    "AUTHORING.md": "75ea22e5377491f80fdcb0add98f78443e23763643c9b83a001417a2af15af1d"
+  }
+}

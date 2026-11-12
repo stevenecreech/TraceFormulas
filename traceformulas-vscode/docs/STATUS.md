@@ -2,6 +2,14 @@
 
 Status updated: 2026-11-12. The latest Chapter 0 Lean audit remains dated 2026-11-05. All statuses below describe observed work, rather than completion implied by the outline. Dated history records earlier checks separately.
 
+## Website math rendering and section navigation — 2026-11-12
+
+The Chapter 1 release was pushed as `ad00861`; GitHub Pages run `43282604242` succeeded, and live Chapter 1 and Appendix A content matched the reviewed build. Steven then reported red `\bgroup`/`\egroup` commands and requested expandable section navigation.
+
+Pandoc’s small-matrix environment expansion is now normalized to actual grouping braces before MathJax renders it. Nested scope and matrix row breaks are preserved. The sidebar now has separate chapter/appendix expand buttons, numbered section links, active-section highlighting, and keyboard/mobile controls. Appendix section labels also use their letters in search and dependency navigation. A mobile overflow caused by hidden assistive MathML was fixed while preserving the screen-reader content.
+
+Validation: all 49 pipeline tests passed, the combined website/PDF build passed with a clean TeX log, and the browser suite passed with new section-navigation checks and a guard for red unknown-command text. A deliberate unknown-macro probe confirms the guard rejects that output. Desktop/mobile sidebar screenshots were inspected. All 71 Chapter 1/Appendix A audit hashes still match: manuscript, Lean, and human correspondence status are unchanged. See the [website review record](reviews/website-math-sidebar-2026-11-12.json).
+
 ## Chapter 1 pre-push review — 2026-11-12
 
 Steven requested a final check of the edited Chapter 1 and appendix. Read-only AI reviews of Sections 1.1–1.8, Appendices A.1–A.2, the related notation entries, and the supporting renderer changes found no blocking issues. Added the explicit condition $t\geq Y$ to the upward-cusp distance comment, clarified the appendix’s integration prerequisites, refreshed Chapter 1 audit pointers, and corrected the README section count. The [review record](reviews/chapter01-release-check-2026-11-12.json) identifies the checked sources and scope.
@@ -28,11 +36,11 @@ Validation: reran the exact Section 0.2 command successfully and compiled the Ch
 | Lectures | Full Chapter 0 script requested by Steven on 2026-11-05: fifteen scenes, provisional 35–40 minutes, narration and animation directions; displayed in Watch; unreviewed draft, no recording; earlier Section 0.1 script archived |
 | Compare | Actual manuscript and Lean sources are displayed for Chapter 0 and the implemented portions of Chapter 1 Sections 1.1–1.8 and Appendices A.1–A.2; comparison notes list coverage gaps and separate machine checks from human review |
 | Bibliography | Source notes for the removed survey retained in the archived first draft and dated history; current finite-model arguments use the stated prerequisites; no complete theorem-level source audit or formal bibliography yet |
-| Website | The pre-Chapter-1 edition is live on GitHub Pages. The Chapter 1 draft and new Chapter 0 status are local source changes; validation is recorded below |
+| Website | Chapter 1 and Appendix A are published on GitHub Pages; the subsequent math-rendering and section-navigation update is documented above |
 | PDF | `dist/pdf/v1a.pdf` compiled from the same LaTeX introductions and sections; no TeX warnings or unresolved references reported |
 | Acknowledgments | NSF Award DMS-2602321, supplied by Steven on 2026-11-08; support statement and disclaimer in the root README, PDF front matter, and website About page, with a footer link; PDF and website share `volumes/acknowledgments.tex` |
-| Publishing | Converter fix `e780ac9` was pushed with Steven’s approval on November 8; run `42523296097` passed tests, PDF build, and Pages deployment. Live website, catalog, Chapter 0, acknowledgment, and PDF returned HTTP 200. The current Chapter 1 work has not been committed or deployed |
-| Git | At the start of this November 9 editing round, HEAD was `e780ac9` with a clean tree and origin `https://github.com/stevenecreech/TraceFormulas.git`. The current draft and status changes remain local |
+| Publishing | Chapter 1 release `ad00861` was pushed with Steven’s approval on November 12; run `43282604242` passed tests, PDF build, and Pages deployment. Live Chapter 1 and Appendix A content matched the reviewed build. Subsequent pushes to `main` use the same workflow |
+| Git | Main branch of `https://github.com/stevenecreech/TraceFormulas.git`; the reviewed Chapter 1 release is committed as `ad00861`. Generated builds, virtual environments and Lean caches remain ignored |
 
 Transpose convention (2026-11-01): use `^{\mathsf{T}}` throughout the book and supporting prose. Standardized the four existing transpose occurrences in Section 0.1 and its preliminary lecture, added a first-use convention and a linked index entry, and recorded the authoring rule. The combined PDF/website build passed; generated HTML retains the notation and link, the index has 34 entries, and the PDF log has no warnings. This is a notation edit; no formalization or review status changed.
 

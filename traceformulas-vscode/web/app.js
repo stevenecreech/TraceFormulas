@@ -3,6 +3,7 @@ const $ = (selector, root = document) => root.querySelector(selector);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let series, currentVolume, outline, published, records = [], nodes = new Map(), currentRecord = null;
 let globalMapMode = 'outline', mapTarget = '';
+const sidebarExpanded = new Map();
 const tabDefs = [
   ['read','Read','book'], ['watch','Watch','play'], ['formal','Formalization','code'],
   ['compare','Compare','columns'], ['map','Map','map']
@@ -97,17 +98,30 @@ function typeset() {
   if(window.MathJax?.startup?.promise) return window.MathJax.startup.promise.then(()=>window.MathJax.typesetPromise?.([$('#main')])).catch(()=>{});
   return Promise.resolve();
 }
+function chapterNavigation(record) {
+  const active = currentRecord?.id === record.id;
+  const key = 'chapter-' + record.id, sectionList = 'nav-sections-' + record.id;
+  const expanded = active || sidebarExpanded.get(key) === true;
+  const currentSection = active && route()[2] === 'read' ? route()[3] : '';
+  const link = '<a class="chapter-nav-link'+(active?' active':'')+'" href="'+chapterLink(record)+'"'+(active&&!currentSection?' aria-current="page"':'')+'><span class="num">'+esc(record.number ?? record.letter)+'</span><span>'+esc(record.title)+'</span></a>';
+  if (!record.sections.length) return '<div class="chapter-nav-row">'+link+'</div>';
+  return '<div class="chapter-nav-row">'+link+'<button class="chapter-nav-toggle" data-action="chapter-sections" data-sidebar-key="'+esc(key)+'" aria-label="Toggle sections in '+esc(chapterLabel(record))+'" aria-expanded="'+expanded+'" aria-controls="'+esc(sectionList)+'">'+icon('chevron',12)+'</button></div>'+
+    '<ul class="section-nav" id="'+esc(sectionList)+'" aria-label="Sections in '+esc(chapterLabel(record))+'"'+(expanded?'':' hidden')+'>'+record.sections.map((section,index)=>'<li><a class="section-nav-link'+(currentSection===section.id?' active':'')+'" href="'+chapterLink(record,'read',section.id)+'"'+(currentSection===section.id?' aria-current="location"':'')+'><span class="section-nav-number">'+esc(sectionNumber(record,index))+'</span><span>'+esc(section.title)+'</span></a></li>').join('')+'</ul>';
+}
 function renderSidebar() {
   const r=route(), page=r[0]||'series';
+  const scrollTop=$('.sidebar-scroll')?.scrollTop||0;
+  document.querySelectorAll('.division-nav[data-sidebar-key]').forEach(el=>sidebarExpanded.set(el.dataset.sidebarKey,el.open));
   const top=[['series','All volumes','book'],['overview','Overview','grid'],['contents','Contents','book'],['paths','Reading paths','compass'],['map','Dependency map','map']];
   $('#sidebar').innerHTML=
     '<a class="brand" href="#/series"><span class="brand-mark">τ</span><span><span class="brand-title">Trace Formulas</span><span class="brand-note">A connected mathematics textbook</span></span></a>'+
     '<div class="volume-label"><div><strong>'+esc(volumeLabel())+'</strong><small>'+esc(currentVolume.perspective)+'</small></div><span class="tiny-dot" title="Prototype"></span></div>'+
     '<div class="volume-picker"><label for="volume-select">Choose a volume</label><select id="volume-select">'+series.volumes.map(v=>'<option value="'+v.id+'"'+(v.id===currentVolume.id?' selected':'')+'>'+v.label+' · '+esc(v.perspective)+' · '+esc(v.topic)+'</option>').join('')+'</select></div><div class="sidebar-scroll"><nav class="nav-top" aria-label="Volume"><div>'+top.map(t=>'<a class="nav-link'+(page===t[0]?' active':'')+'" href="#/'+t[0]+'"'+(page===t[0]?' aria-current="page"':'')+'>'+icon(t[2])+' '+t[1]+'</a>').join('')+'</div></nav><p class="nav-label">The volume</p>'+
-    outline.divisions.map(d=>'<details class="division-nav"'+((currentRecord?.division===d.id||(!currentRecord&&d.id==='A'))?' open':'')+'><summary><span class="division-letter">'+d.id+'</span>'+esc(d.title)+'<span class="chevron">'+icon('chevron',12)+'</span></summary>'+outline.chapters.filter(c=>c.division===d.id).map(c=>'<a class="chapter-nav-link'+(currentRecord?.id===c.id?' active':'')+'" href="'+chapterLink(c)+'"'+(currentRecord?.id===c.id?' aria-current="page"':'')+'><span class="num">'+c.number+'</span><span>'+esc(c.title)+'</span>'+'</a>').join('')+'</details>').join('')+
-    '<details class="division-nav"'+(currentRecord?.letter?' open':'')+'><summary><span class="division-letter">+</span>Appendices<span class="chevron">'+icon('chevron',12)+'</span></summary>'+outline.appendices.map(c=>'<a class="chapter-nav-link'+(currentRecord?.id===c.id?' active':'')+'" href="'+chapterLink(c)+'"><span class="num">'+c.letter+'</span><span>'+esc(c.title)+'</span></a>').join('')+'</details>'+
+    outline.divisions.map(d=>'<details class="division-nav" data-sidebar-key="division-'+esc(d.id)+'"'+((currentRecord?.division===d.id||(sidebarExpanded.get('division-'+d.id)??(!currentRecord&&d.id==='A')))?' open':'')+'><summary><span class="division-letter">'+d.id+'</span>'+esc(d.title)+'<span class="chevron">'+icon('chevron',12)+'</span></summary>'+outline.chapters.filter(c=>c.division===d.id).map(chapterNavigation).join('')+'</details>').join('')+
+    '<details class="division-nav" data-sidebar-key="appendices"'+((currentRecord?.letter||sidebarExpanded.get('appendices'))?' open':'')+'><summary><span class="division-letter">+</span>Appendices<span class="chevron">'+icon('chevron',12)+'</span></summary>'+outline.appendices.map(chapterNavigation).join('')+'</details>'+
     '<a class="nav-link" style="margin-top:20px" href="#/about">'+icon('info')+' About this edition</a></div>'+
     '<div class="sidebar-footer"><span class="author-monogram">SC</span><span>Steven Creech<small>Author · '+esc(volumeLabel())+'</small></span></div>';
+  $('.sidebar-scroll').scrollTop=scrollTop;
 }
 function renderTopbar() {
   const labels={series:'All volumes',overview:'Overview',contents:'Contents',paths:'Reading paths',map:'Dependency map',about:'About this edition'};
@@ -296,7 +310,7 @@ function showSearch() {
     records.forEach(r=>{
       const c=content(r.id);
       if(!q||[r.title,r.description,c.intro].join(' ').toLocaleLowerCase().includes(q))found.push({r,title:r.title,label:chapterLabel(r),href:chapterLink(r)});
-      if(q)r.sections.forEach((s,i)=>{if([s.title,c.sections[s.id]||''].join(' ').toLocaleLowerCase().includes(q))found.push({r,title:s.title,label:'Section '+r.number+'.'+(i+1),href:chapterLink(r,'read',s.id)});});
+      if(q)r.sections.forEach((s,i)=>{if([s.title,c.sections[s.id]||''].join(' ').toLocaleLowerCase().includes(q))found.push({r,title:s.title,label:'Section '+sectionNumber(r,i),href:chapterLink(r,'read',s.id)});});
     });
     $('#search-results').innerHTML=found.length?found.slice(0,50).map(x=>'<a class="search-result" href="'+x.href+'">'+icon('book',17)+'<span><small>'+x.label+'</small><strong>'+esc(x.title)+'</strong></span></a>').join(''):'<p class="search-empty">No matches. Try a chapter title or a shorter phrase.</p>';
   }
@@ -311,7 +325,12 @@ document.addEventListener('click',event=>{
     if(target){event.preventDefault();target.scrollIntoView({block:'start'});return;}
   }
   const link=event.target.closest('a[href^="#/"]');
-  if(link){$('#search-dialog').close();closeMobile();}
+  if(link){
+    $('#search-dialog').close();closeMobile();
+    if(link.closest('.section-nav')&&link.hash===location.hash){
+      document.getElementById(route()[3])?.scrollIntoView({block:'start',behavior:'instant'});
+    }
+  }
   const button=event.target.closest('[data-action]');if(!button)return;
   event.preventDefault();
   const action=button.dataset.action;
@@ -319,6 +338,13 @@ document.addEventListener('click',event=>{
   if(action==='close-dialog')button.closest('dialog').close();
   if(action==='map-mode'){globalMapMode=button.dataset.mode;render();}
   if(action==='menu'){const open=$('#sidebar').classList.toggle('open');$('#mobile-scrim').hidden=!open;button.setAttribute('aria-expanded',String(open));}
+  if(action==='chapter-sections'){
+    const list=document.getElementById(button.getAttribute('aria-controls'));
+    const expanded=button.getAttribute('aria-expanded')!=='true';
+    button.setAttribute('aria-expanded',String(expanded));
+    list.hidden=!expanded;
+    sidebarExpanded.set(button.dataset.sidebarKey,expanded);
+  }
 });
 document.addEventListener('change',event=>{if(event.target.id==='volume-select'){const volume=series.volumes.find(v=>v.id===event.target.value);if(volume)location.href=volumeURL(volume);}if(event.target.id==='map-focus'){mapTarget=event.target.value;render();}});
 document.addEventListener('keydown',event=>{
@@ -343,7 +369,7 @@ async function init() {
     records=[...outline.chapters,...outline.appendices];
     for(const r of records) {
       nodes.set(r.id,{id:r.id,label:chapterLabel(r)+' · '+r.title,record:r});
-      r.sections.forEach((s,i)=>nodes.set(s.id,{id:s.id,label:r.number+'.'+(i+1)+' · '+s.title,record:r,sectionId:s.id}));
+      r.sections.forEach((s,i)=>nodes.set(s.id,{id:s.id,label:sectionNumber(r,i)+' · '+s.title,record:r,sectionId:s.id}));
     }
     validateDocument(published);
     render();

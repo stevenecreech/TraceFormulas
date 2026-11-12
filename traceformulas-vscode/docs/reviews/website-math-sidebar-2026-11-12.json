@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-12",
+  "scope": "Correct MathJax grouping commands and add collapsible section navigation",
+  "changes": [
+    "Normalize exact Pandoc-generated bgroup/egroup control sequences to actual math grouping braces, preserving nested font scope and escaped control symbols.",
+    "Add independent chapter/appendix disclosure buttons and numbered section links, with active-location highlighting, stable section IDs, remembered expansion during navigation, and preserved sidebar scroll.",
+    "Support keyboard controls and closing the mobile drawer on selection; repeat clicks on the active section jump back to that section.",
+    "Use appendix letters consistently in section search and dependency labels.",
+    "Constrain hidden assistive MathML to a one-pixel box so it remains available to screen readers without creating horizontal page overflow."
+  ],
+  "validation": {
+    "pipeline_tests": "49 passed; grouping regression fails with the old renderer and passes with the new one",
+    "combined_pdf_website_build": "passed; no TeX warnings",
+    "browser": "passed: section deep links, reordered IDs, independent expansion, Enter/Space, active links, appendix numbering/search, mobile drawer and overflow, all existing chapter tabs/downloads/links/MathJax checks",
+    "unknown_command_detection": "new MathJax AST guard catches red noundefined output; verified with a deliberately unknown macro which is then removed",
+    "read_compare": "no bgroup/egroup primitives remain in rendered Chapter 1 math; exact Lean panes preserved",
+    "visual_inspection": "sidebar-sections-desktop.png and sidebar-sections-mobile.png in .build",
+    "javascript_syntax": "passed",
+    "git_diff_check": "passed"
+  },
+  "mathematical_sources": "unchanged; all 71 source hashes still match the current Chapter 1/Appendix A audit",
+  "lean_audit": "lean/audits/chapter01-release-check-2026-11-12/record.json",
+  "human_correspondence_review": "unchanged; pending",
+  "publication": "Follow-up to deployed chapter release ad00861; publication uses the existing main-branch GitHub Pages workflow",
+  "source_sha256": {
+    "scripts/strict-tex.lua": "18932344525dacf6a2ab3a2c7565ba1c7c55bcd1abc8dfc273a742719a85a2bf",
+    "scripts/check_browser.py": "df785f6866d4ba4be267c0eb2dfa57547906708b3bb13a8c082228a2fc904eb9",
+    "tests/test_build.py": "57b217126ded45eb91e8bd678b084df81d39745a71c0a0d0595a283a22e154b4",
+    "web/app.js": "ec9897ca226eded988623e83fbda4c948d814eb9f579374a5009a712c8fe2931",
+    "web/styles.css": "79788411699c3c1842eb71f544df421856aa37b7b8ac88ce89eb70031f6c04a7"
+  }
+}

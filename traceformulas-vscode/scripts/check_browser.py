@@ -16,6 +16,106 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
         pass
 
 
+def check_math(page):
+    page.evaluate('async () => { await MathJax.startup.promise; await MathJax.typesetPromise(); }')
+    assert page.locator('[data-mjx-error], mjx-merror').count() == 0
+    # The noundefined extension renders unknown commands as red text, not merror.
+    unknown = page.evaluate(r'''() => {
+        const commands = [];
+        for (const item of MathJax.startup.document.math) {
+            item.root.walkTree(node => {
+                if (node.kind === 'mtext' && node.attributes.get('mathcolor') === 'red'
+                    && /^\\[A-Za-z]+$/.test(node.getText())) commands.push(node.getText());
+            });
+        }
+        return commands;
+    }''')
+    assert not unknown, f'Undefined math commands: {unknown}'
+
+
+def check_unknown_math_is_detected(page):
+    page.evaluate(r'''async () => {
+        const probe = document.createElement('span');
+        probe.id = 'undefined-math-probe';
+        probe.textContent = '\\(\\TraceFormulasUnknownCommand\\)';
+        document.getElementById('main').append(probe);
+        await MathJax.typesetPromise([probe]);
+    }''')
+    try:
+        try:
+            check_math(page)
+        except AssertionError as error:
+            assert 'TraceFormulasUnknownCommand' in str(error), str(error)
+        else:
+            raise AssertionError('Unknown-command browser check did not detect the probe')
+    finally:
+        page.evaluate('''() => {
+            const probe = document.getElementById('undefined-math-probe');
+            MathJax.typesetClear([probe]);
+            probe.remove();
+        }''')
+
+
+def check_sidebar_sections(page, base):
+    page.goto(base + '?volume=v1a#/chapter/v1a-ch01/read/v1a-ch01-s6')
+    toggle = page.get_by_role('button', name='Toggle sections in Chapter 1', exact=True)
+    toggle.wait_for()
+    section_list = page.locator('#nav-sections-v1a-ch01')
+    assert toggle.get_attribute('aria-expanded') == 'true'
+    assert section_list.locator('.section-nav-number').all_text_contents() == [f'1.{i}' for i in range(1, 9)]
+    assert section_list.locator('[aria-current="location"]').get_attribute('href').endswith('/read/v1a-ch01-s6')
+    check_math(page)
+    check_unknown_math_is_detected(page)
+    page.evaluate('window.scrollTo({top: 0, behavior: "instant"})')
+    section_list.locator('[aria-current="location"]').click()
+    page.wait_for_function('document.getElementById("v1a-ch01-s6").getBoundingClientRect().top < innerHeight')
+    original_url = page.url
+    toggle.click()
+    assert section_list.is_hidden() and page.url == original_url
+    toggle.press('Enter')
+    assert section_list.is_visible() and toggle.get_attribute('aria-expanded') == 'true'
+    toggle.press('Space')
+    assert section_list.is_hidden()
+    toggle.press('Enter')
+    page.get_by_role('button', name='Toggle sections in Chapter 0', exact=True).click()
+    assert section_list.is_visible()
+    chapter_zero = page.locator('#nav-sections-v1a-ch00')
+    assert chapter_zero.locator('.section-nav-number').all_text_contents() == ['0.1', '0.2', '0.3']
+    chapter_zero.locator('a[href$="/v1a-ch00-s5"]').click()
+    page.wait_for_url('**/chapter/v1a-ch00/read/v1a-ch00-s5')
+    page.evaluate('async () => { await MathJax.startup.promise; await MathJax.typesetPromise(); }')
+    page.wait_for_function('document.getElementById("v1a-ch00-s5").getBoundingClientRect().top < innerHeight')
+    assert page.locator('#nav-sections-v1a-ch00 [aria-current="location"]').get_attribute('href').endswith('/v1a-ch00-s5')
+    assert page.get_by_role('button', name='Toggle sections in Chapter 1', exact=True).get_attribute('aria-expanded') == 'true'
+    page.locator('.division-nav[data-sidebar-key="appendices"] > summary').click()
+    page.get_by_role('button', name='Toggle sections in Appendix A', exact=True).click()
+    assert page.locator('#nav-sections-v1a-app-a .section-nav-number').all_text_contents() == ['A.1', 'A.2']
+    assert page.locator('.chapter-nav-link[href$="/v1a-app-i/read"]').count() == 1
+    assert page.get_by_role('button', name='Toggle sections in Appendix I', exact=True).count() == 0
+    page.locator('#nav-sections-v1a-app-a a[href$="/v1a-app-a-s2"]').click()
+    page.wait_for_url('**/chapter/v1a-app-a/read/v1a-app-a-s2')
+    check_math(page)
+    page.get_by_role('button', name='Search the volume', exact=True).click()
+    page.locator('#volume-search').fill('Haar')
+    assert page.locator('.search-result[href$="/v1a-app-a-s2"] small').inner_text() == 'Section A.2'
+    page.get_by_role('button', name='Close search', exact=True).click()
+    page.locator('#search-dialog').wait_for(state='hidden')
+    page.screenshot(path=str(ROOT / '.build/sidebar-sections-desktop.png'), animations='disabled')
+    page.set_viewport_size({'width': 390, 'height': 844})
+    page.locator('.menu-toggle').click()
+    page.locator('#nav-sections-v1a-app-a a[href$="/v1a-app-a-s1"]').click()
+    page.wait_for_url('**/chapter/v1a-app-a/read/v1a-app-a-s1')
+    assert page.locator('.menu-toggle').get_attribute('aria-expanded') == 'false'
+    assert page.locator('#mobile-scrim').is_hidden()
+    page.locator('.menu-toggle').click()
+    assert page.locator('#nav-sections-v1a-app-a [aria-current="location"]').inner_text().startswith('A.1')
+    assert page.locator('.sidebar-scroll').evaluate('el => el.scrollWidth <= el.clientWidth + 1')
+    page.wait_for_function('document.getElementById("sidebar").getBoundingClientRect().left >= -1')
+    page.screenshot(path=str(ROOT / '.build/sidebar-sections-mobile.png'), animations='disabled')
+    page.keyboard.press('Escape')
+    page.set_viewport_size({'width': 1440, 'height': 1100})
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--chrome', default='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')
@@ -49,12 +149,13 @@ def main():
                     assert page.locator('.error-page').count() == 0
                     if volume['status'] == 'planned':
                         assert 'This volume is planned' in page.locator('main').inner_text()
+                check_sidebar_sections(page, base)
                 page.goto(base + '?volume=v1a#/chapter/v1a-ch00/read')
                 page.locator('#v1a-ch00-s1 .prose').wait_for()
                 page.wait_for_function("window.MathJax?.startup?.promise !== undefined")
                 page.evaluate('async () => { await MathJax.startup.promise; await MathJax.typesetPromise(); }')
                 assert page.locator('mjx-container').count() > 0
-                assert page.locator('[data-mjx-error], mjx-merror').count() == 0
+                check_math(page)
                 cyclic = page.locator('[id="linear-algebra.trace-cyclic"]')
                 assert cyclic.evaluate('el => el.matches(".proposition.theorem-block")')
                 assert 'Cyclicity for two factors' in cyclic.inner_text()
@@ -113,7 +214,7 @@ def main():
                 assert 'No recording has been produced.' in transcript.inner_text()
                 page.evaluate('async () => { await MathJax.startup.promise; await MathJax.typesetPromise(); }')
                 assert transcript.locator('mjx-container').count() > 0
-                assert page.locator('[data-mjx-error], mjx-merror').count() == 0
+                check_math(page)
                 page.screenshot(path=str(ROOT / '.build/chapter00-watch-desktop.png'))
                 page.locator('a.tab[href$="/map"]').click()
                 page.locator('#map-focus').select_option('v1a-ch00-s1')
@@ -137,7 +238,7 @@ def main():
                 assert page.locator('.section-number').all_text_contents() == ['SECTION A.1', 'SECTION A.2']
                 assert page.locator('.aside-number').all_text_contents() == ['A.1', 'A.2']
                 assert page.locator('.numbered-equation').count() == 3
-                assert page.locator('[data-mjx-error], mjx-merror').count() == 0
+                check_math(page)
                 page.set_viewport_size({'width': 390, 'height': 844})
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1')
                 page.locator('[id="measure.haar-uniqueness"]').scroll_into_view_if_needed()
@@ -159,7 +260,7 @@ def main():
                 page.goto(base + '?volume=v1a#/chapter/v1a-ch01/read')
                 page.locator('#v1a-ch01-s1 .prose').wait_for()
                 page.evaluate('async () => { await MathJax.typesetPromise(); }')
-                assert page.locator('[data-mjx-error], mjx-merror').count() == 0
+                check_math(page)
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1')
                 assert page.locator('.numbered-equation mjx-container[display="true"]').count() == 44
                 assert page.locator('[id="eq:hyperbolic-distance"] .equation-number').inner_text() == '(1.3.3)'
@@ -239,6 +340,7 @@ def main():
                 page.goto(base + '?volume=v1a#/chapter/v1a-ch01/compare')
                 page.locator('.comparison').first.wait_for()
                 assert page.locator('.comparison').count() == 8
+                check_math(page)
                 assert page.get_by_text('No Lean source has been written for this section.', exact=True).count() == 0
                 for section_id in ('v1a-ch01-s1', 'v1a-ch01-s6', 'v1a-ch01-s2', 'v1a-ch01-s7', 'v1a-ch01-s8', 'v1a-ch01-s3', 'v1a-ch01-s4', 'v1a-ch01-s5'):
                     comparison = page.locator('#' + section_id)
@@ -254,7 +356,7 @@ def main():
                 page.goto(base + '?volume=v1a#/chapter/v1a-ch01/read')
                 page.locator('#v1a-ch01-s1 .prose').wait_for()
                 page.evaluate('async () => { await MathJax.startup.promise; await MathJax.typesetPromise(); }')
-                assert page.locator('[data-mjx-error], mjx-merror').count() == 0
+                check_math(page)
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1')
                 equation = page.locator('[id="eq:point-pair-distance"]')
                 assert equation.locator('.equation-number').inner_text() == '(1.4.7)'
@@ -293,7 +395,7 @@ def main():
                 page.locator('.transcript summary').click()
                 page.evaluate('async () => { await MathJax.startup.promise; await MathJax.typesetPromise(); }')
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1')
-                assert page.locator('[data-mjx-error], mjx-merror').count() == 0
+                check_math(page)
                 page.screenshot(path=str(ROOT / '.build/chapter00-watch-mobile.png'))
                 page.locator('.menu-toggle').click()
                 page.locator('#volume-select').select_option('v2b')
@@ -306,7 +408,7 @@ def main():
             server.shutdown()
             server.server_close()
             thread.join()
-    print('Browser checks passed: 12 volume parts, all chapter tabs, cross-chapter hyperlink and back navigation, exact Lean source, MathJax, PDF/source downloads, mobile navigation, subdirectory hosting; no page errors.')
+    print('Browser checks passed: 12 volume parts, all chapter tabs, collapsible section navigation, keyboard controls, cross-chapter links, exact Lean source, MathJax including unknown-command detection, PDF/source downloads, mobile layout, subdirectory hosting; no page errors.')
 
 
 if __name__ == '__main__':

@@ -267,6 +267,26 @@ For $z\in\HH$, we have $z=z$.
         self.assertIn(r'\mathbb{H}', html)
         self.assertIn('<li>', html)
 
+    def test_math_environment_groups_remain_scoped_without_tex_primitives(self):
+        (self.section / 'text.tex').write_text(r'''
+An inline column: $v=\begin{smallpmatrix}z\\1\end{smallpmatrix}$.
+\begin{equation}\label{grouped-matrix}
+\begin{smallpmatrix}a&b\\c&d\end{smallpmatrix}
+\end{equation}
+Nested groups: $\bgroup\bf a+\bgroup b\egroup\egroup+c$.
+Control symbols: $\begin{smallmatrix}a\\bgroup\end{smallmatrix}+\{x\}$.
+''')
+        content = self.content()
+        html = content['sections']['v1a-ch00-s1']
+        self.assertIn(r'v={ \left(\begin{smallmatrix}z\\1\end{smallmatrix}\right)}', html)
+        self.assertIn(r'{ \left(\begin{smallmatrix}a&amp;b\\c&amp;d\end{smallmatrix}\right)}', html)
+        self.assertIn(r'{\bf a+{ b}}+c', html)
+        self.assertIn(r'\begin{smallmatrix}a\\bgroup\end{smallmatrix}+\{x\}', html)
+        self.assertNotIn(r'\egroup', html)
+        self.assertNotIn(r'\bgroup ', html)
+        self.assertIn('data-equation-number="0.1.1"', html)
+        self.assertEqual(content['comparisons'][0]['book'], html)
+
     def test_ams_environments_share_pdf_numbers_labels_and_styles(self):
         environments = [
             ('definition', 'Definition'), ('proposition', 'Proposition'),

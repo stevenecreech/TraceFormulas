@@ -113,6 +113,32 @@ local function anchor_paragraph(para)
   return pandoc.Plain(para.content)
 end
 
+-- Pandoc expands user-defined math environments (including smallpmatrix) with
+-- \bgroup/\egroup wrappers. MathJax needs literal grouping braces instead.
+-- Preserve the groups, and read control sequences rather than replacing text:
+-- in a matrix row break followed by "bgroup", the two backslashes are one token.
+local function math_groups(el)
+  local parts, index = {}, 1
+  while index <= #el.text do
+    local char = el.text:sub(index, index)
+    if char ~= "\\" then
+      parts[#parts + 1] = char
+      index = index + 1
+    else
+      local word = el.text:sub(index + 1):match("^[A-Za-z]+")
+      if word then
+        parts[#parts + 1] = ({bgroup = "{", egroup = "}"})[word] or "\\" .. word
+        index = index + #word + 1
+      else
+        parts[#parts + 1] = el.text:sub(index, index + 1)
+        index = index + 2
+      end
+    end
+  end
+  el.text = table.concat(parts)
+  return el
+end
+
 -- Number only explicitly labeled equation environments. The volume assembler
 -- supplies chapter.section; the visible number is ordinary HTML, never a
 -- MathJax counter whose value could depend on the page/tab rendering order.
@@ -174,6 +200,7 @@ return {
   {Pandoc = theorem_blocks},
   {Inlines = prose_anchors},
   {Para = anchor_paragraph},
+  {Math = math_groups},
   {Pandoc = equations},
   {RawBlock = reject, RawInline = reject},
 }
